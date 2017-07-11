@@ -3,4 +3,20 @@
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
-@import "compass/reset";
+@import "compass";
+@import "partials/normalize";
+@import "partials/variable";
+@import "partials/base";
+@import "partials/helper";
+@import "partials/grids";
+@import "partials/layout";
+@import "partials/mixins";
+@import "partials/fonts";
+
+@import "components/basic";
+@import "components/header";
+@import "components/footer";
+@import "components/homepage";
+
+@import "partials/mediaqueries";
+

@@ -1,0 +1,58 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    h1,
+    .main--nav,
+    .search {
+        flex: 1;
+        text-align: center;
+    }
+
+    h1 {
+        background: url("../assets/icons/fly-paradise.svg") no-repeat;
+        text-indent: -9999px;
+        max-width: 9rem;
+    }
+    .search {
+        position: relative;
+        max-width: 16rem;
+        margin-right: 3rem;
+
+        .input {
+            padding: 5px 10px;
+            width: 100%;
+        }
+
+        .button {
+            background: url("../assets/misc/search.svg") no-repeat;
+            display: inline-block;
+            text-indent: -9999px;
+            width: 21px;
+            height: 21px;
+            border: none;
+            position: absolute;
+            right: 8px;
+            top: 6px;
+        }
+    }
+
+    .account {
+        a {
+            background: url("../assets/icons/account.svg") no-repeat;
+            text-indent: -9999px;
+            display: inline-block;
+            width: 23px;
+            height: 27px;
+        }
+    }
+}
+.main--nav {
+    li {
+        list-style: none;
+        text-transform: uppercase;
+        display: inline-block;
+        padding: 0 1rem;
+    }
+}

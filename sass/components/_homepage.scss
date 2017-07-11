@@ -1,0 +1,51 @@
+.hero {
+    background: url("../assets/heros/background.png") no-repeat;
+    background-size: cover;
+}
+.hero--form {
+    max-width: 600px;
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.24);
+    padding: 30px 20px;
+
+    .half {
+        width: 273px;
+    }
+
+    input,
+    select {
+        padding: 8px;
+        margin-bottom: 1rem;
+        width: 100%;
+    }
+
+    select {
+        -moz-appearance: none;
+        -ms-progress-appearance: none;
+        -webkit-appearance: none;
+        border-radius: 0;
+    }
+
+    .date {
+        padding: 6px;
+    }
+
+    input.padding {
+        margin-right: 10px;
+    }
+
+    .button {
+        background: $vermillion;
+        color: $white;
+        text-transform: uppercase;
+        margin-bottom: 0;
+
+        &:hover {
+            background: $vermillion-hover;
+        }
+    }
+}
+
+.homepage-hero {
+    padding: 2rem 0;
+}

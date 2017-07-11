@@ -1,0 +1,39 @@
+body {
+	font-family: $fly-primary;
+    background: #fefefe;
+}
+
+.max-width {
+    max-width: 1100px;
+    margin: auto;
+}
+
+.bold {
+    font-weight: 600;
+}
+
+a {
+    color: $links;
+    text-decoration: none;
+
+    &:hover {
+        -webkit-transition: all 0.7s ease-in-out 0s;
+        -moz-transition: all 0.7s ease-in-out 0s;
+        -o-transition: all 0.7s ease-in-out 0s;
+        transition: all 0.7s ease-in-out 0s;
+    }
+}
+
+input:hover {
+     -webkit-transition: all 0.7s ease-in-out 0s;
+     -moz-transition: all 0.7s ease-in-out 0s;
+    -o-transition: all 0.7s ease-in-out 0s;
+    transition: all 0.7s ease-in-out 0s;
+}
+
+input,
+select {
+    border: 1px solid $gold;
+    background: $white;
+    font-weight: 100;
+}
