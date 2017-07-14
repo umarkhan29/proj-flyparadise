@@ -586,12 +586,7 @@ input:hover {
 }
 
 /* line 32, ../sass/components/_basic.scss */
-h2 {
-  font-family: "Playfair Display", serif;
-}
-
-/* line 36, ../sass/components/_basic.scss */
-.hero--title a {
+.hero--title a, .packages ul.top--packages li .top--text a {
   background: #df3b52;
   font-weight: 300;
   color: #ffffff;
@@ -599,8 +594,8 @@ h2 {
   padding: 10px 20px;
 }
 
-/* line 44, ../sass/components/_basic.scss */
-.hero--submit {
+/* line 40, ../sass/components/_basic.scss */
+.hero--submit, .packages .explore--more a {
   font-size: 12px;
   background: #3986b6;
   font-weight: 300;
@@ -632,21 +627,25 @@ header.hero .main--nav li a {
   font-weight: 300;
 }
 
-/* line 2, ../sass/components/_footer.scss */
+/* line 1, ../sass/components/_footer.scss */
+footer {
+  margin-top: 4rem;
+}
+/* line 3, ../sass/components/_footer.scss */
 footer .footer--primary {
   display: flex;
 }
-/* line 4, ../sass/components/_footer.scss */
+/* line 5, ../sass/components/_footer.scss */
 footer .footer--primary ul {
   flex: 1;
 }
-/* line 8, ../sass/components/_footer.scss */
+/* line 9, ../sass/components/_footer.scss */
 footer li {
   list-style: none;
   margin-top: 0.3rem;
   margin-bottom: 0.3rem;
 }
-/* line 13, ../sass/components/_footer.scss */
+/* line 14, ../sass/components/_footer.scss */
 footer .fave {
   background: url("../assets/icons/heart.svg") no-repeat;
   width: 13px;
@@ -654,7 +653,7 @@ footer .fave {
   display: inline-block;
 }
 
-/* line 21, ../sass/components/_footer.scss */
+/* line 22, ../sass/components/_footer.scss */
 .social {
   display: inline-block;
   text-indent: -9999px;
@@ -663,22 +662,22 @@ footer .fave {
   margin: 0 5px;
 }
 
-/* line 29, ../sass/components/_footer.scss */
+/* line 30, ../sass/components/_footer.scss */
 .fb {
   background: url("../assets/icons/social/facebook.svg") no-repeat;
 }
 
-/* line 33, ../sass/components/_footer.scss */
+/* line 34, ../sass/components/_footer.scss */
 .insta {
   background: url("../assets/icons/social/insta.svg") no-repeat;
 }
 
-/* line 37, ../sass/components/_footer.scss */
+/* line 38, ../sass/components/_footer.scss */
 .tw {
   background: url("../assets/icons/social/twitter.svg") no-repeat;
 }
 
-/* line 41, ../sass/components/_footer.scss */
+/* line 42, ../sass/components/_footer.scss */
 .footer--secondary {
   background: #EFEFEF;
   width: 100%;
@@ -798,4 +797,62 @@ footer .fave {
   border-radius: 2px;
   padding: 10px;
   padding-left: 35px;
+}
+
+/* line 105, ../sass/components/_homepage.scss */
+.packages {
+  text-align: center;
+}
+/* line 107, ../sass/components/_homepage.scss */
+.packages h2 {
+  margin: 0;
+  margin-top: 3rem;
+  font-size: 44px;
+  font-weight: 200;
+}
+/* line 113, ../sass/components/_homepage.scss */
+.packages span {
+  font-weight: 200;
+  color: #c7c7c7;
+}
+/* line 117, ../sass/components/_homepage.scss */
+.packages ul.top--packages {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+/* line 120, ../sass/components/_homepage.scss */
+.packages ul.top--packages li {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+}
+/* line 124, ../sass/components/_homepage.scss */
+.packages ul.top--packages li.top {
+  margin: 0 2rem;
+}
+/* line 127, ../sass/components/_homepage.scss */
+.packages ul.top--packages li img {
+  box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+/* line 130, ../sass/components/_homepage.scss */
+.packages ul.top--packages li .top--text {
+  position: absolute;
+  width: 100%;
+  bottom: 35px;
+}
+/* line 134, ../sass/components/_homepage.scss */
+.packages ul.top--packages li .top--text p {
+  font-weight: 400;
+  font-size: 28px;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1;
+}
+/* line 141, ../sass/components/_homepage.scss */
+.packages ul.top--packages li .top--text h4 {
+  margin: 0;
+  color: #ffffff;
+  font-weight: 200;
+  font-size: 14px;
+  margin-bottom: 2rem;
 }
