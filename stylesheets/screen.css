@@ -506,43 +506,43 @@ h1, h2, h3, h4, h5, h6, hgroup, ul, ol, dl, li, blockquote, p, address, table, f
 /*
  FONT SIZES
  */
-/* line 28, ../sass/partials/_fonts.scss */
+/* line 29, ../sass/partials/_fonts.scss */
 .f-10 {
   font-size: 10px;
   font-size: 0.625rem;
 }
 
-/* line 32, ../sass/partials/_fonts.scss */
+/* line 33, ../sass/partials/_fonts.scss */
 .f-12 {
   font-size: 12px;
   font-size: 0.75rem;
 }
 
-/* line 36, ../sass/partials/_fonts.scss */
+/* line 37, ../sass/partials/_fonts.scss */
 .f-14 {
   font-size: 14px;
   font-size: 0.875rem;
 }
 
-/* line 40, ../sass/partials/_fonts.scss */
+/* line 41, ../sass/partials/_fonts.scss */
 .f-16 {
   font-size: 16px;
   font-size: 1rem;
 }
 
-/* line 44, ../sass/partials/_fonts.scss */
+/* line 45, ../sass/partials/_fonts.scss */
 .f-18 {
   font-size: 18px;
   font-size: 1.125rem;
 }
 
-/* line 48, ../sass/partials/_fonts.scss */
+/* line 49, ../sass/partials/_fonts.scss */
 .f-20 {
   font-size: 20px;
   font-size: 1.25rem;
 }
 
-/* line 52, ../sass/partials/_fonts.scss */
+/* line 53, ../sass/partials/_fonts.scss */
 .f-24 {
   font-size: 24px;
   font-size: 1.5rem;
@@ -594,6 +594,17 @@ h2 {
 .hero--title a {
   background: #df3b52;
   font-weight: 300;
+  color: #ffffff;
+  border-radius: 3px;
+  padding: 10px 20px;
+}
+
+/* line 44, ../sass/components/_basic.scss */
+.hero--submit {
+  font-size: 12px;
+  background: #3986b6;
+  font-weight: 300;
+  border: none;
   color: #ffffff;
   border-radius: 3px;
   padding: 10px 20px;
@@ -754,8 +765,9 @@ footer .fave {
 .explore--form {
   display: inline-block;
   position: relative;
+  margin: 0 5px;
 }
-/* line 69, ../sass/components/_homepage.scss */
+/* line 70, ../sass/components/_homepage.scss */
 .explore--form span {
   background: url("../assets/icons/in.svg") no-repeat;
   text-indent: -9999px;
@@ -766,11 +778,24 @@ footer .fave {
   left: 10px;
   top: 12px;
 }
-/* line 79, ../sass/components/_homepage.scss */
+/* line 80, ../sass/components/_homepage.scss */
 .explore--form input {
   font-size: 12px;
   border: none;
+  border-radius: 2px;
   padding: 10px;
   padding-left: 35px;
   font-weight: 200;
+}
+/* line 88, ../sass/components/_homepage.scss */
+.explore--form select {
+  font-size: 12px;
+  font-weight: 200;
+  -moz-appearance: none;
+  -ms-progress-appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  border-radius: 2px;
+  padding: 10px;
+  padding-left: 35px;
 }
