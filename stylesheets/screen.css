@@ -556,7 +556,7 @@ body {
 
 /* line 6, ../sass/components/_basic.scss */
 .max-width {
-  max-width: 1100px;
+  max-width: 1180px;
   margin: auto;
 }
 
@@ -567,10 +567,9 @@ body {
 
 /* line 15, ../sass/components/_basic.scss */
 a {
-  color: #188272;
   text-decoration: none;
 }
-/* line 19, ../sass/components/_basic.scss */
+/* line 17, ../sass/components/_basic.scss */
 a:hover {
   -webkit-transition: all 0.7s ease-in-out 0s;
   -moz-transition: all 0.7s ease-in-out 0s;
@@ -578,7 +577,7 @@ a:hover {
   transition: all 0.7s ease-in-out 0s;
 }
 
-/* line 27, ../sass/components/_basic.scss */
+/* line 25, ../sass/components/_basic.scss */
 input:hover {
   -webkit-transition: all 0.7s ease-in-out 0s;
   -moz-transition: all 0.7s ease-in-out 0s;
@@ -586,88 +585,57 @@ input:hover {
   transition: all 0.7s ease-in-out 0s;
 }
 
-/* line 34, ../sass/components/_basic.scss */
-input,
-select {
-  border: 1px solid #d0bf64;
-  background: #ffffff;
-  font-weight: 100;
+/* line 32, ../sass/components/_basic.scss */
+h2 {
+  font-family: "Playfair Display", serif;
+}
+
+/* line 36, ../sass/components/_basic.scss */
+.hero--title a {
+  background: #df3b52;
+  font-weight: 300;
+  color: #ffffff;
+  border-radius: 3px;
+  padding: 10px 20px;
 }
 
 /* line 1, ../sass/components/_header.scss */
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+header.hero {
+  background: url("../assets/heros/hero.png") no-repeat;
+  background-size: cover;
+  height: 550px;
+  color: #ffffff;
 }
 /* line 6, ../sass/components/_header.scss */
-.header h1,
-.header .main--nav,
-.header .search {
-  flex: 1;
-  text-align: center;
+header.hero h1 {
+  margin: 0;
+}
+/* line 10, ../sass/components/_header.scss */
+header.hero .main--nav li {
+  list-style: none;
+  display: inline;
 }
 /* line 13, ../sass/components/_header.scss */
-.header h1 {
-  background: url("../assets/icons/fly-paradise.svg") no-repeat;
-  text-indent: -9999px;
-  max-width: 9rem;
-}
-/* line 18, ../sass/components/_header.scss */
-.header .search {
-  position: relative;
-  max-width: 16rem;
-  margin-right: 3rem;
-}
-/* line 23, ../sass/components/_header.scss */
-.header .search .input {
-  padding: 5px 10px;
-  width: 100%;
-}
-/* line 28, ../sass/components/_header.scss */
-.header .search .button {
-  background: url("../assets/misc/search.svg") no-repeat;
-  display: inline-block;
-  text-indent: -9999px;
-  width: 21px;
-  height: 21px;
-  border: none;
-  position: absolute;
-  right: 8px;
-  top: 6px;
-}
-/* line 42, ../sass/components/_header.scss */
-.header .account a {
-  background: url("../assets/icons/account.svg") no-repeat;
-  text-indent: -9999px;
-  display: inline-block;
-  width: 23px;
-  height: 27px;
-}
-
-/* line 52, ../sass/components/_header.scss */
-.main--nav li {
-  list-style: none;
-  text-transform: uppercase;
-  display: inline-block;
-  padding: 0 1rem;
+header.hero .main--nav li a {
+  color: #ffffff;
+  font-weight: 300;
 }
 
 /* line 2, ../sass/components/_footer.scss */
 footer .footer--primary {
   display: flex;
 }
-/* line 5, ../sass/components/_footer.scss */
+/* line 4, ../sass/components/_footer.scss */
 footer .footer--primary ul {
   flex: 1;
 }
-/* line 10, ../sass/components/_footer.scss */
+/* line 8, ../sass/components/_footer.scss */
 footer li {
   list-style: none;
   margin-top: 0.3rem;
   margin-bottom: 0.3rem;
 }
-/* line 16, ../sass/components/_footer.scss */
+/* line 13, ../sass/components/_footer.scss */
 footer .fave {
   background: url("../assets/icons/heart.svg") no-repeat;
   width: 13px;
@@ -675,7 +643,7 @@ footer .fave {
   display: inline-block;
 }
 
-/* line 24, ../sass/components/_footer.scss */
+/* line 21, ../sass/components/_footer.scss */
 .social {
   display: inline-block;
   text-indent: -9999px;
@@ -684,22 +652,22 @@ footer .fave {
   margin: 0 5px;
 }
 
-/* line 31, ../sass/components/_footer.scss */
+/* line 29, ../sass/components/_footer.scss */
 .fb {
   background: url("../assets/icons/social/facebook.svg") no-repeat;
 }
 
-/* line 34, ../sass/components/_footer.scss */
+/* line 33, ../sass/components/_footer.scss */
 .insta {
   background: url("../assets/icons/social/insta.svg") no-repeat;
 }
 
-/* line 38, ../sass/components/_footer.scss */
+/* line 37, ../sass/components/_footer.scss */
 .tw {
   background: url("../assets/icons/social/twitter.svg") no-repeat;
 }
 
-/* line 42, ../sass/components/_footer.scss */
+/* line 41, ../sass/components/_footer.scss */
 .footer--secondary {
   background: #EFEFEF;
   width: 100%;
@@ -709,57 +677,100 @@ footer .fave {
 }
 
 /* line 1, ../sass/components/_homepage.scss */
-.hero {
-  background: url("../assets/heros/background.png") no-repeat;
-  background-size: cover;
+.hero--title {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+/* line 4, ../sass/components/_homepage.scss */
+.hero--title p {
+  font-size: 44px;
+  margin: 0;
+}
+/* line 8, ../sass/components/_homepage.scss */
+.hero--title p,
+.hero--title span {
+  font-weight: 200;
+}
+/* line 12, ../sass/components/_homepage.scss */
+.hero--title span {
+  margin-bottom: 2rem;
+  display: block;
 }
 
-/* line 5, ../sass/components/_homepage.scss */
+/* line 21, ../sass/components/_homepage.scss */
 .hero--form {
-  max-width: 600px;
+  background: rgba(0, 0, 0, 0.55);
+  width: 600px;
+  margin: auto;
+  text-align: center;
+  padding: 1.5rem 0;
+}
+/* line 27, ../sass/components/_homepage.scss */
+.hero--form .swtich-text {
+  font-size: 12px;
+  color: #c7c7c7;
+  font-weight: 300;
+}
+/* line 32, ../sass/components/_homepage.scss */
+.hero--form .switcher {
+  padding-top: 1rem;
+}
+/* line 34, ../sass/components/_homepage.scss */
+.hero--form .switcher li {
+  list-style: none;
   display: inline-block;
-  background: rgba(0, 0, 0, 0.24);
-  padding: 30px 20px;
+  text-align: center;
+  font-size: 12px;
+  padding: 0 2rem;
 }
-/* line 11, ../sass/components/_homepage.scss */
-.hero--form .half {
-  width: 273px;
+/* line 40, ../sass/components/_homepage.scss */
+.hero--form .switcher li span {
+  display: block;
+  margin-top: 0.5rem;
+  color: #c7c7c7;
 }
-/* line 15, ../sass/components/_homepage.scss */
-.hero--form input,
-.hero--form select {
-  padding: 8px;
-  margin-bottom: 1rem;
-  width: 100%;
+/* line 45, ../sass/components/_homepage.scss */
+.hero--form .switcher li span.domestic {
+  text-indent: -9999px;
+  display: inline-block;
+  width: 31px;
+  height: 31px;
 }
-/* line 22, ../sass/components/_homepage.scss */
-.hero--form select {
-  -moz-appearance: none;
-  -ms-progress-appearance: none;
-  -webkit-appearance: none;
-  border-radius: 0;
-}
-/* line 29, ../sass/components/_homepage.scss */
-.hero--form .date {
-  padding: 6px;
-}
-/* line 33, ../sass/components/_homepage.scss */
-.hero--form input.padding {
-  margin-right: 10px;
-}
-/* line 37, ../sass/components/_homepage.scss */
-.hero--form .button {
-  background: #FC4A1A;
-  color: #ffffff;
-  text-transform: uppercase;
-  margin-bottom: 0;
-}
-/* line 43, ../sass/components/_homepage.scss */
-.hero--form .button:hover {
-  background: #da4720;
+/* line 51, ../sass/components/_homepage.scss */
+.hero--form .switcher li span.domestic {
+  background: url("../assets/icons/international.svg") no-repeat;
 }
 
-/* line 49, ../sass/components/_homepage.scss */
-.homepage-hero {
-  padding: 2rem 0;
+/* line 58, ../sass/components/_homepage.scss */
+.hero-form--input {
+  background: rgba(0, 0, 0, 0.75);
+  width: 600px;
+  margin: auto;
+  text-align: center;
+  padding: 1.5rem 0;
+}
+
+/* line 66, ../sass/components/_homepage.scss */
+.explore--form {
+  display: inline-block;
+  position: relative;
+}
+/* line 69, ../sass/components/_homepage.scss */
+.explore--form span {
+  background: url("../assets/icons/in.svg") no-repeat;
+  text-indent: -9999px;
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  left: 10px;
+  top: 12px;
+}
+/* line 79, ../sass/components/_homepage.scss */
+.explore--form input {
+  font-size: 12px;
+  border: none;
+  padding: 10px;
+  padding-left: 35px;
+  font-weight: 200;
 }

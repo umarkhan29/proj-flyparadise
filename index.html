@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,21 +9,22 @@
     <link href="stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
     <link href="stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
     <!--Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700" rel="stylesheet">
     <!--[if IE]>
         <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
     <![endif]-->
 </head>
+
 <body>
-    <header>
+    <header class="hero">
         <div class="header max-width">
             <h1>Fly Paradise</h1>
             <div class="main--nav">
                 <li> <a href="">Packages</a> </li>
-                <li> <a href="">Destinations</a>  </li>
-                <li> <a href="">About</a>  </li>
-                <li> <a href="">Saver Packages</a>  </li>
+                <li> <a href="">Destinations</a> </li>
+                <li> <a href="">About</a> </li>
+                <li> <a href="">Saver Packages</a> </li>
             </div>
             <div class="search">
                 <input class="input" type="text" placeholder="search">
@@ -32,29 +34,74 @@
                 <a href="#">login</a>
             </div>
         </div>
-    </header>
 
-    <div class="hero">
-        <div class="homepage-hero max-width">
+        <div class="hero--title">
+            <p>Discover the World</p>
+            <span>This is the tag line for hero banner</span>
+            <a href="#">How it works</a>
+        </div>
+        <div class="hero-form--wrapper">
             <div class="hero--form">
-                <input class="half padding" type="text" placeholder="Going to">
-                <input class="half" type="text" placeholder="Leaving from">
-                <input class="half date padding" type="date" placeholder="Deparure date">
-                <input class="half" type="number" placeholder="Number of travellers">
-                <input class="half padding" type="number" placeholder="Phone Number, BTW we don't spam">
-                <input class="half" type="email" placeholder="Email">
-                <select name="trip" id="planning">
-                    <option value="1">Still dreaming..note sure if I am going to take this one</option>
-                    <option value="2">I know I'm going somewhere, just not sure which place</option>
-                    <option value="3">I'm definitely going, I know which place . . . let's go!</option>
-                    <option value="4">Flight-Train already booked, just need remaining package</option>
-                </select>
-                <input class="button" type="submit">
+                <span class="swtich-text">select your category</span>
+                <div class="switcher">
+                    <li>
+                        <span class="domestic"></span>
+                        <span>Domestic</span>
+                    </li>
+                    <li>
+                        <span class="domestic"></span>
+                        <span>Domestic</span>
+                    </li>
+                    <li>
+                        <span class="domestic"></span>
+                        <span>Domestic</span>
+                    </li>
+                    <li>
+                        <span class="domestic"></span>
+                        <span>Domestic</span>
+                    </li>
+                </div>
             </div>
-            <div class="hero--hotselling">
-                <h2>Hot selling package</h2>
+            <div class="hero-form--input">
+                <div class="explore--form">
+                    <span class="go"></span>
+                    <input type="text" placeholder="to">
+                </div>
+                <div class="explore--form">
+                    <span class="go"></span>
+                    <select name="Month" id="">
+                        <option value="">Any Date</option>
+                        <option value="">August</option>
+                        <option value="">September</option>
+                        <option value="">October</option>
+                        <option value="">November</option>
+
+                    </select>
+                </div>
+                <div class="explore--form">
+                    <span class="go"></span>
+                    <input type="number" placeholder="Quantity">
+                </div>
+                <input type="submit">
             </div>
         </div>
+    </header>
+
+    <!-- End of hero -->
+
+    <div class="packages">
+        <h2>Curated Packages</h2>
+        <ul>
+            <li>
+                <img src="#" alt="#">
+                <p>Wonderlust on the desert safari</p>
+                <h4>This is a text package</h4>
+                <a href="#">Book Now</a>
+            </li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
     </div>
     <footer>
         <div class="footer--primary max-width">
@@ -91,7 +138,7 @@
         <div class="footer--secondary">
             <div class="max-width">
                 <div class="copyright f-left">made with
-                        <section class="fave"></section>
+                    <section class="fave"></section>
                     in heaven.</div>
                 <div class="connect f-right">
                     <a class="social fb" href="#">facebook</a>
@@ -103,7 +150,7 @@
     </footer>
 </body>
 <!--Analytics Code-->
-  <!--  <script>
+<!--  <script>
     !function(g,s,q,r,d){r=g[r]=g[r]||function(){(r.q=r.q||[]).push(
     arguments)};d=s.createElement(q);q=s.getElementsByTagName(q)[0];
     d.src='//d1l6p2sc9645hc.cloudfront.net/tracker.js';q.parentNode.
@@ -111,4 +158,5 @@
 
     _gs('GSN-243866-Q');
     </script> -->
+
 </html>

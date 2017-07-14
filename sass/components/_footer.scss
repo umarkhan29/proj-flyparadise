@@ -1,48 +1,47 @@
 footer {
     .footer--primary {
-      display: flex;
-        
+        display: flex;
         ul {
-          flex: 1;
+            flex: 1;
         }
     }
-
     li {
-      list-style: none;
-      margin-top: 0.3rem;
-      margin-bottom: 0.3rem;
+        list-style: none;
+        margin-top: 0.3rem;
+        margin-bottom: 0.3rem;
     }
-
-  .fave {
-    background: url("../assets/icons/heart.svg") no-repeat;
-    width: 13px;
-    height: 12px;
-    display: inline-block;
-  }
+    .fave {
+        background: url("../assets/icons/heart.svg") no-repeat;
+        width: 13px;
+        height: 12px;
+        display: inline-block;
+    }
 }
 
 .social {
-  display: inline-block;
-  text-indent: -9999px;
-  width: 18px;
-  height: 18px;
-  margin: 0 5px;
+    display: inline-block;
+    text-indent: -9999px;
+    width: 18px;
+    height: 18px;
+    margin: 0 5px;
 }
+
 .fb {
-  background: url("../assets/icons/social/facebook.svg") no-repeat;
+    background: url("../assets/icons/social/facebook.svg") no-repeat;
 }
+
 .insta {
-  background: url("../assets/icons/social/insta.svg") no-repeat;
+    background: url("../assets/icons/social/insta.svg") no-repeat;
 }
 
 .tw {
-  background: url("../assets/icons/social/twitter.svg") no-repeat;
+    background: url("../assets/icons/social/twitter.svg") no-repeat;
 }
 
 .footer--secondary {
-  background: $clean;
-  width: 100%;
-  display: inline-block;
-  padding: 10px;
-  font-weight: 100;
+    background: $clean;
+    width: 100%;
+    display: inline-block;
+    padding: 10px;
+    font-weight: 100;
 }

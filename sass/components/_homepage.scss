@@ -1,51 +1,86 @@
-.hero {
-    background: url("../assets/heros/background.png") no-repeat;
-    background-size: cover;
+.hero--title {
+    text-align: center;
+    margin-bottom: 3rem;
+    p {
+        font-size: 44px;
+        margin: 0;
+    }
+    p,
+    span {
+        font-weight: 200;
+    }
+    span {
+        margin-bottom: 2rem;
+        display: block;
+    }
+    a {
+        @extend %btn;
+    }
 }
+
 .hero--form {
-    max-width: 600px;
-    display: inline-block;
-    background: rgba(0, 0, 0, 0.24);
-    padding: 30px 20px;
-
-    .half {
-        width: 273px;
+    background: rgba(0, 0, 0, 0.55);
+    width: 600px;
+    margin: auto;
+    text-align: center;
+    padding: 1.5rem 0;
+    .swtich-text {
+        font-size: 12px;
+        color: $gray;
+        font-weight: 300;
     }
-
-    input,
-    select {
-        padding: 8px;
-        margin-bottom: 1rem;
-        width: 100%;
-    }
-
-    select {
-        -moz-appearance: none;
-        -ms-progress-appearance: none;
-        -webkit-appearance: none;
-        border-radius: 0;
-    }
-
-    .date {
-        padding: 6px;
-    }
-
-    input.padding {
-        margin-right: 10px;
-    }
-
-    .button {
-        background: $vermillion;
-        color: $white;
-        text-transform: uppercase;
-        margin-bottom: 0;
-
-        &:hover {
-            background: $vermillion-hover;
+    .switcher {
+        padding-top: 1rem;
+        li {
+            list-style: none;
+            display: inline-block;
+            text-align: center;
+            font-size: 12px;
+            padding: 0 2rem;
+            span {
+                display: block;
+                margin-top: 0.5rem;
+                color: $gray;
+            }
+            span.domestic {
+                text-indent: -9999px;
+                display: inline-block;
+                width: 31px;
+                height: 31px;
+            }
+            span.domestic {
+                background: url("../assets/icons/international.svg") no-repeat;
+            }
         }
     }
 }
 
-.homepage-hero {
-    padding: 2rem 0;
+.hero-form--input {
+    background: rgba(0, 0, 0, 0.75);
+    width: 600px;
+    margin: auto;
+    text-align: center;
+    padding: 1.5rem 0;
+}
+
+.explore--form {
+    display: inline-block;
+    position: relative;
+    span {
+        background: url("../assets/icons/in.svg") no-repeat;
+        text-indent: -9999px;
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        position: absolute;
+        left: 10px;
+        top: 12px;
+    }
+    input {
+        font-size: 12px;
+        border: none;
+        padding: 10px;
+        padding-left: 35px;
+        font-weight: 200;
+    }
 }

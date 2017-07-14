@@ -1,54 +1,54 @@
 /*
  FONT FAMILY
  */
-$fly-primary: 'Source Sans Pro', sans-serif;;
-$fly-secondary: 'Playfair Display', serif;
 
+$fly-primary: 'Source Sans Pro',
+sans-serif;
+;
+$fly-secondary: 'Playfair Display',
+serif;
 
 /*
  FONT COLORS
  */
 
 $white: #ffffff;
-$branding: #4ABDAC;
-$links: #188272;
-$vermillion: #FC4A1A;
-$vermillion-hover: #da4720;
-$gold: #d0bf64;
-$sunshine: #F7B733;
+$pink: #df3b52;
+$gray: #c7c7c7;
 $clean: #EFEFEF;
+
 /*
  FONT SIZES
  */
+
 $base-font-size: 16;
 $base-line-height: 24;
 $base-spacing-unit: $base-line-height;
 $half-base-spacing-unit: $base-line-height/2;
-
 .f-10 {
-	@include font-size(10);
+    @include font-size(10);
 }
 
 .f-12 {
-  @include font-size(12);
+    @include font-size(12);
 }
 
 .f-14 {
-  @include font-size(14);
+    @include font-size(14);
 }
 
 .f-16 {
-  @include font-size(16);
+    @include font-size(16);
 }
 
 .f-18 {
-  @include font-size(18);
+    @include font-size(18);
 }
 
 .f-20 {
-  @include font-size(20);
+    @include font-size(20);
 }
 
 .f-24 {
-  @include font-size(24);
+    @include font-size(24);
 }
