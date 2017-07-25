@@ -548,28 +548,361 @@ h1, h2, h3, h4, h5, h6, hgroup, ul, ol, dl, li, blockquote, p, address, table, f
   font-size: 1.5rem;
 }
 
+/**
+ * Owl Carousel v2.2.1
+ * Copyright 2013-2017 David Deutsch
+ * Licensed under  ()
+ */
+/*
+ *  Owl Carousel - Core
+ */
+/* line 12, ../sass/components/owl.scss */
+.owl-carousel {
+  display: none;
+  width: 100%;
+  -webkit-tap-highlight-color: transparent;
+  /* position relative and z-index fix webkit rendering fonts issue */
+  position: relative;
+  z-index: 1;
+}
+
+/* line 21, ../sass/components/owl.scss */
+.owl-carousel .owl-stage {
+  position: relative;
+  -ms-touch-action: pan-Y;
+  -moz-backface-visibility: hidden;
+  /* fix firefox animation glitch */
+}
+
+/* line 28, ../sass/components/owl.scss */
+.owl-carousel .owl-stage:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+/* line 37, ../sass/components/owl.scss */
+.owl-carousel .owl-stage-outer {
+  position: relative;
+  overflow: hidden;
+  /* fix for flashing background */
+  -webkit-transform: translate3d(0px, 0px, 0px);
+}
+
+/* line 44, ../sass/components/owl.scss */
+.owl-carousel .owl-wrapper,
+.owl-carousel .owl-item {
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+}
+
+/* line 54, ../sass/components/owl.scss */
+.owl-carousel .owl-item {
+  position: relative;
+  min-height: 1px;
+  float: left;
+  -webkit-backface-visibility: hidden;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+/* line 63, ../sass/components/owl.scss */
+.owl-carousel .owl-item img {
+  display: block;
+}
+
+/* line 67, ../sass/components/owl.scss */
+.owl-carousel .owl-nav.disabled,
+.owl-carousel .owl-dots.disabled {
+  display: none;
+}
+
+/* line 72, ../sass/components/owl.scss */
+.owl-carousel .owl-nav .owl-prev,
+.owl-carousel .owl-nav .owl-next,
+.owl-carousel .owl-dot {
+  cursor: pointer;
+  cursor: hand;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* line 84, ../sass/components/owl.scss */
+.owl-carousel.owl-loaded {
+  display: block;
+}
+
+/* line 88, ../sass/components/owl.scss */
+.owl-carousel.owl-loading {
+  opacity: 0;
+  display: block;
+}
+
+/* line 93, ../sass/components/owl.scss */
+.owl-carousel.owl-hidden {
+  opacity: 0;
+}
+
+/* line 97, ../sass/components/owl.scss */
+.owl-carousel.owl-refresh .owl-item {
+  visibility: hidden;
+}
+
+/* line 101, ../sass/components/owl.scss */
+.owl-carousel.owl-drag .owl-item {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* line 108, ../sass/components/owl.scss */
+.owl-carousel.owl-grab {
+  cursor: move;
+  cursor: grab;
+}
+
+/* line 113, ../sass/components/owl.scss */
+.owl-carousel.owl-rtl {
+  direction: rtl;
+}
+
+/* line 117, ../sass/components/owl.scss */
+.owl-carousel.owl-rtl .owl-item {
+  float: right;
+}
+
+/* No Js */
+/* line 124, ../sass/components/owl.scss */
+.no-js .owl-carousel {
+  display: block;
+}
+
+/*
+ *  Owl Carousel - Animate Plugin
+ */
+/* line 133, ../sass/components/owl.scss */
+.owl-carousel .animated {
+  animation-duration: 1000ms;
+  animation-fill-mode: both;
+}
+
+/* line 138, ../sass/components/owl.scss */
+.owl-carousel .owl-animated-in {
+  z-index: 0;
+}
+
+/* line 142, ../sass/components/owl.scss */
+.owl-carousel .owl-animated-out {
+  z-index: 1;
+}
+
+/* line 146, ../sass/components/owl.scss */
+.owl-carousel .fadeOut {
+  animation-name: fadeOut;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+/*
+ * 	Owl Carousel - Auto Height Plugin
+ */
+/* line 164, ../sass/components/owl.scss */
+.owl-height {
+  transition: height 500ms ease-in-out;
+}
+
+/*
+ * 	Owl Carousel - Lazy Load Plugin
+ */
+/* line 173, ../sass/components/owl.scss */
+.owl-carousel .owl-item .owl-lazy {
+  opacity: 0;
+  transition: opacity 400ms ease;
+}
+
+/* line 178, ../sass/components/owl.scss */
+.owl-carousel .owl-item img.owl-lazy {
+  transform-style: preserve-3d;
+}
+
+/*
+ * 	Owl Carousel - Video Plugin
+ */
+/* line 187, ../sass/components/owl.scss */
+.owl-carousel .owl-video-wrapper {
+  position: relative;
+  height: 100%;
+  background: #000;
+}
+
+/* line 193, ../sass/components/owl.scss */
+.owl-carousel .owl-video-play-icon {
+  position: absolute;
+  height: 80px;
+  width: 80px;
+  left: 50%;
+  top: 50%;
+  margin-left: -40px;
+  margin-top: -40px;
+  background: url("owl.video.play.png") no-repeat;
+  cursor: pointer;
+  z-index: 1;
+  -webkit-backface-visibility: hidden;
+  transition: transform 100ms ease;
+}
+
+/* line 208, ../sass/components/owl.scss */
+.owl-carousel .owl-video-play-icon:hover {
+  -ms-transform: scale(1.3, 1.3);
+  transform: scale(1.3, 1.3);
+}
+
+/* line 213, ../sass/components/owl.scss */
+.owl-carousel .owl-video-playing .owl-video-tn,
+.owl-carousel .owl-video-playing .owl-video-play-icon {
+  display: none;
+}
+
+/* line 218, ../sass/components/owl.scss */
+.owl-carousel .owl-video-tn {
+  opacity: 0;
+  height: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  transition: opacity 400ms ease;
+}
+
+/* line 227, ../sass/components/owl.scss */
+.owl-carousel .owl-video-frame {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+}
+
+/**
+ * Owl Carousel v2.2.1
+ * Copyright 2013-2017 David Deutsch
+ * Licensed under  ()
+ */
+/*
+ * 	Default theme - Owl Carousel CSS File
+ */
+/* line 246, ../sass/components/owl.scss */
+.owl-theme .owl-nav {
+  margin-top: 10px;
+  text-align: center;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* line 252, ../sass/components/owl.scss */
+.owl-theme .owl-nav [class*='owl-'] {
+  color: #FFF;
+  font-size: 14px;
+  margin: 5px;
+  padding: 4px 7px;
+  background: #D6D6D6;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+/* line 263, ../sass/components/owl.scss */
+.owl-theme .owl-nav [class*='owl-']:hover {
+  background: #869791;
+  color: #FFF;
+  text-decoration: none;
+}
+
+/* line 269, ../sass/components/owl.scss */
+.owl-theme .owl-nav .disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+/* line 274, ../sass/components/owl.scss */
+.owl-theme .owl-nav.disabled + .owl-dots {
+  margin-top: 10px;
+}
+
+/* line 278, ../sass/components/owl.scss */
+.owl-theme .owl-dots {
+  text-align: center;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* line 283, ../sass/components/owl.scss */
+.owl-theme .owl-dots .owl-dot {
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+}
+
+/* line 289, ../sass/components/owl.scss */
+.owl-theme .owl-dots .owl-dot span {
+  width: 10px;
+  height: 10px;
+  margin: 5px 7px;
+  background: #D6D6D6;
+  display: block;
+  -webkit-backface-visibility: visible;
+  transition: opacity 200ms ease;
+  border-radius: 30px;
+}
+
+/* line 300, ../sass/components/owl.scss */
+.owl-theme .owl-dots .owl-dot.active span,
+.owl-theme .owl-dots .owl-dot:hover span {
+  background: #869791;
+}
+
 /* line 1, ../sass/components/_basic.scss */
+* {
+  -moz-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+/* line 7, ../sass/components/_basic.scss */
 body {
   font-family: "Source Sans Pro", sans-serif;
   background: #fefefe;
 }
 
-/* line 6, ../sass/components/_basic.scss */
+/* line 12, ../sass/components/_basic.scss */
 .max-width {
   max-width: 1180px;
   margin: auto;
 }
 
-/* line 11, ../sass/components/_basic.scss */
+/* line 17, ../sass/components/_basic.scss */
 .bold {
   font-weight: 600;
 }
 
-/* line 15, ../sass/components/_basic.scss */
+/* line 21, ../sass/components/_basic.scss */
 a {
   text-decoration: none;
 }
-/* line 17, ../sass/components/_basic.scss */
+/* line 23, ../sass/components/_basic.scss */
 a:hover {
   -webkit-transition: all 0.7s ease-in-out 0s;
   -moz-transition: all 0.7s ease-in-out 0s;
@@ -577,7 +910,7 @@ a:hover {
   transition: all 0.7s ease-in-out 0s;
 }
 
-/* line 25, ../sass/components/_basic.scss */
+/* line 31, ../sass/components/_basic.scss */
 input:hover {
   -webkit-transition: all 0.7s ease-in-out 0s;
   -moz-transition: all 0.7s ease-in-out 0s;
@@ -585,7 +918,7 @@ input:hover {
   transition: all 0.7s ease-in-out 0s;
 }
 
-/* line 32, ../sass/components/_basic.scss */
+/* line 38, ../sass/components/_basic.scss */
 .hero--title a, .packages ul.top--packages li .top--text a {
   background: #df3b52;
   font-weight: 300;
@@ -594,7 +927,7 @@ input:hover {
   padding: 10px 20px;
 }
 
-/* line 40, ../sass/components/_basic.scss */
+/* line 46, ../sass/components/_basic.scss */
 .hero--submit, .packages .explore--more a {
   font-size: 12px;
   background: #3986b6;
@@ -603,6 +936,13 @@ input:hover {
   color: #ffffff;
   border-radius: 3px;
   padding: 10px 20px;
+}
+
+/* line 56, ../sass/components/_basic.scss */
+.header input.button, .header .account a {
+  text-indent: -9999px;
+  display: inline-block;
+  border: none;
 }
 
 /* line 1, ../sass/components/_header.scss */
@@ -614,17 +954,75 @@ header.hero {
 }
 /* line 6, ../sass/components/_header.scss */
 header.hero h1 {
+  font-weight: 400;
+  font-size: 24px;
   margin: 0;
 }
-/* line 10, ../sass/components/_header.scss */
+/* line 12, ../sass/components/_header.scss */
 header.hero .main--nav li {
   list-style: none;
   display: inline;
 }
-/* line 13, ../sass/components/_header.scss */
+/* line 15, ../sass/components/_header.scss */
 header.hero .main--nav li a {
   color: #ffffff;
   font-weight: 300;
+}
+
+/* line 23, ../sass/components/_header.scss */
+.header {
+  display: flex;
+  align-items: center;
+  padding-top: 1rem;
+  margin-bottom: 3.5rem;
+}
+/* line 28, ../sass/components/_header.scss */
+.header .main--nav,
+.header .search,
+.header .account {
+  flex: 1;
+}
+/* line 33, ../sass/components/_header.scss */
+.header .main--nav {
+  text-align: right;
+}
+/* line 36, ../sass/components/_header.scss */
+.header .search {
+  position: relative;
+  max-width: 200px;
+  margin: 0 2.5rem;
+}
+/* line 41, ../sass/components/_header.scss */
+.header input.input {
+  border: none;
+  border-radius: 20px;
+  padding: 10px;
+  padding-left: 20px;
+  font-size: 12px;
+  width: 180px;
+}
+/* line 49, ../sass/components/_header.scss */
+.header input.button {
+  position: absolute;
+  right: 34px;
+  top: 7px;
+  background: url("../assets/misc/search.svg") no-repeat;
+  width: 20px;
+  height: 20px;
+}
+/* line 59, ../sass/components/_header.scss */
+.header .main--nav li {
+  margin: 0 1rem;
+}
+/* line 63, ../sass/components/_header.scss */
+.header .account {
+  max-width: 30px;
+}
+/* line 65, ../sass/components/_header.scss */
+.header .account a {
+  background: url("../assets/icons/account.svg") no-repeat;
+  width: 24px;
+  height: 27px;
 }
 
 /* line 1, ../sass/components/_footer.scss */
@@ -713,7 +1111,7 @@ footer .fave {
   width: 600px;
   margin: auto;
   text-align: center;
-  padding: 1.5rem 0;
+  padding: 1rem 0;
 }
 /* line 27, ../sass/components/_homepage.scss */
 .hero--form .swtich-text {
@@ -825,22 +1223,34 @@ footer .fave {
   display: inline-block;
   vertical-align: middle;
   position: relative;
-}
-/* line 124, ../sass/components/_homepage.scss */
-.packages ul.top--packages li.top {
-  margin: 0 2rem;
-}
-/* line 127, ../sass/components/_homepage.scss */
-.packages ul.top--packages li img {
+  overflow: hidden;
   box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-/* line 130, ../sass/components/_homepage.scss */
+/* line 126, ../sass/components/_homepage.scss */
+.packages ul.top--packages li:hover img {
+  -moz-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+/* line 131, ../sass/components/_homepage.scss */
+.packages ul.top--packages li .hover--div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  background: rgba(0, 0, 0, 0.2);
+}
+/* line 138, ../sass/components/_homepage.scss */
+.packages ul.top--packages li.top {
+  margin: 0 3rem;
+}
+/* line 141, ../sass/components/_homepage.scss */
 .packages ul.top--packages li .top--text {
   position: absolute;
   width: 100%;
   bottom: 35px;
 }
-/* line 134, ../sass/components/_homepage.scss */
+/* line 145, ../sass/components/_homepage.scss */
 .packages ul.top--packages li .top--text p {
   font-weight: 400;
   font-size: 28px;
@@ -848,11 +1258,61 @@ footer .fave {
   margin: 0;
   line-height: 1;
 }
-/* line 141, ../sass/components/_homepage.scss */
+/* line 152, ../sass/components/_homepage.scss */
 .packages ul.top--packages li .top--text h4 {
   margin: 0;
   color: #ffffff;
   font-weight: 200;
   font-size: 14px;
   margin-bottom: 2rem;
+}
+/* line 159, ../sass/components/_homepage.scss */
+.packages ul.top--packages li .top--text a {
+  font-size: 12px;
+}
+
+/* line 174, ../sass/components/_homepage.scss */
+#wiseintro-testimonials h1 {
+  text-align: center;
+  color: #1cb7eb;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  font-size: 50px;
+  padding: 20px 0;
+}
+
+/* line 184, ../sass/components/_homepage.scss */
+#wiseintro-testimonials .owl-carousel .item {
+  margin: 0 40px;
+}
+
+/* line 188, ../sass/components/_homepage.scss */
+#wiseintro-testimonials .quote-icon {
+  padding: 15px 0;
+}
+
+/* line 192, ../sass/components/_homepage.scss */
+#wiseintro-testimonials .quote {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* line 199, ../sass/components/_homepage.scss */
+#wiseintro-testimonials .name {
+  font-size: 18px;
+  font-weight: 400;
+  color: #1cb7eb;
+  padding-left: 15px;
+}
+
+/* line 206, ../sass/components/_homepage.scss */
+#wiseintro-testimonials .title {
+  font-size: 15px;
+  font-weight: 400;
+  color: #828282;
+  margin-top: -8px;
+  line-height: 17px;
 }

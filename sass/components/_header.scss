@@ -4,6 +4,8 @@ header.hero {
     height: 550px;
     color: $white;
     h1 {
+        font-weight: 400;
+        font-size: 24px;
         margin: 0;
     }
     .main--nav {
@@ -14,6 +16,57 @@ header.hero {
                 color: $white;
                 font-weight: 300;
             }
+        }
+    }
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    padding-top: 1rem;
+    margin-bottom: 3.5rem;
+    .main--nav,
+    .search,
+    .account {
+        flex: 1;
+    }
+    .main--nav {
+        text-align: right;
+    }
+    .search {
+        position: relative;
+        max-width: 200px;
+        margin: 0 2.5rem;
+    }
+    input.input {
+        border: none;
+        border-radius: 20px;
+        padding: 10px;
+        padding-left: 20px;
+        font-size: 12px;
+        width: 180px;
+    }
+    input.button {
+        position: absolute;
+        right: 34px;
+        top: 7px;
+        background: url("../assets/misc/search.svg") no-repeat;
+        width: 20px;
+        height: 20px;
+        @extend %icon;
+    }
+    .main--nav {
+        li {
+            margin: 0 1rem;
+        }
+    }
+    .account {
+        max-width: 30px;
+        a {
+            @extend %icon;
+            background: url("../assets/icons/account.svg") no-repeat;
+            width: 24px;
+            height: 27px;
         }
     }
 }
