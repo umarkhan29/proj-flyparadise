@@ -1,0 +1,35 @@
+<?php
+
+include_once('../catalog/connect.khan');
+		$query="SELECT * FROM `packages`";
+		
+		$products=mysqli_query($dbconn,$query) or die("db error");
+		
+		if($products){
+				$count=0;
+				while($row = mysqli_fetch_assoc($products)){
+						$results[] = array(
+							'TITLE'			=>	$row['title'],
+							'DESTINATION'			=>	$row['destination'],
+							'DURATION'			=>	$row['duration'],
+							'HOTELSTAR'			=>	$row['hotelstar'],
+							'DESC'			=>	$row['description'],
+							'FLIGHTS'			=>	$row['includeflights'],
+							'PRICE'			=>	$row['price'],
+							'IMAGEPATH'			=>	$row['path'],
+							'CAB'			=>	$row['localcab'],
+							'ID'			=>	$row['id']
+							
+						);
+					$count=	$count+1;
+				}
+			
+			}
+			else{
+				echo "No results Found";
+			}
+
+			echo "<pre>";
+			print_r($results);
+			echo "</pre>";
+?>

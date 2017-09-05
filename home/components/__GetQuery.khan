@@ -1,0 +1,71 @@
+ <?php
+	  
+	  //var_dump($_REQUEST);
+	  if(isset($_POST['from_place'])){
+		  $from=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['from_place']))));
+		  $to=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['to_loc']))));
+		  $date=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['date']))));
+		  $date=date("Y-m-d", strtotime($date));
+		  $tripplanstage=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['trip_plan_stage']))));
+		  $phone=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['phone']))));
+		  $email=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['email']))));
+		  $preferredhotel=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['hotel_catagory']))));
+		  if(isset($_POST['flight_requirement']))
+			$needflight=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['flight_requirement']))));
+		  else
+			  $needflight="";
+		  if(isset($_POST['budget'])){
+			$budget=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['budget']))));
+			
+			if($budget==1)
+				$budget="Economy";
+			
+			if($budget==11)
+				$budget="Deluxe";
+			
+			if($budget==21)
+				$budget="Premium";
+			
+		  }
+		  
+		  else
+			  $budget="Not Set";
+		 
+		  $adults=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['numberOfAdults']))));
+		  $infants=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['drop_down']))));
+		  $child=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['numberOfChildren']))));
+		  
+		   $pickupplace=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['pickupplace']))));
+		  $dropplace=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['dropplace']))));
+		  $noofdays=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['noofdays']))));
+		  
+		  
+		  if(isset($_POST['trip_stage']))
+			$willbook=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['trip_stage']))));
+		else
+			$willbook="Not selected";
+	  if(isset($_POST['budget_text']) || $_POST['budget_text']=="")
+		  $textbudget=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['budget_text']))));
+	  else
+		  $textbudget="Not set manually";
+		  $query="INSERT INTO `bookings`(`from`, `to`, `date`, `tripplanstage`, `phone`, `email`, `hotelrating`, `needflight`, `budget`, `adults`, `infants`, `children`, `planningtobookon`, `budgettext`, `noofdays`, `pickupplace`, `dropplace`) VALUES ('$from','$to','$date','$tripplanstage','$phone','$email','$preferredhotel','$needflight','$budget','$adults','$infants','$child', '$willbook', '$textbudget', '$noofdays', '$pickupplace','$dropplace');";
+							
+		if(mysqli_query($dbconn,$query)){ ?>
+			<div id='msg' style='padding:7px; border: 0px solid; height:90px; background:#F90; opacity: 0.5; width:100%; margin:10px; border-radius:5px; color:#ffffff; font-size:18px;'><p>Data stored sucessfully ! </p>
+			 </div>
+			 <?php
+				$email = "customercare@flyparadise";
+				$content = 'You have one new resquest';
+				$subject = "1 new request";
+				$headers = "From:Fly Paradise / Landing Page";
+				
+				mail($email, $subject, $content, $headers );
+			
+		}else{
+			echo "<div id='msg' style=' border: 0px solid; height:90px; background:#F90; opacity: 0.5; width:100%; margin:10px; border-radius:5px; color:##002a69; font-size:18px;'><input type='button' value='X' style='background: red; float:right; cursor:pointer; color:#67c500;' onclick='hidemsg('msg')'/> <p> Sorry, We couldn't determine what you are exactly looking for.<br /><br /> Please contact us at '' or 'customercare@flyparadise.com' </p>
+			 </div>";
+			echo "<div id='msg'><p>  <br /> Please contact us at '18001232262' or 'customercare@flyparadise.com' </p></div>";
+		}		
+	  }
+	  
+	  ?>

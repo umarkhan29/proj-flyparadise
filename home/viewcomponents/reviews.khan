@@ -1,0 +1,30 @@
+<?php
+include_once('../catalog/connect.khan');
+
+		$query="SELECT * FROM `reviews`";
+		
+		$products=mysqli_query($dbconn,$query) or die("db error");
+		
+		if($products){
+				$count=0;
+				while($row = mysqli_fetch_assoc($products)){
+						$results[] = array(
+							'ID'			=>	$row['id'],
+							'NAME'			=>	$row['name'],
+							'DESC'			=>	$row['desc'],
+							'ABOUT'			=>	$row['about'],
+							'STARS'			=>	$row['stars'],
+							
+							
+						);
+					$count=	$count+1;
+				}
+			
+			}
+			else{
+				echo "No results Found";
+			}
+			echo "<pre>";
+			print_r($results);
+			echo "</pre>";
+?>

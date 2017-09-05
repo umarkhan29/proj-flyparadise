@@ -1,0 +1,16 @@
+<?php
+
+if(isset($_POST['btn']) && $GLOBALS['__ValFlag']==1){ 
+		$place=mysql_real_escape_string(trim(strip_tags(stripslashes($_POST['place']))));
+		$tc=mysql_real_escape_string(trim(strip_tags(stripslashes($_POST['tc']))));	
+		
+		$query="INSERT INTO `t&c`( `place`, `tc`) VALUES ('$place', '$tc');";
+		
+		if(mysqli_query($dbconn,$query) or die( mysqli_error())){
+			echo "T&C Added";
+		}
+		else{	
+			echo "Something went wrong";
+		}				
+}
+?>
