@@ -1,0 +1,17 @@
+<?php
+
+if(isset($_POST['btn']) && $GLOBALS['__ValFlag']==1){ 
+		$title=mysql_real_escape_string(trim(strip_tags(stripslashes($_POST['title']))));
+		$date=mysql_real_escape_string(trim(strip_tags(stripslashes($_POST['date']))));	
+		$desc=mysql_real_escape_string(trim(strip_tags(stripslashes($_POST['desc']))));	
+		
+		$query="INSERT INTO `media`(`title`, `date`, `desc`) VALUES ('$title', '$date', '$desc');";
+		
+		if(mysqli_query($dbconn,$query) or die( mysqli_error())){
+			echo "Review added";
+		}
+		else{	
+			echo "Something went wrong";
+		}				
+}
+?>

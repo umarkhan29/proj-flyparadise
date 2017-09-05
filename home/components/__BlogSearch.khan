@@ -1,0 +1,153 @@
+		
+			<?php
+			//blog
+
+	$count=0;
+	
+	if(isset($_POST['searchtxtbox'])){
+		
+		$keywords = mysql_real_escape_string(trim(strip_tags(stripslashes($_POST['searchtxtbox']))));
+	
+		if($keywords){
+			
+			$searching = new SearchB($keywords);
+			$result = $searching->result; 
+			$resultCount = $searching->resultCount;
+			
+			if($result){
+				$searchResultsB;
+				while($row = mysqli_fetch_assoc($result)){
+					$searchResultsB[] = array(
+							
+							'ID'			=>	$row['id'],
+							'AUTHOR'		=>	$row['author'],
+							'ABOUT' 		=> 	$row['about'],
+							'CONTENT' 		=> 	$row['content']
+						);
+						 $count=$count+1;
+						
+				}
+				
+			}
+			else{
+				
+				echo ('<div style="font-family:Arial, Helvetica, sans-serif; padding:5px; font-size:22px; color:#602D8D; background-color:#414045; width:60%;  margin:auto;  border-radius:7px;">No Blogs found ! </div> ');
+				
+			}
+		}
+		else{
+				echo ('<div style="font-family:Arial, Helvetica, sans-serif; padding:5px; font-size:40px; color:#602D8D; background-color:#414045; width:60%; height:100px; margin:auto; 	margin-top:40px; margin-bottom:40px; padding-left:120px; padding-top:30px; border-radius:7px;">Enter atleast one keyword to search anything !</div>');
+				
+		}
+
+	}
+		
+
+	class SearchB{
+		private $search_keywords = "";
+		public $result;
+		public $resultCount;
+		function __construct($keywords){
+			$this->resultCount = 0;
+			$this->search_keywords = $this->splitKeywords($keywords);
+			
+			$this->result = $this->searchNow();
+		}
+		private function searchNow(){
+			if(count($this->search_keywords) == 0){
+				return FALSE;
+			}
+			$dbconn=mysqli_connect('localhost','root','') or die('could not connect');
+			mysqli_select_db($dbconn,'flyparadise') or die('database error');
+			 $query = $this->getQuery();
+			if($result = mysqli_query($dbconn,$query)){
+				
+				if(mysqli_num_rows($result)!=0){
+					$this->resultCount = mysqli_num_rows($result);
+					
+					return $result;
+				}
+				return FALSE;
+			}
+			else{
+				echo mysqli_error($dbconn);
+				echo "bihbb";
+			}
+			return FALSE;
+
+
+		}
+		private function splitKeywords($keywords){
+			$words = preg_split('/\s+/', $keywords);
+			return $words;
+		}
+		private function getQuery(){
+			$count = count($this->search_keywords);
+			$words = $this->search_keywords;
+			$query = "SELECT * FROM `blog` WHERE ";
+			
+			$where = "";
+			for($i = 0; $i < $count; $i++){
+				$where .= "`author` like '%$words[$i]%'";
+				if($i != $count-1){
+					$where .= ' OR ';
+				}
+			}
+			
+			$where .= ' OR ';
+			for($i = 0; $i < $count; $i++){
+				$where .= "`about` like '%$words[$i]%'";
+				if($i != $count-1){
+					$where .= ' OR ';
+					}
+					}
+					
+					
+			$where .= ' OR ';
+			for($i = 0; $i < $count; $i++){
+				$where .= "`content` like '%$words[$i]%'";
+				if($i != $count-1){
+					$where .= ' OR ';
+				}
+			}
+			
+			
+			
+			$query .= $where;
+			//echo $query;
+			return $query;
+		}
+	}
+?>
+
+
+
+
+	      <div >
+		  
+			Blog :
+		  	<?php
+				
+				for($i=0;$i<$count;$i++){
+					
+			?>
+				<div >
+					
+					 <p>Author: <?php echo $searchResultsB[$i]['AUTHOR'];?></p>
+					 <p>About: <?php echo $searchResultsB[$i]['ABOUT'];?></p>
+					 <p>Content: <?php echo $searchResultsB[$i]['CONTENT']?></p>
+					 
+				</div>
+			
+			<?php
+				} //close for
+				
+				
+			?>
+			
+			
+			
+    		
+    		
+    		
+    	</div>

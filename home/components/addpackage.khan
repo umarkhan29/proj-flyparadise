@@ -1,0 +1,36 @@
+ <?php
+	  
+	  //var_dump($_REQUEST);
+	  if(isset($_POST['btn'])){
+		  $title=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['title']))));
+		  $destination=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['destination']))));
+		  $duration=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['duration']))));
+		  
+		  $hotelstar=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['hotelstar']))));
+		  $description=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['description']))));
+		  $price=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['price']))));
+		  $includeflights=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['includeflights']))));
+		  $localcab=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['localcab']))));
+		  $path="images/packages/".$_FILES['fileupld']['name'];
+			
+		  $query="INSERT INTO `packages` (`title`, `destination`, `duration`, `hotelstar`, `description`, `includeflights`, `price`, `path`, `localcab`) VALUES ('$title', '$destination', '$duration', '$hotelstar', '$description', '$includeflights', '$price',  '$path', '$localcab');";
+							
+		if(mysqli_query($dbconn,$query)){ 
+			
+			move_uploaded_file($_FILES['fileupld']['tmp_name'],$path);
+		
+		?>
+			<div  style='padding:7px; border: 0px solid; height:90px; background:#F90; opacity: 0.5; width:100%; margin:10px; border-radius:5px; color:#ffffff; font-size:18px;'><p>Data stored sucessfully ! </p>
+			 </div>
+			 <?php
+				
+			
+		}else{
+			echo mysqli_error($dbconn);
+			echo "<div id='msg' style=' border: 0px solid; height:90px; background:#F90; opacity: 0.5; width:100%; margin:10px; border-radius:5px; color:##002a69; font-size:18px;'> <p> error</p>
+			 </div>";
+			
+		}		
+	  }
+	  
+	  ?>

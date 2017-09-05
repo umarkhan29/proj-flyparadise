@@ -1,0 +1,29 @@
+<?php
+
+
+		$query="SELECT * FROM `media`";
+		
+		$products=mysqli_query($dbconn,$query) or die("db error");
+		
+		if($products){
+				$count=0;
+				while($row = mysqli_fetch_assoc($products)){
+						$results[] = array(
+							'TITLE'			=>	$row['title'],
+							'DATE'			=>	$row['date'],
+							'DESC'			=>	$row['desc'],
+							'ID'			=>	$row['id']
+							
+						);
+					$count=	$count+1;
+				}
+			
+			}
+			else{
+				echo "No results Found";
+			}
+
+			echo "<pre>";
+			print_r($results);
+			echo "</pre>";
+?>

@@ -1,0 +1,15 @@
+#Stops Directory Traverse
+ Options All -Indexes
+
+ #file blocking
+ <FilesMatch "\.(?:khan|htaccess|ini|log|)$">
+ order deny,allow
+ Deny from all
+ </FilesMatch>
+
+ 
+#hidingurlextentions
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(([A-Za-z0-9\-]+/)*[A-Za-z0-9\-]+)?$ $1.php
