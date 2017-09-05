@@ -928,7 +928,7 @@ input:hover {
 }
 
 /* line 46, ../sass/components/_basic.scss */
-.hero--submit, .packages .explore--more a {
+.hero--submit, .explore--more a {
   font-size: 12px;
   background: #3986b6;
   font-weight: 300;
@@ -1271,48 +1271,429 @@ footer .fave {
   font-size: 12px;
 }
 
-/* line 174, ../sass/components/_homepage.scss */
-#wiseintro-testimonials h1 {
+/* line 168, ../sass/components/_homepage.scss */
+.explore--more {
   text-align: center;
-  color: #1cb7eb;
-  font-family: 'Source Sans Pro', sans-serif;
-  font-weight: 700;
-  letter-spacing: -0.5px;
-  font-size: 50px;
-  padding: 20px 0;
+  margin-top: 2rem;
 }
 
-/* line 184, ../sass/components/_homepage.scss */
+/* line 177, ../sass/components/_homepage.scss */
+#wiseintro-testimonials h2 {
+  margin-top: 1rem;
+  font-size: 44px;
+  font-weight: 200;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+/* line 185, ../sass/components/_homepage.scss */
+#wiseintro-testimonials {
+  margin-top: 5rem;
+  background: #f5f5f5;
+  padding: 1rem 0;
+}
+/* line 189, ../sass/components/_homepage.scss */
+#wiseintro-testimonials .span--heading {
+  display: block;
+  text-align: center;
+  font-weight: 200;
+  color: #c7c7c7;
+}
+/* line 195, ../sass/components/_homepage.scss */
+#wiseintro-testimonials .col-md-10 {
+  margin-top: 1.5rem;
+}
+/* line 198, ../sass/components/_homepage.scss */
 #wiseintro-testimonials .owl-carousel .item {
   margin: 0 40px;
 }
-
-/* line 188, ../sass/components/_homepage.scss */
+/* line 201, ../sass/components/_homepage.scss */
 #wiseintro-testimonials .quote-icon {
   padding: 15px 0;
 }
-
-/* line 192, ../sass/components/_homepage.scss */
+/* line 204, ../sass/components/_homepage.scss */
 #wiseintro-testimonials .quote {
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 15px;
   font-weight: 400;
   font-style: italic;
 }
-
-/* line 199, ../sass/components/_homepage.scss */
+/* line 210, ../sass/components/_homepage.scss */
 #wiseintro-testimonials .name {
   font-size: 18px;
   font-weight: 400;
   color: #1cb7eb;
   padding-left: 15px;
 }
-
-/* line 206, ../sass/components/_homepage.scss */
+/* line 216, ../sass/components/_homepage.scss */
 #wiseintro-testimonials .title {
   font-size: 15px;
   font-weight: 400;
   color: #828282;
   margin-top: -8px;
   line-height: 17px;
+}
+
+/* line 225, ../sass/components/_homepage.scss */
+.owl-dots {
+  text-align: center;
+}
+/* line 227, ../sass/components/_homepage.scss */
+.owl-dots .owl-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #c7c7c7;
+  display: inline-block;
+  margin: 0 4px;
+}
+/* line 234, ../sass/components/_homepage.scss */
+.owl-dots .owl-dot.active {
+  background: #3986b6;
+}
+
+/* line 242, ../sass/components/_homepage.scss */
+.where--to h2.heading {
+  margin-top: 6rem;
+  font-size: 44px;
+  font-weight: 200;
+  margin-bottom: 0;
+  text-align: center;
+}
+/* line 249, ../sass/components/_homepage.scss */
+.where--to .span--heading {
+  display: block;
+  text-align: center;
+  font-weight: 200;
+  color: #c7c7c7;
+}
+/* line 255, ../sass/components/_homepage.scss */
+.where--to img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+/* line 260, ../sass/components/_homepage.scss */
+.where--to #tours {
+  margin-top: 3rem;
+}
+/* line 262, ../sass/components/_homepage.scss */
+.where--to #tours ul,
+.where--to #tours ul li,
+.where--to #tours ul li div {
+  display: flex;
+}
+/* line 267, ../sass/components/_homepage.scss */
+.where--to #tours ul {
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+@media (min-width: 500px) {
+  /* line 267, ../sass/components/_homepage.scss */
+  .where--to #tours ul {
+    flex: 50%;
+  }
+}
+@media (min-width: 800px) {
+  /* line 267, ../sass/components/_homepage.scss */
+  .where--to #tours ul {
+    flex: 25%;
+  }
+}
+/* line 278, ../sass/components/_homepage.scss */
+.where--to #tours ul li {
+  background: rgba(0, 0, 0, 0.35);
+  position: relative;
+  flex-direction: column;
+  margin: 0;
+  cursor: pointer;
+  -moz-transition: background 0.4s;
+  -o-transition: background 0.4s;
+  -webkit-transition: background 0.4s;
+  transition: background 0.4s;
+}
+/* line 285, ../sass/components/_homepage.scss */
+.where--to #tours ul li:hover {
+  background: transparent;
+}
+@media (min-width: 500px) {
+  /* line 278, ../sass/components/_homepage.scss */
+  .where--to #tours ul li {
+    flex: 50%;
+  }
+}
+@media (min-width: 800px) {
+  /* line 278, ../sass/components/_homepage.scss */
+  .where--to #tours ul li {
+    flex: 25%;
+  }
+}
+/* line 296, ../sass/components/_homepage.scss */
+.where--to #tours img {
+  position: relative;
+  z-index: -1;
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+/* line 303, ../sass/components/_homepage.scss */
+.where--to #tours div {
+  position: absolute;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: #fff;
+}
+/* line 313, ../sass/components/_homepage.scss */
+.where--to #tours div h3,
+.where--to #tours div h4 {
+  margin: 0;
+}
+/* line 317, ../sass/components/_homepage.scss */
+.where--to #tours div h3 {
+  margin-bottom: 0.35em;
+  font-size: 1em;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+/* line 324, ../sass/components/_homepage.scss */
+.where--to #tours div h4 {
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+/* line 333, ../sass/components/_homepage.scss */
+.honeymoon--packages h2.heading {
+  margin-top: 6rem;
+  font-size: 44px;
+  font-weight: 200;
+  margin-bottom: 0;
+  text-align: center;
+}
+/* line 340, ../sass/components/_homepage.scss */
+.honeymoon--packages .span--heading {
+  display: block;
+  text-align: center;
+  font-weight: 200;
+  color: #c7c7c7;
+  margin-bottom: 3rem;
+}
+/* line 347, ../sass/components/_homepage.scss */
+.honeymoon--packages .container {
+  width: 96%;
+  height: 350px;
+  overflow: hidden;
+  position: relative;
+  height: 300px;
+}
+/* line 354, ../sass/components/_homepage.scss */
+.honeymoon--packages section {
+  position: relative;
+  float: left;
+  height: 100%;
+}
+/* line 358, ../sass/components/_homepage.scss */
+.honeymoon--packages section img {
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0 auto;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  padding: 0;
+  height: 100%;
+}
+/* line 372, ../sass/components/_homepage.scss */
+.honeymoon--packages section a {
+  position: absolute;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.6) none;
+  display: block;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
+  width: 100%;
+  height: 100%;
+}
+/* line 383, ../sass/components/_homepage.scss */
+.honeymoon--packages section a:hover {
+  background: rgba(0, 0, 0, 0.85);
+  text-decoration: none;
+}
+/* line 388, ../sass/components/_homepage.scss */
+.honeymoon--packages section h2 {
+  text-transform: uppercase;
+  color: #ffffff;
+}
+/* line 392, ../sass/components/_homepage.scss */
+.honeymoon--packages section h3 {
+  font-size: 1.250em;
+  font-weight: 300;
+  line-height: 1.2em;
+  width: 90%;
+  color: #ffffff;
+}
+/* line 399, ../sass/components/_homepage.scss */
+.honeymoon--packages section p {
+  font-size: 0.875em;
+}
+/* line 402, ../sass/components/_homepage.scss */
+.honeymoon--packages section ul {
+  display: none;
+}
+/* line 406, ../sass/components/_homepage.scss */
+.honeymoon--packages div.content {
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 50px;
+}
+/* line 411, ../sass/components/_homepage.scss */
+.honeymoon--packages div.content h3 {
+  margin: 5px 0 20px 0;
+}
+@media screen and (min-width: 40.5em) {
+  /* line 415, ../sass/components/_homepage.scss */
+  .honeymoon--packages p {
+    display: none;
+  }
+  /* line 418, ../sass/components/_homepage.scss */
+  .honeymoon--packages section.programs {
+    width: 33.33%;
+    float: left;
+    border-left: 1px solid #000;
+  }
+  /* line 423, ../sass/components/_homepage.scss */
+  .honeymoon--packages div.content {
+    padding-top: 80px;
+  }
+  /* line 426, ../sass/components/_homepage.scss */
+  .honeymoon--packages div.content h3 {
+    margin: 5px 0 100px 0;
+  }
+}
+@media screen and (min-width: 62em) {
+  /* line 431, ../sass/components/_homepage.scss */
+  .honeymoon--packages .container {
+    width: 75%;
+    height: 400px;
+    margin: 0 auto;
+  }
+  /* line 436, ../sass/components/_homepage.scss */
+  .honeymoon--packages h3 {
+    font-size: 1.250em;
+  }
+  /* line 439, ../sass/components/_homepage.scss */
+  .honeymoon--packages p {
+    display: block;
+    font-weight: 300;
+    line-height: 1.4em;
+    font-size: 0.875em;
+  }
+  /* line 445, ../sass/components/_homepage.scss */
+  .honeymoon--packages div.content {
+    padding-top: 50px;
+    padding-top: 130px;
+    -webkit-transition: all 0.5s linear;
+    -moz-transition: all 0.5s linear;
+    -o-transition: all 0.5s linear;
+    transition: all 0.5s linear;
+  }
+  /* line 453, ../sass/components/_homepage.scss */
+  .honeymoon--packages div.content h3 {
+    margin-bottom: 10px;
+  }
+  /* line 456, ../sass/components/_homepage.scss */
+  .honeymoon--packages div.content p {
+    margin-top: 20px;
+    color: transparent;
+    -webkit-transition: all 0.5s linear;
+    -moz-transition: all 0.5s linear;
+    -o-transition: all 0.5s linear;
+    transition: all 0.5s linear;
+  }
+  /* line 464, ../sass/components/_homepage.scss */
+  .honeymoon--packages div.content h3 {
+    margin-bottom: 10px;
+    font-size: 1.4em;
+    line-height: 1.3em;
+  }
+  /* line 469, ../sass/components/_homepage.scss */
+  .honeymoon--packages div.content ul {
+    margin-top: 10px;
+    display: block;
+    padding-left: 5px;
+    color: transparent;
+    -webkit-transition: all 0.5s linear;
+    -moz-transition: all 0.5s linear;
+    -o-transition: all 0.5s linear;
+    transition: all 0.5s linear;
+  }
+  /* line 479, ../sass/components/_homepage.scss */
+  .honeymoon--packages div.content ul li {
+    list-style: none;
+    font-size: 0.875em;
+    margin-bottom: 5px;
+  }
+  /* line 484, ../sass/components/_homepage.scss */
+  .honeymoon--packages div.content ul li span {
+    margin-left: 5px;
+  }
+  /* line 487, ../sass/components/_homepage.scss */
+  .honeymoon--packages section a:hover div.content p {
+    margin-top: 0;
+    color: #ffffff;
+  }
+  /* line 491, ../sass/components/_homepage.scss */
+  .honeymoon--packages section a:hover div.content ul {
+    margin-top: 0;
+    color: rgba(255, 255, 255, 0.5);
+  }
+  /* line 495, ../sass/components/_homepage.scss */
+  .honeymoon--packages section a:hover div.content {
+    padding-top: 50px;
+  }
+  /* line 498, ../sass/components/_homepage.scss */
+  .honeymoon--packages h2 {
+    font-size: 1em;
+  }
+}
+@media screen and (min-width: 100em) and (min-height: 50em) {
+  /* line 503, ../sass/components/_homepage.scss */
+  .honeymoon--packages section.programs div.content {
+    padding-top: 220px;
+  }
+  /* line 506, ../sass/components/_homepage.scss */
+  .honeymoon--packages section.programs div.content h3 {
+    margin-bottom: 15px;
+  }
+  /* line 509, ../sass/components/_homepage.scss */
+  .honeymoon--packages section.programs div.content ul {
+    margin-top: 15px;
+    display: block;
+  }
+  /* line 513, ../sass/components/_homepage.scss */
+  .honeymoon--packages section.programs div.content ul li {
+    font-size: 0.875em;
+  }
+  /* line 516, ../sass/components/_homepage.scss */
+  .honeymoon--packages section.programs asection a:hover div.content {
+    padding-top: 60px;
+  }
+  /* line 519, ../sass/components/_homepage.scss */
+  .honeymoon--packages section.programs asection a:hover div.content p {
+    margin-top: 0;
+    color: #ffffff;
+  }
 }
