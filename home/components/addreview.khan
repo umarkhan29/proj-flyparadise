@@ -4,11 +4,17 @@ if(isset($_POST['btn']) && $GLOBALS['__ValFlag']==1){
 		$name=mysql_real_escape_string(trim(strip_tags(stripslashes($_POST['name']))));
 		$about=mysql_real_escape_string(trim(strip_tags(stripslashes($_POST['about']))));	
 		$desc=mysql_real_escape_string(trim(strip_tags(stripslashes($_POST['desc']))));	
-		$stars=mysql_real_escape_string(trim(strip_tags(stripslashes($_POST['stars']))));	
-		$query="INSERT INTO `reviews`( `name`, `about`, `desc`, `stars`) VALUES ('$name', '$about', '$desc', '$stars');";
 		
-		if(mysqli_query($dbconn,$query) or die( mysqli_error())){
-			echo'<div style="width:80%;padding-top:50px; padding-bottom:60px; padding-left:20%; overflow:hidden; color:green; font-size:32px; background:#999999;">Review added</div>';
+		$path="images/reviewimages/".$name.$about.$_FILES['fileupld']['name'];
+		
+		$query="INSERT INTO `reviews`( `name`, `about`, `desc`, `imgpath`) VALUES ('$name', '$about', '$desc', '$path');";
+		
+		if(mysqli_query($dbconn,$query)){
+			move_uploaded_file($_FILES['fileupld']['tmp_name'],$path);
+			
+			//resizing 65*66
+			header('location:home/components/resize65-66.php?img='.$path);
+			
 		}
 		else{	
 			echo '<div style="width:80%;padding-top:50px; padding-bottom:60px; padding-left:20%; overflow:hidden; color:red; font-size:32px; 		background:#999999;">Something went wrong</div>';
