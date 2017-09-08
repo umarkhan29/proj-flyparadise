@@ -1,10 +1,10 @@
 <?php
 
 	$count=0;
-	
+	require_once('home/catalog/connect.khan');
 	if(isset($_POST['searchtxtbox'])){
 		
-		$keywords = mysql_real_escape_string(trim(strip_tags(stripslashes($_POST['searchtxtbox']))));
+		$keywords = mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['searchtxtbox']))));
 	
 		if($keywords){
 			

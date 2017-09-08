@@ -1,0 +1,37 @@
+<?php	  
+	  
+	  //var_dump($_REQUEST);
+	  if(isset($_POST['btn'])){
+		  
+		  $destination=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['destination']))));
+		  $description=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['description']))));
+		 
+		  $path="images/homepagedestinations/".$destination.$_FILES['fileupld']['name'];
+			
+		  $query="INSERT INTO `homepagedestinations` ( `destination`,`desc`, `imgpath`) VALUES ('$destination', '$description', '$path');";
+							
+		if(mysqli_query($dbconn,$query)){ 
+			
+			move_uploaded_file($_FILES['fileupld']['tmp_name'],$path);
+			
+			//deleting the first destination 
+			
+			$id=mysqli_insert_id($dbconn);
+			$id=$id-8;
+		    $query="DELETE FROM `homepagedestinations` WHERE `id` = '$id';";
+			mysqli_query($dbconn,$query);
+			//deleting images will be done in the new upgrade
+			
+			
+			//resizing image
+			header('location:home/components/resize500-500.php?img='.$path);
+		
+		}else{
+			echo mysqli_error($dbconn);
+			echo "<div id='msg' style=' border: 0px solid; height:90px; background:#F90; opacity: 0.5; width:100%; margin:10px; border-radius:5px; color:##002a69; font-size:18px;'> <p> error</p>
+			 </div>";
+			
+		}		
+	  }
+	  
+	  ?>
