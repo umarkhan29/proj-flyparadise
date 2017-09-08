@@ -1,0 +1,106 @@
+//Sign and resgister page theming
+:focus {
+    outline: none;
+}
+
+.get--in {
+    img {
+        max-width: 100%;
+    }
+    .left {
+        img {
+            width: 75%;
+        }
+        p {
+            font-size: 22px;
+            font-weight: 300;
+        }
+    }
+    .right {
+        .disabled,
+        .enabled {
+            display: inline-block;
+            margin-right: 1.5rem;
+            padding: 2px;
+            cursor: pointer;
+            font-weight: 600;
+            &:hover {
+                color: $pink;
+            }
+        }
+        .disabled {
+            color: $dark-gray;
+        }
+        .enabled {
+            color: $pink;
+            border-bottom: 2px solid $pink;
+        }
+        .register {
+            display: none;
+        }
+    }
+    display: flex;
+    .left,
+    .right {
+        flex: 1;
+        width: 50%;
+        margin: auto;
+    }
+    .col-3 {
+        width: 50%;
+        margin: 40px 3%;
+        margin-left: 0;
+        position: relative;
+    }
+    /* necessary to give position: relative to parent. */
+    input[type="text"] {
+        font: 15px/24px "Lato", Arial, sans-serif;
+        color: #333;
+        width: 100%;
+        box-sizing: border-box;
+        letter-spacing: 1px;
+    }
+    .effect-17 {
+        border: 0;
+        padding: 4px 0;
+        border-bottom: 1px solid $gray;
+        background-color: transparent;
+        width: 100%;
+    }
+    .effect-17~.focus-border {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background-color: $blue;
+        transition: 0.4s;
+    }
+    .effect-17:focus~.focus-border,
+    .has-content.effect-17~.focus-border {
+        width: 100%;
+        transition: 0.4s;
+        left: 0;
+    }
+    .effect-17~label {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        top: 4px;
+        color: #aaa;
+        transition: 0.3s;
+        z-index: -1;
+        letter-spacing: 0.5px;
+    }
+    .effect-17:focus~label,
+    .has-content.effect-17~label {
+        top: -16px;
+        font-size: 12px;
+        color: $blue;
+        transition: 0.3s;
+    }
+    .submit {
+        @extend %btn-blu;
+        width: 50%;
+    }
+}

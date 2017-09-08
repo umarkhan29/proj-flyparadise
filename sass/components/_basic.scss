@@ -18,6 +18,10 @@ body {
     font-weight: 600;
 }
 
+.center {
+    text-align: center;
+}
+
 a {
     text-decoration: none;
     &:hover {
@@ -57,4 +61,12 @@ input:hover {
     text-indent: -9999px;
     display: inline-block;
     border: none;
+}
+
+.show {
+    display: block !important;
+}
+
+.remove {
+    display: none;
 }
