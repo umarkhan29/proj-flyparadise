@@ -1,0 +1,48 @@
+
+<svg width="122px" height="27px" viewBox="0 0 122 27" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.1 (39012) - http://www.bohemiancoding.com/sketch -->
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M68.1700001,11.5882334 C68.1700001,17.9869816 62.9837483,23.1764667 56.5882334,23.1764667 C50.1894851,23.1764667 45,17.9869816 45,11.5882334 C45,5.18948509 50.1894851,0 56.5882334,0 C62.9837483,0 68.1700001,5.18948509 68.1700001,11.5882334 Z" id="path-1"></path>
+        <filter x="-10.8%" y="-10.8%" width="121.6%" height="121.6%" filterUnits="objectBoundingBox" id="filter-2">
+            <feGaussianBlur stdDeviation="1.5" in="SourceAlpha" result="shadowBlurInner1"></feGaussianBlur>
+            <feOffset dx="0" dy="1" in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+        </filter>
+        <filter x="-24.2%" y="-37.5%" width="145.5%" height="193.8%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <filter x="-24.2%" y="-37.5%" width="145.5%" height="193.8%" filterUnits="objectBoundingBox" id="filter-4">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-2" transform="translate(4.000000, 1.000000)">
+            <g id="Stroke-3">
+                <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                <use stroke="#696969" stroke-width="1" xlink:href="#path-1"></use>
+            </g>
+            <g id="Group" filter="url(#filter-3)" transform="translate(81.000000, 4.000000)" stroke="#696969">
+                <path d="M32.166,7.584 C32.166,9.563 30.562,11.168 28.584,11.168 C26.605,11.168 25,9.563 25,7.584 C25,5.605 26.605,4 28.584,4 C30.562,4 32.166,5.605 32.166,7.584 Z" id="Stroke-1"></path>
+                <path d="M15.1700001,7.58711698 C15.1700001,11.7765435 11.7744265,15.174234 7.58711698,15.174234 C3.3976905,15.174234 0,11.7765435 0,7.58711698 C0,3.3976905 3.3976905,0 7.58711698,0 C11.7744265,0 15.1700001,3.3976905 15.1700001,7.58711698 Z" id="Stroke-3"></path>
+            </g>
+            <g id="Group" filter="url(#filter-4)" transform="translate(16.670000, 12.000000) scale(-1, 1) translate(-16.670000, -12.000000) translate(0.170000, 4.000000)" stroke="#696969">
+                <path d="M32.166,7.584 C32.166,9.563 30.562,11.168 28.584,11.168 C26.605,11.168 25,9.563 25,7.584 C25,5.605 26.605,4 28.584,4 C30.562,4 32.166,5.605 32.166,7.584 Z" id="Stroke-1"></path>
+                <path d="M15.1700001,7.58711698 C15.1700001,11.7765435 11.7744265,15.174234 7.58711698,15.174234 C3.3976905,15.174234 0,11.7765435 0,7.58711698 C0,3.3976905 3.3976905,0 7.58711698,0 C11.7744265,0 15.1700001,3.3976905 15.1700001,7.58711698 Z" id="Stroke-3"></path>
+            </g>
+        </g>
+    </g>
+</svg>
