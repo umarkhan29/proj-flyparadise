@@ -31,10 +31,6 @@
             }
         }
     }
-    .divider {
-        border-bottom: 1px solid #e4e4e4;
-        margin: 3rem 0;
-    }
     .latest--articles {
         max-width: 1140px;
         margin: auto;
@@ -83,4 +79,9 @@
             }
         }
     }
+}
+
+.divider {
+    border-bottom: 1px solid #e4e4e4;
+    margin: 3rem 0;
 }

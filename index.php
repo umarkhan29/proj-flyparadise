@@ -15,7 +15,7 @@
     <link href="stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
     <!--Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=PT+Serif" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="libraries/owl.carousel.min.js"></script>
     <script src="libraries/js/main.js"></script>
@@ -25,7 +25,7 @@
 </head>
 
 <body>
-    <header class="hero">
+    <header class="hero home">
         <div class="header max-width">
             <h1>Fly Paradise</h1>
             <div class="main--nav">
