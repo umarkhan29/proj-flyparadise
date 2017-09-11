@@ -1,12 +1,16 @@
-header.hero {
+header.hero.home {
     background: url("../assets/heros/hero.png") no-repeat;
     background-size: cover;
     height: 550px;
     color: $white;
+}
+
+header.hero {
     h1 {
         font-weight: 400;
         font-size: 24px;
         margin: 0;
+        color: $white;
     }
     .main--nav {
         li {

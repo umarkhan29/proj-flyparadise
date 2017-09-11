@@ -1,0 +1,176 @@
+header.blog--landing {
+    background: url("../assets/blogs/particular-blog/test.png") no-repeat;
+    height: 400px;
+    background-size: cover;
+    box-shadow: inset 500px 500px 500px 0 rgba(0, 0, 0, 0.62);
+    position: relative;
+    h2.blog--title {
+        text-align: center;
+        color: white;
+        font-weight: 400;
+        font-size: 33px;
+        margin-top: 5rem;
+    }
+    .blog-author {
+        text-align: center;
+        a {
+            color: $pink;
+            font-weight: 300;
+        }
+    }
+    .prev--next {
+        position: absolute;
+        margin: auto;
+        padding: 0 2rem;
+        bottom: 1.5rem;
+        width: 100%;
+        font-weight: 300;
+        color: $white;
+        .prev:before {
+            background: url("../assets/icons/arrow--small-left.svg");
+            display: inline-block;
+            background-repeat: no-repeat;
+            content: '';
+            width: 15px;
+            height: 18px;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+        .next:after {
+            background: url("../assets/icons/arrow--small-right.svg");
+            content: '';
+            display: inline-block;
+            background-repeat: no-repeat;
+            width: 15px;
+            height: 18px;
+            vertical-align: middle;
+            margin-left: 10px;
+        }
+        .prev {
+            @extend .f-left;
+        }
+        .next {
+            @extend .f-right;
+        }
+    }
+}
+
+.blog--landing-text {
+    max-width: 1080px;
+    font-size: 17px;
+    line-height: 26px;
+    color: #4e4e4e;
+    margin: auto;
+    padding: 0 1rem;
+    margin-top: 3rem;
+    font-family: $fly-secondary;
+    p {
+        max-width: 980px;
+        margin: auto;
+    }
+    img {
+        max-width: 100%;
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+}
+
+.popular--articles {
+    max-width: 1140px;
+    margin: auto;
+    padding: 0 1rem;
+    li {
+        list-style: none;
+        display: flex;
+        margin-bottom: 3rem;
+    }
+    h4 {
+        color: $dark-gray;
+        font-size: 22px;
+        font-weight: 400;
+        text-transform: capitalize;
+        margin-bottom: 3rem;
+    }
+    .teaser-article {
+        display: flex;
+        margin-right: 1rem;
+        img {
+            margin-right: 1.5rem;
+        }
+        .teaser--div {
+            h3 {
+                font-size: 18px;
+                font-weight: 400;
+                color: $text-over-bg;
+            }
+            a {
+                font-size: 12px;
+                color: $pink;
+                text-transform: uppercase;
+                &:after {
+                    background: url("../assets/icons/arrow--small.svg");
+                    content: '';
+                    width: 15px;
+                    height: 23px;
+                    margin-left: 10px;
+                    display: inline-block;
+                    vertical-align: middle;
+                    background-repeat: no-repeat;
+                }
+            }
+        }
+    }
+}
+
+
+/** TESTIMONIALS */
+
+.testimonial-quote blockquote {
+    /* Negate theme styles */
+    border: 0;
+    margin: 0;
+    padding: 0;
+    background: none;
+    color: gray;
+    font-family: Georgia, serif;
+    font-size: 1.5em;
+    font-style: italic;
+    line-height: 1.4 !important;
+    margin: 0;
+    position: relative;
+    text-shadow: 0 1px white;
+    z-index: 600;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.testimonial-quote blockquote * {
+    box-sizing: border-box;
+}
+
+.testimonial-quote blockquote p {
+    color: #75808a;
+    line-height: 1.4 !important;
+}
+
+.testimonial-quote blockquote p:first-child:before {
+    content: '\201C';
+    color: #81bedb;
+    font-size: 7.5em;
+    font-weight: 700;
+    opacity: .3;
+    position: absolute;
+    top: -.4em;
+    left: -.2em;
+    text-shadow: none;
+    z-index: -300;
+}
+
+
+/* Video Embed */
+
+.video--embed {
+    text-align: center;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
