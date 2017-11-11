@@ -1,21 +1,22 @@
 footer {
-    margin-top: 4rem;
-    .footer--primary {
-        display: flex;
-        ul {
-            flex: 1;
+    .secondary--footer {
+        background: $bg-pink;
+        p {
+            color: $white;
+            font-size: 46px;
+            font-weight: 700;
+            max-width: 32rem;
+            display: inline-block;
+            vertical-align: middle;
+            span {
+                font-size: 14px;
+                display: block;
+                font-weight: 300;
+            }
         }
     }
-    li {
-        list-style: none;
-        margin-top: 0.3rem;
-        margin-bottom: 0.3rem;
-    }
-    .fave {
-        background: url("../assets/icons/heart.svg") no-repeat;
-        width: 13px;
-        height: 12px;
-        display: inline-block;
+    .full---width {
+        padding: 1rem 0;
     }
 }
 

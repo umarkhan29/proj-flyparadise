@@ -506,43 +506,43 @@ h1, h2, h3, h4, h5, h6, hgroup, ul, ol, dl, li, blockquote, p, address, table, f
 /*
  FONT SIZES
  */
-/* line 32, ../sass/partials/_fonts.scss */
+/* line 33, ../sass/partials/_fonts.scss */
 .f-10 {
   font-size: 10px;
   font-size: 0.625rem;
 }
 
-/* line 36, ../sass/partials/_fonts.scss */
+/* line 37, ../sass/partials/_fonts.scss */
 .f-12 {
   font-size: 12px;
   font-size: 0.75rem;
 }
 
-/* line 40, ../sass/partials/_fonts.scss */
+/* line 41, ../sass/partials/_fonts.scss */
 .f-14 {
   font-size: 14px;
   font-size: 0.875rem;
 }
 
-/* line 44, ../sass/partials/_fonts.scss */
+/* line 45, ../sass/partials/_fonts.scss */
 .f-16 {
   font-size: 16px;
   font-size: 1rem;
 }
 
-/* line 48, ../sass/partials/_fonts.scss */
+/* line 49, ../sass/partials/_fonts.scss */
 .f-18 {
   font-size: 18px;
   font-size: 1.125rem;
 }
 
-/* line 52, ../sass/partials/_fonts.scss */
+/* line 53, ../sass/partials/_fonts.scss */
 .f-20 {
   font-size: 20px;
   font-size: 1.25rem;
 }
 
-/* line 56, ../sass/partials/_fonts.scss */
+/* line 57, ../sass/partials/_fonts.scss */
 .f-24 {
   font-size: 24px;
   font-size: 1.5rem;
@@ -951,13 +951,98 @@ input:hover {
 }
 
 /* line 66, ../sass/components/_basic.scss */
+header.alternate .inside--secondary, .main--header .menu--heading, .blog--landing-text, .how-we-work,
+.full---width {
+  max-width: 68.5rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* line 73, ../sass/components/_basic.scss */
 .show {
   display: block !important;
 }
 
-/* line 70, ../sass/components/_basic.scss */
+/* line 77, ../sass/components/_basic.scss */
 .remove {
   display: none;
+}
+
+/* line 81, ../sass/components/_basic.scss */
+.left {
+  float: left;
+}
+
+/* line 85, ../sass/components/_basic.scss */
+.right {
+  float: right;
+}
+
+/* line 90, ../sass/components/_basic.scss */
+.control {
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  font-size: 18px;
+}
+/* line 97, ../sass/components/_basic.scss */
+.control input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+/* line 104, ../sass/components/_basic.scss */
+.control__indicator {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  border: 1px solid #df3b52;
+  background: #ffffff;
+}
+
+/* line 115, ../sass/components/_basic.scss */
+.control:hover input ~ .control__indicator {
+  background: #ffffff;
+}
+/* line 119, ../sass/components/_basic.scss */
+.control input:focus ~ .control__indicator {
+  background: #ffffff;
+}
+/* line 122, ../sass/components/_basic.scss */
+.control input:checked ~ .control__indicator {
+  background: #df3b52;
+}
+
+/* line 128, ../sass/components/_basic.scss */
+.control__indicator:after {
+  content: '';
+  position: absolute;
+  display: none;
+}
+
+/* line 134, ../sass/components/_basic.scss */
+.control input:checked ~ .control__indicator:after {
+  display: block;
+}
+
+/* line 139, ../sass/components/_basic.scss */
+.control--checkbox .control__indicator:after {
+  left: 6px;
+  top: 3px;
+  width: 3px;
+  height: 8px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+/* line 148, ../sass/components/_basic.scss */
+.control--checkbox input:disabled ~ .control__indicator:after {
+  border-color: #7b7b7b;
 }
 
 /* line 1, ../sass/components/_header.scss */
@@ -1042,33 +1127,97 @@ header.hero .main--nav li a {
   height: 27px;
 }
 
-/* line 1, ../sass/components/_footer.scss */
-footer {
-  margin-top: 4rem;
+/* line 79, ../sass/components/_header.scss */
+header.alternate img {
+  height: 17px;
+  width: auto;
+  vertical-align: middle;
+  margin-right: 5px;
 }
-/* line 3, ../sass/components/_footer.scss */
-footer .footer--primary {
-  display: flex;
+/* line 85, ../sass/components/_header.scss */
+header.alternate a {
+  vertical-align: middle;
+  color: #000000;
 }
-/* line 5, ../sass/components/_footer.scss */
-footer .footer--primary ul {
-  flex: 1;
+/* line 89, ../sass/components/_header.scss */
+header.alternate p {
+  margin: 0;
 }
-/* line 9, ../sass/components/_footer.scss */
-footer li {
-  list-style: none;
-  margin-top: 0.3rem;
-  margin-bottom: 0.3rem;
-}
-/* line 14, ../sass/components/_footer.scss */
-footer .fave {
-  background: url("../assets/icons/heart.svg") no-repeat;
-  width: 13px;
-  height: 12px;
+/* line 92, ../sass/components/_header.scss */
+header.alternate div.secondary--header {
+  background: #EFEFEF;
+  width: 100%;
   display: inline-block;
+  padding: 0.5rem;
+}
+/* line 101, ../sass/components/_header.scss */
+header.alternate li {
+  list-style: none;
+  display: inline-block;
+  margin: 0;
+  margin-left: 2rem;
 }
 
-/* line 22, ../sass/components/_footer.scss */
+/* line 109, ../sass/components/_header.scss */
+.main--header {
+  display: inline-block;
+  width: 100%;
+}
+/* line 115, ../sass/components/_header.scss */
+.main--header h1.logo {
+  background: url("../assets/heros/fly-paradise.svg") no-repeat;
+  text-indent: -9999px;
+  display: inline-block;
+  width: 200px;
+  height: auto;
+  margin: 0.5rem 0;
+}
+/* line 123, ../sass/components/_header.scss */
+.main--header .main-menu {
+  display: inline-block;
+  margin-top: 1rem;
+  text-transform: capitalize;
+  font-weight: 300;
+}
+/* line 128, ../sass/components/_header.scss */
+.main--header .main-menu a {
+  color: #000;
+}
+/* line 133, ../sass/components/_header.scss */
+.main--header .quote a {
+  color: #ffffff;
+  background: #df3b52;
+  border: 1px solid #df3b52;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  font-size: 13px;
+}
+
+/* line 2, ../sass/components/_footer.scss */
+footer .secondary--footer {
+  background: #e65679;
+}
+/* line 4, ../sass/components/_footer.scss */
+footer .secondary--footer p {
+  color: #ffffff;
+  font-size: 46px;
+  font-weight: 700;
+  max-width: 32rem;
+  display: inline-block;
+  vertical-align: middle;
+}
+/* line 11, ../sass/components/_footer.scss */
+footer .secondary--footer p span {
+  font-size: 14px;
+  display: block;
+  font-weight: 300;
+}
+/* line 18, ../sass/components/_footer.scss */
+footer .full---width {
+  padding: 1rem 0;
+}
+
+/* line 23, ../sass/components/_footer.scss */
 .social {
   display: inline-block;
   text-indent: -9999px;
@@ -1077,22 +1226,22 @@ footer .fave {
   margin: 0 5px;
 }
 
-/* line 30, ../sass/components/_footer.scss */
+/* line 31, ../sass/components/_footer.scss */
 .fb {
   background: url("../assets/icons/social/facebook.svg") no-repeat;
 }
 
-/* line 34, ../sass/components/_footer.scss */
+/* line 35, ../sass/components/_footer.scss */
 .insta {
   background: url("../assets/icons/social/insta.svg") no-repeat;
 }
 
-/* line 38, ../sass/components/_footer.scss */
+/* line 39, ../sass/components/_footer.scss */
 .tw {
   background: url("../assets/icons/social/twitter.svg") no-repeat;
 }
 
-/* line 42, ../sass/components/_footer.scss */
+/* line 43, ../sass/components/_footer.scss */
 .footer--secondary {
   background: #EFEFEF;
   width: 100%;
@@ -1851,7 +2000,7 @@ footer .fave {
   max-width: 1140px;
   margin: auto;
   padding: 0 1rem;
-  background: #f9f9f9;
+  background: #f6f5f6;
   display: flex;
 }
 /* line 8, ../sass/components/_blog.scss */
@@ -2008,7 +2157,6 @@ header.blog--landing .prev--next .next:after {
 
 /* line 58, ../sass/components/_blog--landing.scss */
 .blog--landing-text {
-  max-width: 1080px;
   font-size: 17px;
   line-height: 26px;
   color: #4e4e4e;
@@ -2134,4 +2282,176 @@ header.blog--landing .prev--next .next:after {
   text-align: center;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
+}
+
+/* line 1, ../sass/components/_about.scss */
+input.input {
+  border: 1px solid #696969;
+  padding: 0.5rem;
+  font-weight: 300;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* line 9, ../sass/components/_about.scss */
+.about--cover {
+  background: #84dbe2;
+}
+/* line 11, ../sass/components/_about.scss */
+.about--cover img {
+  width: 40%;
+  max-width: 100%;
+}
+
+/* line 19, ../sass/components/_about.scss */
+.how-we-work .working {
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+  display: inline-block;
+  width: 49%;
+  text-align: center;
+  vertical-align: top;
+}
+/* line 26, ../sass/components/_about.scss */
+.how-we-work .working h2 {
+  margin: 0;
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+}
+/* line 31, ../sass/components/_about.scss */
+.how-we-work .working div {
+  width: 80%;
+  margin: auto;
+}
+/* line 34, ../sass/components/_about.scss */
+.how-we-work .working div p,
+.how-we-work .working div h2 {
+  color: #696969;
+}
+
+/* line 42, ../sass/components/_about.scss */
+.full--width-max {
+  background: #e65679;
+}
+/* line 44, ../sass/components/_about.scss */
+.full--width-max div {
+  max-width: 980px;
+  margin: auto;
+  padding: 2rem 0;
+}
+/* line 48, ../sass/components/_about.scss */
+.full--width-max div p {
+  width: 75%;
+  display: inline-block;
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: 100;
+}
+/* line 55, ../sass/components/_about.scss */
+.full--width-max div a {
+  display: inline-block;
+  background: #3986b6;
+  color: #ffffff;
+  padding: 0.8rem 1.4rem;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+/* line 62, ../sass/components/_about.scss */
+.full--width-max div a:after {
+  background: url("../assets/icons/send.svg");
+  display: inline-block;
+  background-repeat: no-repeat;
+  content: '';
+  width: 29px;
+  height: 24px;
+  vertical-align: middle;
+  margin-left: 30px;
+}
+
+/* line 2, ../sass/components/_destination.scss */
+.destination header.alternate {
+  box-shadow: 0px 1px 9px #888888;
+}
+/* line 6, ../sass/components/_destination.scss */
+.destination .info li,
+.destination .info span {
+  font-size: 12px;
+  list-style: none;
+  display: inline-block;
+}
+/* line 12, ../sass/components/_destination.scss */
+.destination .info span {
+  color: #696969 !important;
+}
+/* line 15, ../sass/components/_destination.scss */
+.destination .info li {
+  border: 1px solid #3986b6;
+  padding: 5px 8px;
+  border-radius: 10px;
+  color: #696969;
+}
+
+/* line 24, ../sass/components/_destination.scss */
+.destination--hero {
+  display: flex;
+  width: 1280px;
+  margin: auto;
+}
+/* line 28, ../sass/components/_destination.scss */
+.destination--hero .left--destination,
+.destination--hero .right--destination {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+/* line 34, ../sass/components/_destination.scss */
+.destination--hero .left--destination img,
+.destination--hero .right--destination img {
+  width: 720px;
+  height: auto;
+}
+/* line 40, ../sass/components/_destination.scss */
+.destination--hero .left--destination .location,
+.destination--hero .left--destination h2,
+.destination--hero .left--destination .info {
+  padding: 0 2rem;
+  margin: 0;
+}
+/* line 46, ../sass/components/_destination.scss */
+.destination--hero .left--destination > span,
+.destination--hero .left--destination > .map {
+  padding: 0 2rem;
+  margin: 0;
+}
+/* line 51, ../sass/components/_destination.scss */
+.destination--hero .left--destination h2 {
+  font-size: 60px;
+}
+/* line 54, ../sass/components/_destination.scss */
+.destination--hero .left--destination span {
+  color: #a3a3a3;
+}
+
+/* line 60, ../sass/components/_destination.scss */
+.destination--info {
+  background: #f6f5f6;
+}
+/* line 62, ../sass/components/_destination.scss */
+.destination--info .dest {
+  max-width: 1140px;
+  margin: auto;
+  padding: 3rem 1rem 0;
+}
+/* line 66, ../sass/components/_destination.scss */
+.destination--info .dest h3 {
+  font-size: 38px;
+  margin: 0;
+}
+/* line 70, ../sass/components/_destination.scss */
+.destination--info .dest p {
+  font-size: 20px;
+  width: 50%;
+  display: inline-block;
+  color: #666467;
 }
