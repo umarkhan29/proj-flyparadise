@@ -56,7 +56,7 @@ header.blog--landing {
 }
 
 .blog--landing-text {
-    max-width: 1080px;
+    @extend %full--width;
     font-size: 17px;
     line-height: 26px;
     color: #4e4e4e;
