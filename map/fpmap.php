@@ -8,9 +8,8 @@ $destination="srinagar";
 
 ?>
     <title>Find a route using Geolocation and Google Maps API</title>
-	 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4surkvbT4YrEdMSYmS-meJo6duaD1OKM&callback=myMap"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-	
     <script>
 		
         function calculateRoute(from, to) {
