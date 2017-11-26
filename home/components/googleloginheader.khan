@@ -1,0 +1,20 @@
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<meta name="google-signin-client_id" content="159171299043-aif5vfc2q43g3jf6ogbav9c0a9rpamat.apps.googleusercontent.com">
+
+<script type="text/javascript">
+	function onSignIn(googleUser) {
+	  var profile = googleUser.getBasicProfile();
+	  var name =   profile.getName(); 
+	  var image =  profile.getImageUrl();
+	  var email = profile.getEmail(); // This is null if the 'email' scope is not present.
+	  window.location = 'home/components/savegoogledata?name=' + name + '&email=' + email + '&img=' + image;
+	 
+	}
+</script>
+
+
+<script>
+  function signOut() {
+    document.location.href = "https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=http://localhost/flyparadise/get-in";
+  }
+</script>
