@@ -17,6 +17,7 @@
     <!--[if IE]>
         <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
     <![endif]-->
+	<?php include_once('home/components/googleloginheader.khan'); ?>
 </head>
 
 <body>
@@ -84,9 +85,11 @@
 					</div>
 					<input class="submit log--in" type="submit" name="reg">
 				</div>
+				
 			</form>
         </div>
     </div>
+<div class="g-signin2" data-onsuccess="onSignIn"></div>
 
 </body>
 
