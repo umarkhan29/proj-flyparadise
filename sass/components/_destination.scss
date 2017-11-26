@@ -27,6 +27,7 @@
     margin: auto;
     .left--destination,
     .right--destination {
+        position: relative;
         flex: 1;
         display: flex;
         justify-content: center;
@@ -47,6 +48,10 @@
         >.map {
             padding: 0 2rem;
             margin: 0;
+        }
+        >.map img {
+            width: auto !important;
+            margin: 2rem 0;
         }
         h2 {
             font-size: 60px;
@@ -74,4 +79,159 @@
             color: $text-over-bg;
         }
     }
+}
+
+.destination--packages {
+    max-width: 1140px;
+    margin: auto;
+    padding: 3rem 1rem 0;
+    span.hsidebar {
+        display: block;
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 14px;
+    }
+    .sidebar,
+    .main--content {
+        display: inline-block;
+        vertical-align: top;
+    }
+    .sidebar {
+        width: 30%;
+    }
+    .main--content {
+        width: 64%;
+    }
+    .main--content {
+        img {
+            width: 280px;
+            display: inline-block;
+            vertical-align: top;
+            margin-right: 16px;
+        }
+        .destination--info {
+            display: inline-block;
+            vertical-align: top;
+            width: 56%;
+            h3 {
+                margin: 0;
+                font-size: 24px;
+                line-height: 1;
+            }
+        }
+    }
+    .package--tailored {
+        border-bottom: 1px dotted $gray;
+        padding-bottom: 1rem;
+        margin-bottom: 1rem;
+    }
+    form.day--counter {
+        margin: auto;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        height: 50px;
+        margin-bottom: 3rem;
+        input[type=number] {
+            float: left;
+            width: 70px;
+            height: 30px;
+            padding: 0;
+            font-size: 14px;
+            text-transform: uppercase;
+            text-align: center;
+            color: $pink;
+            border: 1px $pink solid;
+            background: none;
+            outline: none;
+            pointer-events: none;
+        }
+        span.spinner {
+            position: absolute;
+            height: 40px;
+            user-select: none;
+            -ms-user-select: none;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -webkit-touch-callout: none;
+        }
+        span.spinner>.sub,
+        span.spinner>.add {
+            float: left;
+            display: block;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            font-size: 1.2em;
+            line-height: 28px;
+            color: $pink;
+            border: 1px $pink solid;
+            border-right: 0;
+            cursor: pointer;
+            transition: 0.1s linear;
+            -o-transition: 0.1s linear;
+            -ms-transition: 0.1s linear;
+            -moz-transition: 0.1s linear;
+            -webkit-transition: 0.1s linear;
+        }
+        span.spinner>.add {
+            top: 0;
+            border: 1px $pink solid;
+            border-left: 0;
+        }
+        span.spinner>.sub:hover,
+        span.spinner>.add:hover {
+            background: $pink;
+            color: $white;
+        }
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+        }
+    }
+    .duration {
+        font-size: 15px;
+        color: $blue;
+        line-height: 2;
+    }
+    .price {
+        font-size: 22px;
+        font-weight: 600;
+        color: #4caf50;
+    }
+}
+
+.transportation,
+.temprature {
+    img {
+        width: 35px !important;
+        margin: 0 8px;
+    }
+}
+
+.temprature {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    img,
+    span {
+        vertical-align: middle;
+        margin: 0;
+    }
+    span {
+        color: $white;
+        font-size: 20px;
+    }
+}
+
+.inclusions {
+    margin: 1rem 0;
+    img {
+        width: auto !important;
+    }
+}
+
+button.view--package {
+    @extend %btn-blu;
 }
