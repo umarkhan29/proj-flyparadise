@@ -41,23 +41,24 @@
             <h2>Kashmir</h2>
             <span>Visit an exotic paradise where land bursts with color, the mountains clad with snow and there is no overtime.</span>
             <div class="map">
-                <p class="map">View Location on Map</p>
+                <img class="map" src="./assets/icons/transport/placeholder.svg" alt="">
             </div>
             <div class="info">
-                <ul>
-                    <span>Links:</span>
-                    <li>Air</li>
-                    <li>Water</li>
-                    <li>Road</li>
-                    <li>Rail</li>
+                <ul class="transportation">
+                    <span>Links to destination:</span>
+                    <img class="air" src="./assets/icons/transport/airplane.svg" alt="Air Transport">
+                    <img class="water" src="./assets/icons/transport/yacht.svg" alt="Air Transport">
+                    <img class="road" src="./assets/icons/transport/bus.svg" alt="Air Transport">
+                    <img class="rail" src="./assets/icons/transport/train.svg" alt="Air Transport">
+
                 </ul>
                 <ul>
                     <span>Worth Watching:</span>
                     <li>Water</li>
                     <li>Snow</li>
-                    <li>Green pastures</li>
                     <li>Mountains</li>
-                    <li>Galciers</li>
+                    <li>Glaciers</li>
+                    <li>Bird watching</li>
                 </ul>
                 <ul>
                     <span>Getaways:</span>
@@ -69,6 +70,10 @@
         </div>
         <div class="right--destination">
             <img src="./assets/destinations/kashmir.JPG" alt="">
+            <div class="temprature">
+                <img src="./assets/icons/transport/temperature.svg" alt="">
+                <span>20 &deg;</span>
+            </div>
             <div class="overlay">
                 <span class="weather">
 
@@ -84,14 +89,87 @@
         </div>
         <div class="destination--packages">
             <div class="sidebar">
+                <form class="day--counter">
+                    <span class="hsidebar">Duration (in nights)</span>
+                    <input id="counter-no" type="number" min="1" max="30" value="1" />
+                </form>
                 <div>
-                    <label class="control control--checkbox">First checkbox
+                    <span class="hsidebar">Categories</span>
+                    <label class="control control--checkbox">Honeymoon
                         <input type="checkbox" checked="checked"/>
                         <div class="control__indicator"></div>
                     </label>
+                    <label class="control control--checkbox">Solo trip
+                        <input type="checkbox"/>
+                        <div class="control__indicator"></div>
+                    </label>
+                    <label class="control control--checkbox">Family and Friends
+                        <input type="checkbox"/>
+                        <div class="control__indicator"></div>
+                    </label>
+                </div>
+                <div>
+                    <span class="hsidebar">Categories</span>
+                    <label class="control control--checkbox">Honeymoon
+                            <input type="checkbox" checked="checked"/>
+                            <div class="control__indicator"></div>
+                        </label>
+                    <label class="control control--checkbox">Solo trip
+                            <input type="checkbox"/>
+                            <div class="control__indicator"></div>
+                        </label>
+                    <label class="control control--checkbox">Family and Friends
+                            <input type="checkbox"/>
+                            <div class="control__indicator"></div>
+                        </label>
                 </div>
             </div>
             <div class="main--content">
+                <div class="package--tailored">
+                    <img src="./assets/destinations/particular-dest/thumb.png" alt="">
+                    <div class="destination--info">
+                        <h3>Kashmir enchanting</h3>
+                        <span class="duration">4 days 3 nights</span>
+                        <div class="price">19,000/-</div>
+                        <div class="inclusions">
+                            <img src="./assets/icons/transport/meals.svg" alt="Meals">
+                            <img src="./assets/icons/transport/stars.svg" alt="hotel stars">
+                            <img src="./assets/icons/transport/view.svg" alt="Site seeing">
+                            <img src="./assets/icons/transport/more.svg" alt="Complimentary from destination">
+                        </div>
+                        <button class="view--package">View this Package</button>
+                    </div>
+                </div>
+                <div class="package--tailored">
+                    <img src="./assets/destinations/particular-dest/thumb.png" alt="">
+                    <div class="destination--info">
+                        <h3>Kashmir enchanting</h3>
+                        <span class="duration">5 days 4 nights</span>
+                        <div class="price">19,000/-</div>
+                        <div class="inclusions">
+                            <img src="./assets/icons/transport/meals.svg" alt="Meals">
+                            <img src="./assets/icons/transport/stars.svg" alt="hotel stars">
+                            <img src="./assets/icons/transport/view.svg" alt="Site seeing">
+                            <img src="./assets/icons/transport/more.svg" alt="Complimentary from destination">
+                        </div>
+                        <button class="view--package">View this Package</button>
+                    </div>
+                </div>
+                <div class="package--tailored">
+                    <img src="./assets/destinations/particular-dest/thumb.png" alt="">
+                    <div class="destination--info">
+                        <h3>Kashmir enchanting</h3>
+                        <span class="duration">6 days 5 nights</span>
+                        <div class="price">19,000/-</div>
+                        <div class="inclusions">
+                            <img src="./assets/icons/transport/meals.svg" alt="Meals">
+                            <img src="./assets/icons/transport/stars.svg" alt="hotel stars">
+                            <img src="./assets/icons/transport/view.svg" alt="Site seeing">
+                            <img src="./assets/icons/transport/more.svg" alt="Complimentary from destination">
+                        </div>
+                        <button class="view--package">View this Package</button>
+                    </div>
+                </div>
 
             </div>
         </div>

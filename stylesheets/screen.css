@@ -933,7 +933,7 @@ input:hover {
 }
 
 /* line 50, ../sass/components/_basic.scss */
-.hero--submit, .explore--more a, .get--in .submit {
+.hero--submit, .explore--more a, .get--in .submit, button.view--package {
   font-size: 12px;
   background: #3986b6;
   font-weight: 300;
@@ -985,7 +985,7 @@ header.alternate .inside--secondary, .main--header .menu--heading, .blog--landin
   padding-left: 30px;
   margin-bottom: 15px;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 14px;
 }
 /* line 97, ../sass/components/_basic.scss */
 .control input {
@@ -2400,58 +2400,235 @@ input.input {
 /* line 28, ../sass/components/_destination.scss */
 .destination--hero .left--destination,
 .destination--hero .right--destination {
+  position: relative;
   flex: 1;
   display: flex;
   justify-content: center;
   flex-direction: column;
 }
-/* line 34, ../sass/components/_destination.scss */
+/* line 35, ../sass/components/_destination.scss */
 .destination--hero .left--destination img,
 .destination--hero .right--destination img {
   width: 720px;
   height: auto;
 }
-/* line 40, ../sass/components/_destination.scss */
+/* line 41, ../sass/components/_destination.scss */
 .destination--hero .left--destination .location,
 .destination--hero .left--destination h2,
 .destination--hero .left--destination .info {
   padding: 0 2rem;
   margin: 0;
 }
-/* line 46, ../sass/components/_destination.scss */
+/* line 47, ../sass/components/_destination.scss */
 .destination--hero .left--destination > span,
 .destination--hero .left--destination > .map {
   padding: 0 2rem;
   margin: 0;
 }
-/* line 51, ../sass/components/_destination.scss */
+/* line 52, ../sass/components/_destination.scss */
+.destination--hero .left--destination > .map img {
+  width: auto !important;
+  margin: 2rem 0;
+}
+/* line 56, ../sass/components/_destination.scss */
 .destination--hero .left--destination h2 {
   font-size: 60px;
 }
-/* line 54, ../sass/components/_destination.scss */
+/* line 59, ../sass/components/_destination.scss */
 .destination--hero .left--destination span {
   color: #a3a3a3;
 }
 
-/* line 60, ../sass/components/_destination.scss */
+/* line 65, ../sass/components/_destination.scss */
 .destination--info {
   background: #f6f5f6;
 }
-/* line 62, ../sass/components/_destination.scss */
+/* line 67, ../sass/components/_destination.scss */
 .destination--info .dest {
   max-width: 1140px;
   margin: auto;
   padding: 3rem 1rem 0;
 }
-/* line 66, ../sass/components/_destination.scss */
+/* line 71, ../sass/components/_destination.scss */
 .destination--info .dest h3 {
   font-size: 38px;
   margin: 0;
 }
-/* line 70, ../sass/components/_destination.scss */
+/* line 75, ../sass/components/_destination.scss */
 .destination--info .dest p {
   font-size: 20px;
   width: 50%;
   display: inline-block;
   color: #666467;
+}
+
+/* line 84, ../sass/components/_destination.scss */
+.destination--packages {
+  max-width: 1140px;
+  margin: auto;
+  padding: 3rem 1rem 0;
+}
+/* line 88, ../sass/components/_destination.scss */
+.destination--packages span.hsidebar {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+/* line 94, ../sass/components/_destination.scss */
+.destination--packages .sidebar,
+.destination--packages .main--content {
+  display: inline-block;
+  vertical-align: top;
+}
+/* line 99, ../sass/components/_destination.scss */
+.destination--packages .sidebar {
+  width: 30%;
+}
+/* line 102, ../sass/components/_destination.scss */
+.destination--packages .main--content {
+  width: 64%;
+}
+/* line 106, ../sass/components/_destination.scss */
+.destination--packages .main--content img {
+  width: 280px;
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 16px;
+}
+/* line 112, ../sass/components/_destination.scss */
+.destination--packages .main--content .destination--info {
+  display: inline-block;
+  vertical-align: top;
+  width: 56%;
+}
+/* line 116, ../sass/components/_destination.scss */
+.destination--packages .main--content .destination--info h3 {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1;
+}
+/* line 123, ../sass/components/_destination.scss */
+.destination--packages .package--tailored {
+  border-bottom: 1px dotted #c7c7c7;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+/* line 128, ../sass/components/_destination.scss */
+.destination--packages form.day--counter {
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 50px;
+  margin-bottom: 3rem;
+}
+/* line 136, ../sass/components/_destination.scss */
+.destination--packages form.day--counter input[type=number] {
+  float: left;
+  width: 70px;
+  height: 30px;
+  padding: 0;
+  font-size: 14px;
+  text-transform: uppercase;
+  text-align: center;
+  color: #df3b52;
+  border: 1px #df3b52 solid;
+  background: none;
+  outline: none;
+  pointer-events: none;
+}
+/* line 150, ../sass/components/_destination.scss */
+.destination--packages form.day--counter span.spinner {
+  position: absolute;
+  height: 40px;
+  user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+/* line 159, ../sass/components/_destination.scss */
+.destination--packages form.day--counter span.spinner > .sub,
+.destination--packages form.day--counter span.spinner > .add {
+  float: left;
+  display: block;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  font-size: 1.2em;
+  line-height: 28px;
+  color: #df3b52;
+  border: 1px #df3b52 solid;
+  border-right: 0;
+  cursor: pointer;
+  transition: 0.1s linear;
+  -o-transition: 0.1s linear;
+  -ms-transition: 0.1s linear;
+  -moz-transition: 0.1s linear;
+  -webkit-transition: 0.1s linear;
+}
+/* line 178, ../sass/components/_destination.scss */
+.destination--packages form.day--counter span.spinner > .add {
+  top: 0;
+  border: 1px #df3b52 solid;
+  border-left: 0;
+}
+/* line 183, ../sass/components/_destination.scss */
+.destination--packages form.day--counter span.spinner > .sub:hover,
+.destination--packages form.day--counter span.spinner > .add:hover {
+  background: #df3b52;
+  color: #ffffff;
+}
+/* line 188, ../sass/components/_destination.scss */
+.destination--packages form.day--counter input[type=number]::-webkit-inner-spin-button,
+.destination--packages form.day--counter input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+/* line 193, ../sass/components/_destination.scss */
+.destination--packages .duration {
+  font-size: 15px;
+  color: #3986b6;
+  line-height: 2;
+}
+/* line 198, ../sass/components/_destination.scss */
+.destination--packages .price {
+  font-size: 22px;
+  font-weight: 600;
+  color: #4caf50;
+}
+
+/* line 207, ../sass/components/_destination.scss */
+.transportation img,
+.temprature img {
+  width: 35px !important;
+  margin: 0 8px;
+}
+
+/* line 213, ../sass/components/_destination.scss */
+.temprature {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}
+/* line 217, ../sass/components/_destination.scss */
+.temprature img,
+.temprature span {
+  vertical-align: middle;
+  margin: 0;
+}
+/* line 222, ../sass/components/_destination.scss */
+.temprature span {
+  color: #ffffff;
+  font-size: 20px;
+}
+
+/* line 228, ../sass/components/_destination.scss */
+.inclusions {
+  margin: 1rem 0;
+}
+/* line 230, ../sass/components/_destination.scss */
+.inclusions img {
+  width: auto !important;
 }
