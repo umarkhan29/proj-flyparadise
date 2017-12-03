@@ -15,12 +15,16 @@
     <!--Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=PT+Serif" rel="stylesheet">
+    <script src="https://use.fontawesome.com/441c105168.js"></script>
+    <script src="https://s.codepen.io/assets/libs/modernizr.js" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="libraries/owl.carousel.min.js"></script>
     <script src="libraries/js/main.js"></script>
+	
     <!--[if IE]>
             <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
         <![endif]-->
+	
 </head>
 
 <body class="destination">
@@ -43,8 +47,8 @@
 	
 <?php
 //Fetching destination
-$id=2;
- $query = "SELECT * FROM `destinations` WHERE `id` = '$id' ";
+$id=1;
+$query = "SELECT * FROM `destinations` WHERE `id` = '$id' ";
 			if($result = mysqli_query($dbconn,$query)){
 				$destinations;
 				$count=0;
@@ -53,7 +57,7 @@ $id=2;
 							
 							'ID'			=>	$row['id'],
 							'PATH' 			=> 	$row['img1'],
-							'MAINHEADING' 	=> 	$row['mainheading'],
+							'DESTINATION' 	=> 	$row['destination'],
 							'DESC'	 	=> 	$row['desc'],
 							'LINKS' 		=> 	$row['links'],
 							'WORHWATCHING' 	=> 	$row['worthwatching'],
@@ -75,25 +79,27 @@ $id=2;
     <div class="destination--hero">
         <div class="left--destination">
             <span class="location"></span>
-            <h2><?php echo $destinations[0]['MAINHEADING'] ?></h2>
-            <span><?php echo $destinations[0]['DESC'] ?></span>
+            <h2><?php echo $destinations[0]['DESTINATION']; ?></h2>
+            <span><?php echo $destinations[0]['DESC']; ?></span>
             <div class="map">
-                <p class="map">View Location on Map</p>
+                <img class="map" src="./assets/icons/transport/placeholder.svg" alt="">
             </div>
             <div class="info">
-                <ul>
-				<?php
-				//getting seperate links
-				$links=explode('$$$$',$destinations[0]['LINKS']);
-				
-				 ?>
-                    <span>Links:</span>
-                    <?php for($i=0;$i<count($links); $i++) { ?>
-						<li><?php echo $links[$i]; ?></li> 
+              <ul class="transportation">
+			  	<?php
+					//getting seperate links
+					$links=explode('$$$$',$destinations[0]['LINKS']);
+				?>
+                    <span>Links to destination:</span>
+					<?php for($i=0;$i<count($links); $i++) { ?>
+						<?php  if($links[$i]=='Air')echo '<img class="air" src="./assets/icons/transport/airplane.svg" alt="Air Transport">'; ?>
+						<?php  if($links[$i]=='Water')echo '<img class="water" src="./assets/icons/transport/yacht.svg" alt="Water Transport">'; ?>
+						<?php  if($links[$i]=='Road')echo ' <img class="road" src="./assets/icons/transport/bus.svg" alt="Bus Transport">'; ?>
+						<?php  if($links[$i]=='Rail')echo '<img class="rail" src="./assets/icons/transport/train.svg" alt="Train Transport">'; ?> 
 						
 					<?php } ?>
+                  
                 </ul>
-				
                 <ul>
 				<?php
 				//getting seperate worthwatching
@@ -123,6 +129,19 @@ $id=2;
         </div>
         <div class="right--destination">
             <img src="<?php echo $destinations[0]['PATH']; ?>" alt="">
+			 <div class="temprature">
+			 <?php
+			 //fetching temprature
+			 	$des="srinagar";
+				$jsonurl = "http://api.openweathermap.org/data/2.5/weather?q=".$des."&appid=536a874ed7c30387414c700ed1990ce5";
+				$json = file_get_contents($jsonurl);
+				$weather = json_decode($json);
+				$kelvin = $weather->main->temp;
+				$celcius = $kelvin - 273.15; //Converting Kelvin to celcius
+			 ?>
+                <img src="./assets/icons/transport/temperature.svg" alt="">
+                <span><?php echo $celcius;  ?>  &deg;</span>
+            </div>
             <div class="overlay">
                 <span class="weather">
 
@@ -136,20 +155,142 @@ $id=2;
             <h3><?php echo $destinations[0]['HEADING2'] ?></h3>
             <p><?php echo $destinations[0]['DESC2'] ?></p>
         </div>
-        <div class="destination--packages">
+          <div class="destination--packages">
             <div class="sidebar">
-                <div>
-                    <label class="control control--checkbox">First checkbox
-                        <input type="checkbox" checked="checked"/>
+                <form class="day--counter" onClick="showpackages('cpackages');" >
+                    <span class="hsidebar">Duration (in nights)</span>
+                    <input id="counter-no" type="number" min="1" max="30" value="1" />
+                </form>
+                <div >
+                    <span class="hsidebar">Categories</span>
+                    <label class="control control--checkbox" onClick="showpackages('cpackages');">Honeymoon
+                        <input type="checkbox" checked="checked" name="Honeymoon" value="Honeymoon"/>
+                        <div class="control__indicator"></div>
+                    </label>
+                    <label class="control control--checkbox" onClick="showpackages('cpackages');">Solo trip
+                        <input type="checkbox" name="Solo" value="Solo"/>
+                        <div class="control__indicator"></div>
+                    </label>
+                    <label class="control control--checkbox" onClick="showpackages('cpackages');">Family and Friends
+                        <input type="checkbox" name="Family and Friends" value="Family and Friends"/>
                         <div class="control__indicator"></div>
                     </label>
                 </div>
+                <!-- RATING - Form -->
+                <form class="rating-form" action="#" method="post" name="rating-movie">
+                    <span class="hsidebar">Stay star rating</span>
+                    <fieldset class="form-group">
+                        <legend class="form-legend">Rating:</legend>
+                        <div class="form-item" onClick="showpackages('cpackages');">
+                            <input id="rating-5" name="rating" type="radio" value="5" />
+                            <label for="rating-5" data-value="5">
+                                <span class="rating-star">
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star"></i>
+                                </span>
+                                <span class="ir">5</span>
+                            </label>
+                            <input id="rating-4" name="rating" type="radio" value="4" />
+                            <label for="rating-4" data-value="4">
+                                <span class="rating-star">
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star"></i>
+                                </span>
+                                <span class="ir">4</span>
+                            </label>
+                            <input id="rating-3" name="rating" type="radio" value="3" />
+                            <label for="rating-3" data-value="3">
+                                <span class="rating-star">
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star"></i>
+                                </span>
+                                <span class="ir">3</span>
+                            </label>
+                            <input id="rating-2" name="rating" type="radio" value="2" />
+                            <label for="rating-2" data-value="2">
+                                <span class="rating-star">
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star"></i>
+                                </span>
+                                <span class="ir">2</span>
+                            </label>
+                            <input id="rating-1" name="rating" type="radio" value="1" />
+                            <label for="rating-1" data-value="1">
+                                <span class="rating-star">
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star"></i>
+                                </span>
+                                <span class="ir">1</span>
+                            </label>
+                            <div class="form-action">
+                                <input class="btn-reset" type="reset" value="Reset" onClick="showpackages('cpackages');"/>
+                            </div>
+                            <div class="form-output">
+                                ? / 5
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
             </div>
-            <div class="main--content">
+	
+	
+	<?php
+	//fetching initial packages (on page load)
+	 $destination="Kashmir";
+	 $query = "SELECT * FROM `packages` WHERE `destination` = '$destination' ";
+			if($result = mysqli_query($dbconn,$query)){
+				$packages;
+				$count=0;
+				while($row = mysqli_fetch_assoc($result)){
+					$packages[] = array(
+							
+							'ID'			=>	$row['id'],
+							'PATH' 			=> 	$row['path'],
+							'TITLE' 		=> 	$row['title'],
+							'DESC'	 		=> 	$row['description'],
+							'DESTINATION' 	=> 	$row['destination'],
+							'DURATION' 		=> 	$row['duration'],
+							'HOTELSTAR' 	=> 	$row['hotelstar'],
+							'FLIGHTS' 		=> 	$row['includeflights'],
+							'PRICE' 		=> 	$row['price'],
+							
+						);
+						 $count=$count+1;
+						
+				}
+				
+			}
+			else{
+				echo mysqli_error($dbconn);
+			}
 
+	
+	?>
+		
+		
+            <div class="main--content">
+				<div id="cpackages">
+					<?php for($i=0;$i<6;$i++) {  //Loading Packages ?>
+						<div class="package--tailored">
+							<img src="<?php echo $packages[$i]['PATH'] ?>" alt="">
+							<div class="destination--info">
+								<h3><?php echo $packages[$i]['TITLE'] ?></h3>
+								<span class="duration"><?php echo $packages[$i]['DURATION'] ?></span>
+								<div class="price"><?php echo $packages[$i]['PRICE'] ?>/-</div>
+								<div class="inclusions">
+									<img src="./assets/icons/transport/meals.svg" alt="Meals">
+									<img src="./assets/icons/transport/stars.svg" alt="hotel stars">
+									<img src="./assets/icons/transport/view.svg" alt="Site seeing">
+									<img src="./assets/icons/transport/more.svg" alt="Complimentary from destination">
+								</div>
+								<button class="view--package">View this Package</button>
+							</div>
+						</div>
+					<?php } ?>  
+				</div>
             </div>
         </div>
     </div>
 </body>
-
+<?php include_once("home/ajaxcomponents/pullpackages.php"); ?>
 </html>
