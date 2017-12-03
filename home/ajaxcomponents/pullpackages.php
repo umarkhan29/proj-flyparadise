@@ -42,6 +42,8 @@
 		//getting package duration
 		var duration=document.getElementById('counter-no').value;
 		
+		//getting filter price
+		var price=document.getElementById('amount').value;
 		
 		//processing filter
 		if(window.XMLHttpRequest){
@@ -56,7 +58,7 @@
 				document.getElementById(thediv).innerHTML = xmlhttp.responseText;
 			}
 		}
-		xmlhttp.open('GET','home/ajaxcomponents/getpackages.php?stars='+stars+'&destination='+destination+'&honeymoon='+honeymoon+'&solo='+solo+'&ff='+ff+'&duration='+duration,true);
+		xmlhttp.open('GET','home/ajaxcomponents/getpackages.php?stars='+stars+'&destination='+destination+'&honeymoon='+honeymoon+'&solo='+solo+'&ff='+ff+'&duration='+duration+'&price='+price,true);
 		
 		xmlhttp.send();
 		

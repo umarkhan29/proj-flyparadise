@@ -1,6 +1,7 @@
 <?php
 	require_once('home/catalog/connect.khan');
 	require_once('home/catalog/session.khan');
+	error_reporting(0);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,11 +17,10 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=PT+Serif" rel="stylesheet">
     <script src="https://use.fontawesome.com/441c105168.js"></script>
-    <script src="https://s.codepen.io/assets/libs/modernizr.js" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="libraries/owl.carousel.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
     <script src="libraries/js/main.js"></script>
-	
     <!--[if IE]>
             <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
         <![endif]-->
@@ -32,6 +32,7 @@
         <div class="main--header">
             <div class="menu--heading">
                 <h1 class="logo left">fly paradise</h1>
+                <img class="fp--logo" src="./assets/heros/logo.png" alt="Fly Paradise logo">
                 <div class="main-menu right">
                     <li><a href="">Packages</a></li>
                     <li><a href="">Destinations</a></li>
@@ -135,12 +136,17 @@ $query = "SELECT * FROM `destinations` WHERE `id` = '$id' ";
 			 	$des="srinagar";
 				$jsonurl = "http://api.openweathermap.org/data/2.5/weather?q=".$des."&appid=536a874ed7c30387414c700ed1990ce5";
 				$json = file_get_contents($jsonurl);
-				$weather = json_decode($json);
-				$kelvin = $weather->main->temp;
-				$celcius = $kelvin - 273.15; //Converting Kelvin to celcius
+				$celcius="";
+				if($json!=""){
+					$weather = json_decode($json);
+					$kelvin = $weather->main->temp;
+					$celcius = $kelvin - 273.15; //Converting Kelvin to celcius
+				
 			 ?>
                 <img src="./assets/icons/transport/temperature.svg" alt="">
                 <span><?php echo $celcius;  ?>  &deg;</span>
+				
+			<?php } //ending if-temprature ?>
             </div>
             <div class="overlay">
                 <span class="weather">
@@ -231,6 +237,14 @@ $query = "SELECT * FROM `destinations` WHERE `id` = '$id' ";
                         </div>
                     </fieldset>
                 </form>
+				<section id="content" class="price--slider">
+                    <span class="hsidebar">What is your budget?</span>
+                    <div class="cube">
+
+                        <div id="slider-range-min" onClick="showpackages('cpackages');"></div>
+                    </div>
+                    <input type="text" id="amount" onClick="showpackages('cpackages');"/>
+                </section>
             </div>
 	
 	
