@@ -113,12 +113,14 @@ header.alternate {
         @extend %full--width;
     }
     h1.logo {
-        background: url("../assets/heros/fly-paradise.svg") no-repeat;
-        text-indent: -9999px;
-        display: inline-block;
-        width: 200px;
-        height: auto;
-        margin: 0.5rem 0;
+        display: none;
+    }
+    img.fp--logo {
+        height: 40px;
+        width: auto;
+        vertical-align: middle;
+        margin-right: 5px;
+        margin: 12px 0;
     }
     .main-menu {
         display: inline-block;
