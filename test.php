@@ -1,14 +1,30 @@
- <?php
-			 //fetching temprature
-			 error_reporting(0);
-			 	$des="kashmir";
-				$jsonurl = "http://api.openweathermap.org/data/2.5/weather?q=".$des."&appid=536a874ed7c30387414c700ed1990ce5";
-				$json = file_get_contents($jsonurl);
-				$celcius="";
-				
-				if($json!=""){
-					$weather = json_decode($json);
-					$kelvin = $weather->main->temp;
-					echo $celcius = $kelvin - 273.15; //Converting Kelvin to celcius
-				}
-			 ?>
+<html>
+<head>
+<title>My Great Website</title>
+</head>
+   <body>
+      <div id="fb-root"></div>
+      <script src="http://connect.facebook.net/en_US/all.js">
+      </script>
+      <script>
+         FB.init({ 
+         appId:'133246520647341', cookie:true, 
+                status:true, xfbml:true 
+             });
+        FB.login(function(response) {
+          if (response.session && response.perms) {
+            alert(response.perms);
+          }
+        }, {perms:'user_address, user_mobile_phone'});
+        </script>
+		
+		
+		
+	<script src="http://connect.facebook.net/en_US/all.js#xfbml=1&
+      appId=133246520647341"></script>
+      <div id="fb-root"></div>
+      <fb:login-button perms="user_address,user_mobile_phone">Login
+      </fb:login-button>
+	  
+      <body>
+<html>

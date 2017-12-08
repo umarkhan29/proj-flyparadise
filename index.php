@@ -1,6 +1,7 @@
 <?php
 	require_once('home/catalog/connect.khan');
-	require_once('home/catalog/session.khan');
+	require('home/catalog/session.khan');
+	var_dump($_SESSION);
 ?>
 		
 <!DOCTYPE html>

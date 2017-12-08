@@ -16,6 +16,7 @@
 						$_SESSION['Loggedin_User_password']=$user__pass;
 						$_SESSION['current_loggedin_user']= $user__name;
 						$_SESSION['current_loggedin_user_email']=$row['email'];
+						$_SESSION['signvia']="usrpwd";
 						header('location:index');
 					}
 					else{
