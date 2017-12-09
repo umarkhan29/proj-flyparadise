@@ -8,7 +8,6 @@
     <title>Fly Paradise</title>
     <link href="stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
     <link href="stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
-    <link href="libraries/owl.carousel.min.css" media="print" rel="stylesheet" type="text/css" />
     <!--Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=PT+Serif" rel="stylesheet">
@@ -17,6 +16,8 @@
     <script src="libraries/owl.carousel.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
     <script src="libraries/js/main.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
     <!--[if IE]>
             <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
         <![endif]-->
@@ -53,7 +54,145 @@
                 <img src="assets/single--destination/one.png" alt="">
             </div>
         </div>
-        <h2 class="pack-heading">kashmir package <span>4 days and 3 nights</span></h2>
+        <div class="single--packing_desc">
+            <div class="border">
+                <h2 class="pack-heading">kashmir package <span>4 days and 3 nights</span></h2>
+                <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eadem nunc mea adversum te oratio est. Nunc omni virtuti vitium contrario nomine opponitur. At iam decimum annum in spelunca iacet.</p>
+            </div>
+            <div class="inclusions--package">
+                <div class="inclusions border">
+                    <img src="./assets/icons/transport/air.svg" alt="Air Transfer" label="Air Transfer">
+                    <img src="./assets/icons/transport/meals.svg" alt="Meals">
+                    <img src="./assets/icons/transport/transfer.svg" alt="Transfers">
+                    <img src="./assets/icons/transport/stars.svg" alt="hotel stars">
+                    <img src="./assets/icons/transport/view.svg" alt="Site seeing">
+                    <img src="./assets/icons/transport/more.svg" alt="Complimentary from destination">
+                </div>
+                <div class="stars border">
+                    <ul class="hotel">
+                        <li>
+                            <input type="radio" id="f-option" name="selector">
+                            <label for="f-option">Budget stay</label>
+
+                            <div class="check"></div>
+                        </li>
+
+                        <li>
+                            <input type="radio" id="s-option" name="selector">
+                            <label for="s-option">3 Star</label>
+
+                            <div class="check">
+                                <div class="inside"></div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <input type="radio" id="t-option" name="selector">
+                            <label for="t-option">4 star</label>
+
+                            <div class="check">
+                                <div class="inside"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <input type="radio" id="w-option" name="selector">
+                            <label for="w-option">5 star</label>
+
+                            <div class="check">
+                                <div class="inside"></div>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="price--tag">
+                        <div class="price--starting">
+                            <span>starting from (per person)</span>
+                            <div class="amount"><span>₹</span>3,000</div>
+                        </div>
+                        <div class="select-2--wrapper">
+                            <span>For the Month of</span>
+                            <select class="js-example-basic-single" name="listing" id="">
+                                <option value="1">Jan 2018</option>
+                                <option value="2">Feb 2018</option>
+                                <option value="3">Mar 2018</option>
+                                <option value="4">Apr 2018</option>
+                                <option value="5">May 2018</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <button class="cta">Submit</button>
+            </div>
+        </div>
+        <!-- Iternary timeline -->
+        <div class="container experience">
+            <div class="row">
+                <div class="col-md-12">
+                    <h4>ITERNARY</h4>
+                    <section class="cd-horizontal-timeline container">
+                        <div class="timeline">
+                            <div class="events-wrapper">
+                                <div class="events">
+                                    <ol>
+                                        <li>
+                                            <a href="#0" data-date="01/05/2011" class="selected">
+                                                <span class="iternary--date">One date</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="#0" data-date="01/03/2012">
+                                                <span class="iternary--date">2nd date</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="#0" data-date="01/0/2013">
+                                                <span class="iternary--date">3rd date</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="#0" data-date="01/05/2014">
+                                                <span class="iternary--date">4rd date</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="#0" data-date="01/06/2015">
+                                                <span class="iternary--date">5rd date</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="#0" data-date="01/07/2016">
+                                                <span class="iternary--date">6rd date</span></a>
+                                        </li>
+                                    </ol>
+
+                                    <span class="filling-line" aria-hidden="true"></span>
+                                </div>
+                                <!-- .events -->
+                            </div>
+                            <!-- .events-wrapper -->
+                        </div>
+                        <!-- .timeline -->
+
+                        <div class="events-content">
+                            <ol>
+                                <li class="selected" data-date="01/05/2015">
+                                    <h5>Day one khap khap </h5>
+                                    <em>Today</em>
+                                    <p>This is a test package</p>
+                                    <br>
+                                    <p>Dopmai az ladnaaw</p>
+                                </li>
+
+                                <li data-date="01/03/2014">
+                                </li>
+
+                                <li data-date="01/02/2013">
+                                    <h5>Day one khap khap </h5>
+                                    <em>Today</em>
+                                    <p>This is a test package</p>
+                                    <br>
+                                    <p>Dopmai az ladnaaw</p>
+                                </li>
+                            </ol>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 
