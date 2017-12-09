@@ -1,16 +1,9 @@
 $(document).ready(function() {
-    $(".testimonial#owl").owlCarousel({
+    $("#owl").owlCarousel({
         navigation: false,
         slideSpeed: 100,
         paginationSpeed: 800,
         items: 3,
-        autoPlay: false
-    });
-    $(".single--package#owl").owlCarousel({
-        navigation: false,
-        slideSpeed: 100,
-        paginationSpeed: 800,
-        items: 1,
         autoPlay: false
     });
 

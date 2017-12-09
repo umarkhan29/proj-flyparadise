@@ -48,7 +48,7 @@
 	
 <?php
 //Fetching destination
-$id=1;
+$id=2;
 $query = "SELECT * FROM `destinations` WHERE `id` = '$id' ";
 			if($result = mysqli_query($dbconn,$query)){
 				$destinations;
@@ -305,6 +305,14 @@ $query = "SELECT * FROM `destinations` WHERE `id` = '$id' ";
             </div>
         </div>
     </div>
+	
+<div>
+	<?php
+		include_once('map/fpmap.php');
+	?>
+</div>
+
+
 </body>
 <?php include_once("home/ajaxcomponents/pullpackages.php"); ?>
 </html>
