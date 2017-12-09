@@ -18,6 +18,7 @@
         <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
     <![endif]-->
 	<?php include_once('home/components/googleloginheader.khan'); ?>
+	<?php  include_once('home/components/facebookloginheader.khan'); ?>
 </head>
 
 <body>
@@ -89,7 +90,16 @@
 			</form>
         </div>
     </div>
+
+<!--Google Login-->	
 <div class="g-signin2" data-onsuccess="onSignIn"></div>
+
+<!--Facebook Login-->
+
+<?php include_once('home/components/facebooklogin.php'); ?>
+<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false" scope="public_profile,email" perms="user_address,user_mobile_phone" onlogin="checkLoginState();"></div>
+
+
 
 </body>
 

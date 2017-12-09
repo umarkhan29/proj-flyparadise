@@ -87,6 +87,8 @@ $(function() {
     });
     $(".ui-slider-handle");
     $("#amount").val("₹" + $("#slider-range-min").slider("value") + ",000");
+<<<<<<< HEAD
+=======
 
 });
 $(document).ready(function() {
@@ -361,4 +363,5 @@ jQuery(document).ready(function($) {
         //check if mobile or desktop device
         return window.getComputedStyle(document.querySelector('.cd-horizontal-timeline'), '::before').getPropertyValue('content').replace(/'/g, "").replace(/"/g, "");
     }
+>>>>>>> 958eb52b7c3c7ff88f01b09cef46c85415ed9211
 });

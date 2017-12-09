@@ -2618,7 +2618,11 @@ input.input {
 .transportation img,
 .temprature img {
   width: auto !important;
+<<<<<<< HEAD
+  height: 35px !important;
+=======
   height: 22px !important;
+>>>>>>> 958eb52b7c3c7ff88f01b09cef46c85415ed9211
   margin: 0 8px;
   vertical-align: middle;
 }
@@ -2652,14 +2656,22 @@ input.input {
 }
 
 /* RATING - Form */
+<<<<<<< HEAD
+/* line 245, ../sass/components/_destination.scss */
+=======
 /* line 246, ../sass/components/_destination.scss */
+>>>>>>> 958eb52b7c3c7ff88f01b09cef46c85415ed9211
 .rating-form {
   margin-top: 40px;
   position: relative;
 }
 
 /* RATING - Form - Group */
+<<<<<<< HEAD
+/* line 253, ../sass/components/_destination.scss */
+=======
 /* line 254, ../sass/components/_destination.scss */
+>>>>>>> 958eb52b7c3c7ff88f01b09cef46c85415ed9211
 .rating-form .form-group {
   position: relative;
   border: 0;
@@ -2668,7 +2680,11 @@ input.input {
 }
 
 /* RATING - Form - Legend */
+<<<<<<< HEAD
+/* line 263, ../sass/components/_destination.scss */
+=======
 /* line 264, ../sass/components/_destination.scss */
+>>>>>>> 958eb52b7c3c7ff88f01b09cef46c85415ed9211
 .rating-form .form-legend {
   display: none;
   margin: 0;
@@ -2679,7 +2695,11 @@ input.input {
 }
 
 /* RATING - Form - Item */
+<<<<<<< HEAD
+/* line 275, ../sass/components/_destination.scss */
+=======
 /* line 276, ../sass/components/_destination.scss */
+>>>>>>> 958eb52b7c3c7ff88f01b09cef46c85415ed9211
 .rating-form .form-item {
   position: relative;
   width: 300px;
@@ -2688,20 +2708,32 @@ input.input {
   /*background: green;*/
 }
 
+<<<<<<< HEAD
+/* line 283, ../sass/components/_destination.scss */
+=======
 /* line 284, ../sass/components/_destination.scss */
+>>>>>>> 958eb52b7c3c7ff88f01b09cef46c85415ed9211
 .rating-form input[type='radio'] {
   position: absolute;
   left: -9999px;
 }
 
 /* RATING - Form - Label */
+<<<<<<< HEAD
+/* line 291, ../sass/components/_destination.scss */
+=======
 /* line 292, ../sass/components/_destination.scss */
+>>>>>>> 958eb52b7c3c7ff88f01b09cef46c85415ed9211
 .rating-form label {
   display: inline-block;
   cursor: pointer;
 }
 
+<<<<<<< HEAD
+/* line 296, ../sass/components/_destination.scss */
+=======
 /* line 297, ../sass/components/_destination.scss */
+>>>>>>> 958eb52b7c3c7ff88f01b09cef46c85415ed9211
 .rating-form .rating-star {
   display: inline-block;
   position: relative;
@@ -2709,12 +2741,20 @@ input.input {
   padding-right: 5px;
 }
 
+<<<<<<< HEAD
+/* line 303, ../sass/components/_destination.scss */
+=======
 /* line 304, ../sass/components/_destination.scss */
+>>>>>>> 958eb52b7c3c7ff88f01b09cef46c85415ed9211
 .rating-form label .fa {
   font-size: 1.5rem;
 }
 
+<<<<<<< HEAD
+/* line 309, ../sass/components/_destination.scss */
+=======
 /* line 310, ../sass/components/_destination.scss */
+>>>>>>> 958eb52b7c3c7ff88f01b09cef46c85415ed9211
 .rating-form label:hover .fa-star-o,
 .rating-form label:focus .fa-star-o,
 .rating-form label:hover ~ label .fa-star-o,
@@ -2723,7 +2763,11 @@ input.input {
   opacity: 0;
 }
 
+<<<<<<< HEAD
+/* line 317, ../sass/components/_destination.scss */
+=======
 /* line 318, ../sass/components/_destination.scss */
+>>>>>>> 958eb52b7c3c7ff88f01b09cef46c85415ed9211
 .rating-form label .fa-star {
   position: absolute;
   left: 0;
@@ -2731,7 +2775,11 @@ input.input {
   opacity: 0;
 }
 
+<<<<<<< HEAD
+/* line 324, ../sass/components/_destination.scss */
+=======
 /* line 325, ../sass/components/_destination.scss */
+>>>>>>> 958eb52b7c3c7ff88f01b09cef46c85415ed9211
 .rating-form label:hover .fa-star,
 .rating-form label:focus .fa-star,
 .rating-form label:hover ~ label .fa-star,
@@ -2740,19 +2788,31 @@ input.input {
   opacity: 1;
 }
 
+<<<<<<< HEAD
+/* line 332, ../sass/components/_destination.scss */
+=======
 /* line 333, ../sass/components/_destination.scss */
+>>>>>>> 958eb52b7c3c7ff88f01b09cef46c85415ed9211
 .rating-form input[type='radio']:checked ~ label .fa-star {
   color: #df3b52;
 }
 
+<<<<<<< HEAD
+/* line 336, ../sass/components/_destination.scss */
+=======
 /* line 337, ../sass/components/_destination.scss */
+>>>>>>> 958eb52b7c3c7ff88f01b09cef46c85415ed9211
 .rating-form .ir {
   position: absolute;
   left: -9999px;
 }
 
 /* RATING - Form - Action */
+<<<<<<< HEAD
+/* line 344, ../sass/components/_destination.scss */
+=======
 /* line 345, ../sass/components/_destination.scss */
+>>>>>>> 958eb52b7c3c7ff88f01b09cef46c85415ed9211
 .rating-form .form-action {
   opacity: 0;
   position: absolute;
@@ -2760,17 +2820,29 @@ input.input {
   top: 0;
 }
 
+<<<<<<< HEAD
+/* line 351, ../sass/components/_destination.scss */
+=======
 /* line 352, ../sass/components/_destination.scss */
+>>>>>>> 958eb52b7c3c7ff88f01b09cef46c85415ed9211
 .rating-form input[type='radio']:checked ~ .form-action {
   cursor: pointer;
   opacity: 1;
 }
 
+<<<<<<< HEAD
+/* line 357, ../sass/components/_destination.scss */
+.rating-form input[type='radio']:checked ~ .form-action .btn-reset {
+  cursor: pointer;
+}
+/* line 360, ../sass/components/_destination.scss */
+=======
 /* line 358, ../sass/components/_destination.scss */
 .rating-form input[type='radio']:checked ~ .form-action .btn-reset {
   cursor: pointer;
 }
 /* line 361, ../sass/components/_destination.scss */
+>>>>>>> 958eb52b7c3c7ff88f01b09cef46c85415ed9211
 .rating-form .btn-reset {
   background: none;
   border: 0;
@@ -2778,7 +2850,11 @@ input.input {
 }
 
 /* RATING - Form - Output */
+<<<<<<< HEAD
+/* line 370, ../sass/components/_destination.scss */
+=======
 /* line 371, ../sass/components/_destination.scss */
+>>>>>>> 958eb52b7c3c7ff88f01b09cef46c85415ed9211
 .rating-form .form-output {
   display: none;
   position: absolute;
@@ -2789,31 +2865,51 @@ input.input {
   opacity: 0;
 }
 
+<<<<<<< HEAD
+/* line 380, ../sass/components/_destination.scss */
+=======
 /* line 381, ../sass/components/_destination.scss */
+>>>>>>> 958eb52b7c3c7ff88f01b09cef46c85415ed9211
 .no-js .rating-form .form-output {
   right: 5px;
   opacity: 1;
 }
 
+<<<<<<< HEAD
+/* line 385, ../sass/components/_destination.scss */
+=======
 /* line 386, ../sass/components/_destination.scss */
+>>>>>>> 958eb52b7c3c7ff88f01b09cef46c85415ed9211
 .rating-form input[type='radio']:checked ~ .form-output {
   right: 5px;
   opacity: 1;
 }
 
+<<<<<<< HEAD
+/* line 390, ../sass/components/_destination.scss */
+=======
 /* line 391, ../sass/components/_destination.scss */
+>>>>>>> 958eb52b7c3c7ff88f01b09cef46c85415ed9211
 .price--slider {
   margin-top: 40px;
   position: relative;
 }
 
+<<<<<<< HEAD
+/* line 395, ../sass/components/_destination.scss */
+=======
 /* line 396, ../sass/components/_destination.scss */
+>>>>>>> 958eb52b7c3c7ff88f01b09cef46c85415ed9211
 .ui-slider {
   position: relative;
   text-align: left;
 }
 
+<<<<<<< HEAD
+/* line 400, ../sass/components/_destination.scss */
+=======
 /* line 401, ../sass/components/_destination.scss */
+>>>>>>> 958eb52b7c3c7ff88f01b09cef46c85415ed9211
 .ui-slider .ui-slider-handle {
   position: absolute;
   z-index: 2;
@@ -2824,7 +2920,11 @@ input.input {
   touch-action: none;
 }
 
+<<<<<<< HEAD
+/* line 410, ../sass/components/_destination.scss */
+=======
 /* line 411, ../sass/components/_destination.scss */
+>>>>>>> 958eb52b7c3c7ff88f01b09cef46c85415ed9211
 .ui-slider .ui-slider-range {
   position: absolute;
   z-index: 1;
@@ -2836,13 +2936,21 @@ input.input {
 }
 
 /* support: IE8 - See #6727 */
+<<<<<<< HEAD
+/* line 423, ../sass/components/_destination.scss */
+=======
 /* line 424, ../sass/components/_destination.scss */
+>>>>>>> 958eb52b7c3c7ff88f01b09cef46c85415ed9211
 .ui-slider.ui-state-disabled .ui-slider-handle,
 .ui-slider.ui-state-disabled .ui-slider-range {
   filter: inherit;
 }
 
+<<<<<<< HEAD
+/* line 428, ../sass/components/_destination.scss */
+=======
 /* line 429, ../sass/components/_destination.scss */
+>>>>>>> 958eb52b7c3c7ff88f01b09cef46c85415ed9211
 .cube {
   position: relative;
   width: 60%;
@@ -2859,7 +2967,11 @@ input.input {
 }
 
 /* positions */
+<<<<<<< HEAD
+/* line 446, ../sass/components/_destination.scss */
+=======
 /* line 447, ../sass/components/_destination.scss */
+>>>>>>> 958eb52b7c3c7ff88f01b09cef46c85415ed9211
 .a,
 .b,
 .c,
@@ -2871,7 +2983,11 @@ input.input {
   z-index: 222;
 }
 
+<<<<<<< HEAD
+/* line 457, ../sass/components/_destination.scss */
+=======
 /* line 458, ../sass/components/_destination.scss */
+>>>>>>> 958eb52b7c3c7ff88f01b09cef46c85415ed9211
 .a:before,
 .b:before,
 .c:before,
@@ -2886,7 +3002,11 @@ input.input {
   height: 60px;
 }
 
+<<<<<<< HEAD
+/* line 471, ../sass/components/_destination.scss */
+=======
 /* line 472, ../sass/components/_destination.scss */
+>>>>>>> 958eb52b7c3c7ff88f01b09cef46c85415ed9211
 .a:before,
 .b:before,
 .c:before,
@@ -2894,13 +3014,21 @@ input.input {
   z-index: 111;
 }
 
+<<<<<<< HEAD
+/* line 478, ../sass/components/_destination.scss */
+=======
 /* line 479, ../sass/components/_destination.scss */
+>>>>>>> 958eb52b7c3c7ff88f01b09cef46c85415ed9211
 .a:after,
 .b:after {
   z-index: 333;
 }
 
+<<<<<<< HEAD
+/* line 483, ../sass/components/_destination.scss */
+=======
 /* line 484, ../sass/components/_destination.scss */
+>>>>>>> 958eb52b7c3c7ff88f01b09cef46c85415ed9211
 .b {
   top: 0px;
   -webkit-transform: rotateX(75deg) translateY(-60px);
@@ -2915,7 +3043,11 @@ input.input {
   transform-origin: 0% 0%;
 }
 
+<<<<<<< HEAD
+/* line 497, ../sass/components/_destination.scss */
+=======
 /* line 498, ../sass/components/_destination.scss */
+>>>>>>> 958eb52b7c3c7ff88f01b09cef46c85415ed9211
 .c {
   top: 0px;
   -webkit-transform: rotateX(75deg);
@@ -2930,7 +3062,11 @@ input.input {
   transform-origin: 100% 100%;
 }
 
+<<<<<<< HEAD
+/* line 511, ../sass/components/_destination.scss */
+=======
 /* line 512, ../sass/components/_destination.scss */
+>>>>>>> 958eb52b7c3c7ff88f01b09cef46c85415ed9211
 .d {
   -webkit-transform: translateZ(-60px) translateY(-15px);
   -moz-transform: translateZ(-60px) translateY(-15px);
@@ -2940,7 +3076,11 @@ input.input {
 }
 
 /* colors */
+<<<<<<< HEAD
+/* line 522, ../sass/components/_destination.scss */
+=======
 /* line 523, ../sass/components/_destination.scss */
+>>>>>>> 958eb52b7c3c7ff88f01b09cef46c85415ed9211
 .a,
 .b {
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(116, 198, 43, 0.8)), to(rgba(116, 198, 43, 0.8)));
@@ -2953,7 +3093,11 @@ input.input {
   background-position: 0% 0%;
 }
 
+<<<<<<< HEAD
+/* line 534, ../sass/components/_destination.scss */
+=======
 /* line 535, ../sass/components/_destination.scss */
+>>>>>>> 958eb52b7c3c7ff88f01b09cef46c85415ed9211
 .c,
 .d {
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(116, 198, 43, 0.5)), to(rgba(116, 198, 43, 0.5)));
@@ -2966,14 +3110,22 @@ input.input {
   background-position: 0% 0%;
 }
 
+<<<<<<< HEAD
+/* line 546, ../sass/components/_destination.scss */
+=======
 /* line 547, ../sass/components/_destination.scss */
+>>>>>>> 958eb52b7c3c7ff88f01b09cef46c85415ed9211
 .c:before {
   -webkit-box-shadow: 0px 30px 20px -20px rgba(0, 0, 0, 0.4), 0px 40px 15px -15px rgba(0, 0, 0, 0.25);
   -moz-box-shadow: 0px 30px 20px -20px rgba(0, 0, 0, 0.4), 0px 40px 15px -15px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 30px 20px -20px rgba(0, 0, 0, 0.4), 0px 40px 15px -15px rgba(0, 0, 0, 0.25);
 }
 
+<<<<<<< HEAD
+/* line 552, ../sass/components/_destination.scss */
+=======
 /* line 553, ../sass/components/_destination.scss */
+>>>>>>> 958eb52b7c3c7ff88f01b09cef46c85415ed9211
 .a:before,
 .b:before,
 .c:before,
@@ -2981,7 +3133,11 @@ input.input {
   background-color: rgba(0, 0, 0, 0.05);
 }
 
+<<<<<<< HEAD
+/* line 559, ../sass/components/_destination.scss */
+=======
 /* line 560, ../sass/components/_destination.scss */
+>>>>>>> 958eb52b7c3c7ff88f01b09cef46c85415ed9211
 .a:after {
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.07)), to(transparent));
   background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.07), transparent);
@@ -2990,7 +3146,11 @@ input.input {
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.07), rgba(0, 0, 0, 0));
 }
 
+<<<<<<< HEAD
+/* line 567, ../sass/components/_destination.scss */
+=======
 /* line 568, ../sass/components/_destination.scss */
+>>>>>>> 958eb52b7c3c7ff88f01b09cef46c85415ed9211
 .b:after {
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.1)), to(rgba(255, 255, 255, 0.25)));
   background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.25));
@@ -3000,7 +3160,11 @@ input.input {
 }
 
 /* jQuery stuff */
+<<<<<<< HEAD
+/* line 578, ../sass/components/_destination.scss */
+=======
 /* line 579, ../sass/components/_destination.scss */
+>>>>>>> 958eb52b7c3c7ff88f01b09cef46c85415ed9211
 #slider-range-min {
   position: absolute;
   width: 94%;
@@ -3010,19 +3174,31 @@ input.input {
   z-index: 999;
 }
 
+<<<<<<< HEAD
+/* line 587, ../sass/components/_destination.scss */
+=======
 /* line 588, ../sass/components/_destination.scss */
+>>>>>>> 958eb52b7c3c7ff88f01b09cef46c85415ed9211
 .ui-slider {
   height: 2px;
   border: none;
   background: #df3b52;
 }
 
+<<<<<<< HEAD
+/* line 593, ../sass/components/_destination.scss */
+=======
 /* line 594, ../sass/components/_destination.scss */
+>>>>>>> 958eb52b7c3c7ff88f01b09cef46c85415ed9211
 .ui-slider-range {
   background: transparent;
 }
 
+<<<<<<< HEAD
+/* line 597, ../sass/components/_destination.scss */
+=======
 /* line 598, ../sass/components/_destination.scss */
+>>>>>>> 958eb52b7c3c7ff88f01b09cef46c85415ed9211
 .ui-slider .ui-slider-handle {
   top: -8px;
   width: 17px;
@@ -3045,12 +3221,20 @@ input.input {
   box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);
 }
 
+<<<<<<< HEAD
+/* line 619, ../sass/components/_destination.scss */
+=======
 /* line 620, ../sass/components/_destination.scss */
+>>>>>>> 958eb52b7c3c7ff88f01b09cef46c85415ed9211
 .ui-slider .ui-slider-handle:focus {
   outline: none;
 }
 
+<<<<<<< HEAD
+/* line 623, ../sass/components/_destination.scss */
+=======
 /* line 624, ../sass/components/_destination.scss */
+>>>>>>> 958eb52b7c3c7ff88f01b09cef46c85415ed9211
 .credits a {
   position: relative;
   display: inline-block;
@@ -3058,7 +3242,11 @@ input.input {
   text-decoration: none;
 }
 
+<<<<<<< HEAD
+/* line 630, ../sass/components/_destination.scss */
+=======
 /* line 631, ../sass/components/_destination.scss */
+>>>>>>> 958eb52b7c3c7ff88f01b09cef46c85415ed9211
 .credits a:after {
   content: '';
   position: absolute;
@@ -3073,12 +3261,20 @@ input.input {
   transition: width 0.1s;
 }
 
+<<<<<<< HEAD
+/* line 644, ../sass/components/_destination.scss */
+=======
 /* line 645, ../sass/components/_destination.scss */
+>>>>>>> 958eb52b7c3c7ff88f01b09cef46c85415ed9211
 .credits a:hover::after {
   width: 103%;
 }
 
+<<<<<<< HEAD
+/* line 648, ../sass/components/_destination.scss */
+=======
 /* line 649, ../sass/components/_destination.scss */
+>>>>>>> 958eb52b7c3c7ff88f01b09cef46c85415ed9211
 #amount {
   position: absolute;
   display: inline-block;
@@ -3092,6 +3288,12 @@ input.input {
   margin-top: 15px;
 }
 
+<<<<<<< HEAD
+/* line 661, ../sass/components/_destination.scss */
+#amount:focus {
+  outline: none;
+}
+=======
 /* line 662, ../sass/components/_destination.scss */
 #amount:focus {
   outline: none;
@@ -3802,3 +4004,4 @@ input.input {
   }
 }
 /*/ end about work experience /*/
+>>>>>>> 958eb52b7c3c7ff88f01b09cef46c85415ed9211

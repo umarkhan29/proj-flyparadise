@@ -7,8 +7,7 @@
 	  var name =   profile.getName(); 
 	  var image =  profile.getImageUrl();
 	  var email = profile.getEmail(); // This is null if the 'email' scope is not present.
-	  window.location = 'home/components/savegoogledata?name=' + name + '&email=' + email + '&img=' + image;
-	 
+	  window.location = 'home/components/savegoogledata?name=' + name + '&email=' + email + '&img=' + image; 
 	}
 </script>
 

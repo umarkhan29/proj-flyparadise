@@ -22,7 +22,7 @@
 							'NAME'		=>	$row['name'],
 							'ABOUT' 		=> 	$row['about'],
 							'DESC' 		=> 	$row['desc'],
-							'STARS' 		=> 	$row['stars'],
+							
 						);
 						 $count=$count+1;
 						
@@ -137,7 +137,7 @@
 					 <p>NAME: <?php echo $searchResultsR[$i]['NAME'];?></p>
 					 <p>About: <?php echo $searchResultsR[$i]['ABOUT'];?></p>
 					 <p>Description: <?php echo $searchResultsR[$i]['DESC']?></p>
-					 <p>Stars: <?php echo $searchResultsR[$i]['STARS'];?></p>
+					
 					 
 				</div>
 			
