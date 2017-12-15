@@ -1,49 +1,29 @@
 footer {
-    .secondary--footer {
-        background: $bg-pink;
-        p {
-            color: $white;
-            font-size: 46px;
-            font-weight: 700;
-            max-width: 32rem;
+    padding: 1.5rem 0;
+    background: $background-blue;
+    color: $white;
+    ul {
+        list-style: none;
+        text-align: center;
+        li {
             display: inline-block;
-            vertical-align: middle;
-            span {
+            margin: 0 0.5rem;
+            a {
+                color: $white;
                 font-size: 14px;
-                display: block;
-                font-weight: 300;
             }
         }
     }
-    .full---width {
-        padding: 1rem 0;
+    .connect {
+        text-align: center;
+        a {
+            margin: 0 10px;
+        }
     }
 }
 
-.social {
-    display: inline-block;
-    text-indent: -9999px;
-    width: 18px;
-    height: 18px;
-    margin: 0 5px;
-}
-
-.fb {
-    background: url("../assets/icons/social/facebook.svg") no-repeat;
-}
-
-.insta {
-    background: url("../assets/icons/social/insta.svg") no-repeat;
-}
-
-.tw {
-    background: url("../assets/icons/social/twitter.svg") no-repeat;
-}
-
-.footer--secondary {
-    background: $clean;
-    width: 100%;
-    display: inline-block;
-    padding: 10px;
-    font-weight: 100;
+.copyright {
+    font-size: 12px;
+    text-align: center;
+    margin-top: 3rem;
 }
