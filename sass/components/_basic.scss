@@ -8,12 +8,14 @@ body {
     font-family: $fly-primary;
     background: #fefefe;
     text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
 }
 
 p,
 span,
 * {
     text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
 }
 
 .max-width {
