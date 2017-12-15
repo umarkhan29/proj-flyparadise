@@ -15,3 +15,17 @@
     background: #ff7a34;
     color: #ffffff;
 }
+
+.main-content {
+    @extend %full--width;
+    display: flex;
+}
+
+.with--sidebar {
+    width: 60%;
+}
+
+.sidebar {
+    width: 37%;
+    margin-left: 2rem;
+}

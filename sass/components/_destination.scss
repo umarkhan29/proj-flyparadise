@@ -21,6 +21,32 @@
     }
 }
 
+.breadcrumb {
+    background: $clean;
+    margin-bottom: 1rem;
+    ul {
+        @extend %full--width;
+        margin-top: 0;
+        margin-bottom: 0;
+        line-height: 1;
+        padding: 10px 0;
+    }
+    li {
+        font-size: 12px;
+        display: inline-block;
+        margin: 0;
+        margin-right: 4px;
+        &::after {
+            content: ">";
+            display: inline-block;
+            padding-left: 10px;
+        }
+        &::last {
+            display: none;
+        }
+    }
+}
+
 .destination--hero {
     display: flex;
     width: 1280px;
@@ -661,4 +687,8 @@ button.view--package {
 
 #amount:focus {
     outline: none;
+}
+
+.package--ex {
+    opacity: 0.4
 }
