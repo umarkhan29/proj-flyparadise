@@ -4,8 +4,6 @@
 	function cp(thediv){
 
 		var duration=document.getElementById('duration').value;
-		var inclusion=document.getElementById('inclusion').value;
-		var exclusion=document.getElementById('exclusion').value;
 
 		if(window.XMLHttpRequest){
 			xmlhttp=new XMLHttpRequest();
@@ -19,7 +17,7 @@
 				document.getElementById(thediv).innerHTML = xmlhttp.responseText;
 			}
 		}
-		xmlhttp.open('GET','home/ajaxcomponents/packagecustomization.php?duration='+duration+'&inclusion='+inclusion+'&exclusion='+exclusion,true);
+		xmlhttp.open('GET','home/ajaxcomponents/packagecustomization.php?duration='+duration,true);
 		
 		xmlhttp.send();
 		
@@ -29,8 +27,7 @@
 
 
 <input type="text" id="duration" placeholder="Duration (in days)" /><br />
-<input type="text" id="inclusion" placeholder="Number of Inclusions" /> <br />
-<input type="text" id="exclusion" placeholder="Number of Exclusions" /><br />
+
 <input type="submit" value="Go" onClick="cp('custom');">
 
 

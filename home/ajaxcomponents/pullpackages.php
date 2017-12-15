@@ -1,5 +1,6 @@
 <script type="text/javascript">	
 	function showpackages(thediv){
+	
 		//Getting destination
 		var destination="<?php echo $destinations[0]['DESTINATION']; ?>";
 		
@@ -59,7 +60,7 @@
 			}
 		}
 		xmlhttp.open('GET','home/ajaxcomponents/getpackages.php?stars='+stars+'&destination='+destination+'&honeymoon='+honeymoon+'&solo='+solo+'&ff='+ff+'&duration='+duration+'&price='+price,true);
-		
+
 		xmlhttp.send();
 		
 	}

@@ -48,7 +48,7 @@
 	
 <?php
 //Fetching destination
-$id=2;
+$id=1;
 $query = "SELECT * FROM `destinations` WHERE `id` = '$id' ";
 			if($result = mysqli_query($dbconn,$query)){
 				$destinations;
@@ -59,7 +59,7 @@ $query = "SELECT * FROM `destinations` WHERE `id` = '$id' ";
 							'ID'			=>	$row['id'],
 							'PATH' 			=> 	$row['img1'],
 							'DESTINATION' 	=> 	$row['destination'],
-							'DESC'	 	=> 	$row['desc'],
+							'DESC'	 		=> 	$row['desc'],
 							'LINKS' 		=> 	$row['links'],
 							'WORHWATCHING' 	=> 	$row['worthwatching'],
 							'GETAWAYS' 		=> 	$row['getaways'],
@@ -250,7 +250,7 @@ $query = "SELECT * FROM `destinations` WHERE `id` = '$id' ";
 	
 	<?php
 	//fetching initial packages (on page load)
-	 $destination="Kashmir";
+	 $destination= $destinations[0]['DESTINATION'];
 	 $query = "SELECT * FROM `packages` WHERE `destination` = '$destination' ";
 			if($result = mysqli_query($dbconn,$query)){
 				$packages;
@@ -308,7 +308,7 @@ $query = "SELECT * FROM `destinations` WHERE `id` = '$id' ";
 	
 <div>
 	<?php
-		include_once('map/fpmap.php');
+		//include_once('map/fpmap.php');
 	?>
 </div>
 
