@@ -534,43 +534,43 @@ h1, h2, h3, h4, h5, h6, hgroup, ul, ol, dl, li, blockquote, p, address, table, f
 /*
  FONT SIZES
  */
-/* line 44, ../sass/partials/_fonts.scss */
+/* line 45, ../sass/partials/_fonts.scss */
 .f-10 {
   font-size: 10px;
   font-size: 0.625rem;
 }
 
-/* line 48, ../sass/partials/_fonts.scss */
+/* line 49, ../sass/partials/_fonts.scss */
 .f-12 {
   font-size: 12px;
   font-size: 0.75rem;
 }
 
-/* line 52, ../sass/partials/_fonts.scss */
+/* line 53, ../sass/partials/_fonts.scss */
 .f-14 {
   font-size: 14px;
   font-size: 0.875rem;
 }
 
-/* line 56, ../sass/partials/_fonts.scss */
+/* line 57, ../sass/partials/_fonts.scss */
 .f-16 {
   font-size: 16px;
   font-size: 1rem;
 }
 
-/* line 60, ../sass/partials/_fonts.scss */
+/* line 61, ../sass/partials/_fonts.scss */
 .f-18 {
   font-size: 18px;
   font-size: 1.125rem;
 }
 
-/* line 64, ../sass/partials/_fonts.scss */
+/* line 65, ../sass/partials/_fonts.scss */
 .f-20 {
   font-size: 20px;
   font-size: 1.25rem;
 }
 
-/* line 68, ../sass/partials/_fonts.scss */
+/* line 69, ../sass/partials/_fonts.scss */
 .f-24 {
   font-size: 24px;
   font-size: 1.5rem;
@@ -1278,61 +1278,41 @@ header.alternate li {
   font-size: 13px;
 }
 
-/* line 2, ../sass/components/_footer.scss */
-footer .secondary--footer {
-  background: #e65679;
-}
-/* line 4, ../sass/components/_footer.scss */
-footer .secondary--footer p {
+/* line 1, ../sass/components/_footer.scss */
+footer {
+  padding: 1.5rem 0;
+  background: #5096b1;
   color: #ffffff;
-  font-size: 46px;
-  font-weight: 700;
-  max-width: 32rem;
+}
+/* line 5, ../sass/components/_footer.scss */
+footer ul {
+  list-style: none;
+  text-align: center;
+}
+/* line 8, ../sass/components/_footer.scss */
+footer ul li {
   display: inline-block;
-  vertical-align: middle;
+  margin: 0 0.5rem;
 }
 /* line 11, ../sass/components/_footer.scss */
-footer .secondary--footer p span {
+footer ul li a {
+  color: #ffffff;
   font-size: 14px;
-  display: block;
-  font-weight: 300;
 }
-/* line 18, ../sass/components/_footer.scss */
-footer .full---width {
-  padding: 1rem 0;
+/* line 17, ../sass/components/_footer.scss */
+footer .connect {
+  text-align: center;
 }
-
-/* line 23, ../sass/components/_footer.scss */
-.social {
-  display: inline-block;
-  text-indent: -9999px;
-  width: 18px;
-  height: 18px;
-  margin: 0 5px;
+/* line 19, ../sass/components/_footer.scss */
+footer .connect a {
+  margin: 0 10px;
 }
 
-/* line 31, ../sass/components/_footer.scss */
-.fb {
-  background: url("../assets/icons/social/facebook.svg") no-repeat;
-}
-
-/* line 35, ../sass/components/_footer.scss */
-.insta {
-  background: url("../assets/icons/social/insta.svg") no-repeat;
-}
-
-/* line 39, ../sass/components/_footer.scss */
-.tw {
-  background: url("../assets/icons/social/twitter.svg") no-repeat;
-}
-
-/* line 43, ../sass/components/_footer.scss */
-.footer--secondary {
-  background: #EFEFEF;
-  width: 100%;
-  display: inline-block;
-  padding: 10px;
-  font-weight: 100;
+/* line 25, ../sass/components/_footer.scss */
+.copyright {
+  font-size: 12px;
+  text-align: center;
+  margin-top: 3rem;
 }
 
 /* line 1, ../sass/components/_homepage.scss */
