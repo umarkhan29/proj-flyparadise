@@ -1,51 +1,93 @@
 <?php
+include_once('../catalog/connect.khan');
+include_once('../catalog/session.khan');
 
 //creating dynamic variables
 
 $abc="iteration";
-$dcount=$_GET['duration'];
-$icount=$_GET['inclusion'];
-$ecount=$_GET['exclusion'];
-?>
-<form action="customisepackage.php" method="POST">
+$dcount=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['duration']))));
 
-	<input type="text" name="price"  placeholder="Price"/><br />
-	<input type="text" name="hotel" placeholder="Hotel" /><br />
-	<input type="text" name="cab" placeholder="Cab"/><br />
-	<input type="text" name="flight" placeholder="Flight"/><br /><br /><br />
+?>
+<form action="customisepackage.php" method="POST" enctype="multipart/form-data">
+
+	<input type="text" name="title" placeholder="Title"/><br />
+	<input type="text" name="destination" placeholder="Destination"/><br />
+	<input type="text" name="category" placeholder="Category"/><br />
+	<input type="text" name="hotelstar" placeholder="Hotel Star"/><br />
+	<input type="text" name="description" placeholder="Description"/><br />
 	
+	<label>Meals</label>
+	<select name="meals" />
+		<option value="No">No</option>
+		<option  value="Yes">Yes</option>				
+		
+	</select> <br />
+	
+	<label>Siteseeing</label>
+	<select name="siteseeing" />
+		<option value="No">No</option>
+		<option  value="Yes">Yes</option>				
+		
+	</select> <br />
+	
+	<label>Addon</label>
+	<select name="addon" />
+		<option value="No">No</option>
+		<option  value="Yes">Yes</option>				
+		
+	</select> <br />
+
+	<label>Flights Included</label>
+	<select name="flight" />
+		<option value="No">No</option>
+		<option  value="Yes">Yes</option>				
+		
+	</select> <br />
+	
+	
+	<label>Local Cab Included</label>
+	<select name="cab" />
+		<option  value="No">No</option>
+		<option  value="Yes">Yes</option>				
+		
+	</select> <br />
+	
+	
+	<label>Stay Included</label>
+	<select name="stay" />
+		<option value="No">No</option>
+		<option  value="Yes">Yes</option>				
+		
+	</select> <br /><br />
 	
 	
 	<?php
 //Defining Iterations
 	for($i=1;$i<=$dcount;$i++){
 		echo '<input type="text" name="iteration'.$i.'"placeholder="Iteration'.$i.'" />';
-		echo "<br>";
+		echo "&ensp;";
+		echo '<input type="text" name="iterationstay'.$i.'"placeholder="Iteration'.$i.' Stay" />';
+		echo "&ensp;";
+		echo '<input type="text" name="iterationinclusion'.$i.'"placeholder="Iteration'.$i.' Inclusion(Use comma to seperate multiple items)" />';
+		echo "&ensp;";
+		echo '<input type="text" name="iterationexclusion'.$i.'"placeholder="Iteration'.$i.' Exclusion(Use comma to seperate multiple items)" />';
+		echo "&ensp;";
+		echo '<input type="text" name="iterationgetaway'.$i.'"placeholder="Iteration'.$i.' Getawys(Use comma to seperate multiple items)" />';
+		echo "<br><br>";
 	}
 	
 	echo "<br>";
-//Defining Inclusions	
-	for($i=1;$i<=$icount;$i++){
-		echo '<input type="text" name="inclusion'.$i.'"placeholder="Inclusion'.$i.'" />';
-		echo "<br>";
-	}
 	
-	echo "<br>";
-//Defining Exclusions	
-	for($i=1;$i<=$ecount;$i++){
-		echo '<input type="text" name="exclusion'.$i.'"placeholder="Exclusion'.$i.'" />';
-		echo "<br>";
-	}
-	
-	
+
 	?>
 	
-	<input type="hidden" name="dcount" value="<?php echo $dcount; ?>"/>
-	<input type="hidden" name="icount" value="<?php echo $icount; ?>" />
-	<input type="hidden" name="ecount" value="<?php echo $ecount; ?>" />
+	<label>Select Image (jpg only)</label>
+	<input type="file" name="fileupld" /><br /><br />
+	<input type="text" name="price" placeholder="Package Price"/><br />
+	<input type="hidden" name="dcount" value="<?php echo $dcount; ?>"/><br />
 	
 	
-	<input type="submit" value="Save" name="btn" />
+	<input type="submit" value="Add Package" name="btn" />
 </form>
 
 

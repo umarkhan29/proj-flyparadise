@@ -196,6 +196,7 @@
                         <div>
                             <h3><?php echo $populardest[3]['DESTINATION']; ?></h3>
                             <h4><?php echo $populardest[3]['DESCRIPTION']; ?></h4>
+							<img class="arrow" src="./assets/icons/arrow.svg" alt="">
                         </div>
                        
                         <img alt='<?php echo $populardest[3]['DESTINATION']; ?>' src='<?php echo $populardest[3]['PATH']; ?>'>
@@ -204,6 +205,7 @@
                         <div>
                             <h3><?php echo $populardest[2]['DESTINATION']; ?></h3>
                             <h4><?php echo $populardest[2]['DESCRIPTION']; ?></h4>
+							<img class="arrow" src="./assets/icons/arrow.svg" alt="">
                         </div>
                       
                         <img alt='<?php echo $populardest[2]['DESTINATION']; ?>' src='<?php echo $populardest[2]['PATH']; ?>'>
@@ -212,6 +214,7 @@
                         <div>
                             <h3><?php echo $populardest[1]['DESTINATION']; ?></h3>
                             <h4><?php echo $populardest[1]['DESCRIPTION']; ?></h4>
+							<img class="arrow" src="./assets/icons/arrow.svg" alt="">
                         </div>
 						
 						<img alt='<?php echo $populardest[1]['DESTINATION']; ?>' src='<?php echo $populardest[1]['PATH']; ?>'>
@@ -220,6 +223,7 @@
                         <div>
                             <h3><?php echo $populardest[0]['DESTINATION']; ?></h3>
                             <h4><?php echo $populardest[0]['DESCRIPTION']; ?></h4>
+							<img class="arrow" src="./assets/icons/arrow.svg" alt="">
                         </div>
                        
                         <img alt='<?php echo $populardest[0]['DESTINATION']; ?>' src='<?php echo $populardest[0]['PATH']; ?>'>
@@ -228,6 +232,7 @@
                         <div>
                             <h3><?php echo $populardest[4]['DESTINATION']; ?></h3>
                             <h4><?php echo $populardest[4]['DESCRIPTION']; ?></h4>
+							<img class="arrow" src="./assets/icons/arrow.svg" alt="">
                         </div>
                       
                         <img alt='Denali, Alaska' src='<?php echo $populardest[4]['PATH']; ?>'>
@@ -236,6 +241,7 @@
                         <div>
                             <h3><?php echo $populardest[5]['DESTINATION']; ?></h3>
                             <h4><?php echo $populardest[5]['DESCRIPTION']; ?></h4>
+							<img class="arrow" src="./assets/icons/arrow.svg" alt="">
                         </div>
                         
                         <img alt='Denali, Alaska' src='<?php echo $populardest[5]['PATH']; ?>'>
@@ -244,6 +250,7 @@
                         <div>
                             <h3><?php echo $populardest[6]['DESTINATION']; ?></h3>
                             <h4><?php echo $populardest[6]['DESCRIPTION']; ?></h4>
+							<img class="arrow" src="./assets/icons/arrow.svg" alt="">
                         </div>
                         
                         <img alt='Denali, Alaska' src='<?php echo $populardest[6]['PATH']; ?>'>
@@ -252,6 +259,7 @@
                         <div>
                             <h3><?php echo $populardest[7]['DESTINATION']; ?></h3>
                             <h4><?php echo $populardest[7]['DESCRIPTION']; ?></h4>
+							<img class="arrow" src="./assets/icons/arrow.svg" alt="">
                         </div>
                         
                         <img alt='Denali, Alaska' src='<?php echo $populardest[7]['PATH']; ?>'>
@@ -381,7 +389,7 @@
             <h2 class="heading">Travellers has a say</h2>
             <span class="span--heading">Are you looking for the inspiration?</span>
             <div class="col-md-10 col-md-push-1">
-                <div id="owl" class="owl-carousel">
+                <div id="owl" class="owl-carousel testimonial">
                     <div class="item">
                         <div class="quote-icon"><img src="https://s3.amazonaws.com/landing.wisestamp.com/7942a8680adc20f3bf052571b234e5ec/%E2%80%9C.svg"></div>
                         <div class="quote">
