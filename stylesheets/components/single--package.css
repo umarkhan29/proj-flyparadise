@@ -1,21 +1,21 @@
 /*
 Error: Undefined variable: "$text-over-bg".
-        on line 13 of /Users/junaidmasoodi/work/proj-flyparadise/sass/components/single--package.scss
+        on line 17 of /Users/junaidmasoodi/work/proj-flyparadise/sass/components/single--package.scss
 
-8:         width: 30%;
-9:         display: inline-block;
-10:         vertical-align: top;
-11:         margin-left: 2rem;
-12:         .description {
-13:             color: $text-over-bg;
-14:             font-size: 14px;
-15:         }
-16:         ul.hotel {
-17:             margin-top: -40px;
-18:             border-bottom: 1px solid #e9e9e9;
+12:         display: inline-block;
+13:         vertical-align: top;
+14:         margin-left: 2rem;
+15:         .description {
+16:             font-size: 14px;
+17:             color: $text-over-bg;
+18:         }
+19:         ul.hotel {
+20:             margin-top: -40px;
+21:             border-bottom: 1px solid #e9e9e9;
+22:             li {
 
 Backtrace:
-/Users/junaidmasoodi/work/proj-flyparadise/sass/components/single--package.scss:13
+/Users/junaidmasoodi/work/proj-flyparadise/sass/components/single--package.scss:17
 /Library/Ruby/Gems/2.3.0/gems/sass-3.4.25/lib/sass/script/tree/variable.rb:49:in `_perform'
 /Library/Ruby/Gems/2.3.0/gems/sass-3.4.25/lib/sass/script/tree/node.rb:58:in `perform'
 /Library/Ruby/Gems/2.3.0/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:398:in `visit_prop'
@@ -87,4 +87,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$text-over-bg\".\A         on line 13 of /Users/junaidmasoodi/work/proj-flyparadise/sass/components/single--package.scss\A \A 8:         width: 30%;\A 9:         display: inline-block;\A 10:         vertical-align: top;\A 11:         margin-left: 2rem;\A 12:         .description {\A 13:             color: $text-over-bg;\A 14:             font-size: 14px;\A 15:         }\A 16:         ul.hotel {\A 17:             margin-top: -40px;\A 18:             border-bottom: 1px solid #e9e9e9;"; }
+  content: "Error: Undefined variable: \"$text-over-bg\".\A         on line 17 of /Users/junaidmasoodi/work/proj-flyparadise/sass/components/single--package.scss\A \A 12:         display: inline-block;\A 13:         vertical-align: top;\A 14:         margin-left: 2rem;\A 15:         .description {\A 16:             font-size: 14px;\A 17:             color: $text-over-bg;\A 18:         }\A 19:         ul.hotel {\A 20:             margin-top: -40px;\A 21:             border-bottom: 1px solid #e9e9e9;\A 22:             li {"; }

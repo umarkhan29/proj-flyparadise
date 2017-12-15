@@ -7,6 +7,13 @@
 body {
     font-family: $fly-primary;
     background: #fefefe;
+    text-rendering: optimizeLegibility;
+}
+
+p,
+span,
+* {
+    text-rendering: optimizeLegibility;
 }
 
 .max-width {
@@ -148,4 +155,42 @@ input:hover {
     input:disabled~.control__indicator:after {
         border-color: #7b7b7b;
     }
+}
+
+.help--box {
+    padding: 1.5rem !important;
+    img,
+    div {
+        display: inline-block;
+        vertical-align: middle;
+    }
+    p,
+    span {
+        padding-left: 1rem;
+    }
+    p {
+        color: $heading;
+        font-size: 22px;
+        margin: 0;
+    }
+    span {
+        font-size: 14px;
+        color: $dark-gray;
+        a {
+            color: $dark-gray;
+        }
+    }
+}
+
+.bg-blue {
+    background: $blue-back;
+    color: $dark-gray;
+}
+
+.morelink {
+    color: $link;
+    display: block;
+    text-align: center;
+    margin: 0.5rem 0;
+    text-transform: capitalize;
 }
