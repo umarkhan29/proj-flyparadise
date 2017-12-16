@@ -9,10 +9,10 @@ Error: Undefined variable: "$text-over-bg".
 16:             font-size: 14px;
 17:             color: $text-over-bg;
 18:         }
-19:         ul.hotel {
-20:             margin-top: -40px;
-21:             border-bottom: 1px solid #e9e9e9;
-22:             li {
+19:         .rating-star {
+20:             color: $text-over-bg;
+21:         }
+22:     }
 
 Backtrace:
 /Users/junaidmasoodi/work/proj-flyparadise/sass/components/single--package.scss:17
@@ -87,4 +87,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$text-over-bg\".\A         on line 17 of /Users/junaidmasoodi/work/proj-flyparadise/sass/components/single--package.scss\A \A 12:         display: inline-block;\A 13:         vertical-align: top;\A 14:         margin-left: 2rem;\A 15:         .description {\A 16:             font-size: 14px;\A 17:             color: $text-over-bg;\A 18:         }\A 19:         ul.hotel {\A 20:             margin-top: -40px;\A 21:             border-bottom: 1px solid #e9e9e9;\A 22:             li {"; }
+  content: "Error: Undefined variable: \"$text-over-bg\".\A         on line 17 of /Users/junaidmasoodi/work/proj-flyparadise/sass/components/single--package.scss\A \A 12:         display: inline-block;\A 13:         vertical-align: top;\A 14:         margin-left: 2rem;\A 15:         .description {\A 16:             font-size: 14px;\A 17:             color: $text-over-bg;\A 18:         }\A 19:         .rating-star {\A 20:             color: $text-over-bg;\A 21:         }\A 22:     }"; }
