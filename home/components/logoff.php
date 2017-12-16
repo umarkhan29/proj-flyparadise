@@ -6,7 +6,8 @@
 		unset($_SESSION['Loggedin_User_password']);
 		unset($_SESSION['current_loggedin_user']);
 		unset($_SESSION['current_loggedin_user_email']);
-		session_destroy();
+		unset($_SESSION['signvia']);
+		unset($_SESSION['Loggedin_User']);
 		header('location:../../get-in');
 		exit();
 

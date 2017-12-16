@@ -74,7 +74,7 @@ if(isset($_POST['btn'])){
 	$description=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['description']))));
 	$flight=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['flight']))));
 	$price=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['price']))));
-	$path=$path="images/packages/".$_FILES['fileupld']['name'];
+	$path="images/packages/".$title.$destination.$_FILES['fileupld']['name'];
 	$cab=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['cab']))));
 	$meals=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['meals']))));
 	$siteseeing=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['siteseeing']))));
@@ -86,9 +86,10 @@ if(isset($_POST['btn'])){
 	
 	
 	//storing in DB
-		 $query="INSERT INTO `packages`( `title`,`destination`,`duration`,`category`, `hotelstar`, `description`, `includeflights`, `price`, `path`, `localcab`, `meals`,`siteseeing`,`stay`, `addon`, `itinerary`, `inclusions`, `exclusions`,`getaways`) VALUES ('$title','destination','$duration','$category','$hotelstar','$description','$flight','$price','$path','$cab','$meals','$siteseeing','$stay','$addon','$itenaries','$inclusions','$exclusions','$getaways');";
+		 $query="INSERT INTO `packages`( `title`,`destination`,`duration`,`category`, `hotelstar`, `description`, `includeflights`, `price`, `path`, `localcab`, `meals`,`siteseeing`,`stay`, `addon`, `itinerary`, `inclusions`, `exclusions`,`getaways`) VALUES ('$title','$destination','$duration','$category','$hotelstar','$description','$flight','$price','$path','$cab','$meals','$siteseeing','$stay','$addon','$itenaries','$inclusions','$exclusions','$getaways');";
 							
 		if(mysqli_query($dbconn,$query)){ 
+			move_uploaded_file($_FILES['fileupld']['tmp_name'],$path);
 			echo "<br>Package created ";
 			
 		}else{

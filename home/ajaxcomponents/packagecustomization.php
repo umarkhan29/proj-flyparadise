@@ -8,7 +8,7 @@ $abc="iteration";
 $dcount=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['duration']))));
 
 ?>
-<form action="customisepackage.php" method="POST" enctype="multipart/form-data">
+<form action="addpackages.php" method="POST" enctype="multipart/form-data">
 
 	<input type="text" name="title" placeholder="Title"/><br />
 	<input type="text" name="destination" placeholder="Destination"/><br />
@@ -60,10 +60,15 @@ $dcount=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['du
 		
 	</select> <br /><br />
 	
-	
+	Itineraries :	<br />
 	<?php
 //Defining Iterations
+
 	for($i=1;$i<=$dcount;$i++){
+		echo '<input type="text" name="iterationtitle'.$i.'"placeholder="Iteration'.$i.' Title" />';
+		echo "&ensp;";
+		echo '<input type="text" name="iterationtags'.$i.'"placeholder="Iteration'.$i.' Tags" />';
+		echo "&ensp;";
 		echo '<input type="text" name="iteration'.$i.'"placeholder="Iteration'.$i.'" />';
 		echo "&ensp;";
 		echo '<input type="text" name="iterationstay'.$i.'"placeholder="Iteration'.$i.' Stay" />';
@@ -71,6 +76,8 @@ $dcount=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['du
 		echo '<input type="text" name="iterationinclusion'.$i.'"placeholder="Iteration'.$i.' Inclusion(Use comma to seperate multiple items)" />';
 		echo "&ensp;";
 		echo '<input type="text" name="iterationexclusion'.$i.'"placeholder="Iteration'.$i.' Exclusion(Use comma to seperate multiple items)" />';
+		echo "&ensp;";
+		echo '<input type="text" name="iterationworthwatching'.$i.'"placeholder="Iteration Worthwatching'.$i.' (Use comma to seperate multiple items)" />';
 		echo "&ensp;";
 		echo '<input type="text" name="iterationgetaway'.$i.'"placeholder="Iteration'.$i.' Getawys(Use comma to seperate multiple items)" />';
 		echo "<br><br>";
