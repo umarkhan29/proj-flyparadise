@@ -989,7 +989,7 @@ input:hover {
 }
 
 /* line 75, ../sass/components/_basic.scss */
-.main-content, header.alternate .inside--secondary, .main--header .menu--heading, .blog--landing .hero--blog, .blog--landing .latest--articles, .blog--landing-text, .how-we-work, .breadcrumb ul, .single--package,
+.main-content, header.alternate .inside--secondary, .main--header .menu--heading, .blog--landing .hero--blog, .blog--landing .latest--articles, .blog--landing-text, .how-we-work, .breadcrumb ul, .single--package, .full-width,
 .full---width {
   max-width: 68.5rem;
   margin-right: auto;
@@ -1967,23 +1967,27 @@ footer .connect a {
 
 /* line 6, ../sass/components/_get--in.scss */
 .get--in {
+  margin: 1rem 0;
   display: flex;
-  /* necessary to give position: relative to parent. */
 }
-/* line 7, ../sass/components/_get--in.scss */
+/* line 8, ../sass/components/_get--in.scss */
 .get--in img {
   max-width: 100%;
 }
-/* line 11, ../sass/components/_get--in.scss */
+/* line 12, ../sass/components/_get--in.scss */
 .get--in .left img {
   width: 75%;
 }
-/* line 14, ../sass/components/_get--in.scss */
+/* line 15, ../sass/components/_get--in.scss */
 .get--in .left p {
   font-size: 22px;
   font-weight: 300;
 }
-/* line 20, ../sass/components/_get--in.scss */
+/* line 21, ../sass/components/_get--in.scss */
+.get--in .right ul.form {
+  width: 50%;
+}
+/* line 24, ../sass/components/_get--in.scss */
 .get--in .right .disabled,
 .get--in .right .enabled {
   display: inline-block;
@@ -1992,91 +1996,29 @@ footer .connect a {
   cursor: pointer;
   font-weight: 600;
 }
-/* line 27, ../sass/components/_get--in.scss */
-.get--in .right .disabled:hover,
-.get--in .right .enabled:hover {
-  color: #df3b52;
-}
-/* line 31, ../sass/components/_get--in.scss */
+/* line 32, ../sass/components/_get--in.scss */
 .get--in .right .disabled {
   color: #545454;
 }
-/* line 34, ../sass/components/_get--in.scss */
+/* line 35, ../sass/components/_get--in.scss */
 .get--in .right .enabled {
-  color: #df3b52;
-  border-bottom: 2px solid #df3b52;
+  color: #ffffff;
+  background: #15386e;
+  border-radius: 10px;
+  padding: 10px 20px;
 }
-/* line 38, ../sass/components/_get--in.scss */
+/* line 41, ../sass/components/_get--in.scss */
 .get--in .right .register {
   display: none;
 }
-/* line 43, ../sass/components/_get--in.scss */
+/* line 46, ../sass/components/_get--in.scss */
 .get--in .left,
 .get--in .right {
   flex: 1;
   width: 50%;
   margin: auto;
 }
-/* line 49, ../sass/components/_get--in.scss */
-.get--in .col-3 {
-  width: 50%;
-  margin: 40px 3%;
-  margin-left: 0;
-  position: relative;
-}
-/* line 56, ../sass/components/_get--in.scss */
-.get--in input[type="text"] {
-  font: 15px/24px "Lato", Arial, sans-serif;
-  color: #333;
-  width: 100%;
-  box-sizing: border-box;
-  letter-spacing: 1px;
-}
-/* line 63, ../sass/components/_get--in.scss */
-.get--in .effect-17 {
-  border: 0;
-  padding: 4px 0;
-  border-bottom: 1px solid #c7c7c7;
-  background-color: transparent;
-  width: 100%;
-}
-/* line 70, ../sass/components/_get--in.scss */
-.get--in .effect-17 ~ .focus-border {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background-color: #3986b6;
-  transition: 0.4s;
-}
-/* line 79, ../sass/components/_get--in.scss */
-.get--in .effect-17:focus ~ .focus-border,
-.get--in .has-content.effect-17 ~ .focus-border {
-  width: 100%;
-  transition: 0.4s;
-  left: 0;
-}
-/* line 85, ../sass/components/_get--in.scss */
-.get--in .effect-17 ~ label {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  top: 4px;
-  color: #aaa;
-  transition: 0.3s;
-  z-index: -1;
-  letter-spacing: 0.5px;
-}
-/* line 95, ../sass/components/_get--in.scss */
-.get--in .effect-17:focus ~ label,
-.get--in .has-content.effect-17 ~ label {
-  top: -16px;
-  font-size: 12px;
-  color: #3986b6;
-  transition: 0.3s;
-}
-/* line 102, ../sass/components/_get--in.scss */
+/* line 52, ../sass/components/_get--in.scss */
 .get--in .submit {
   width: 50%;
 }
@@ -3361,28 +3303,314 @@ input.input {
   color: #666467;
 }
 /* line 19, ../sass/components/single--package.scss */
-.single--package .single--packing_desc ul.hotel {
+.single--package .single--packing_desc .rating-star {
+  color: #666467;
+}
+/* line 23, ../sass/components/single--package.scss */
+.single--package .pack-heading {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0;
+}
+/* line 27, ../sass/components/single--package.scss */
+.single--package .pack-heading span {
+  font-size: 12px;
+  display: block;
+}
+/* line 32, ../sass/components/single--package.scss */
+.single--package .rating-form {
+  margin-top: 0;
+}
+/* line 36, ../sass/components/single--package.scss */
+.single--package .inclusions img {
+  margin-right: 1.4rem;
+}
+/* line 40, ../sass/components/single--package.scss */
+.single--package .price--tag {
+  display: flex;
+}
+/* line 43, ../sass/components/single--package.scss */
+.single--package .price--starting,
+.single--package .select-2--wrapper {
+  flex: 1;
+}
+/* line 48, ../sass/components/single--package.scss */
+.single--package .select-2--wrapper .select2-selection__rendered {
+  font-size: 18px;
+}
+/* line 51, ../sass/components/single--package.scss */
+.single--package .select-2--wrapper span {
+  font-size: 12px;
+  color: #545454;
+}
+/* line 55, ../sass/components/single--package.scss */
+.single--package .select-2--wrapper .select2-container {
+  margin-top: 5px;
+  width: 155px !important;
+}
+/* line 58, ../sass/components/single--package.scss */
+.single--package .select-2--wrapper .select2-container .select2-selection--single {
+  height: 30px !important;
+}
+/* line 62, ../sass/components/single--package.scss */
+.single--package .select-2--wrapper .select2-selection__arrow {
+  right: 0 !important;
+  top: 0 !important;
+  height: 29px;
+}
+/* line 66, ../sass/components/single--package.scss */
+.single--package .select-2--wrapper .select2-selection__arrow b {
+  background: url("../assets/icons/select--arrow.svg");
+  width: 19px !important;
+  height: 13px !important;
+  border-color: transparent !important;
+  background-repeat: no-repeat;
+  left: 18% !important;
+  top: 27% !important;
+}
+/* line 77, ../sass/components/single--package.scss */
+.single--package .price--starting {
+  border-right: 1px solid #e9e9e9;
+  margin-right: 1rem;
+  padding-right: 1rem;
+}
+/* line 81, ../sass/components/single--package.scss */
+.single--package .price--starting > span {
+  font-size: 12px;
+  color: #545454;
+}
+/* line 85, ../sass/components/single--package.scss */
+.single--package .price--starting div.amount {
+  font-size: 26px;
+  font-weight: 600;
+  color: #4caf50;
+}
+/* line 89, ../sass/components/single--package.scss */
+.single--package .price--starting div.amount span {
+  margin-right: 5px;
+}
+
+/* line 96, ../sass/components/single--package.scss */
+.border {
+  border: 1px solid #e9e9e9;
+  padding: 1rem;
+  margin-bottom: 10px;
+  border-radius: 3px;
+}
+
+/* line 103, ../sass/components/single--package.scss */
+.darkborder {
+  border: 1px solid #d4e6ec;
+  padding: 1rem;
+  margin-bottom: 10px;
+  border-radius: 3px;
+}
+
+/* line 110, ../sass/components/single--package.scss */
+.margin-top {
+  margin-top: 1rem;
+}
+
+/* line 114, ../sass/components/single--package.scss */
+.select2-search--dropdown {
+  display: none !important;
+}
+
+/* line 118, ../sass/components/single--package.scss */
+.select2-selection {
+  border-radius: 0 !important;
+}
+
+/* line 122, ../sass/components/single--package.scss */
+.internal--perday {
+  margin: 2rem 0;
+  position: relative;
+}
+/* line 125, ../sass/components/single--package.scss */
+.internal--perday:before {
+  top: -32px;
+}
+/* line 128, ../sass/components/single--package.scss */
+.internal--perday:after {
+  top: 42px;
+}
+/* line 131, ../sass/components/single--package.scss */
+.internal--perday:after, .internal--perday:before {
+  position: absolute;
+  content: "";
+  background: #d4e6ec;
+  width: 1px;
+  left: 17px;
+  height: 79%;
+}
+/* line 140, ../sass/components/single--package.scss */
+.internal--perday .dest-distance {
+  position: absolute;
+}
+/* line 143, ../sass/components/single--package.scss */
+.internal--perday h5 {
+  font-size: 24px;
+  font-weight: 400;
+  margin: 0;
+  color: #15386e;
+}
+/* line 149, ../sass/components/single--package.scss */
+.internal--perday .arrival {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+/* line 154, ../sass/components/single--package.scss */
+.internal--perday .inc {
+  font-size: 14px;
+  display: inline-block;
+  vertical-align: middle;
+}
+/* line 158, ../sass/components/single--package.scss */
+.internal--perday .inc span {
+  margin-right: 10px;
+  padding-right: 10px;
+  position: relative;
+  color: #545454;
+}
+/* line 163, ../sass/components/single--package.scss */
+.internal--perday .inc span:after {
+  content: ' ';
+  position: absolute;
+  background: #666467;
+  width: 1px;
+  height: 10px;
+  right: 0;
+  top: 5px;
+}
+/* line 173, ../sass/components/single--package.scss */
+.internal--perday .inc span.last:after {
+  display: none;
+}
+/* line 179, ../sass/components/single--package.scss */
+.internal--perday .day--today {
+  font-weight: 800;
+}
+
+/* line 184, ../sass/components/single--package.scss */
+.margin-top.bg-blue {
+  font-size: 14px;
+}
+
+/* line 188, ../sass/components/single--package.scss */
+.checklist {
+  list-style: none;
+  border-bottom: 1px solid #e9e9e9;
+  margin-bottom: 1rem;
+  padding-bottom: 6px;
+}
+/* line 193, ../sass/components/single--package.scss */
+.checklist li {
+  width: 32%;
+  display: inline-block;
+  margin: 0;
+  padding-bottom: 10px;
+}
+/* line 198, ../sass/components/single--package.scss */
+.checklist li img {
+  margin-right: 5px;
+}
+
+/* line 204, ../sass/components/single--package.scss */
+.inc--per--package {
+  font-size: 14px;
+}
+/* line 206, ../sass/components/single--package.scss */
+.inc--per--package span {
+  margin-right: 10px;
+}
+/* line 209, ../sass/components/single--package.scss */
+.inc--per--package .label {
+  font-weight: 600;
+}
+
+/* line 214, ../sass/components/single--package.scss */
+.tag {
+  background: #15386e;
+  display: inline-block;
+  color: #fff;
+  padding: 4px 6px;
+  font-size: 12px;
+  border-radius: 5px;
+  right: 0;
+  top: 35%;
+}
+
+/* line 5, ../sass/components/_form.scss */
+ul.form {
+  list-style: none;
+}
+/* line 7, ../sass/components/_form.scss */
+ul.form label {
+  font-weight: 600;
+  font-size: 14px;
+}
+/* line 11, ../sass/components/_form.scss */
+ul.form .inp {
+  position: relative;
+}
+/* line 13, ../sass/components/_form.scss */
+ul.form .inp img {
+  position: absolute;
+  top: 30%;
+  left: 10px;
+}
+/* line 19, ../sass/components/_form.scss */
+ul.form .input-field {
+  width: 100%;
+  border: 1px solid #c7c7c7;
+  padding: 10px;
+  font-size: 16px;
+  padding-left: 3rem;
+  color: #15386e;
+}
+/* line 26, ../sass/components/_form.scss */
+ul.form .input-field:focus {
+  border: 1px solid #15386e;
+}
+/* line 30, ../sass/components/_form.scss */
+ul.form span.error {
+  color: #df3b52;
+  font-size: 12px;
+}
+/* line 35, ../sass/components/_form.scss */
+ul.form .select-2--wrapper span {
+  display: block;
+  width: 100% !important;
+}
+/* line 38, ../sass/components/_form.scss */
+ul.form .select-2--wrapper span.label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* line 46, ../sass/components/_form.scss */
+ul.radio {
   margin-top: -40px;
   border-bottom: 1px solid #e9e9e9;
 }
-/* line 22, ../sass/components/single--package.scss */
-.single--package .single--packing_desc ul.hotel li {
+/* line 49, ../sass/components/_form.scss */
+ul.radio li {
   list-style: none;
   padding: 0;
   display: inline-block;
   position: relative;
   color: #666467;
 }
-/* line 28, ../sass/components/single--package.scss */
-.single--package .single--packing_desc ul.hotel li input[type=radio] {
+/* line 55, ../sass/components/_form.scss */
+ul.radio li input[type=radio] {
   position: absolute;
   visibility: hidden;
 }
-/* line 32, ../sass/components/single--package.scss */
-.single--package .single--packing_desc ul.hotel li label {
+/* line 59, ../sass/components/_form.scss */
+ul.radio li label {
   display: block;
   position: relative;
-  font-weight: 300;
   font-size: 12px;
   margin-top: 42px;
   margin-right: 26px;
@@ -3391,8 +3619,8 @@ input.input {
   cursor: pointer;
   -webkit-transition: all 0.25s linear;
 }
-/* line 44, ../sass/components/single--package.scss */
-.single--package .single--packing_desc ul.hotel li .check {
+/* line 70, ../sass/components/_form.scss */
+ul.radio li .check {
   display: block;
   position: absolute;
   border: 2px solid #666467;
@@ -3405,12 +3633,12 @@ input.input {
   transition: border .25s linear;
   -webkit-transition: border .25s linear;
 }
-/* line 57, ../sass/components/single--package.scss */
-.single--package .single--packing_desc ul.hotel li::hover .check {
-  border: 2px solid #df3b52;
+/* line 83, ../sass/components/_form.scss */
+ul.radio li::hover .check {
+  border: 2px solid #15386e;
 }
-/* line 60, ../sass/components/single--package.scss */
-.single--package .single--packing_desc ul.hotel li .check::before {
+/* line 86, ../sass/components/_form.scss */
+ul.radio li .check::before {
   display: block;
   position: absolute;
   content: '';
@@ -3423,253 +3651,124 @@ input.input {
   transition: background 0.25s linear;
   -webkit-transition: background 0.25s linear;
 }
-/* line 73, ../sass/components/single--package.scss */
-.single--package .single--packing_desc ul.hotel li input[type=radio]:checked ~ .check {
-  border: 2px solid #df3b52;
+/* line 99, ../sass/components/_form.scss */
+ul.radio li input[type=radio]:checked ~ .check {
+  border: 2px solid heading;
 }
-/* line 76, ../sass/components/single--package.scss */
-.single--package .single--packing_desc ul.hotel li input[type=radio]:checked ~ .check::before {
-  background: #df3b52;
+/* line 102, ../sass/components/_form.scss */
+ul.radio li input[type=radio]:checked ~ .check::before {
+  background: #15386e;
 }
-/* line 79, ../sass/components/single--package.scss */
-.single--package .single--packing_desc ul.hotel li input[type=radio]:checked ~ label {
-  color: #df3b52;
-}
-/* line 84, ../sass/components/single--package.scss */
-.single--package .single--packing_desc .rating-star {
-  color: #666467;
-}
-/* line 88, ../sass/components/single--package.scss */
-.single--package .pack-heading {
-  font-size: 22px;
-  font-weight: 600;
-  margin: 0;
-}
-/* line 92, ../sass/components/single--package.scss */
-.single--package .pack-heading span {
-  font-size: 12px;
-  display: block;
-}
-/* line 97, ../sass/components/single--package.scss */
-.single--package .rating-form {
-  margin-top: 0;
-}
-/* line 101, ../sass/components/single--package.scss */
-.single--package .inclusions img {
-  margin-right: 1.4rem;
-}
-/* line 105, ../sass/components/single--package.scss */
-.single--package .price--tag {
-  display: flex;
-}
-/* line 108, ../sass/components/single--package.scss */
-.single--package .price--starting,
-.single--package .select-2--wrapper {
-  flex: 1;
-}
-/* line 113, ../sass/components/single--package.scss */
-.single--package .select-2--wrapper .select2-selection__rendered {
-  font-size: 18px;
-}
-/* line 116, ../sass/components/single--package.scss */
-.single--package .select-2--wrapper span {
-  font-size: 12px;
-  color: #545454;
-}
-/* line 120, ../sass/components/single--package.scss */
-.single--package .select-2--wrapper .select2-container {
-  margin-top: 5px;
-  width: 155px !important;
-}
-/* line 123, ../sass/components/single--package.scss */
-.single--package .select-2--wrapper .select2-container .select2-selection--single {
-  height: 30px !important;
-}
-/* line 127, ../sass/components/single--package.scss */
-.single--package .select-2--wrapper .select2-selection__arrow {
-  right: 0 !important;
-  top: 0 !important;
-  height: 29px;
-}
-/* line 131, ../sass/components/single--package.scss */
-.single--package .select-2--wrapper .select2-selection__arrow b {
-  background: url("../assets/icons/select--arrow.svg");
-  width: 19px !important;
-  height: 13px !important;
-  border-color: transparent !important;
-  background-repeat: no-repeat;
-  left: 18% !important;
-  top: 27% !important;
-}
-/* line 142, ../sass/components/single--package.scss */
-.single--package .price--starting {
-  border-right: 1px solid #e9e9e9;
-  margin-right: 1rem;
-  padding-right: 1rem;
-}
-/* line 146, ../sass/components/single--package.scss */
-.single--package .price--starting > span {
-  font-size: 12px;
-  color: #545454;
-}
-/* line 150, ../sass/components/single--package.scss */
-.single--package .price--starting div.amount {
-  font-size: 26px;
-  font-weight: 600;
-  color: #4caf50;
-}
-/* line 154, ../sass/components/single--package.scss */
-.single--package .price--starting div.amount span {
-  margin-right: 5px;
-}
-
-/* line 161, ../sass/components/single--package.scss */
-.border {
-  border: 1px solid #e9e9e9;
-  padding: 1rem;
-  margin-bottom: 10px;
-  border-radius: 3px;
-}
-
-/* line 168, ../sass/components/single--package.scss */
-.darkborder {
-  border: 1px solid #d4e6ec;
-  padding: 1rem;
-  margin-bottom: 10px;
-  border-radius: 3px;
-}
-
-/* line 175, ../sass/components/single--package.scss */
-.margin-top {
-  margin-top: 1rem;
-}
-
-/* line 179, ../sass/components/single--package.scss */
-.select2-search--dropdown {
-  display: none !important;
-}
-
-/* line 183, ../sass/components/single--package.scss */
-.select2-selection {
-  border-radius: 0 !important;
-}
-
-/* line 187, ../sass/components/single--package.scss */
-.internal--perday {
-  margin: 2rem 0;
-  position: relative;
-}
-/* line 190, ../sass/components/single--package.scss */
-.internal--perday:before {
-  top: -32px;
-}
-/* line 193, ../sass/components/single--package.scss */
-.internal--perday:after {
-  top: 42px;
-}
-/* line 196, ../sass/components/single--package.scss */
-.internal--perday:after, .internal--perday:before {
-  position: absolute;
-  content: "";
-  background: #d4e6ec;
-  width: 1px;
-  left: 17px;
-  height: 79%;
-}
-/* line 205, ../sass/components/single--package.scss */
-.internal--perday .dest-distance {
-  position: absolute;
-}
-/* line 208, ../sass/components/single--package.scss */
-.internal--perday h5 {
-  font-size: 24px;
-  font-weight: 400;
-  margin: 0;
+/* line 105, ../sass/components/_form.scss */
+ul.radio li input[type=radio]:checked ~ label {
   color: #15386e;
 }
-/* line 214, ../sass/components/single--package.scss */
-.internal--perday .arrival {
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: 10px;
+
+/* line 111, ../sass/components/_form.scss */
+.no-border {
+  border: none !important;
 }
-/* line 219, ../sass/components/single--package.scss */
-.internal--perday .inc {
+/* line 113, ../sass/components/_form.scss */
+.no-border.radio {
+  display: flex;
+}
+/* line 115, ../sass/components/_form.scss */
+.no-border.radio li {
+  flex: 1;
+}
+
+/* line 121, ../sass/components/_form.scss */
+#datepicker {
+  width: 100%;
+  padding: 10px;
+  color: #666467;
+  text-transform: uppercase;
+  border: 1px solid #c7c7c7;
+}
+
+/* line 129, ../sass/components/_form.scss */
+li.day--counter {
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 50px;
+  margin-bottom: 3rem;
+}
+/* line 137, ../sass/components/_form.scss */
+li.day--counter input[type=number] {
+  float: left;
+  width: 70px;
+  height: 30px;
+  padding: 0;
   font-size: 14px;
-  display: inline-block;
-  vertical-align: middle;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  color: #666467;
+  border: 1px #c7c7c7 solid;
+  background: none;
+  outline: none;
+  pointer-events: none;
 }
-/* line 223, ../sass/components/single--package.scss */
-.internal--perday .inc span {
-  margin-right: 10px;
-  padding-right: 10px;
-  position: relative;
-  color: #545454;
-}
-/* line 228, ../sass/components/single--package.scss */
-.internal--perday .inc span:after {
-  content: ' ';
+/* line 152, ../sass/components/_form.scss */
+li.day--counter span.spinner {
   position: absolute;
-  background: #666467;
-  width: 1px;
-  height: 10px;
-  right: 0;
-  top: 5px;
+  height: 40px;
+  user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
 }
-/* line 238, ../sass/components/single--package.scss */
-.internal--perday .inc span.last:after {
-  display: none;
+/* line 161, ../sass/components/_form.scss */
+li.day--counter span.spinner > .sub,
+li.day--counter span.spinner > .add {
+  float: left;
+  display: block;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  font-size: 1.2em;
+  line-height: 28px;
+  color: #666467;
+  border: 1px #c7c7c7 solid;
+  border-right: 0;
+  cursor: pointer;
+  transition: 0.1s linear;
+  -o-transition: 0.1s linear;
+  -ms-transition: 0.1s linear;
+  -moz-transition: 0.1s linear;
+  -webkit-transition: 0.1s linear;
 }
-/* line 244, ../sass/components/single--package.scss */
-.internal--perday .day--today {
-  font-weight: 800;
+/* line 180, ../sass/components/_form.scss */
+li.day--counter span.spinner > .add {
+  top: 0;
+  border: 1px #c7c7c7 solid;
+  border-left: 0;
+}
+/* line 185, ../sass/components/_form.scss */
+li.day--counter span.spinner > .sub:hover,
+li.day--counter span.spinner > .add:hover {
+  background: #c7c7c7;
+  color: #ffffff;
+}
+/* line 190, ../sass/components/_form.scss */
+li.day--counter input[type=number]::-webkit-inner-spin-button,
+li.day--counter input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
 }
 
-/* line 249, ../sass/components/single--package.scss */
-.margin-top.bg-blue {
-  font-size: 14px;
-}
-
-/* line 253, ../sass/components/single--package.scss */
-.checklist {
+/* line 196, ../sass/components/_form.scss */
+.depart-date {
   list-style: none;
-  border-bottom: 1px solid #e9e9e9;
-  margin-bottom: 1rem;
-  padding-bottom: 6px;
 }
-/* line 258, ../sass/components/single--package.scss */
-.checklist li {
-  width: 32%;
-  display: inline-block;
-  margin: 0;
-  padding-bottom: 10px;
-}
-/* line 263, ../sass/components/single--package.scss */
-.checklist li img {
-  margin-right: 5px;
-}
-
-/* line 269, ../sass/components/single--package.scss */
-.inc--per--package {
-  font-size: 14px;
-}
-/* line 271, ../sass/components/single--package.scss */
-.inc--per--package span {
-  margin-right: 10px;
-}
-/* line 274, ../sass/components/single--package.scss */
-.inc--per--package .label {
+/* line 198, ../sass/components/_form.scss */
+.depart-date .hsidebar,
+.depart-date label {
+  display: block;
+  width: 100% !important;
   font-weight: 600;
-}
-
-/* line 279, ../sass/components/single--package.scss */
-.tag {
-  background: #15386e;
-  display: inline-block;
-  color: #fff;
-  padding: 4px 6px;
-  font-size: 12px;
-  border-radius: 5px;
-  right: 0;
-  top: 35%;
+  font-size: 14px;
 }
