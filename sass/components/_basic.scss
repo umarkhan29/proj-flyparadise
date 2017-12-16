@@ -196,3 +196,18 @@ input:hover {
     margin: 0.5rem 0;
     text-transform: capitalize;
 }
+
+// Select 2
+.select2-dropdown {
+    border: 1px solid $dark-border !important;
+    border-top: 0 !important;
+    li.select2-results__option {
+        margin: 0 !important;
+        font-size: 14px !important;
+    }
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected],
+.select2-container--default .select2-results__option[aria-selected=true] {
+    background: $background-blue !important;
+}
