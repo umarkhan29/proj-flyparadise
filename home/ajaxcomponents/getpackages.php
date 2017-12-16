@@ -60,6 +60,7 @@
 		 $query.= "AND `price` < '$price' ";
 	 }
 	
+	
 	 //fetching filtered results
 	if($result = mysqli_query($dbconn,$query)){
 		$packages;

@@ -48,7 +48,7 @@
 	
 <?php
 //Fetching single package
- $id=12;
+ $id=31;
  $query = "SELECT * FROM `packages` WHERE `id` = '$id';  ";
 			if($result = mysqli_query($dbconn,$query)){
 				$package="";
@@ -70,7 +70,15 @@
 							'MEALS' 		=> 	$row['meals'],
 							'SITESEEING' 	=> 	$row['siteseeing'],
 							'STAY' 			=> 	$row['stay'],
-							'ADDON' 			=> 	$row['addon']
+							'ADDON' 		=> 	$row['addon'],
+							'ITINERARY' 	=> 	$row['itinerary'],
+							'INCLUSIONS'	=> 	$row['inclusions'],
+							'EXCLUSIONS' 	=> 	$row['exclusions'],
+							'GETAWAYS' 		=> 	$row['getaways'],
+							'WORTHWATCHING' => 	$row['worthwatching'],
+							'ITINERARYTITLE'=>  $row['itinerarytitle'],
+							'ITINERARYTAGS' => 	$row['itinerarytags'],
+							
 						);
 						 $count=$count+1;
 						
@@ -108,41 +116,41 @@
 				   		if($package[0]['FLIGHTS']=='Yes') 
 				   			echo '<img src="./assets/icons/transport/air.svg" alt="Air Transfer" label="Air Transfer">';
 				   		else
-							echo '<img src="./assets/icons/transport/noimg.svg" alt="Flights not included" label="Flights not included">';
+							echo '<img src="./assets/icons/transport/air.svg" alt="Flights not included" label="Flights not included" class="package--ex">';
 							
 						
 						//Showing Meals thumbnails
 				   		if($package[0]['MEALS']=='Yes') 
 				   			echo '<img src="./assets/icons/transport/meals.svg" alt="Meals">';
 				   		else
-							echo '<img src="./assets/icons/transport/meals.svg" alt="Meals not included" label="Meals not included" class="inactive-inclusion">';
+							echo '<img src="./assets/icons/transport/meals.svg" alt="Meals not included" label="Meals not included" class="package--ex">';
 						
 						
 						//Showing Cab thumbnails
 				   		if($package[0]['CAB']=='Yes') 
 				   			echo '<img src="./assets/icons/transport/transfer.svg" alt="Transfers">';
 				   		else
-							echo '<img src="./assets/icons/transport/noimg.svg" alt="Cab not included" label="Cab not included">';
+							echo '<img src="./assets/icons/transport/transfer.svg" alt="Cab not included" label="Cab not included" class="package--ex">';
 						
 						
 						//Showing Stay thumbnails
 				   		if($package[0]['STAY']=='Yes') 
 				   			echo '<img src="./assets/icons/transport/stars.svg" alt="hotel stars">';
 				   		else
-							echo '<img src="./assets/icons/transport/noimg.svg" alt="Stay not included" label="Stay not included">';
+							echo '<img src="./assets/icons/transport/stars.svg" alt="Stay not included" label="Stay not included" class="package--ex">';
 						
 						//Showing SITESEEING thumbnails
 				   		if($package[0]['SITESEEING']=='Yes') 
 				   			echo ' <img src="./assets/icons/transport/view.svg" alt="Site seeing">';
 				   		else
-							echo '<img src="./assets/icons/transport/noimg.svg" alt="Stay not included" label="Stay not included">';
+							echo '<img src="./assets/icons/transport/view.svg" alt="Stay not included" label="Stay not included" class="package--ex">';
 						
 						
 						//Showing Cab thumbnails
 				   		if($package[0]['ADDON']=='Yes') 
-				   			echo ' <img src="./assets/icons/transport/more.svg" alt="Complimentary from destination">';
+				   			echo ' <img src="./assets/icons/transport/more.svg" alt="Complimentary from destination" >';
 				   		else
-							echo '<img src="./assets/icons/transport/noimg.svg" alt="Complimentary from destination" label="Complimentary from destination">';
+							echo '<img src="./assets/icons/transport/more.svg" alt="Complimentary from destination" label="Complimentary from destination" class="package--ex">';
 						
 				 
 				    ?>
@@ -203,73 +211,85 @@
                 <button class="cta">Submit</button>
             </div>
         </div>
-        <!-- Iternary timeline -->
-        <div class="container experience">
-            <div class="row">
-                <div class="col-md-12">
-                    <h4>ITERNARY</h4>
-                    <section class="cd-horizontal-timeline container">
-                        <div class="timeline">
-                            <div class="events-wrapper">
-                                <div class="events">
-                                    <ol>
-                                        <li>
-                                            <a href="#0" data-date="01/05/2011" class="selected">
-                                                <span class="iternary--date">One date</span></a>
-                                        </li>
-                                        <li>
-                                            <a href="#0" data-date="01/03/2012">
-                                                <span class="iternary--date">2nd date</span></a>
-                                        </li>
-                                        <li>
-                                            <a href="#0" data-date="01/0/2013">
-                                                <span class="iternary--date">3rd date</span></a>
-                                        </li>
-                                        <li>
-                                            <a href="#0" data-date="01/05/2014">
-                                                <span class="iternary--date">4rd date</span></a>
-                                        </li>
-                                        <li>
-                                            <a href="#0" data-date="01/06/2015">
-                                                <span class="iternary--date">5rd date</span></a>
-                                        </li>
-                                        <li>
-                                            <a href="#0" data-date="01/07/2016">
-                                                <span class="iternary--date">6rd date</span></a>
-                                        </li>
-                                    </ol>
-
-                                    <span class="filling-line" aria-hidden="true"></span>
-                                </div>
-                                <!-- .events -->
-                            </div>
-                            <!-- .events-wrapper -->
-                        </div>
-                        <!-- .timeline -->
-
-                        <div class="events-content">
-                            <ol>
-                                <li class="selected" data-date="01/05/2015">
-                                    <h5>Day one khap khap </h5>
-                                    <em>Today</em>
-                                    <p>This is a test package</p>
-                                    <br>
-                                    <p>Dopmai az ladnaaw</p>
-                                </li>
-
-                                <li data-date="01/03/2014">
-                                </li>
-
-                                <li data-date="01/02/2013">
-                                    <h5>Day one khap khap </h5>
-                                    <em>Today</em>
-                                    <p>This is a test package</p>
-                                    <br>
-                                    <p>Dopmai az ladnaaw</p>
-                                </li>
-                            </ol>
-                        </div>
-                    </section>
+	</div>
+    <!-- Iternary timeline -->
+	
+	
+    <div class="main-content">
+        <div class="with--sidebar itinerary border">
+		
+		
+		<?php
+			//Generating Itineraries, Inclusions, Exclusions, worthwatching,Getaways
+			 $itinerarytitle=explode('$$$$',$package[0]['ITINERARYTITLE']);
+			 $itinerarytags=explode('$$$$',$package[0]['ITINERARYTAGS']);
+			 $itinerary=explode('$$$$',$package[0]['ITINERARY']);
+			 $inclusions=explode('$$$$',$package[0]['INCLUSIONS']);
+			 $exclusions=explode('$$$$',$package[0]['EXCLUSIONS']);
+			 $worthwatching=explode('$$$$',$package[0]['WORTHWATCHING']);
+			 $getaways=explode('$$$$',$package[0]['GETAWAYS']);
+		
+		
+		?>
+		
+		
+		<?php for($i=0;$i<count($itinerary)-1;$i++){ ?>
+            <div class="day">
+                <div class="internal--perday">
+                    <img class="arrival" src="./assets/icons/arrival.svg" alt="arrival">
+                    <div class="inc">
+                        <h5><?php echo $itinerarytitle[$i]; ?></h5>
+						
+                        <span class="day--today">Day <?php echo "One";?></span>
+						
+						<?php 
+							$tags=explode(',',$itinerarytags[$i]);
+							for($j=0;$j<count($tags);$j++){ 
+								if($j!=count($tags)-1)
+									echo '<span>'.$tags[$j].'</span>';
+								else
+									echo '<span class="last">'.$tags[$j].'</span>'; 
+							}
+						 ?>
+							
+                    </div>
+                </div>
+                <div class="darkborder inc--per--package bg-blue">
+                    <span class="label">Worth Watching:</span><span><?php echo $worthwatching[$i]; ?></span>
+                </div>
+                <div class="darkborder inc--per--package bg-blue">
+                    <span class="label">Getaways:</span><span><?php echo $getaways[$i]; ?></span>
+                </div>
+                <div class="darkborder margin-top bg-blue">
+                    <ul class="checklist">
+					<?php 
+					
+						
+							$inclusion=explode(',',$inclusions[$i]);
+							
+							for($k=0;$k<count($inclusion);$k++){
+					 ?>
+                       			 <li><img src="./assets/icons/checklist.svg" alt=""><?php echo $inclusion[$k]; ?></li>
+					<?php 
+							} //ending internal loop (comma seperator)
+							
+					?>
+                    </ul>
+                    <p class="more--details"><?php echo $itinerary[$i]; ?>
+					
+                    </p>
+                </div>
+            </div>
+   
+   		<?php } ?>
+   
+        </div>
+        <div class="sidebar">
+            <div class="help--box border">
+                <img src="./assets/icons/call24.svg" alt="call">
+                <div>
+                    <p>Need help with your trip?</p>
+                    <span>Please call <a href="tel:18001232262">1800 123 2262</a></span>
                 </div>
             </div>
         </div>
