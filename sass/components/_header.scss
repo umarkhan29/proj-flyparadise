@@ -109,6 +109,8 @@ header.alternate {
 .main--header {
     display: inline-block;
     width: 100%;
+    box-shadow: 2px 2px 10px #cccccc;
+    margin-bottom: 2rem;
     .menu--heading {
         @extend %full--width;
     }
