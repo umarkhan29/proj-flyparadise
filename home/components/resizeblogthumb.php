@@ -11,8 +11,8 @@
 		
 		$image_width=$image_size[0];
 		$image_height=$image_size[1];
-		$new_width=90;
-		$new_height=90;
+		$new_width=200;
+		$new_height=260;
 		
 		
 	    $new_image=imagecreatetruecolor($new_width,$new_height);
