@@ -14,13 +14,6 @@ $(document).ready(function() {
         autoPlay: false
     });
 
-    $('li.quote').click(function() {
-        $('.pop-up').toggleClass('remove');
-      });
-      $('.remove-popup').click(function() {
-        $('.pop-up').toggleClass('remove');
-      });
-
     $(window).load(function() {
         $(".col-3 input").val("");
 

@@ -11,13 +11,12 @@
 	 $solo=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['solo']))));
 	 $ff=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['ff']))));
 	 $duration=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['duration']))));
-	 if($_GET['price']>0){
-		 $price=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['price']))));
+	 $price=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['price']))));
 		 $price=explode('₹',$price);
 		 $price=$price[1];
 		 $price=explode(',',$price);
 		 $price=$price[0].$price[1];
-	}
+	
 	 
 	 $query = "SELECT * FROM `packages` WHERE `destination` = '$destination' ";
 	 
@@ -56,10 +55,9 @@
 	$query.=" AND `duration` like  '%$duration nights' ";
 	
 	//query formulation for pricing
-	 if($_GET['price']>0){
+	 if($price>0){
 		 $query.= "AND `price` < '$price' ";
 	 }
-	
 	
 	 //fetching filtered results
 	if($result = mysqli_query($dbconn,$query)){

@@ -14,14 +14,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="libraries/owl.carousel.min.js"></script>
     <script src="libraries/js/main.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCotB6BSKESLUC2dNLnAT76EporwJBXMN4&v=3.exp&libraries=places"></script>
     <!--[if IE]>
         <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
     <![endif]-->
 </head>
 
 <body>
-    <header class="hero main--header home">
+    <header class="hero home">
         <div class="header max-width">
             <h1>Fly Paradise</h1>
             <div class="main--nav">
@@ -29,9 +28,8 @@
                 <li> <a href="">Destinations</a> </li>
                 <li> <a href="">About</a> </li>
                 <li> <a href="">Saver Packages</a> </li>
-                <li class="quote">FREE QUOTE</li>
             </div>
-            <div class="search remove">
+            <div class="search">
                 <form action="search" method="POST">
                     <input class="input" type="text" name="searchtxtbox" placeholder="search">
                     <input class="button" name="btn" type="submit">
@@ -362,143 +360,50 @@
         </row>
     </section>
     <footer>
-            <div class="footer--primary max-width">
-                <ul>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">What makes Us</a></li>
-                    <li><a href="#">Blogs</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">Terms &amp; Conditions</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                </ul>
-            </div>
-    
-            <div class="footer--secondary">
-                <div class="max-width">
-                    <div class="connect">
-                        <a class="social" href="#"><img src="./assets/icons/social/facebook.svg" alt="Facebook"></a>
-                        <a class="social" href="#"><img src="./assets/icons/social/insta.svg" alt="Instagram"></a>
-                        <a class="social" href="#"><img src="./assets/icons/social/twitter.svg" alt="twitter"></a>
-                        <a class="social" href="#"><img src="./assets/icons/social/in.svg" alt="linkedIn"></a>
-                    </div>
-                </div>
-            </div>
-            <div class="copyright">
-                &copy; 2010 - 2018 Fly Paradise Travels
-            </div>
-        </footer>
-        <!-- PopUp wrapper -->
-        <div class="pop-up remove">
-            <!-- Calling popup from location partial -->
-            
-            <div class="pop-up-form">
-                <p class="remove-popup">X</p>
-                <div class="form-image">
-                    <img src="./assets/form/form.png" alt="">
-                </div>
-                <div class="form-fields">
-                    <ul class="form">
-                        <li>
-                            <script>
-                                function init() {
-                                    var input = document.getElementById('locationTextFieldD');
-                                    var autocomplete = new google.maps.places.Autocomplete(input);
-                                }
-                                google.maps.event.addDomListener(window, 'load', init);
-                            </script>
-                            <label for="locationTextField">Departure point</label>
-                
-                            <div class="inp">
-                                <img src="./assets/icons/social/location.svg" alt="">
-                                <input id="locationTextFieldD" class="input-field" placeholder="Leaving from this place" type="text" size="50">
-                            </div>
-                        </li>
-                        <li>
-                                <script>
-                                    function init() {
-                                        var input = document.getElementById('locationTextFieldA');
-                                        var autocomplete = new google.maps.places.Autocomplete(input);
-                                    }
-                                    google.maps.event.addDomListener(window, 'load', init);
-                                </script>
-                            <label for="locationTextField">Arrival point</label>
-                        
-                            <div class="inp">
-                                <img src="./assets/icons/social/location.svg" alt="">
-                                <input id="locationTextFieldA" class="input-field" placeholder="Want to see" type="text" size="50">
-                            </div>
-                        </li>
-                        <li>
-                            <label for="">Enter Phone No.</label>
-                            <div class="inp">
-                                <img src="./assets/icons/social/smartphone.svg" alt="">
-                                <input class="input-field" placeholder="Enter Phone" min="9" max="10" required type="tel">
-                            </div>
-                        </li>
-                        <li>
-                            <label for="">Enter your Email</label>
-                            <div class="inp">
-                                <img src="./assets/icons/social/mail.svg" alt="">
-                                <input class="input-field" placeholder="Your email-ID" required type="email">
-                            </div>
-                        </li>
-                    </ul>
-                    <ul class="depart-date">
-                        <li><label for="datepicker">Departure date</label>
-                            <input id="datepicker" placeholder="Preferred date of travel" type="date" /></li>
-                        <li class="day--counter no-of-day">
-                            <span class="hsidebar">Duration (in nights)</span>
-                            <input id="counter-no" type="number" min="1" max="30" value="1" />
-                        </li>
-                
-                        </form>
-                    </ul>
-                    <ul class="hotel radio no-border">
-                        <li>
-                            <input type="radio" id="f-option" name="selector">
-                            <label for="f-option">Honeymoon</label>
-                
-                            <div class="check"></div>
-                        </li>
-                
-                        <li>
-                            <input type="radio" id="s-option" name="selector">
-                            <label for="s-option">Solo</label>
-                
-                            <div class="check">
-                                <div class="inside"></div>
-                            </div>
-                        </li>
-                
-                        <li>
-                            <input type="radio" id="t-option" name="selector">
-                            <label for="t-option">Family</label>
-                
-                            <div class="check">
-                                <div class="inside"></div>
-                            </div>
-                        </li>
-                        <li>
-                            <input type="radio" id="w-option" name="selector">
-                            <label for="w-option">Weekend</label>
-                
-                            <div class="check">
-                                <div class="inside"></div>
-                            </div>
-                        </li>
-                        <li>
-                            <input type="radio" id="x-option" name="selector">
-                            <label for="x-option">Friends</label>
-                
-                            <div class="check">
-                                <div class="inside"></div>
-                            </div>
-                        </li>
-                    </ul>
-                    <button class="cta" type="submit" value="Curate my package">Curate my Package</button>
+        <div class="footer--primary max-width">
+            <ul>
+                <li class="bold">Offerings</li>
+                <li><a href="#">Test link</a></li>
+                <li><a href="#">Test link</a></li>
+                <li><a href="#">Test link</a></li>
+                <li><a href="#">Test link</a></li>
+            </ul>
+            <ul>
+                <li class="bold">Our Policies</li>
+                <li><a href="#">Test link</a></li>
+                <li><a href="#">Test link</a></li>
+                <li><a href="#">Test link</a></li>
+                <li><a href="#">Test link</a></li>
+            </ul>
+            <ul>
+                <li class="bold">What we write</li>
+                <li><a href="#">Test link</a></li>
+                <li><a href="#">Test link</a></li>
+                <li><a href="#">Test link</a></li>
+                <li><a href="#">Test link</a></li>
+            </ul>
+            <ul>
+                <li class="bold">More</li>
+                <li><a href="#">Test link</a></li>
+                <li><a href="#">Test link</a></li>
+                <li><a href="#">Test link</a></li>
+                <li><a href="#">Test link</a></li>
+            </ul>
+        </div>
+
+        <div class="footer--secondary">
+            <div class="max-width">
+                <div class="copyright f-left">made with
+                    <section class="fave"></section>
+                    in heaven.</div>
+                <div class="connect f-right">
+                    <a class="social fb" href="#">facebook</a>
+                    <a class="social insta" href="#">instagram</a>
+                    <a class="social tw" href="#">twitter</a>
                 </div>
             </div>
         </div>
+    </footer>
 </body>
 <!--Analytics Code-->
 <!--  <script>
