@@ -1,5 +1,5 @@
 <?php
-
+	
 	if(isset($_POST['Username'])){
 	
 	val_name($_POST['Username']);
@@ -13,19 +13,13 @@
 			$_SESSION['$user_name']=mysql_real_escape_string(trim(strip_tags(stripslashes($_POST['Username']))));
 			$_SESSION['$pass']=mysql_real_escape_string(trim(strip_tags(stripslashes($_POST['Password']))));
 			$_SESSION['$email']=mysql_real_escape_string(trim(strip_tags(stripslashes($_POST['Email']))));
-			$_SESSION['$phone']=mysql_real_escape_string(trim(strip_tags(stripslashes($_POST['phone']))));
+			//$_SESSION['$phone']=mysql_real_escape_string(trim(strip_tags(stripslashes($_POST['Phone_Number']))));
 			$_SESSION['$pass']=md5(md5(hash('sha512',md5(base64_encode(hash('sha1',$_SESSION['$pass']))))));
 			$_SESSION['$auth']=rand(0000,999999);
 		$message="Your OTP for registration process is ".$_SESSION['$auth']."\n \n \n \n"."Disclaimer:
 This message is intended only for the use of the addressee and may contain information that is privileged, confidential and exempt from disclosure under applicable law. If the reader of this message is not the intended recipient, or the employee or agent responsible for delivering the message to the intended recipient, you are hereby notified that any dissemination, distribution or copying of this communication is strictly prohibited. If you have received this e-mail in error, please notify us immediately and delete this e-mail and all attachments from your system.";
-			
-			$headers = "From: Fly Paradise\r\n"."MIME-Version: 1.0"."\r\n"."Content-type: text/html; charset=UTF-8"."\r\n"; 
-
-			echo $mailsent=mail("umee909@gmail.com","Authentication Code",$message,$headers);
-			
-			
-			//header('location:user_auth.php');
+			mail($_SESSION['$email'],"Authentication Code",$message,"From:Fly Paradise");
+			header('location:user_auth.php');
 		}
 	}
-
 ?>

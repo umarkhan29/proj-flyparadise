@@ -82,7 +82,7 @@
             <div class="hero--image">
                 <p class="tag"><?php echo $blog[0]['TYPE']; ?></p>
                 <h2><?php echo $blog[0]['ABOUT']; ?></h2>
-                <p class="teaser"><?php echo substr($blog[0]['CONTENT'],0,300); ?> </p>
+                <p class="teaser"><?php echo substr($blog[0]['CONTENT'],3,300); ?> </p>
                 <a href="blog_landing.php?bid=<?php echo $blog[0]['ID']; ?>">READ MORE...</a>
             </div>
             <div class="featured--image">
@@ -166,10 +166,8 @@
                 <div class="teaser-article border">
                     <img src="<?php echo $blogs[$i]['THUMB']; ?>" alt="">
                     <div class="teaser--div">
-                        <a href="blog_landing.php?bid=<?php echo $blogs[$i]['ID']; ?>">
-                                <h3><?php echo $blogs[$i]['ABOUT']; ?></h3>
-                          </a>
-                        <p class="teaser"><?php echo $trimtext=substr($blogs[$i]['CONTENT'],0,150); ?></p>
+                        <h3><?php echo $blogs[$i]['ABOUT']; ?></h3>
+                        <p class="teaser"><?php echo $trimtext=substr($blogs[$i]['CONTENT'],3,150); ?></p>
                         <div class="comments">
                             <img src="./assets/icons/social/comment.svg" alt="">
                             <span>22 Comments</span>
@@ -195,10 +193,8 @@
                 <div class="teaser-article border">
                     <img src="<?php echo $blogs[$i]['THUMB']; ?>" alt="">
                     <div class="teaser--div">
-                        <a href="blog_landing.php?bid=<?php echo $blogs[$i]['ID']; ?>">
-                                <h3><?php echo $blogs[$i]['ABOUT']; ?></h3>
-                         </a>
-                        <p class="teaser"><?php echo $trimtext=substr($blogs[$i]['CONTENT'],0,150); ?></p>
+                        <h3><?php echo $blogs[$i]['ABOUT']; ?></h3>
+                        <p class="teaser"><?php echo $trimtext=substr($blogs[$i]['CONTENT'],3,150); ?></p>
                         <div class="comments">
                             <img src="./assets/icons/social/comment.svg" alt="">
                             <span>22 Comments</span>
