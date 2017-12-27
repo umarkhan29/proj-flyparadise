@@ -5,9 +5,8 @@ ob_start();
 	include_once('home/catalog/session.khan');
 	//echo $_SESSION['$auth'];
 	if(!isset($_SESSION['$auth'])){
-		header('location:get-in');
+		header('location:get-in.php');
 	}
-	echo $_SESSION['$auth'];
 ?>
 <div>
 
@@ -60,9 +59,8 @@ A verification code has been send to <span style="color:#602D8D;"><a href=""><?p
 		$user_name=$_SESSION['$user_name'];
 		$pass=$_SESSION['$pass'];
 		$email=$_SESSION['$email'];
-		$phone=$_SESSION['$phone'];
-		$query="INSERT INTO `users` (`name`,`passcode`,`email`,`phone`)  VALUES ('$user_name','$pass','$email','$phone');";
-		if(mysqli_query($dbconn,$query)){
+		//$phone=$_SESSION['$phone'];
+		if(mysqli_query($dbconn,"INSERT INTO `users` (`name`,`passcode`,`email`)  VALUES ('$user_name','$pass','$email')")){
 						echo '<div style="font-family:Arial,Helvetica,sans-serif;width:22%;height:100px;margin-left:25%;font-size:22px; color:green;">New User Created!</div>';
 						session_destroy();
 			}

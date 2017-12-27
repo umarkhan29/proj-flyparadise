@@ -18,7 +18,6 @@ header.hero {
             display: inline;
             a {
                 color: $white;
-                font-weight: 300;
             }
         }
     }
@@ -134,13 +133,13 @@ header.alternate {
         }
     }
     .quote {
-        a {
-            color: $white;
-            background: $pink;
-            border: 1px solid $pink;
-            padding: 0.5rem 1rem;
-            font-weight: 500;
-            font-size: 13px;
-        }
+        color: $white;
+        background: $pink;
+        border: 1px solid $pink;
+        padding: 0.5rem 1rem;
+        font-weight: 500;
+        font-size: 13px;
+        color: $white;
+        cursor: pointer;
     }
 }
