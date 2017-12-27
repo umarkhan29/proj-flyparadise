@@ -100,7 +100,7 @@
 	
 	<?php
 //Fetching Popuar Blogs
- $query = "SELECT * FROM `blog` where `blogtype` = 'popular' order by `id` desc LIMIT 4 ";
+ $query = "SELECT * FROM `blog` where `blogtype` = 'popularity' order by `id` desc LIMIT 4 ";
 			if($result = mysqli_query($dbconn,$query)){
 				$populardest;
 				$count=0;

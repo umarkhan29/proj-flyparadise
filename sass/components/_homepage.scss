@@ -105,15 +105,14 @@
 .packages {
     text-align: center;
     h2 {
-        color: $heading;
         margin: 0;
         margin-top: 3rem;
         font-size: 44px;
-        font-weight: 600;
+        font-weight: 200;
     }
     span {
-        font-weight: 600;
-        color: $background-blue;
+        font-weight: 200;
+        color: $gray;
     }
     ul.top--packages {
         margin-top: 3rem;
@@ -176,10 +175,9 @@
 
 // TESTIMONIALS
 #wiseintro-testimonials h2 {
-    color: $heading;
     margin-top: 1rem;
     font-size: 44px;
-    font-weight: 600;
+    font-weight: 200;
     margin-bottom: 0;
     text-align: center;
 }
@@ -191,8 +189,8 @@
     .span--heading {
         display: block;
         text-align: center;
-        font-weight: 600;
-        color: $background-blue;
+        font-weight: 200;
+        color: $gray;
     }
     .col-md-10 {
         margin-top: 1.5rem;
@@ -242,18 +240,17 @@
 //Where To
 .where--to {
     h2.heading {
-        color: $heading;
         margin-top: 6rem;
         font-size: 44px;
-        font-weight: 600;
+        font-weight: 200;
         margin-bottom: 0;
         text-align: center;
     }
     .span--heading {
         display: block;
         text-align: center;
-        font-weight: 600;
-        color: $background-blue;
+        font-weight: 200;
+        color: $gray;
     }
     img {
         max-width: 100%;
@@ -343,18 +340,17 @@
 
 .honeymoon--packages {
     h2.heading {
-        color: $heading;
         margin-top: 6rem;
         font-size: 44px;
-        font-weight: 600;
+        font-weight: 200;
         margin-bottom: 0;
         text-align: center;
     }
     .span--heading {
         display: block;
         text-align: center;
-        font-weight: 600;
-        color: $background-blue;
+        font-weight: 200;
+        color: $gray;
         margin-bottom: 3rem;
     }
     .container {
@@ -533,11 +529,5 @@
             margin-top: 0;
             color: #ffffff;
         }
-    }
-}
-.customer--care {
-    display: flex;
-    .flex-one {
-        flex: 1;
     }
 }

@@ -46,6 +46,7 @@
     </header>
 	
 	
+	
 <?php
 //Fetching single package
  $id=31;
@@ -90,6 +91,16 @@
 			}
 
 ?>
+		
+	<div class="breadcrumb">
+        <ul class="breadcrumbs">
+            <li>Home</li>
+            <li>Destinations</li>
+            <li><?php echo $package[0]['DESTINATION']; ?></li>
+        </ul>
+    </div>
+	
+	
     <div class="single--package">
         <div id="owl" class="owl-carousel single--package">
             <div class="item">
@@ -157,7 +168,7 @@
                     
                 </div>
                 <div class="stars border">
-                    <ul class="hotel">
+                    <ul class="hotel radio">
                         <li>
                             <input type="radio" id="f-option" name="selector" <?php if($package[0]['HOTELSTAR']==2) echo "checked"; ?> >
                             <label for="f-option">Budget stay</label>
@@ -294,6 +305,32 @@
             </div>
         </div>
     </div>
+<footer>
+        <div class="footer--primary max-width">
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">What makes Us</a></li>
+                <li><a href="#">Blogs</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Terms &amp; Conditions</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+            </ul>
+        </div>
+
+        <div class="footer--secondary">
+            <div class="max-width">
+                <div class="connect">
+                    <a class="social" href="#"><img src="./assets/icons/social/facebook.svg" alt="Facebook"></a>
+                    <a class="social" href="#"><img src="./assets/icons/social/insta.svg" alt="Instagram"></a>
+                    <a class="social" href="#"><img src="./assets/icons/social/twitter.svg" alt="twitter"></a>
+                    <a class="social" href="#"><img src="./assets/icons/social/in.svg" alt="linkedIn"></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2010 - 2018 Fly Paradise Travels
+        </div>
+    </footer>
 </body>
 
 </html>

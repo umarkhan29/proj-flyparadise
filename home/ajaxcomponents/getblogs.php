@@ -31,22 +31,25 @@
 		//getting search text
 		var blogsearch=document.getElementById('blogsearch').value;
 		
-		//processing filter
-		if(window.XMLHttpRequest){
-			xmlhttp=new XMLHttpRequest();
-		}
-		else{
-			xmlhttp=new ActiveXObject('Microsoft.XMLHTTP');
-		}
-		
-		xmlhttp.onreadystatechange = function(){
-			if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
-				document.getElementById(thediv).innerHTML = xmlhttp.responseText;
+			if(blogsearch!=""){
+			
+			//processing filter
+			if(window.XMLHttpRequest){
+				xmlhttp=new XMLHttpRequest();
 			}
+			else{
+				xmlhttp=new ActiveXObject('Microsoft.XMLHTTP');
+			}
+			
+			xmlhttp.onreadystatechange = function(){
+				if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+					document.getElementById(thediv).innerHTML = xmlhttp.responseText;
+				}
+			}
+			xmlhttp.open('GET','home/ajaxcomponents/searchblogs.php?blogsearch='+blogsearch,true);
+			
+			xmlhttp.send();
 		}
-		xmlhttp.open('GET','home/ajaxcomponents/searchblogs.php?blogsearch='+blogsearch,true);
-		
-		xmlhttp.send();
 		
 	}
 </script>

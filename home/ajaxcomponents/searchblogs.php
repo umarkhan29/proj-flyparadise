@@ -44,7 +44,9 @@ $blogsearch=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET
                 <div class="teaser-article border">
                     <img src="<?php echo $blogs[$i]['THUMB']; ?>" alt="">
                     <div class="teaser--div">
-                        <h3><?php echo $blogs[$i]['ABOUT']; ?></h3>
+                        <a href="blog_landing.php?bid=<?php echo $blogs[$i]['ID']; ?>">
+                                <h3><?php echo $blogs[$i]['ABOUT']; ?></h3>
+                         </a>
                         <p class="teaser"><?php echo $trimtext=substr($blogs[$i]['CONTENT'],3,150); ?></p>
                         <div class="comments">
                             <img src="./assets/icons/social/comment.svg" alt="">
@@ -71,7 +73,9 @@ $blogsearch=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET
                 <div class="teaser-article border">
                     <img src="<?php echo $blogs[$i]['THUMB']; ?>" alt="">
                     <div class="teaser--div">
-                        <h3><?php echo $blogs[$i]['ABOUT']; ?></h3>
+                       <a href="blog_landing.php?bid=<?php echo $blogs[$i]['ID']; ?>">
+                                <h3><?php echo $blogs[$i]['ABOUT']; ?></h3>
+                         </a>
                         <p class="teaser"><?php echo $trimtext=substr($blogs[$i]['CONTENT'],3,150); ?></p>
                         <div class="comments">
                             <img src="./assets/icons/social/comment.svg" alt="">

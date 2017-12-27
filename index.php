@@ -31,7 +31,8 @@
             <h1>Fly Paradise</h1>
             <div class="main--nav">
                 <li> <a href="">Packages</a> </li>
-                <li> <a href="">Destinations</a> </li>
+                <li> <a href="destinations">Destinations</a> </li>
+				<li> <a href="blog">Blog</a> </li>
                 <li> <a href="">About</a> </li>
                 <li> <a href="">Saver Packages</a> </li>
             </div>
