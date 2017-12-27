@@ -203,3 +203,66 @@ li.day--counter {
         font-size: 14px;
     }
 }
+
+//POP-UP
+.pop-up-form {
+    display: flex;
+    border: 1px solid $light-border;
+    .form-image,
+    .form-fields {
+        flex: 1;
+    }
+    .form-image {
+        background: #f7f7f7;
+    }
+    .form-fields {
+        padding: 1rem;
+    }
+    .no-of-day {
+        &.day--counter span.spinner > .sub, &.day--counter span.spinner > .add {
+            height: 46px;
+            line-height: 46px;
+            width: 46px;
+        }
+        &.day--counter input[type=number] {
+            height: 46px;
+            width: 100px;
+        }
+    }
+}
+
+//POPUP on all Pages
+body {
+    position: relative;
+}
+.pop-up {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: #0000008a;
+    z-index: 2;
+    .form-image,
+    .form-fields {
+        width: 50%;
+    }
+    .form-fields {
+        background: $white;
+    }
+    .pop-up-form {
+        position: absolute;
+        width: 900px;
+        top: 5%;
+        left: 15%;
+    }
+    .remove-popup {
+        display: inline-block;
+        background: white;
+        padding: 5px 10px;
+        right: -38px;
+        position: absolute;
+        top: -8px;
+        cursor: pointer;
+    }
+}

@@ -17,6 +17,8 @@
     <script src="libraries/js/main.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCotB6BSKESLUC2dNLnAT76EporwJBXMN4&v=3.exp&libraries=places"></script>
+
     <!--[if IE]>
             <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
         <![endif]-->
@@ -25,26 +27,40 @@
 <body class="full-width">
     <ul class="form">
         <li>
-            <label for="">Departure point</label>
+            <script>
+                function init() {
+                    var input = document.getElementById('locationTextFieldD');
+                    var autocomplete = new google.maps.places.Autocomplete(input);
+                }
+                google.maps.event.addDomListener(window, 'load', init);
+            </script>
+            <label for="locationTextField">Departure point</label>
 
             <div class="inp">
                 <img src="./assets/icons/social/location.svg" alt="">
-                <input class="input-field" placeholder="Placeholder text" type="text">
+                <input id="locationTextFieldD" class="input-field" placeholder="Placeholder text" type="text" size="50">
             </div>
         </li>
         <li>
-            <label for="">Arrival at</label>
-
+                <script>
+                    function init() {
+                        var input = document.getElementById('locationTextFieldA');
+                        var autocomplete = new google.maps.places.Autocomplete(input);
+                    }
+                    google.maps.event.addDomListener(window, 'load', init);
+                </script>
+            <label for="locationTextField">Arrival point</label>
+        
             <div class="inp">
                 <img src="./assets/icons/social/location.svg" alt="">
-                <input class="input-field" placeholder="Placeholder text" type="text">
+                <input id="locationTextFieldA" class="input-field" placeholder="Placeholder text" type="text" size="50">
             </div>
         </li>
         <li>
             <label for="">Enter Phone No.</label>
             <div class="inp">
                 <img src="./assets/icons/social/smartphone.svg" alt="">
-                <input class="input-field" placeholder="Enter Phone" required type="phone">
+                <input class="input-field" placeholder="Enter Phone" min="9" max="10" required type="tel">
             </div>
         </li>
         <li>
@@ -109,5 +125,6 @@
     </ul>
     <button class="cta" type="submit" value="Curate my package">Curate my Package</button>
 </body>
+
 
 </html>
