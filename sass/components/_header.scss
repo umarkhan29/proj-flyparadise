@@ -108,8 +108,7 @@ header.alternate {
 .main--header {
     display: inline-block;
     width: 100%;
-    box-shadow: 2px 2px 10px #cccccc;
-    margin-bottom: 2rem;
+    box-shadow: 1px 1px 1px #cccccc;
     .menu--heading {
         @extend %full--width;
     }
@@ -132,14 +131,14 @@ header.alternate {
             color: #000;
         }
     }
-    .quote {
-        color: $white;
-        background: $pink;
-        border: 1px solid $pink;
-        padding: 0.5rem 1rem;
-        font-weight: 500;
-        font-size: 13px;
-        color: $white;
-        cursor: pointer;
-    }
+}
+.quote {
+    color: $white;
+    background: $pink;
+    border: 1px solid $pink;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    font-size: 13px;
+    color: $white;
+    cursor: pointer;
 }
