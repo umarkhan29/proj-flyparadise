@@ -21,6 +21,7 @@
     <script src="libraries/owl.carousel.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
     <script src="libraries/js/main.js"></script>
+	 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCotB6BSKESLUC2dNLnAT76EporwJBXMN4&v=3.exp&libraries=places"></script>
     <!--[if IE]>
             <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
         <![endif]-->
@@ -38,7 +39,7 @@
                     <li><a href="">Destinations</a></li>
                     <li><a href="">Honeymoon Packages</a></li>
                     <li><a href="">Weekend trips</a></li>
-                    <li class="quote"><a href="">FREE QUOTE</a></li>
+                    <li class="quote">FREE QUOTE</li>
                 </div>
             </div>
         </div>
@@ -288,7 +289,7 @@ $query = "SELECT * FROM `destinations` WHERE `id` = '$id' ";
 						<div class="package--tailored">
 							<img src="<?php echo $packages[$i]['PATH'] ?>" alt="">
 							<div class="destination--info">
-								<h3><?php echo $packages[$i]['TITLE'] ?></h3>
+								<h3><?php echo $packages[$i]['TITLE']; ?></h3>
 								<span class="duration"><?php echo $packages[$i]['DURATION'] ?></span>
 								<div class="price"><?php echo $packages[$i]['PRICE'] ?>/-</div>
 								<div class="inclusions">
@@ -297,7 +298,7 @@ $query = "SELECT * FROM `destinations` WHERE `id` = '$id' ";
 									<img src="./assets/icons/transport/view.svg" alt="Site seeing">
 									<img src="./assets/icons/transport/more.svg" alt="Complimentary from destination">
 								</div>
-								<button class="view--package">View this Package</button>
+								<a href="single--package.php?id=<?php echo $packages[$i]['ID']; ?>"><button class="view--package">View this Package</button></a>
 							</div>
 						</div>
 					<?php } ?>  
@@ -305,14 +306,43 @@ $query = "SELECT * FROM `destinations` WHERE `id` = '$id' ";
             </div>
         </div>
     </div>
-	
+<footer>
+        <div class="footer--primary max-width">
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">What makes Us</a></li>
+                <li><a href="#">Blogs</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Terms &amp; Conditions</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+            </ul>
+        </div>
+
+        <div class="footer--secondary">
+            <div class="max-width">
+                <div class="connect">
+                    <a class="social" href="#"><img src="./assets/icons/social/facebook.svg" alt="Facebook"></a>
+                    <a class="social" href="#"><img src="./assets/icons/social/insta.svg" alt="Instagram"></a>
+                    <a class="social" href="#"><img src="./assets/icons/social/twitter.svg" alt="twitter"></a>
+                    <a class="social" href="#"><img src="./assets/icons/social/in.svg" alt="linkedIn"></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2010 - 2018 Fly Paradise Travels
+        </div>
+    </footer>
 <div>
 	<?php
 		//include_once('map/fpmap.php');
 	?>
 </div>
 
-
+ <!-- PopUp wrapper -->
+        <div class="pop-up remove">
+            <!-- Calling popup from location partial -->
+            <?php include_once('location.php'); ?>
+       </div>
 </body>
 <?php include_once("home/ajaxcomponents/pullpackages.php"); ?>
 </html>

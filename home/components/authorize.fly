@@ -1,0 +1,9 @@
+<?php
+	if(!isset($_SESSION['current_loggedin_user'])){
+		header('location:get-in');	
+	}
+	
+	if(!isset($_SESSION['current_loggedin_user_role']) || $_SESSION['current_loggedin_user_role'] != 'user'){
+		header('location:get-in');	
+	}
+?>
