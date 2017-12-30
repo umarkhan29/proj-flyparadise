@@ -1,74 +1,118 @@
-<?php
-//this page is a demopage having a form to get Cx details
-	include_once('home/catalog/connect.khan');
-?>
-	
-	<html>
-<head>
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Fly Paradise</title>
+    <link href="stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
+    <!--Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=PT+Serif" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="libraries/owl.carousel.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <script src="libraries/js/main.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+	 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCotB6BSKESLUC2dNLnAT76EporwJBXMN4&v=3.exp&libraries=places"></script>
+    <!--[if IE]>
+            <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+        <![endif]-->
 </head>
 
-<body>
-	
-	<?php
-		include_once('home/components/__GetQuery.khan');
-	?>
-	<form action="" method="POST">
-		
-			
-                         <input type="text" name="to_loc" placeholder="Destination"/><br />
-			
-			
-			<input type="text" name="from_place" placeholder="From"/><br />
-			
-			
-			<input type="date"  name="date"> <br />
-			
-			
-			<select name="trip_plan_stage"  required>
-				<option value="Still dreaming . . . not sure I'm going to take this trip" selected>Still dreaming . . . not sure I'm going to take this trip</option>
-				<option value="I know I'm going somewhere, just not sure which place" >I know I'm going somewhere, just not sure which place</option>
-				<option value="I'm definitely going, I know which place . . . let's go!" >I'm definitely going, I know which place . . . let's go!</option>
-				<option value="Flight-Train already booked, just need remaining package" >Flight-Train already booked, just need remaining package</option>
-			</select>
-			<br />
-			
-			<input type="text"  name="phone" placeholder="Phone" /><br />
-			
-			
-			<input type="text" name="email" placeholder="Email"/><br />
-			
-			
-	<ul ><li><input  type="checkbox" name="hotel_catagory" value="5 Star" ><label for="hotel_catagory_5 Star">5 Star</label></li>
-	<li><input type="checkbox"  name="hotel_catagory" value="4 Star" ><label for="hotel_catagory_4 Star">4 Star</label><div class="sea-green text-center line-height-2"><small></small></div></li><li><input type="checkbox" name="hotel_catagory" value="3 Star" ><label for="hotel_catagory_3 Star">3 Star</label><div class="sea-green text-center line-height-2"><small></small></div></li><li><input  type="checkbox"  name="hotel_catagory" value="2 Star" ><label for="hotel_catagory_2 Star">2 Star</label><div class="sea-green text-center line-height-2"><small></small></div></li><li><input  type="checkbox" checked ng-model="cust_22_96" name="hotel_catagory" value="No Choice" ng-change="handleAction(&#39;hotel_catagory&#39;, &#39;96&#39;,cust_22_96)" id="hotel_catagory_notReq" ng-required="isHotelCatagoryRequired()" ><label for="hotel_catagory_notReq">No</label></li></ul></div><div class="questions" id="flight_requirement" ng-show="flight_requirementShown"><p><i class="title-icon"></i>Do You Need Flights?</p><ul class="list-inline list-checkbox margin-bottom-25 margin-left-25 options"><li><input class="option ng-pristine ng-untouched ng-valid" type="radio" selected name="flight_requirement" value="yes" ng-change="handleAction(&#39;flight_requirement&#39;, &#39;97&#39;,&#39;Yes&#39;)" id="flight_requirement_97" ng-model="cust_23"><label for="flight_requirement_97">Yes</label></li><li><input class="option ng-pristine ng-untouched ng-valid" type="radio" name="flight_requirement" value="no" ng-change="handleAction(&#39;flight_requirement&#39;, &#39;98&#39;,&#39;No&#39;)" id="flight_requirement_98" ng-model="cust_23"><label for="flight_requirement_98">No</label></li></ul></div><div class="questions" id="budget" ng-show="budgetShown"><p><i class="title-icon"></i>Budget</p><ul class="list-inline list-checkbox margin-bottom-25 margin-left-25 options ng-hide" ng-show="!noHotelAccomodation &amp;&amp; !budgetTextFieldFlag &amp;&amp; !c2cprefs.isC2CDestination"><li><input class="option ng-pristine ng-untouched ng-valid" type="radio" name="budget" ng-value="01" ng-change="handleAction(&#39;budget&#39;, &#39;Economy&#39;,cust_146)" id="budget_Economy" ng-model="budget_hidden" value="1"><label for="budget_Economy">Economy</label><div class="sea-green text-center line-height-2"><small></small></div></li><li><input class="option ng-pristine ng-untouched ng-valid" type="radio" name="budget" ng-value="11" ng-change="handleAction(&#39;budget&#39;, &#39;Delux&#39;,cust_146)" id="budget_Delux" ng-model="budget_hidden" value="11"><label for="budget_Delux">Delux</label><div class="sea-green text-center line-height-2"><small></small></div></li><li><input class="option ng-pristine ng-untouched ng-valid" type="radio" name="budget" ng-value="21" ng-change="handleAction(&#39;budget&#39;, &#39;Premium&#39;,cust_146)" id="budget_Premium" ng-model="budget_hidden" value="21"><label for="budget_Premium">Premium</label>
-	<input type="text" value="0" id="budget" ng-class="{width70:c2cprefs.isC2CDestination}" name="budget_text" class="form-control form-control-budget pull-left width-165 ng-invalid ng-valid-pattern ng-pristine ng-untouched ng-valid" ng-model="budget" placeholder="Budget" budget-directive=""><div class="slider-error-messages ng-inactive" ng-messages="slider_form_card_2.budget.$error"><!-- ngMessage: pattern --></div></div></div><div class="questions inline-block margin-left-25 margin-right-10 margin-bottom-10" id="numberOfAdults" ng-show="numberOfAdultsShown"><label for="numberOfAdults" class="font-400">Number Of Travelers</label><select name="numberOfAdults" id="null" class="form-control width-70 ng-pristine ng-untouched ng-valid" ng-change="handleAction(&#39;numberOfAdults&#39;, &#39;Changed&#39;)" ng-model="numberOfAdults"><option value="0" disabled="">Adults (12+ yrs)</option><option value="1">1 Adult</option><option value="2" selected="">2 Adults</option><option value="3">3 Adults</option><option value="4">4 Adults</option><option value="5">5 Adults</option><option value="6">6 Adults</option><option value="7">7 Adults</option><option value="8">8 Adults</option><option value="9">9 Adults</option><option value="10">10 Adults</option><option value="11">11 Adults</option><option value="12">12 Adults</option><option value="13">13 Adults</option><option value="14">14 Adults</option><option value="15">15 Adults</option><option value="16">16 Adults</option><option value="17">17 Adults</option><option value="18">18 Adults</option><option value="19">19 Adults</option><option value="20">20 Adults</option><option value="21">20+ Adults</option></select><div ng-show="showValidationMessages" class="slider-error-messages ng-inactive ng-hide" ng-messages="slider_form_card_2.numberOfAdults.$error"><!-- ngMessage: required --></div></div><div class="questions inline-block margin-left-25 margin-right-10 margin-bottom-10" id="numberOfChildren" ng-show="numberOfChildrenShown"><label for="numberOfChildren" class="font-400">Children</label><select name="numberOfChildren" id="numberOfChildren" class="form-control width-70 ng-pristine ng-untouched ng-valid" ng-change="handleAction(&#39;numberOfChildren&#39;, &#39;Children&#39;)" ng-model="numberOfChildren"><option value="0"></option><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option><option value="32">32</option><option value="33">33</option><option value="34">34</option><option value="35">35</option><option value="36">36</option><option value="37">37</option><option value="38">38</option><option value="39">39</option><option value="40">40</option><option value="41">41</option><option value="42">42</option><option value="43">43</option><option value="44">44</option><option value="45">45</option><option value="46">46</option><option value="47">47</option><option value="48">48</option><option value="49">49</option><option value="50">50</option><option value="51">51</option><option value="52">52</option><option value="53">53</option><option value="54">54</option><option value="55">55</option><option value="56">56</option><option value="57">57</option><option value="58">58</option><option value="59">59</option><option value="60">60</option><option value="61">61</option><option value="62">62</option><option value="63">63</option><option value="64">64</option><option value="65">65</option><option value="66">66</option><option value="67">67</option><option value="68">68</option><option value="69">69</option><option value="70">70</option><option value="71">71</option><option value="72">72</option><option value="73">73</option><option value="74">74</option><option value="75">75</option><option value="76">76</option><option value="77">77</option><option value="78">78</option><option value="79">79</option><option value="80">80</option><option value="81">81</option><option value="82">82</option><option value="83">83</option><option value="84">84</option><option value="85">85</option><option value="86">86</option><option value="87">87</option><option value="88">88</option><option value="89">89</option><option value="90">90</option><option value="91">91</option><option value="92">92</option><option value="93">93</option><option value="94">94</option><option value="95">95</option><option value="96">96</option><option value="97">97</option><option value="98">98</option><option value="99">99</option><option value="100">100</option><option value="101">101</option><option value="102">102</option><option value="103">103</option><option value="104">104</option><option value="105">105</option><option value="106">106</option><option value="107">107</option><option value="108">108</option><option value="109">109</option><option value="110">110</option><option value="111">111</option><option value="112">112</option><option value="113">113</option><option value="114">114</option><option value="115">115</option><option value="116">116</option><option value="117">117</option><option value="118">118</option><option value="119">119</option><option value="120">120</option><option value="121">121</option><option value="122">122</option><option value="123">123</option><option value="124">124</option><option value="125">125</option><option value="126">126</option><option value="127">127</option><option value="128">128</option><option value="129">129</option><option value="130">130</option><option value="131">131</option><option value="132">132</option><option value="133">133</option><option value="134">134</option><option value="135">135</option><option value="136">136</option><option value="137">137</option><option value="138">138</option><option value="139">139</option><option value="140">140</option><option value="141">141</option><option value="142">142</option><option value="143">143</option><option value="144">144</option><option value="145">145</option><option value="146">146</option><option value="147">147</option><option value="148">148</option><option value="149">149</option><option value="150">150</option></select></div><div class="questions inline-block margin-left-25 margin-right-10 margin-bottom-10" id="childrenAgeGroup" ng-show="childrenAgeGroupShown"><label for="childrenAgeGroup" class="font-400"> Children as per age </label><div class="questions flex-display margin-right-10 margin-bottom-10"><label for="drop_down" class="font-400 padding-9">0-2 yrs Years</label><select name="drop_down" id="drop_down" class="form-control width-70 age_group_29 ng-pristine ng-untouched ng-valid" ng-change="childrenAgeGroup_changed(&quot;ansval_cust_7_29&quot;)" ng-model="ansval_cust_7_29_slider"><option value="0" selected="" >Infant (0-2yrs)</option><option value="1"> 1 Infant</option><option value="2">2 Infants</option><option value="3">3 Infants</option><option value="4">4 Infants</option><option value="5">5 Infants</option><option value="6">6 Infants</option><option value="7">7 Infants</option><option value="8">8 Infants</option><option value="9">9 Infants</option><option value="10">10 Infants</option><option value="11">11 Infants</option><option value="12">12 Infants</option><option value="13">13 Infants</option><option value="14">14 Infants</option></select>
-		
-		<select name="numberOfChildren" id="drop_down" class="form-control width-70 age_group_31 ng-pristine ng-untouched ng-valid" ng-change="childrenAgeGroup_changed(&quot;ansval_cust_7_31&quot;)" ng-model="ansval_cust_7_31_slider"><option value="0" selected="" >Child (2-12yrs)</option><option value="1"> 1 Child</option><option value="2">2 Children</option><option value="3">3 Children</option><option value="4">4 Children</option><option value="5">5 Children</option><option value="6">6 Children</option><option value="7">7 Children</option><option value="8">8 Children</option><option value="9">9 Children</option><option value="10">10 Children</option><option value="11">11 Children</option><option value="12">12 Children</option><option value="13">13 Children</option><option value="14">14 Children</option></select></div></div>
-		
-		<div class="questions inline-block margin-left-25 margin-right-10 margin-bottom-10 ng-hide" id="trip_stage" ng-show="tripStageBlank"><label for="trip_stage" class="font-400">Trip Planning Stage</label></div><div class="questions" id="expected_booking" ng-show="expected_bookingShown"><p><i class="title-icon"></i>I will book</p><ul class="list-inline list-checkbox margin-bottom-25 margin-left-25 options"><li><input class="option ng-pristine ng-untouched ng-valid" type="radio" checked name="trip_stage" value="in next 2-3 days"  ng-change="handleAction(&#39;expected_booking&#39;, &#39;202&#39;,&#39;in next 2-3 days&#39;)" id="expected_booking_202" ng-model="cust_43"><label for="expected_booking_202">in next 2-3 days</label></li><li><input class="option ng-pristine ng-untouched ng-valid" type="radio" name="trip_stage" value="in this week" ng-change="handleAction(&#39;expected_booking&#39;, &#39;203&#39;,&#39;in this week&#39;)" id="expected_booking_203" ng-model="cust_43"><label for="expected_booking_203">in this week</label></li><li><input class="option ng-pristine ng-untouched ng-valid" type="radio" name="trip_stage" value="in this month" ng-change="handleAction(&#39;expected_booking&#39;, &#39;204&#39;,&#39;in this month&#39;)" id="expected_booking_204" ng-model="cust_43"><label for="expected_booking_204">in this month</label></li><li><input class="option ng-pristine ng-untouched ng-valid" type="radio" name="trip_stage" value="later sometime" ng-change="handleAction(&#39;expected_booking&#39;, &#39;205&#39;,&#39;later sometime&#39;)" id="expected_booking_205" ng-model="cust_43"><label for="expected_booking_205">later sometime</label></li><li><input class="option ng-pristine ng-untouched ng-valid" type="radio" name="trip_stage" value="just checking price" ng-change="handleAction(&#39;expected_booking&#39;, &#39;256&#39;,&#39;just checking price&#39;)" id="expected_booking_256" ng-model="cust_43"><label for="expected_booking_256">just checking price</label></li></ul></div><div class="questions ng-hide" id="hiddenhotel_accomodation" ng-hide="hotel_accomodationShown"><p><i class="title-icon"></i></p></div><div class="slider-bottom-buttons wooble-effect-button">
-		
-		
-		
-		
-		<input type="text" name="pickupplace" placeholder="Pickup Place" /> <br />
-		<input type="text" name="dropplace" placeholder="Drop Place" /><br />
-		<input type="text" name="noofdays" placeholder="No Of Days" /><br />
-		
-			<br /><br />
-			<div style="margin-left:110px;">
-			
-				<input type="submit" value="Submit" />
-			</div>
-			
-	  </div>
-	  
-	  </div>
-	  
+<body class="full-width">
+<div id="queryresponse">
 
-	
-	</form>
+</div>
+<?php include_once('home/ajaxcomponents/getquery.php'); ?>
+    <ul class="form">
+        <li>
+            <label for="">Departure point</label>
 
+            <div class="inp">
+                <img src="./assets/icons/social/location.svg" alt="">
+                <input class="input-field" id="from_place" placeholder="Placeholder text" type="text">
+            </div>
+        </li>
+        <li>
+            <label for="">Arrival at</label>
 
+            <div class="inp">
+                <img src="./assets/icons/social/location.svg" alt="">
+                <input class="input-field" id="to_loc" placeholder="Placeholder text" type="text">
+            </div>
+        </li>
+        <li>
+            <label for="">Enter Phone No.</label>
+            <div class="inp">
+                <img src="./assets/icons/social/smartphone.svg" alt="">
+                <input class="input-field" id="phone" placeholder="Enter Phone" required type="phone">
+            </div>
+        </li>
+        <li>
+            <label for="">Enter your Email</label>
+            <div class="inp">
+                <img src="./assets/icons/social/mail.svg" alt="">
+                <input class="input-field" id="email" placeholder="Placeholder text" required type="email">
+            </div>
+        </li>
+    </ul>
+    <ul class="depart-date">
+        <li><label for="datepicker">Departure date</label>
+            <input id="datepicker"  type="date" /></li>
+        <li class="day--counter no-of-day">
+            <span class="hsidebar">Duration (in nights)</span>
+            <input id="counter-no" type="number" min="1" max="30" value="1" />
+        </li>
+
+        </form>
+    </ul>
+    <ul class="hotel radio no-border">
+        <li>
+            <input type="radio" id="f-option" value="Honeymoon" name="selector">
+            <label for="f-option">Honeymoon</label>
+
+            <div class="check"></div>
+        </li>
+
+        <li>
+            <input type="radio" id="s-option" value="Solo" name="selector">
+            <label for="s-option">Solo</label>
+
+            <div class="check">
+                <div class="inside"></div>
+            </div>
+        </li>
+
+        <li>
+            <input type="radio" id="t-option" value="Family" name="selector">
+            <label for="t-option">Family</label>
+
+            <div class="check">
+                <div class="inside"></div>
+            </div>
+        </li>
+        <li>
+            <input type="radio" id="w-option" value="Weekend" name="selector">
+            <label for="w-option">Weekend</label>
+
+            <div class="check">
+                <div class="inside"></div>
+            </div>
+        </li>
+        <li>
+            <input type="radio" id="x-option" value="Friends" name="selector">
+            <label for="x-option">Friends</label>
+
+            <div class="check">
+                <div class="inside"></div>
+            </div>
+        </li>
+    </ul>
+    <button class="cta" type="submit" value="Curate my package" onClick="getquery('queryresponse');">Curate my Package</button>
 </body>
 
 </html>

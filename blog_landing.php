@@ -44,7 +44,7 @@
 	include_once('home/catalog/session.khan');	
 	
 	if(isset($_GET['bid'])){
-		$id=mysql_real_escape_string(trim(strip_tags(stripslashes($_GET['bid']))));
+		$id=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['bid']))));
 	}else{
 		header('location:blog');
 	}
@@ -100,7 +100,7 @@
 	
 	<?php
 //Fetching Popuar Blogs
- $query = "SELECT * FROM `blog` where `blogtype` = 'popular' order by `id` desc LIMIT 4 ";
+ $query = "SELECT * FROM `blog` where `blogtype` = 'popularity' order by `id` desc LIMIT 4 ";
 			if($result = mysqli_query($dbconn,$query)){
 				$populardest;
 				$count=0;
@@ -156,6 +156,34 @@
                 </div>
             </div>
         </li>
+		
+	</div>	
+		<footer>
+        <div class="footer--primary max-width">
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">What makes Us</a></li>
+                <li><a href="#">Blogs</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Terms &amp; Conditions</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+            </ul>
+        </div>
+
+        <div class="footer--secondary">
+            <div class="max-width">
+                <div class="connect">
+                    <a class="social" href="#"><img src="./assets/icons/social/facebook.svg" alt="Facebook"></a>
+                    <a class="social" href="#"><img src="./assets/icons/social/insta.svg" alt="Instagram"></a>
+                    <a class="social" href="#"><img src="./assets/icons/social/twitter.svg" alt="twitter"></a>
+                    <a class="social" href="#"><img src="./assets/icons/social/in.svg" alt="linkedIn"></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2010 - 2018 Fly Paradise Travels
+        </div>
+    </footer>
 </body>
 
 </html>

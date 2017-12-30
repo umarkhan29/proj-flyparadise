@@ -103,7 +103,7 @@
 				<img src="./assets/icons/transport/view.svg" alt="Site seeing">
 				<img src="./assets/icons/transport/more.svg" alt="Complimentary from destination">
 			</div>
-			<button class="view--package">View this Package</button>
+			<a href="single--package.php?id=<?php echo $packages[$i]['ID']; ?>"><button class="view--package">View this Package</button></a>
 		</div>
 	</div>
 <?php } ?>  

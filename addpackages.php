@@ -1,6 +1,7 @@
 <?php
-include_once('home/catalog/connect.khan');
-include_once('home/catalog/session.khan');
+require_once('home/catalog/connect.khan');
+require_once('home/catalog/session.khan');
+require_once('home/components/employeeauthorize.fly');
 include_once('home/ajaxcomponents/packagecustomizationajaxsupport.php');
 
 ?>
@@ -110,7 +111,9 @@ if(isset($_POST['btn'])){
 	$description=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['description']))));
 	$flight=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['flight']))));
 	$price=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['price']))));
-	$path="images/packages/".$title.$destination.$_FILES['fileupld']['name'];
+	$path="images/packages/".$title.'1'.$destination.$_FILES['fileupld']['name'];
+	$path2="images/packages/".$title.'2'.$destination.$_FILES['fileupld2']['name'];
+	$path3="images/packages/".$title.'3'.$destination.$_FILES['fileupld3']['name'];
 	$cab=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['cab']))));
 	$meals=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['meals']))));
 	$siteseeing=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['siteseeing']))));
@@ -122,10 +125,12 @@ if(isset($_POST['btn'])){
 	
 	
 	//storing in DB
-	 $query="INSERT INTO `packages`( `title`,`destination`,`duration`,`category`, `hotelstar`, `description`, `includeflights`, `price`, `path`, `localcab`, `meals`,`siteseeing`,`stay`, `addon`, `itinerary`, `inclusions`, `exclusions`,`getaways`,`worthwatching`,`itinerarytitle`,`itinerarytags`) VALUES ('$title','$destination','$duration','$category','$hotelstar','$description','$flight','$price','$path','$cab','$meals','$siteseeing','$stay','$addon','$itenaries','$inclusions','$exclusions','$getaways','$worthwatching','$itinerarytitle','$itinerarytags');";
+	 $query="INSERT INTO `packages`( `title`,`destination`,`duration`,`category`, `hotelstar`, `description`, `includeflights`, `price`, `path`, `path2`,`path3`,`localcab`, `meals`,`siteseeing`,`stay`, `addon`, `itinerary`, `inclusions`, `exclusions`,`getaways`,`worthwatching`,`itinerarytitle`,`itinerarytags`) VALUES ('$title','$destination','$duration','$category','$hotelstar','$description','$flight','$price','$path','$path2','$path3','$cab','$meals','$siteseeing','$stay','$addon','$itenaries','$inclusions','$exclusions','$getaways','$worthwatching','$itinerarytitle','$itinerarytags');";
 							
 		if(mysqli_query($dbconn,$query)){ 
 			move_uploaded_file($_FILES['fileupld']['tmp_name'],$path);
+			move_uploaded_file($_FILES['fileupld2']['tmp_name'],$path2);
+			move_uploaded_file($_FILES['fileupld3']['tmp_name'],$path3);
 			echo "<br>Package created ";
 			
 		}else{

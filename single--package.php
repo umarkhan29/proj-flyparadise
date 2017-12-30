@@ -48,10 +48,9 @@
 	
 <?php
 //Fetching single package
- $id=31;
+ $id=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['id']))));
  $query = "SELECT * FROM `packages` WHERE `id` = '$id';  ";
 			if($result = mysqli_query($dbconn,$query)){
-				$package="";
 				$count=0;
 				while($row = mysqli_fetch_assoc($result)){
 					$package[] = array(
@@ -66,6 +65,8 @@
 							'FLIGHTS' 		=> 	$row['includeflights'],
 							'PRICE' 		=> 	$row['price'],
 							'PATH' 			=> 	$row['path'],
+							'PATH2' 			=> 	$row['path2'],
+							'PATH3' 			=> 	$row['path3'],
 							'CAB' 			=> 	$row['localcab'],
 							'MEALS' 		=> 	$row['meals'],
 							'SITESEEING' 	=> 	$row['siteseeing'],
@@ -80,7 +81,7 @@
 							'ITINERARYTAGS' => 	$row['itinerarytags'],
 							
 						);
-						 $count=$count+1;
+						$count=$count+1;
 						
 				}
 				
@@ -88,20 +89,34 @@
 			else{
 				echo mysqli_error($dbconn);
 			}
+			
+			
+			if($count==0)
+				header('location:index');
 
 ?>
+	
+	<div class="breadcrumb">
+        <ul class="breadcrumbs">
+            <li>Home</li>
+            <li>Destinations</li>
+            <li>Kashmir</li>
+        </ul>
+    </div>
+	
+	
     <div class="single--package">
         <div id="owl" class="owl-carousel single--package">
             <div class="item">
-                <img src="assets/single--destination/one.png" alt="">
+                 <img src="<?php echo $package[0]['PATH']; ?>" alt="">
             </div>
 
             <div class="item">
-                <img src="<?php echo $package[0]['PATH']; ?>" alt="">
+                <img src="<?php echo $package[0]['PATH2']; ?>" alt="">
             </div>
 
             <div class="item">
-                <img src="assets/single--destination/one.png" alt="">
+                <img src="<?php echo $package[0]['PATH3']; ?>" alt="">
             </div>
         </div>
         <div class="single--packing_desc">
@@ -157,7 +172,7 @@
                     
                 </div>
                 <div class="stars border">
-                    <ul class="hotel">
+                    <ul class="hotel radio">
                         <li>
                             <input type="radio" id="f-option" name="selector" <?php if($package[0]['HOTELSTAR']==2) echo "checked"; ?> >
                             <label for="f-option">Budget stay</label>
@@ -194,7 +209,7 @@
                     <div class="price--tag">
                         <div class="price--starting">
                             <span>starting from (per person)</span>
-                            <div class="amount"><span>₹</span>3,000</div>
+                            <div class="amount"><span>₹</span><?php echo $package[0]['PRICE']; ?></div>
                         </div>
                         <div class="select-2--wrapper">
                             <span>For the Month of</span>
@@ -294,6 +309,33 @@
             </div>
         </div>
     </div>
+	
+	  <footer>
+        <div class="footer--primary max-width">
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">What makes Us</a></li>
+                <li><a href="#">Blogs</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Terms &amp; Conditions</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+            </ul>
+        </div>
+
+        <div class="footer--secondary">
+            <div class="max-width">
+                <div class="connect">
+                    <a class="social" href="#"><img src="./assets/icons/social/facebook.svg" alt="Facebook"></a>
+                    <a class="social" href="#"><img src="./assets/icons/social/insta.svg" alt="Instagram"></a>
+                    <a class="social" href="#"><img src="./assets/icons/social/twitter.svg" alt="twitter"></a>
+                    <a class="social" href="#"><img src="./assets/icons/social/in.svg" alt="linkedIn"></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2010 - 2018 Fly Paradise Travels
+        </div>
+    </footer>
 </body>
 
 </html>

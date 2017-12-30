@@ -89,7 +89,10 @@ $dcount=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['du
 	?>
 	
 	<label>Select Image (jpg only)</label>
-	<input type="file" name="fileupld" /><br /><br />
+	<input type="file" name="fileupld" /><br />
+	<input type="file" name="fileupld2" /><br />
+	<input type="file" name="fileupld3" /><br />
+	<br />
 	<input type="text" name="price" placeholder="Package Price"/><br />
 	<input type="hidden" name="dcount" value="<?php echo $dcount; ?>"/><br />
 	
