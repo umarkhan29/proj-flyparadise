@@ -13,7 +13,26 @@ $(document).ready(function() {
         items: 1,
         autoPlay: false
     });
-
+    $('.owl-carousel').owlCarousel({
+        loop:true,
+        margin:20,
+        nav:true,
+        responsive:{
+            0:{
+                items:1
+            },
+            600:{
+                items:1
+            },
+            1000:{
+                items:4
+            }
+        }
+    })
+    $('.item').click(function() {
+        $(this).find('.fav').toggleClass('none');
+      });
+      
     $('li.quote').click(function() {
         $('.pop-up').toggleClass('remove');
       });
@@ -98,6 +117,9 @@ $(function() {
 });
 $(document).ready(function() {
     $('.js-example-basic-single').select2();
+});
+$(document).ready(function() {
+    $('.js-example-basic-multiple').select2();
 });
 
 $(document).ready(function() {
