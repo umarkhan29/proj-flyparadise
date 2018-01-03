@@ -9,7 +9,16 @@ include_once('home/ajaxcomponents/packagecustomizationajaxsupport.php');
 
 
 <?php
-
+	//throwing success message
+	  if(isset($_SESSION['resizedone'])){
+		  if($_SESSION['resizedone']=="success"){
+			  unset($_SESSION['resizedone']);
+			  echo	"<div><p>Package created ! </p> </div>";	
+		  }
+	  }
+	  
+	  
+	//defining variables to store data 
 if(isset($_POST['btn'])){
 	
 	$dcount=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['dcount']))));
@@ -119,19 +128,24 @@ if(isset($_POST['btn'])){
 	$siteseeing=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['siteseeing']))));
 	$stay=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['stay']))));
 	$addon=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['addon']))));
+	$tags=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['tags']))));
 	
 	
 	
 	
 	
 	//storing in DB
-	 $query="INSERT INTO `packages`( `title`,`destination`,`duration`,`category`, `hotelstar`, `description`, `includeflights`, `price`, `path`, `path2`,`path3`,`localcab`, `meals`,`siteseeing`,`stay`, `addon`, `itinerary`, `inclusions`, `exclusions`,`getaways`,`worthwatching`,`itinerarytitle`,`itinerarytags`) VALUES ('$title','$destination','$duration','$category','$hotelstar','$description','$flight','$price','$path','$path2','$path3','$cab','$meals','$siteseeing','$stay','$addon','$itenaries','$inclusions','$exclusions','$getaways','$worthwatching','$itinerarytitle','$itinerarytags');";
+	 $query="INSERT INTO `packages`( `title`,`destination`,`duration`,`category`, `hotelstar`, `description`, `includeflights`, `price`, `path`, `path2`,`path3`,`localcab`, `meals`,`siteseeing`,`stay`, `addon`, `itinerary`, `inclusions`, `exclusions`,`getaways`,`worthwatching`,`itinerarytitle`,`itinerarytags`,`tags`) VALUES ('$title','$destination','$duration','$category','$hotelstar','$description','$flight','$price','$path','$path2','$path3','$cab','$meals','$siteseeing','$stay','$addon','$itenaries','$inclusions','$exclusions','$getaways','$worthwatching','$itinerarytitle','$itinerarytags','$tags');";
 							
 		if(mysqli_query($dbconn,$query)){ 
 			move_uploaded_file($_FILES['fileupld']['tmp_name'],$path);
 			move_uploaded_file($_FILES['fileupld2']['tmp_name'],$path2);
 			move_uploaded_file($_FILES['fileupld3']['tmp_name'],$path3);
-			echo "<br>Package created ";
+			
+			//resizing images
+			
+			header('location:home/components/packageimgresize.php?img1='.$path.'&img22='.$path2.'&img3='.$path3);
+			
 			
 		}else{
 			echo "Something went wrong. Contact your administrator";
