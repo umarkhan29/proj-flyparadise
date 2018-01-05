@@ -93,6 +93,7 @@ $dcount=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['du
 	<input type="file" name="fileupld2" /><br />
 	<input type="file" name="fileupld3" /><br />
 	<br />
+	<input type="text" name="tags" placeholder="Tags" /> <br />
 	<input type="text" name="price" placeholder="Package Price"/><br />
 	<input type="hidden" name="dcount" value="<?php echo $dcount; ?>"/><br />
 	

@@ -2,6 +2,7 @@
 	require_once('home/catalog/connect.khan');
 	require_once('home/catalog/session.khan');
 	error_reporting(0);
+	print_r($_POST);
 ?>
 <!DOCTYPE html>
 <html lang="en">
