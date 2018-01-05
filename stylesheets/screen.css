@@ -994,7 +994,7 @@ input:hover {
 }
 
 /* line 79, ../sass/components/_basic.scss */
-.main-content, header.alternate .inside--secondary, .main--header .menu--heading, .blog--landing .hero--blog, .blog--landing .latest--articles, .blog--landing-text, .how-we-work, .breadcrumb ul, .single--package, .full-width,
+.main-content, .main--header .menu--heading, footer .sec-ftr, .blog--landing .hero--blog, .blog--landing .latest--articles, .blog--landing-text, .how-we-work, .breadcrumb ul, .single--package, .full-width,
 .full---width {
   max-width: 68.5rem;
   margin-right: auto;
@@ -1254,13 +1254,6 @@ header.alternate p {
   margin: 0;
 }
 /* line 91, ../sass/components/_header.scss */
-header.alternate div.secondary--header {
-  background: #EFEFEF;
-  width: 100%;
-  display: inline-block;
-  padding: 0.5rem;
-}
-/* line 100, ../sass/components/_header.scss */
 header.alternate li {
   list-style: none;
   display: inline-block;
@@ -1268,17 +1261,17 @@ header.alternate li {
   margin-left: 2rem;
 }
 
-/* line 108, ../sass/components/_header.scss */
+/* line 99, ../sass/components/_header.scss */
 .main--header {
   display: inline-block;
   width: 100%;
   box-shadow: 1px 1px 1px #cccccc;
 }
-/* line 115, ../sass/components/_header.scss */
+/* line 106, ../sass/components/_header.scss */
 .main--header h1.logo {
   display: none;
 }
-/* line 118, ../sass/components/_header.scss */
+/* line 109, ../sass/components/_header.scss */
 .main--header img.fp--logo {
   height: 40px;
   width: auto;
@@ -1286,19 +1279,19 @@ header.alternate li {
   margin-right: 5px;
   margin: 12px 0;
 }
-/* line 125, ../sass/components/_header.scss */
+/* line 116, ../sass/components/_header.scss */
 .main--header .main-menu {
   display: inline-block;
   margin-top: 1rem;
   text-transform: capitalize;
   font-weight: 300;
 }
-/* line 130, ../sass/components/_header.scss */
+/* line 121, ../sass/components/_header.scss */
 .main--header .main-menu a {
   color: #000;
 }
 
-/* line 135, ../sass/components/_header.scss */
+/* line 126, ../sass/components/_header.scss */
 .quote {
   color: #ffffff;
   background: #df3b52;
@@ -1313,34 +1306,84 @@ header.alternate li {
 /* line 1, ../sass/components/_footer.scss */
 footer {
   padding: 1.5rem 0;
-  background: #5096b1;
+  background: #245f76;
+  padding-top: 0;
   color: #ffffff;
 }
-/* line 5, ../sass/components/_footer.scss */
+/* line 6, ../sass/components/_footer.scss */
 footer ul {
   list-style: none;
   text-align: center;
 }
-/* line 8, ../sass/components/_footer.scss */
+/* line 9, ../sass/components/_footer.scss */
 footer ul li {
   display: inline-block;
   margin: 0 0.5rem;
 }
-/* line 11, ../sass/components/_footer.scss */
+/* line 12, ../sass/components/_footer.scss */
 footer ul li a {
   color: #ffffff;
   font-size: 14px;
 }
-/* line 17, ../sass/components/_footer.scss */
+/* line 18, ../sass/components/_footer.scss */
 footer .connect {
   text-align: center;
 }
-/* line 19, ../sass/components/_footer.scss */
+/* line 20, ../sass/components/_footer.scss */
 footer .connect a {
   margin: 0 10px;
 }
+/* line 24, ../sass/components/_footer.scss */
+footer .secondary--footer {
+  padding: 1.5rem 0;
+  background: #5096b1;
+  margin-bottom: 1.5rem;
+}
+/* line 32, ../sass/components/_footer.scss */
+footer .sec-ftr > span {
+  padding: 1rem;
+  padding-left: 0;
+  margin: 1rem 0;
+  border-right: 1px solid #cecece;
+  display: inline-block;
+  font-size: 18px;
+}
+/* line 40, ../sass/components/_footer.scss */
+footer .sec-ftr .footer-phone,
+footer .sec-ftr .quote {
+  display: inline-block;
+  vertical-align: middle;
+}
+/* line 45, ../sass/components/_footer.scss */
+footer .sec-ftr .quote {
+  float: right;
+  margin-top: 1rem;
+  background: none;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  border: 1px solid #ffffff;
+}
+/* line 54, ../sass/components/_footer.scss */
+footer .sec-ftr .footer-phone {
+  margin-left: 2rem;
+}
+/* line 56, ../sass/components/_footer.scss */
+footer .sec-ftr .footer-phone span {
+  display: block;
+  vertical-align: middle;
+}
+/* line 60, ../sass/components/_footer.scss */
+footer .sec-ftr .footer-phone .tel {
+  font-weight: 600;
+  font-size: 24px;
+}
+/* line 64, ../sass/components/_footer.scss */
+footer .sec-ftr .footer-phone .tagl {
+  font-size: 10px;
+}
 
-/* line 25, ../sass/components/_footer.scss */
+/* line 71, ../sass/components/_footer.scss */
 .copyright {
   font-size: 12px;
   text-align: center;
@@ -2564,14 +2607,47 @@ input.input {
 /* line 9, ../sass/components/_about.scss */
 .about--cover {
   background: #84dbe2;
+  position: relative;
 }
-/* line 11, ../sass/components/_about.scss */
-.about--cover img {
+/* line 12, ../sass/components/_about.scss */
+.about--cover img.cover {
   width: 40%;
   max-width: 100%;
 }
+/* line 16, ../sass/components/_about.scss */
+.about--cover .about-text {
+  position: absolute;
+  right: 5em;
+  top: 20%;
+  width: 30%;
+}
+/* line 21, ../sass/components/_about.scss */
+.about--cover .about-text h2 {
+  font-size: 40px;
+  color: #ffffff;
+  margin: 0;
+}
+/* line 26, ../sass/components/_about.scss */
+.about--cover .about-text span {
+  font-size: 14px;
+  color: #545454;
+}
 
-/* line 19, ../sass/components/_about.scss */
+/* line 33, ../sass/components/_about.scss */
+.how-we-work {
+  margin-top: 2.5rem;
+}
+/* line 36, ../sass/components/_about.scss */
+.how-we-work h3 {
+  text-align: center;
+  font-size: 34px;
+  margin-bottom: 1rem;
+}
+/* line 41, ../sass/components/_about.scss */
+.how-we-work > p {
+  text-align: center;
+}
+/* line 44, ../sass/components/_about.scss */
 .how-we-work .working {
   margin-bottom: 1rem;
   margin-top: 2rem;
@@ -2580,34 +2656,34 @@ input.input {
   text-align: center;
   vertical-align: top;
 }
-/* line 26, ../sass/components/_about.scss */
+/* line 51, ../sass/components/_about.scss */
 .how-we-work .working h2 {
   margin: 0;
   margin-bottom: 1rem;
   margin-top: 0.5rem;
 }
-/* line 31, ../sass/components/_about.scss */
+/* line 56, ../sass/components/_about.scss */
 .how-we-work .working div {
   width: 80%;
   margin: auto;
 }
-/* line 34, ../sass/components/_about.scss */
+/* line 59, ../sass/components/_about.scss */
 .how-we-work .working div p,
 .how-we-work .working div h2 {
   color: #545454;
 }
 
-/* line 42, ../sass/components/_about.scss */
+/* line 67, ../sass/components/_about.scss */
 .full--width-max {
   background: #e65679;
 }
-/* line 44, ../sass/components/_about.scss */
+/* line 69, ../sass/components/_about.scss */
 .full--width-max div {
   max-width: 980px;
   margin: auto;
   padding: 2rem 0;
 }
-/* line 48, ../sass/components/_about.scss */
+/* line 73, ../sass/components/_about.scss */
 .full--width-max div p {
   width: 75%;
   display: inline-block;
@@ -2615,7 +2691,7 @@ input.input {
   font-size: 22px;
   font-weight: 100;
 }
-/* line 55, ../sass/components/_about.scss */
+/* line 80, ../sass/components/_about.scss */
 .full--width-max div a {
   display: inline-block;
   background: #3986b6;
@@ -2624,7 +2700,7 @@ input.input {
   text-transform: uppercase;
   font-weight: 300;
 }
-/* line 62, ../sass/components/_about.scss */
+/* line 87, ../sass/components/_about.scss */
 .full--width-max div a:after {
   background: url("../assets/icons/send.svg");
   display: inline-block;
