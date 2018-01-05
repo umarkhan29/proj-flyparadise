@@ -8,14 +8,39 @@ input.input {
 
 .about--cover {
     background: #84dbe2;
-    img {
+    position: relative;
+    img.cover {
         width: 40%;
         max-width: 100%;
+    }
+    .about-text {
+        position: absolute;
+        right: 5em;
+        top: 20%;
+        width: 30%;
+        h2 {
+            font-size: 40px;
+            color: $white;
+            margin: 0;
+        }
+        span {
+            font-size: 14px;
+            color: $dark-gray;
+        }
     }
 }
 
 .how-we-work {
     @extend %full--width;
+    margin-top: 2.5rem;
+    h3 {
+        text-align: center;
+        font-size: 34px;
+        margin-bottom: 1rem;
+    }
+    > p {
+        text-align: center;
+    }
     .working {
         margin-bottom: 1rem;
         margin-top: 2rem;
