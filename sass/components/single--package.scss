@@ -1,5 +1,6 @@
 .single--package {
     @extend %full--width;
+    margin-bottom: 4rem;
     display: flex;
     .owl-carousel.single--package {
         width: 60%;

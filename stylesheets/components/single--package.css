@@ -1,21 +1,21 @@
 /*
 Error: Undefined variable: "$text-over-bg".
-        on line 17 of /Users/junaidmasoodi/work/proj-flyparadise/sass/components/single--package.scss
+        on line 18 of /Users/junaidmasoodi/work/proj-flyparadise/sass/components/single--package.scss
 
-12:         display: inline-block;
-13:         vertical-align: top;
-14:         margin-left: 2rem;
-15:         .description {
-16:             font-size: 14px;
-17:             color: $text-over-bg;
-18:         }
-19:         .rating-star {
-20:             color: $text-over-bg;
-21:         }
-22:     }
+13:         display: inline-block;
+14:         vertical-align: top;
+15:         margin-left: 2rem;
+16:         .description {
+17:             font-size: 14px;
+18:             color: $text-over-bg;
+19:         }
+20:         .rating-star {
+21:             color: $text-over-bg;
+22:         }
+23:     }
 
 Backtrace:
-/Users/junaidmasoodi/work/proj-flyparadise/sass/components/single--package.scss:17
+/Users/junaidmasoodi/work/proj-flyparadise/sass/components/single--package.scss:18
 /Library/Ruby/Gems/2.3.0/gems/sass-3.4.25/lib/sass/script/tree/variable.rb:49:in `_perform'
 /Library/Ruby/Gems/2.3.0/gems/sass-3.4.25/lib/sass/script/tree/node.rb:58:in `perform'
 /Library/Ruby/Gems/2.3.0/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:398:in `visit_prop'
@@ -87,4 +87,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$text-over-bg\".\A         on line 17 of /Users/junaidmasoodi/work/proj-flyparadise/sass/components/single--package.scss\A \A 12:         display: inline-block;\A 13:         vertical-align: top;\A 14:         margin-left: 2rem;\A 15:         .description {\A 16:             font-size: 14px;\A 17:             color: $text-over-bg;\A 18:         }\A 19:         .rating-star {\A 20:             color: $text-over-bg;\A 21:         }\A 22:     }"; }
+  content: "Error: Undefined variable: \"$text-over-bg\".\A         on line 18 of /Users/junaidmasoodi/work/proj-flyparadise/sass/components/single--package.scss\A \A 13:         display: inline-block;\A 14:         vertical-align: top;\A 15:         margin-left: 2rem;\A 16:         .description {\A 17:             font-size: 14px;\A 18:             color: $text-over-bg;\A 19:         }\A 20:         .rating-star {\A 21:             color: $text-over-bg;\A 22:         }\A 23:     }"; }

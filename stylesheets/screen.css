@@ -3460,84 +3460,85 @@ input.input {
 
 /* line 1, ../sass/components/single--package.scss */
 .single--package {
+  margin-bottom: 4rem;
   display: flex;
 }
-/* line 4, ../sass/components/single--package.scss */
+/* line 5, ../sass/components/single--package.scss */
 .single--package .owl-carousel.single--package {
   width: 60%;
   display: inline-block;
   vertical-align: top;
   margin: 0;
 }
-/* line 10, ../sass/components/single--package.scss */
+/* line 11, ../sass/components/single--package.scss */
 .single--package .single--packing_desc {
   width: 37%;
   display: inline-block;
   vertical-align: top;
   margin-left: 2rem;
 }
-/* line 15, ../sass/components/single--package.scss */
+/* line 16, ../sass/components/single--package.scss */
 .single--package .single--packing_desc .description {
   font-size: 14px;
   color: #666467;
 }
-/* line 19, ../sass/components/single--package.scss */
+/* line 20, ../sass/components/single--package.scss */
 .single--package .single--packing_desc .rating-star {
   color: #666467;
 }
-/* line 23, ../sass/components/single--package.scss */
+/* line 24, ../sass/components/single--package.scss */
 .single--package .pack-heading {
   font-size: 22px;
   font-weight: 600;
   margin: 0;
 }
-/* line 27, ../sass/components/single--package.scss */
+/* line 28, ../sass/components/single--package.scss */
 .single--package .pack-heading span {
   font-size: 12px;
   display: block;
 }
-/* line 32, ../sass/components/single--package.scss */
+/* line 33, ../sass/components/single--package.scss */
 .single--package .rating-form {
   margin-top: 0;
 }
-/* line 36, ../sass/components/single--package.scss */
+/* line 37, ../sass/components/single--package.scss */
 .single--package .inclusions img {
   margin-right: 1.4rem;
 }
-/* line 40, ../sass/components/single--package.scss */
+/* line 41, ../sass/components/single--package.scss */
 .single--package .price--tag {
   display: flex;
 }
-/* line 43, ../sass/components/single--package.scss */
+/* line 44, ../sass/components/single--package.scss */
 .single--package .price--starting,
 .single--package .select-2--wrapper {
   flex: 1;
 }
-/* line 48, ../sass/components/single--package.scss */
+/* line 49, ../sass/components/single--package.scss */
 .single--package .select-2--wrapper .select2-selection__rendered {
   font-size: 18px;
 }
-/* line 51, ../sass/components/single--package.scss */
+/* line 52, ../sass/components/single--package.scss */
 .single--package .select-2--wrapper span {
   font-size: 12px;
   color: #545454;
 }
-/* line 55, ../sass/components/single--package.scss */
+/* line 56, ../sass/components/single--package.scss */
 .single--package .select-2--wrapper .select2-container {
   margin-top: 5px;
   width: 155px !important;
 }
-/* line 58, ../sass/components/single--package.scss */
+/* line 59, ../sass/components/single--package.scss */
 .single--package .select-2--wrapper .select2-container .select2-selection--single {
   height: 30px !important;
 }
-/* line 62, ../sass/components/single--package.scss */
+/* line 63, ../sass/components/single--package.scss */
 .single--package .select-2--wrapper .select2-selection__arrow {
   right: 0 !important;
   top: 0 !important;
   height: 29px;
 }
-/* line 66, ../sass/components/single--package.scss */
+/* line 67, ../sass/components/single--package.scss */
 .single--package .select-2--wrapper .select2-selection__arrow b {
   background: url("../assets/icons/select--arrow.svg");
   width: 19px !important;
@@ -3547,29 +3548,29 @@ input.input {
   left: 18% !important;
   top: 27% !important;
 }
-/* line 77, ../sass/components/single--package.scss */
+/* line 78, ../sass/components/single--package.scss */
 .single--package .price--starting {
   border-right: 1px solid #e9e9e9;
   margin-right: 1rem;
   padding-right: 1rem;
 }
-/* line 81, ../sass/components/single--package.scss */
+/* line 82, ../sass/components/single--package.scss */
 .single--package .price--starting > span {
   font-size: 12px;
   color: #545454;
 }
-/* line 85, ../sass/components/single--package.scss */
+/* line 86, ../sass/components/single--package.scss */
 .single--package .price--starting div.amount {
   font-size: 26px;
   font-weight: 600;
   color: #4caf50;
 }
-/* line 89, ../sass/components/single--package.scss */
+/* line 90, ../sass/components/single--package.scss */
 .single--package .price--starting div.amount span {
   margin-right: 5px;
 }
 
-/* line 96, ../sass/components/single--package.scss */
+/* line 97, ../sass/components/single--package.scss */
 .border {
   border: 1px solid #e9e9e9;
   padding: 1rem;
@@ -3577,7 +3578,7 @@ input.input {
   border-radius: 3px;
 }
 
-/* line 103, ../sass/components/single--package.scss */
+/* line 104, ../sass/components/single--package.scss */
 .darkborder {
   border: 1px solid #d4e6ec;
   padding: 1rem;
@@ -3585,35 +3586,35 @@ input.input {
   border-radius: 3px;
 }
 
-/* line 110, ../sass/components/single--package.scss */
+/* line 111, ../sass/components/single--package.scss */
 .margin-top {
   margin-top: 1rem;
 }
 
-/* line 114, ../sass/components/single--package.scss */
+/* line 115, ../sass/components/single--package.scss */
 .select2-search--dropdown {
   display: none !important;
 }
 
-/* line 118, ../sass/components/single--package.scss */
+/* line 119, ../sass/components/single--package.scss */
 .select2-selection {
   border-radius: 0 !important;
 }
 
-/* line 122, ../sass/components/single--package.scss */
+/* line 123, ../sass/components/single--package.scss */
 .internal--perday {
   margin: 2rem 0;
   position: relative;
 }
-/* line 125, ../sass/components/single--package.scss */
+/* line 126, ../sass/components/single--package.scss */
 .internal--perday:before {
   top: -32px;
 }
-/* line 128, ../sass/components/single--package.scss */
+/* line 129, ../sass/components/single--package.scss */
 .internal--perday:after {
   top: 42px;
 }
-/* line 131, ../sass/components/single--package.scss */
+/* line 132, ../sass/components/single--package.scss */
 .internal--perday:after, .internal--perday:before {
   position: absolute;
   content: "";
@@ -3622,37 +3623,37 @@ input.input {
   left: 17px;
   height: 79%;
 }
-/* line 140, ../sass/components/single--package.scss */
+/* line 141, ../sass/components/single--package.scss */
 .internal--perday .dest-distance {
   position: absolute;
 }
-/* line 143, ../sass/components/single--package.scss */
+/* line 144, ../sass/components/single--package.scss */
 .internal--perday h5 {
   font-size: 24px;
   font-weight: 400;
   margin: 0;
   color: #15386e;
 }
-/* line 149, ../sass/components/single--package.scss */
+/* line 150, ../sass/components/single--package.scss */
 .internal--perday .arrival {
   display: inline-block;
   vertical-align: middle;
   margin-right: 10px;
 }
-/* line 154, ../sass/components/single--package.scss */
+/* line 155, ../sass/components/single--package.scss */
 .internal--perday .inc {
   font-size: 14px;
   display: inline-block;
   vertical-align: middle;
 }
-/* line 158, ../sass/components/single--package.scss */
+/* line 159, ../sass/components/single--package.scss */
 .internal--perday .inc span {
   margin-right: 10px;
   padding-right: 10px;
   position: relative;
   color: #545454;
 }
-/* line 163, ../sass/components/single--package.scss */
+/* line 164, ../sass/components/single--package.scss */
 .internal--perday .inc span:after {
   content: ' ';
   position: absolute;
@@ -3662,53 +3663,53 @@ input.input {
   right: 0;
   top: 5px;
 }
-/* line 173, ../sass/components/single--package.scss */
+/* line 174, ../sass/components/single--package.scss */
 .internal--perday .inc span.last:after {
   display: none;
 }
-/* line 179, ../sass/components/single--package.scss */
+/* line 180, ../sass/components/single--package.scss */
 .internal--perday .day--today {
   font-weight: 800;
 }
 
-/* line 184, ../sass/components/single--package.scss */
+/* line 185, ../sass/components/single--package.scss */
 .margin-top.bg-blue {
   font-size: 14px;
 }
 
-/* line 188, ../sass/components/single--package.scss */
+/* line 189, ../sass/components/single--package.scss */
 .checklist {
   list-style: none;
   border-bottom: 1px solid #e9e9e9;
   margin-bottom: 1rem;
   padding-bottom: 6px;
 }
-/* line 193, ../sass/components/single--package.scss */
+/* line 194, ../sass/components/single--package.scss */
 .checklist li {
   width: 32%;
   display: inline-block;
   margin: 0;
   padding-bottom: 10px;
 }
-/* line 198, ../sass/components/single--package.scss */
+/* line 199, ../sass/components/single--package.scss */
 .checklist li img {
   margin-right: 5px;
 }
 
-/* line 204, ../sass/components/single--package.scss */
+/* line 205, ../sass/components/single--package.scss */
 .inc--per--package {
   font-size: 14px;
 }
-/* line 206, ../sass/components/single--package.scss */
+/* line 207, ../sass/components/single--package.scss */
 .inc--per--package span {
   margin-right: 10px;
 }
-/* line 209, ../sass/components/single--package.scss */
+/* line 210, ../sass/components/single--package.scss */
 .inc--per--package .label {
   font-weight: 600;
 }
 
-/* line 214, ../sass/components/single--package.scss */
+/* line 215, ../sass/components/single--package.scss */
 .tag {
   background: #15386e;
   display: inline-block;
