@@ -175,14 +175,14 @@
                 <div class="stars border">
                     <ul class="hotel radio">
                         <li>
-                            <input type="radio" id="f-option" name="selector" <?php if($package[0]['HOTELSTAR']==2) echo "checked"; ?> >
+                            <input type="radio" onChange="stay('pprice');" id="f-option" name="selector" <?php if($package[0]['HOTELSTAR']==2) echo "checked"; ?> >
                             <label for="f-option">Budget stay</label>
 
                             <div class="check"></div>
                         </li>
 
                         <li>
-                            <input type="radio" id="s-option" name="selector" <?php if($package[0]['HOTELSTAR']==3) echo "checked"; ?> >
+                            <input type="radio" onChange="stay('pprice');" id="s-option" name="selector" <?php if($package[0]['HOTELSTAR']==3) echo "checked"; ?> >
                             <label for="s-option">3 Star</label>
 
                             <div class="check">
@@ -191,7 +191,7 @@
                         </li>
 
                         <li>
-                            <input type="radio" id="t-option" name="selector" <?php if($package[0]['HOTELSTAR']==4) echo "checked"; ?>>
+                            <input type="radio" onChange="stay('pprice');" id="t-option" name="selector" <?php if($package[0]['HOTELSTAR']==4) echo "checked"; ?>>
                             <label for="t-option">4 star</label>
 
                             <div class="check">
@@ -199,7 +199,7 @@
                             </div>
                         </li>
                         <li>
-                            <input type="radio" id="w-option" name="selector" <?php if($package[0]['HOTELSTAR']==5) echo "checked"; ?> >
+                            <input type="radio" onChange="stay('pprice');" id="w-option" name="selector" <?php if($package[0]['HOTELSTAR']==5) echo "checked"; ?> >
                             <label for="w-option">5 star</label>
 
                             <div class="check">
@@ -207,19 +207,65 @@
                             </div>
                         </li>
                     </ul>
+					
+					
+					<?php
+					//price updation on basis of hotel selected
+					$date=date("F");
+					if($date=="January" || $date=="February" || $date=="March"){
+						$date="jan";
+					
+					}
+					if($date=="April" || $date=="May" || $date=="June"){
+						$date="april";
+					
+					}
+					if($date=="July" || $date=="August" || $date=="September"){
+						$date="july";
+					
+					}
+					
+					if($date=="October" || $date=="November" || $date=="December"){
+						$date="oct";
+					
+					}
+					
+				 $query = "SELECT * FROM `hotels` WHERE `stars` = ".$package[0]['HOTELSTAR']." AND `location` = '".$package[0]['DESTINATION']."' ORDER BY ".$date." ASC LIMIT 1";
+					
+					
+					if($result = mysqli_query($dbconn,$query)){
+						$count=0;
+						while($row = mysqli_fetch_assoc($result)){
+							$hotelprice[] = array(
+										
+									'PRICE'		 	=> 	$row[$date],
+									
+								);
+								$count=$count+1;
+								
+						}
+						
+					}
+					
+							
+					?>
                     <div class="price--tag">
                         <div class="price--starting">
                             <span>starting from (per person)</span>
-                            <div class="amount"><span>₹</span><?php echo $package[0]['PRICE']; ?></div>
+							<input type="hidden" id="sessid" value="<?php echo $package[0]['PRICE']; ?>" />
+                            <div class="amount"><span>₹</span><span id="pprice"><?php echo $price = $package[0]['PRICE']+$hotelprice[0]['PRICE']; ?></span></div>
                         </div>
                         <div class="select-2--wrapper">
+						
+						
                             <span>For the Month of</span>
-                            <select class="js-example-basic-single" name="listing" id="">
-                                <option value="1">Jan 2018</option>
-                                <option value="2">Feb 2018</option>
-                                <option value="3">Mar 2018</option>
-                                <option value="4">Apr 2018</option>
-                                <option value="5">May 2018</option>
+                            <select class="js-example-basic-single" name="listing" onChange="stay('pprice');" id="stay">
+                                <option value="<?php echo $date=date("F"); ?>"><?php echo $date=date("F Y"); ?> </option>
+                                <option value="<?php echo $date=date("F", strtotime("+1 month")); ?>"><?php echo $date=date("F Y", strtotime("+1 month")); ?></option>
+                                <option value="<?php echo $date=date("F", strtotime("+2 month")); ?>"><?php echo $date=date("F Y", strtotime("+2 month")); ?></option>
+                                <option value="<?php echo $date=date("F", strtotime("+3 month")); ?>"><?php echo $date=date("F Y", strtotime("+3 month")); ?></option>
+                                <option value="<?php echo $date=date("F", strtotime("+4 month")); ?>"><?php echo $date=date("F Y", strtotime("+4 month")); ?></option>
+								<option value="<?php echo $date=date("F", strtotime("+5 month")); ?>"><?php echo $date=date("F Y", strtotime("+5 month")); ?></option>
                             </select>
                         </div>
                     </div>
@@ -343,6 +389,8 @@
             <!-- Calling popup from location partial -->
             <?php include_once('location.php'); ?>
        </div>
+	   
+	   <?php include_once("home/ajaxcomponents/updatestay.php"); ?>
 </body>
 
 </html>

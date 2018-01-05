@@ -1,0 +1,28 @@
+<?php
+
+	if(isset($_POST['btn'])){ 		
+		$name=mysql_real_escape_string(trim(strip_tags(stripslashes($_POST['name']))));
+		$location=mysql_real_escape_string(trim(strip_tags(stripslashes($_POST['location']))));	
+		$stars=mysql_real_escape_string(trim(strip_tags(stripslashes($_POST['stars']))));	
+		$desc=mysql_real_escape_string(trim(strip_tags(stripslashes($_POST['desc']))));
+		$jan=mysql_real_escape_string(trim(strip_tags(stripslashes($_POST['jan']))));	
+		$april=mysql_real_escape_string(trim(strip_tags(stripslashes($_POST['april']))));	
+		$july=mysql_real_escape_string(trim(strip_tags(stripslashes($_POST['july']))));
+		$oct=mysql_real_escape_string(trim(strip_tags(stripslashes($_POST['oct']))));	
+
+
+
+
+		
+		$query="INSERT INTO `hotels`(`name`, `location`, `stars`, `desc`, `jan`, `april`, `july`, `oct`) VALUES ('$name','$location','$stars','$desc','$jan','$april','$july','$oct');";
+		
+		if(mysqli_query($dbconn,$query) or die( mysqli_error())){
+			echo'<div style="width:80%;padding-top:50px; padding-bottom:60px; padding-left:20%; overflow:hidden; color:green; font-size:32px; background:#999999;"> Hotel added</div>';
+		}
+		else{	
+			echo '<div style="width:80%; padding-top:50px; padding-bottom:60px; padding-left:20%; overflow:hidden; color:red; font-size:32px; 		background:#999999;">Something went wrong. Contact your administrator</div>';
+		}
+					
+	}
+
+?>
