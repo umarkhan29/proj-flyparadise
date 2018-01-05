@@ -6,23 +6,22 @@
 <body>
 <?php
 	include_once('home/catalog/connect.khan');
-	include_once('home/components/hotel.khan');
+	include_once('home/components/hotel.fly');
 ?>
 
 
 <p>
 		<form action="" method="POST">
 			<input type="text" name="name" placeholder="Name"/><br />
-			<input type="text" name="location" placeholder="Location"/><br />
+			<input type="text" name="location" placeholder="Destination"/><br />
 			<input type="text" name="stars" placeholder="Star Rating"/><br />
-			<input type="text" name="desc" placeholder="Description"/><br />
-			<input type="text" name="extrabedprice" placeholder="Extra Bed (Price)"/><br />
-			<input type="text" name="childwithoutbed6" placeholder="Child Without Bed (6-9 Years) (Price)"/><br />
-			<input type="text" name="childbelow5years" placeholder="Child (Below 5 Years) (Price)"/><br />
-			<input type="text" name="cp" placeholder="CP (Price)"/><br />
-			<input type="text" name="ep" placeholder="EP (Price)"/><br />
-			<input type="text" name="ap" placeholder="AP (Price)"/><br />
-			<input type="text" name="map" placeholder="MAP (Price)"/><br />
+			<input type="text" name="desc" placeholder="Description"/><br /><br />
+			Price : 
+			<input type="text" name="jan" placeholder="Jan - March"/>
+			<input type="text" name="april" placeholder="April - June"/>
+			<input type="text" name="july" placeholder="July - Sep"/>
+			<input type="text" name="oct" placeholder="Oct - Dec"/>
+			<br /><br />
 			
 			<input type="submit" name="btn" value="Add"/><br />
 		</form>
