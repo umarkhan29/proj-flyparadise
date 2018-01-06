@@ -31,14 +31,14 @@ $(document).ready(function() {
     })
     $('.item').click(function() {
         $(this).find('.fav').toggleClass('none');
-      });
+    });
       
     $('li.quote').click(function() {
         $('.pop-up').toggleClass('remove');
-      });
-      $('.remove-popup').click(function() {
+    });
+    $('.remove-popup').click(function() {
         $('.pop-up').toggleClass('remove');
-      });
+    });
 
     $(window).load(function() {
         $(".col-3 input").val("");
@@ -154,4 +154,5 @@ $(document).ready(function() {
         $(this).prev().toggle();
         return false;
     });
+
 });

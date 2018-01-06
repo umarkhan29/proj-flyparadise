@@ -91,18 +91,130 @@
     .dest {
         max-width: 1140px;
         margin: auto;
-        padding: 3rem 1rem 0;
+        padding: 3rem 1rem;
         h3 {
             font-size: 38px;
             margin: 0;
         }
-        p {
-            font-size: 20px;
+        > p {
+            font-size: 16px;
             width: 50%;
             display: inline-block;
             color: $text-over-bg;
         }
     }
+    .accordion {
+        width: 48%;
+        display: inline-block;
+        vertical-align: top;
+        margin-left: 0.8rem;
+        div {
+            color: $text-over-bg;
+            border: 1px solid $dark-border;
+            padding: 14px;
+            h4 {
+                margin: 0;
+                font-size: 13px;
+                color: $background-blue;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+//Clouds
+$clouds: ("https://s.cdpn.io/15514/clouds_2.png" 1000px 80s),
+("https://s.cdpn.io/15514/clouds_1.png" 1000px 95s),
+("https://s.cdpn.io/15514/clouds_3.png" 1579px 97s);
+// Animation & keyframes
+// Refactor by @HugoGiraudel
+// https://codepen.io/HugoGiraudel
+@for $i from 1 through length($clouds) {
+    $item: nth($clouds, $i);
+    $path: nth($item, 1);
+    $width: nth($item, 2);
+    $duration: nth($item, 3);
+    @keyframes clouds-loop-#{$i} {
+        to {
+            background-position: -$width 0;
+        }
+    }
+    .clouds-#{$i} {
+        background-image: url($path);
+        animation: clouds-loop-#{$i} $duration infinite linear;
+    }
+}
+
+.clouds {
+    @include opacity(0.4);
+    pointer-events: none;
+    position: relative;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 450px;
+    background: $dark-border;
+}
+.distance--block {
+    position: relative;
+    .info--destination {
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        top: 10%;
+    }
+    .title--info {
+        font-size: 22px;
+        font-weight: 800;
+    }
+    .animate {
+        margin-top: 6rem;
+    }
+    .animate img {
+        height: 50px;
+    }
+    .left {
+        margin-left: 12rem;
+    }
+    .right {
+        margin-right: 12rem;
+    }
+    .line {
+        width: 56%;
+        display: inline-block;
+        height: 35px;
+        border-bottom: 1px dashed $dark-gray;
+        vertical-align: -webkit-baseline-middle;
+    }
+    .hours {
+        display: block;
+        margin-top: 4rem;
+        font-size: 18px;
+        font-weight: 600;
+    }
+    button {
+        background: none;
+        border: 2px solid $link;
+        display: inline-block;
+        font-weight: 600;
+        padding: 5px 10px;
+        border-radius: 3px;
+        text-transform: uppercase;
+        font-size: 12px;
+        margin-top: 3rem;
+    }
+}
+
+.clouds-1,
+.clouds-2,
+.clouds-3 {
+    background-repeat: repeat-x;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 500px;
 }
 
 .destination--packages {
