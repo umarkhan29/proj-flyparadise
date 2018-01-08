@@ -33,9 +33,10 @@
         <div class="header max-width">
             <h1>Fly Paradise</h1>
             <div class="main--nav">
-                <li> <a href="">Packages</a> </li>
-                <li> <a href="">Destinations</a> </li>
-                <li> <a href="">About</a> </li>
+                <li> <a href="single--package.php?id=41">Packages</a> </li>
+                <li> <a href="destinations">Destinations</a> </li>
+				<li> <a href="blog">Blog</a> </li>
+                <li> <a href="about">About</a> </li>
                 <li> <a href="">Saver Packages</a> </li>
                 <li class="quote">FREE QUOTE</li>
             </div>
@@ -60,12 +61,34 @@
 				<div class="hero-form--input">
 						<li class="select-2--wrapper">
 							<span>Destination</span>
-							<select class="js-example-basic-multiple" name="states[]" multiple="multiple">
-								<option value="Srinagar">Srinagar</option>
-								<option value="Anantnag">Anantnag</option>
-								<option value="3">Pulwama</option>
-								<option value="4">Ganderbal</option>
-								<option value="5">baramulla</option>
+							<?php
+								$query = "SELECT DISTINCT `destination` FROM `destinations` ";
+
+								if($result = mysqli_query($dbconn,$query)){
+									$loaddestinations;
+									$count=0;
+									while($row = mysqli_fetch_assoc($result)){
+										$loaddestinations[] = array(
+												
+												
+												'DESTINATION' 	=> 	$row['destination']
+												
+											);
+											 $count=$count+1;
+											
+									}
+									
+								}
+								else{
+									echo mysqli_error($dbconn);
+								}
+							
+							?>
+							<select class="js-example-basic-multiple" name="states" multiple="multiple">
+							<?php for($i=0;$i<$count;$i++){ ?>
+								<option value="<?php echo $loaddestinations[$i]['DESTINATION']; ?>"><?php echo $loaddestinations[$i]['DESTINATION']; ?></option>
+								
+							<?php } ?>
 							</select>
 						</li>
 						<li class="day--counter no-of-day">

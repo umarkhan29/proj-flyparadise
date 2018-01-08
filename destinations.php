@@ -2,7 +2,6 @@
 	require_once('home/catalog/connect.khan');
 	require_once('home/catalog/session.khan');
 	error_reporting(0);
-	print_r($_POST);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,8 +49,9 @@
 	
 <?php
 //Fetching destination
-$id=1;
-$query = "SELECT * FROM `destinations` WHERE `id` = '$id' ";
+$destination=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['states']))));
+$query = "SELECT * FROM `destinations` WHERE `destination` like '%".$destination."%' ";
+
 			if($result = mysqli_query($dbconn,$query)){
 				$destinations;
 				$count=0;
@@ -78,6 +78,8 @@ $query = "SELECT * FROM `destinations` WHERE `id` = '$id' ";
 				echo mysqli_error($dbconn);
 			}
 
+			if(!$count>0)
+				header('location:index');
 ?>
     <div class="destination--hero">
         <div class="left--destination">
