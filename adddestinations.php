@@ -33,6 +33,11 @@
 			Getaways (Seperate each getaway item with a comma ',') 
 			<input type="text" name="getaways" placeholder="Getaways"/><br />
 			
+			<label>Select Sub Image</label>
+			<input type="file" name="fileupld2" placeholder="Choose Image" /><br />
+			<input type="text" name="history" placeholder="History"/><br />
+			<input type="text" name="culture" placeholder="Culture"/><br />
+			<input type="text" name="food" placeholder="Food"/><br />
 			<input type="submit" name="btn" value="Add Destination"/><br />
 </form>
 

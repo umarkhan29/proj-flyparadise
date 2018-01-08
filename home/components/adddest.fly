@@ -6,7 +6,11 @@
 		  $description=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['description']))));
 		  $heading=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['heading2']))));
 		  $description2=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['description2']))));
-		  $path="images/destinations/".mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_FILES['fileupld']['name']))));
+		  $path="images/destinations/".$destination.mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_FILES['fileupld']['name']))));
+		  $path2="images/destinations/".$destination.mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_FILES['fileupld2']['name']))));
+		  $history=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['history']))));
+		  $culture=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['culture']))));
+		  $food=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['food']))));
 		  
 		  //generating links toa destination
 		  $links="";
@@ -46,11 +50,12 @@
 			  }
 		  
 			//generating query
-		  $query="INSERT INTO `destinations` (`destination`, `desc`, `heading2`, `desc2`, `img1`,`links`,`worthwatching`,`getaways`) VALUES ( '$destination', '$description', '$heading', '$description2',  '$path', '$links','$worthwatchings','$getaways');";
+		  $query="INSERT INTO `destinations` (`destination`, `desc`, `heading2`, `desc2`, `img1`,`links`,`worthwatching`,`getaways`,`path2`,`history`,`culture`,`food`) VALUES ( '$destination', '$description', '$heading', '$description2',  '$path', '$links','$worthwatchings','$getaways','$path2','$history','$culture','$food');";
 							
 		if(mysqli_query($dbconn,$query)){ 
 			
 			move_uploaded_file($_FILES['fileupld']['tmp_name'],$path);
+			move_uploaded_file($_FILES['fileupld2']['tmp_name'],$path2);
 		
 		?>
 			<div  style='padding:7px; border: 0px solid; height:90px; background:#F90; opacity: 0.5; width:100%; margin:10px; border-radius:5px; color:#ffffff; font-size:18px;'><p>Data stored sucessfully ! </p>

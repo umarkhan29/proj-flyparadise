@@ -56,16 +56,37 @@
             <a href="#">How it works</a>
         </div>
         <div class="hero-form--wrapper">
-			<form action="destinations" method="post">
+		<?php
+		//Getting destinations
+		 $query = "SELECT * FROM `destinations`";
+					if($result = mysqli_query($dbconn,$query)){
+						
+						$count=0;
+						while($row = mysqli_fetch_assoc($result)){
+							$destlist[] = array(
+									
+									'DESTINATION' 	=> 	$row['destination']
+									
+								);
+								 $count=$count+1;
+								
+						}
+						
+					}
+					else{
+						echo mysqli_error($dbconn);
+					}
+		
+		?>
+			<form action="destinations" method="GET">
 				<div class="hero-form--input">
 						<li class="select-2--wrapper">
 							<span>Destination</span>
-							<select class="js-example-basic-multiple" name="states[]" multiple="multiple">
-								<option value="Srinagar">Srinagar</option>
-								<option value="Anantnag">Anantnag</option>
-								<option value="3">Pulwama</option>
-								<option value="4">Ganderbal</option>
-								<option value="5">baramulla</option>
+							<select class="js-example-basic-multiple" name="destination" multiple="multiple">
+							<?php  for($i=0; $i<$count; $i++){ ?>
+								<option value="<?php echo $destlist[$i]['DESTINATION']; ?>"><?php echo $destlist[$i]['DESTINATION']; ?></option>
+								
+							<?php } ?>
 							</select>
 						</li>
 						<li class="day--counter no-of-day">
@@ -77,7 +98,7 @@
 							<input id="counter-no" name="noofpeople" type="number" min="1" max="30" value="1" />
 						</li>
 	
-					<button class="hero--submit" name="hero-submit">
+					<button class="hero--submit" name="hero-submit" value="sessid">
 						<img src="./assets/icons/arroww.svg" alt="">
 					</button>
 				</div>
@@ -528,32 +549,10 @@
 
         </row>
     </section>
-     <footer>
-        <div class="footer--primary max-width">
-            <ul>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">What makes Us</a></li>
-                <li><a href="#">Blogs</a></li>
-                <li><a href="#">Careers</a></li>
-                <li><a href="#">Terms &amp; Conditions</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-            </ul>
-        </div>
-
-        <div class="footer--secondary">
-            <div class="max-width">
-                <div class="connect">
-                    <a class="social" href="#"><img src="./assets/icons/social/facebook.svg" alt="Facebook"></a>
-                    <a class="social" href="#"><img src="./assets/icons/social/insta.svg" alt="Instagram"></a>
-                    <a class="social" href="#"><img src="./assets/icons/social/twitter.svg" alt="twitter"></a>
-                    <a class="social" href="#"><img src="./assets/icons/social/in.svg" alt="linkedIn"></a>
-                </div>
-            </div>
-        </div>
-        <div class="copyright">
-            &copy; 2010 - 2018 Fly Paradise Travels
-        </div>
-    </footer>
+ 
+ <?php
+	require_once('home/common/footer.fly');
+?>
 	
 	 <!-- PopUp wrapper -->
         <div class="pop-up remove">

@@ -2,7 +2,6 @@
 	require_once('home/catalog/connect.khan');
 	require_once('home/catalog/session.khan');
 	error_reporting(0);
-	print_r($_POST);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,8 +49,12 @@
 	
 <?php
 //Fetching destination
-$id=1;
-$query = "SELECT * FROM `destinations` WHERE `id` = '$id' ";
+if(isset($_GET['destination']))
+	$dest=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['destination']))));
+else 
+	$dest="Kashmir";
+	
+$query = "SELECT * FROM `destinations` WHERE `destination` like '%".$dest."%' ";
 			if($result = mysqli_query($dbconn,$query)){
 				$destinations;
 				$count=0;
@@ -67,6 +70,10 @@ $query = "SELECT * FROM `destinations` WHERE `id` = '$id' ";
 							'GETAWAYS' 		=> 	$row['getaways'],
 							'HEADING2' 		=> 	$row['heading2'],
 							'DESC2' 		=> 	$row['desc2'],
+							'PATH2' 		=> 	$row['path2'],
+							'HISTORY' 		=> 	$row['history'],
+							'CULTURE' 		=> 	$row['culture'],
+							'FOOD' 			=> 	$row['food'],
 							
 						);
 						 $count=$count+1;
@@ -158,11 +165,56 @@ $query = "SELECT * FROM `destinations` WHERE `id` = '$id' ";
             </div>
         </div>
     </div>
-    <div class="destination--info">
+   
+   <div class="destination--info">
         <div class="dest">
-            <h3><?php echo $destinations[0]['HEADING2'] ?></h3>
-            <p><?php echo $destinations[0]['DESC2'] ?></p>
+            <h3><?php echo $destinations[0]['HEADING2']; ?></h3>
+            <p><?php echo $destinations[0]['DESC2']; ?></p>
+            <div class="destination-information">
+                <img src="./assets/destinations/particular-dest/pic.png<?php //echo $destinations[0]['PATH2']; ?>" alt="">
+                <div class="accordion">
+                    <div class="border">
+                        <h4>History of <span><?php echo $destinations[0]['DESTINATION']; ?></span> </h4>
+                            <p class="remove">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque dolorum cupiditate placeat, commodi consequuntur quas sequi dolores aliquid! Eligendi autem officiis quod nam ipsam. Corrupti eius vero facere esse dolor!</p>
+                    </div>
+                    <div class="border">
+                        <h4>Culture in <span><?php echo $destinations[0]['DESTINATION']; ?></span> </h4>
+                        <p class="remove">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque dolorum cupiditate placeat, commodi consequuntur quas sequi dolores aliquid! Eligendi autem officiis quod nam ipsam. Corrupti eius vero facere esse dolor!</p>
+                    </div>
+                    <div class="border">
+                        <h4>Food in <span><?php echo $destinations[0]['DESTINATION']; ?></span> </h4>
+                        <p class="remove">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque dolorum cupiditate placeat, commodi consequuntur quas sequi dolores aliquid! Eligendi autem officiis quod nam ipsam. Corrupti eius vero facere esse dolor!</p>
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
+    <div class="distance--block">
+        <div class='clouds'>
+            <div class='clouds-1'></div>
+            <div class='clouds-2'></div>
+            <div class='clouds-3'></div>
+        </div>
+        <div class="info--destination">
+            <p class=""><span><?php echo $destinations[0]['DESTINATION']; ?></span> is <span>1,200</span> kilometres away</p>
+            <div class="title--info">
+                Fly out to <span><?php echo $destinations[0]['DESTINATION']; ?></span>, It's closer than you think!
+            </div>
+			
+            <div class="animate">
+                <img class="left" src="./assets/icons/house.svg" alt="">
+                <span class="line"></span>
+                <img class="right" src="./assets/icons/hotel.svg" alt="">
+            </div>
+			
+            <span class="hours">Be there in just 1 hour</span>
+            <button>share with friends</button>
+        </div>
+    </div>
+	
+	
+	
+	
           <div class="destination--packages">
             <div class="sidebar">
                 <form class="day--counter" onClick="showpackages('cpackages');" >
@@ -307,32 +359,9 @@ $query = "SELECT * FROM `destinations` WHERE `id` = '$id' ";
             </div>
         </div>
     </div>
-<footer>
-        <div class="footer--primary max-width">
-            <ul>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">What makes Us</a></li>
-                <li><a href="#">Blogs</a></li>
-                <li><a href="#">Careers</a></li>
-                <li><a href="#">Terms &amp; Conditions</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-            </ul>
-        </div>
-
-        <div class="footer--secondary">
-            <div class="max-width">
-                <div class="connect">
-                    <a class="social" href="#"><img src="./assets/icons/social/facebook.svg" alt="Facebook"></a>
-                    <a class="social" href="#"><img src="./assets/icons/social/insta.svg" alt="Instagram"></a>
-                    <a class="social" href="#"><img src="./assets/icons/social/twitter.svg" alt="twitter"></a>
-                    <a class="social" href="#"><img src="./assets/icons/social/in.svg" alt="linkedIn"></a>
-                </div>
-            </div>
-        </div>
-        <div class="copyright">
-            &copy; 2010 - 2018 Fly Paradise Travels
-        </div>
-    </footer>
+<?php
+	require_once('home/common/footer.fly');
+?>
 <div>
 	<?php
 		//include_once('map/fpmap.php');
