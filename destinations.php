@@ -55,6 +55,11 @@ else
 	$dest="Kashmir";
 	
 $query = "SELECT * FROM `destinations` WHERE `destination` like '%".$dest."%' ";
+
+$destination=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['states']))));
+$query = "SELECT * FROM `destinations` WHERE `destination` like '%".$destination."%' ";
+
+
 			if($result = mysqli_query($dbconn,$query)){
 				$destinations;
 				$count=0;
@@ -85,6 +90,8 @@ $query = "SELECT * FROM `destinations` WHERE `destination` like '%".$dest."%' ";
 				echo mysqli_error($dbconn);
 			}
 
+			if(!$count>0)
+				header('location:index');
 ?>
     <div class="destination--hero">
         <div class="left--destination">
