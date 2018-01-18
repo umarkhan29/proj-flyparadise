@@ -32,6 +32,12 @@
 		//getting location
 		var loc="<?php echo $package[0]['DESTINATION']; ?>";
 		
+		//getting travellers
+		var travellers="<?php if(isset($_GET['travellers']))
+				 	echo $travellers=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['travellers']))));
+				 else
+				 	echo $travellers=1;
+				?>";
 		
 		
 		//processing filter
@@ -47,7 +53,7 @@
 				document.getElementById(thediv).innerHTML = xmlhttp.responseText;
 			}
 		}
-		xmlhttp.open('GET','home/ajaxcomponents/updatepackageprice.php?month='+month+'&stay='+stay+'&sessid='+pprice+'&loc='+loc,true);
+		xmlhttp.open('GET','home/ajaxcomponents/updatepackageprice.php?month='+month+'&stay='+stay+'&sessid='+pprice+'&loc='+loc+'&travellers='+travellers,true);
 
 		xmlhttp.send();
 		

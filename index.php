@@ -47,7 +47,7 @@
                 </form>
             </div>
             <div class="account">
-                <a href="#">login</a>
+                <a href="get-in">login</a>
             </div>
         </div>
 
@@ -87,35 +87,6 @@
 							<select class="js-example-basic-multiple" name="destination" multiple="multiple">
 							<?php  for($i=0; $i<$count; $i++){ ?>
 								<option value="<?php echo $destlist[$i]['DESTINATION']; ?>"><?php echo $destlist[$i]['DESTINATION']; ?></option>
-
-							<?php
-								$query = "SELECT DISTINCT `destination` FROM `destinations` ";
-
-								if($result = mysqli_query($dbconn,$query)){
-									$loaddestinations;
-									$count=0;
-									while($row = mysqli_fetch_assoc($result)){
-										$loaddestinations[] = array(
-												
-												
-												'DESTINATION' 	=> 	$row['destination']
-												
-											);
-											 $count=$count+1;
-											
-									}
-									
-								}
-								else{
-									echo mysqli_error($dbconn);
-								}
-							
-							?>
-							<select class="js-example-basic-multiple" name="states" multiple="multiple">
-							<?php for($i=0;$i<$count;$i++){ ?>
-								<option value="<?php echo $loaddestinations[$i]['DESTINATION']; ?>"><?php echo $loaddestinations[$i]['DESTINATION']; ?></option>
-
-								
 							<?php } ?>
 							</select>
 						</li>

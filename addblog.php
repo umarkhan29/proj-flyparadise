@@ -59,9 +59,9 @@
 		
 		
 	if(isset($_POST['btn'])){ 		
-		$author=mysql_real_escape_string(trim(strip_tags(stripslashes($_POST['author']))));
-		$about=mysql_real_escape_string(trim(strip_tags(stripslashes($_POST['about']))));	
-		$blogtype=mysql_real_escape_string(trim(strip_tags(stripslashes($_POST['blogtype']))));	
+		$author=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['author']))));
+		$about=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['about']))));	
+		$blogtype=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['blogtype']))));	
 		$content=($_POST['editor1']);	
 		
 		$fname=$_FILES['fileupld']['tmp_name'];

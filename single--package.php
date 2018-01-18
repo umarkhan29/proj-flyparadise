@@ -231,7 +231,19 @@
 					
 					}
 					
-				 $query = "SELECT * FROM `hotels` WHERE `stars` = ".$package[0]['HOTELSTAR']." AND `location` = '".$package[0]['DESTINATION']."' ORDER BY ".$date." ASC LIMIT 1";
+					$date3=$date."-3rooms";
+					$date2=$date."-2rooms";
+					
+				if(isset($_GET['travellers']))
+				 	$travellers=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['travellers']))));
+				 else
+				 	$travellers=1;
+					
+					
+					require_once('home/components/getroomsforpackage.fly');
+					
+					
+			  		 $query = "SELECT * FROM `hotels` WHERE `stars` = ".$package[0]['HOTELSTAR']." AND `location` = '".$package[0]['DESTINATION']."' ORDER BY `".$date3."` ASC LIMIT 1";
 					
 					
 					if($result = mysqli_query($dbconn,$query)){
@@ -239,7 +251,8 @@
 						while($row = mysqli_fetch_assoc($result)){
 							$hotelprice[] = array(
 										
-									'PRICE'		 	=> 	$row[$date],
+									'PRICE3'		 	=> 	$row[$date3],
+									'PRICE2'		 	=> 	$row[$date2],
 									
 								);
 								$count=$count+1;
@@ -247,14 +260,20 @@
 						}
 						
 					}
+					$hotelprice=($room3*$hotelprice[0]['PRICE3'])+($room2*$hotelprice[0]['PRICE2']);
+					$packageprice=$package[0]['PRICE'];
 					
-							
+					$packageprice=$travellers*$packageprice;
+					
+					$price = $packageprice+$hotelprice;	
+					
+					
 					?>
                     <div class="price--tag">
                         <div class="price--starting">
-                            <span>starting from (per person)</span>
+                            <span>starting from (<?php echo $travellers; ?> person)</span>
 							<input type="hidden" id="sessid" value="<?php echo $package[0]['PRICE']; ?>" />
-                            <div class="amount"><span>₹</span><span id="pprice"><?php echo $price = $package[0]['PRICE']+$hotelprice[0]['PRICE']; ?></span></div>
+                            <div class="amount"><span>₹</span><span id="pprice"><?php echo $price; ?></span></div>
                         </div>
                         <div class="select-2--wrapper">
 						
