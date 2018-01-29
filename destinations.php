@@ -53,12 +53,11 @@ if(isset($_GET['destination']))
 	$dest=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['destination']))));
 else 
 	$dest="Kashmir";
+		
 	
 $query = "SELECT * FROM `destinations` WHERE `destination` like '%".$dest."%' ";
 
 $destination=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['states']))));
-$query = "SELECT * FROM `destinations` WHERE `destination` like '%".$destination."%' ";
-
 
 			if($result = mysqli_query($dbconn,$query)){
 				$destinations;
@@ -228,6 +227,13 @@ $query = "SELECT * FROM `destinations` WHERE `destination` like '%".$destination
                     <span class="hsidebar">Duration (in nights)</span>
                     <input id="counter-no" type="number" min="1" max="30" value="1" />
                 </form>
+				
+				<form class="day--counter" onClick="showpackages('cpackages');" >
+                    <span class="hsidebar">No of travellers</span>
+                    <input id="traveller-no" type="number" min="1" max="30" value="1" />
+                </form>
+				
+				
                 <div >
                     <span class="hsidebar">Categories</span>
                     <label class="control control--checkbox" onClick="showpackages('cpackages');">Honeymoon
@@ -310,9 +316,48 @@ $query = "SELECT * FROM `destinations` WHERE `destination` like '%".$destination
 	
 	
 	<?php
+	//getting hotel price
+				if(isset($_GET['noofpeople']))
+				 	$travellers=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['noofpeople']))));
+				 else
+				 	$travellers=1;
+					
+					
+					require_once('home/components/getroomsforpackage.fly');
+					
+					//getting current date
+					$date=date("F");
+					if($date=="January" || $date=="February" || $date=="March"){
+						$date="jan";
+					
+					}
+					if($date=="April" || $date=="May" || $date=="June"){
+						$date="april";
+					
+					}
+					if($date=="July" || $date=="August" || $date=="September"){
+						$date="july";
+					
+					}
+					
+					if($date=="October" || $date=="November" || $date=="December"){
+						$date="oct";
+					
+					}
+					
+					$date3=$date."-3rooms";
+					$date2=$date."-2rooms";
+					
+					
+					
+					 
+					 
+					 
+					 
+					 
 	//fetching initial packages (on page load)
 	 $destination= $destinations[0]['DESTINATION'];
-	 $query = "SELECT * FROM `packages` WHERE `destination` = '$destination' ";
+	 $query = "SELECT * FROM `packages` WHERE `destination` like '%".$destination."%' ";
 			if($result = mysqli_query($dbconn,$query)){
 				$packages;
 				$count=0;
@@ -339,26 +384,51 @@ $query = "SELECT * FROM `destinations` WHERE `destination` like '%".$destination
 				echo mysqli_error($dbconn);
 			}
 
-	
+			
+					
 	?>
 		
 		
             <div class="main--content">
 				<div id="cpackages">
-					<?php for($i=0;$i<6;$i++) {  //Loading Packages ?>
+					<?php for($i=0;$i<6;$i++) {  //Loading Packages 
+						//formulating query for getting seperate hotelprice on basis of number of travellers
+			  		 $query = "SELECT * FROM `hotels` WHERE `stars` = ".$packages[$i]['HOTELSTAR']." AND `location` = '".$packages[$i]['DESTINATION']."' ORDER BY `".$date3."` ASC LIMIT 1";
+					$hotelresult="";
+					$hotelprice="";
+					if($hotelresult = mysqli_query($dbconn,$query)){
+						
+						while($row = mysqli_fetch_assoc($hotelresult)){
+							$hotelprice[] = array(
+										
+									'PRICE3'		 	=> 	$row[$date3],
+									'PRICE2'		 	=> 	$row[$date2],
+									
+								);
+								
+						}
+						
+					}
+						 
+					 $hotelprice=($room3*$hotelprice[0]['PRICE3'])+($room2*$hotelprice[0]['PRICE2']);
+					 
+					
+					
+					?>
 						<div class="package--tailored">
 							<img src="<?php echo $packages[$i]['PATH'] ?>" alt="">
 							<div class="destination--info">
 								<h3><?php echo $packages[$i]['TITLE']; ?></h3>
-								<span class="duration"><?php echo $packages[$i]['DURATION'] ?></span>
-								<div class="price"><?php echo $packages[$i]['PRICE'] ?>/-</div>
+								<span class="duration"><?php echo $packages[$i]['DURATION'] ?></span><br />
+								<span><?php echo $travellers; ?> persons</span>
+								<div class="price"><?php  echo ($packages[$i]['PRICE']*$travellers)+$hotelprice; ?>/-</div>
 								<div class="inclusions">
 									<img src="./assets/icons/transport/meals.svg" alt="Meals">
 									<img src="./assets/icons/transport/stars.svg" alt="hotel stars">
 									<img src="./assets/icons/transport/view.svg" alt="Site seeing">
 									<img src="./assets/icons/transport/more.svg" alt="Complimentary from destination">
 								</div>
-								<a href="single--package.php?id=<?php echo $packages[$i]['ID']; ?>"><button class="view--package">View this Package</button></a>
+								<a href="single--package.php?id=<?php echo $packages[$i]['ID']; ?>&travellers=<?php echo $travellers; ?>"><button class="view--package">View this Package</button></a>
 							</div>
 						</div>
 					<?php } ?>  

@@ -1,0 +1,32 @@
+<?php
+
+	$tm=$travellers%3;
+	$room3=$travellers/3;
+	
+	$room2=0;
+	if($tm!=0){
+		if($tm==1) { //2 sharing 2 rooms, rest 3 sharing
+			$room3=floor($room3);
+			$room3=$room3-1;
+			if($travellers==1)
+				$room3=0;
+			
+			
+			$room2=2;
+			if($travellers==1)
+				$room2=1;
+			
+		}
+		
+		if($tm==2) { //2 sharing 1 room rest 3 sharing
+			$room3=floor($room3);
+			
+			if($travellers==1)
+				$room3=0;
+			$room2=1;
+			
+		}
+					}
+
+
+?>

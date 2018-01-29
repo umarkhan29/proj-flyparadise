@@ -5,16 +5,21 @@
 		$location=mysql_real_escape_string(trim(strip_tags(stripslashes($_POST['location']))));	
 		$stars=mysql_real_escape_string(trim(strip_tags(stripslashes($_POST['stars']))));	
 		$desc=mysql_real_escape_string(trim(strip_tags(stripslashes($_POST['desc']))));
-		$jan=mysql_real_escape_string(trim(strip_tags(stripslashes($_POST['jan']))));	
-		$april=mysql_real_escape_string(trim(strip_tags(stripslashes($_POST['april']))));	
-		$july=mysql_real_escape_string(trim(strip_tags(stripslashes($_POST['july']))));
-		$oct=mysql_real_escape_string(trim(strip_tags(stripslashes($_POST['oct']))));	
+		$jan3=mysql_real_escape_string(trim(strip_tags(stripslashes($_POST['jan3']))));	
+		$april3=mysql_real_escape_string(trim(strip_tags(stripslashes($_POST['april3']))));	
+		$july3=mysql_real_escape_string(trim(strip_tags(stripslashes($_POST['july3']))));
+		$oct3=mysql_real_escape_string(trim(strip_tags(stripslashes($_POST['oct3']))));	
+
+		$jan2=mysql_real_escape_string(trim(strip_tags(stripslashes($_POST['jan2']))));	
+		$april2=mysql_real_escape_string(trim(strip_tags(stripslashes($_POST['april2']))));	
+		$july2=mysql_real_escape_string(trim(strip_tags(stripslashes($_POST['july2']))));
+		$oct2=mysql_real_escape_string(trim(strip_tags(stripslashes($_POST['oct2']))));	
 
 
 
 
 		
-		$query="INSERT INTO `hotels`(`name`, `location`, `stars`, `desc`, `jan`, `april`, `july`, `oct`) VALUES ('$name','$location','$stars','$desc','$jan','$april','$july','$oct');";
+		$query="INSERT INTO `hotels`(`name`, `location`, `stars`, `desc`, `jan-2rooms`, `april-2rooms`, `july-2rooms`, `oct-2rooms`, `jan-3rooms`, `april-3rooms`, `july-3rooms`, `oct-3rooms`) VALUES ('$name','$location','$stars','$desc','$jan2','$april2','$july2','$oct2','$jan3','$april3','$july3','$oct3');";
 		
 		if(mysqli_query($dbconn,$query) or die( mysqli_error())){
 			echo'<div style="width:80%;padding-top:50px; padding-bottom:60px; padding-left:20%; overflow:hidden; color:green; font-size:32px; background:#999999;"> Hotel added</div>';

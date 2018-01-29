@@ -16,11 +16,12 @@
 			<input type="text" name="location" placeholder="Destination"/><br />
 			<input type="text" name="stars" placeholder="Star Rating"/><br />
 			<input type="text" name="desc" placeholder="Description"/><br /><br />
-			Price : 
-			<input type="text" name="jan" placeholder="Jan - March"/>
-			<input type="text" name="april" placeholder="April - June"/>
-			<input type="text" name="july" placeholder="July - Sep"/>
-			<input type="text" name="oct" placeholder="Oct - Dec"/>
+			Price : <br />
+			
+			<input type="text" name="jan2" placeholder="Jan - March (2 room)"/> <input type="text" name="jan3" placeholder="Jan - March(3 room)"/><br />
+			<input type="text" name="april2" placeholder="April - June (2 room)"/> <input type="text" name="april3" placeholder="April - June(3 room)"/><br />
+			<input type="text" name="july2" placeholder="July - Sep (2 room)"/> <input type="text" name="july3" placeholder="July - Sep(3 room)"/><br />
+			<input type="text" name="oct2" placeholder="Oct - Dec (2 room)"/> <input type="text" name="oct3" placeholder="Oct - Dec(3 room)"/>
 			<br /><br />
 			
 			<input type="submit" name="btn" value="Add"/><br />

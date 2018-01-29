@@ -43,6 +43,10 @@
 		//getting package duration
 		var duration=document.getElementById('counter-no').value;
 		
+		
+		//getting noof travellers
+		var traveller=document.getElementById('traveller-no').value;
+		
 		//getting filter price
 		var price=document.getElementById('amount').value;
 		
@@ -59,7 +63,7 @@
 				document.getElementById(thediv).innerHTML = xmlhttp.responseText;
 			}
 		}
-		xmlhttp.open('GET','home/ajaxcomponents/getpackages.php?stars='+stars+'&destination='+destination+'&honeymoon='+honeymoon+'&solo='+solo+'&ff='+ff+'&duration='+duration+'&price='+price,true);
+		xmlhttp.open('GET','home/ajaxcomponents/getpackages.php?stars='+stars+'&destination='+destination+'&honeymoon='+honeymoon+'&solo='+solo+'&ff='+ff+'&duration='+duration+'&price='+price+'&traveller='+traveller,true);
 
 		xmlhttp.send();
 		
