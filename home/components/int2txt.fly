@@ -1,0 +1,104 @@
+<?php
+	
+	function int2txt($int){
+	
+		if($int==0)
+			echo "One";
+			
+		if($int==1)
+			echo "Two";
+			
+		if($int==2)
+			echo "Three";
+
+		if($int==3)
+			echo "Four";
+
+		if($int==4)
+			echo "Five";
+
+		if($int==5)
+			echo "Six";
+
+		if($int==6)
+			echo "Seven";
+
+		if($int==7)
+			echo "Eight";
+
+		if($int==8)
+			echo "Nine";
+
+		if($int==9)
+			echo "Ten";
+			
+		if($int==10)
+			echo "Eleven";
+		
+		if($int==11)
+			echo "Twelve";
+			
+		if($int==12)
+			echo "Thirteen";
+
+		if($int==13)
+			echo "Fourteen";
+
+		if($int==14)
+			echo "Fifteen";
+
+		if($int==15)
+			echo "Sixteen";
+
+		if($int==16)
+			echo "Seventeen";
+
+		if($int==17)
+			echo "Eighteen";
+
+		if($int==18)
+			echo "Nineteen";
+
+		if($int==19)
+			echo "Twenty";
+			
+		if($int==20)
+			echo "Twenty One";
+			
+		if($int==21)
+			echo "Twenty Two";
+			
+		if($int==22)
+			echo "Twenty Three";
+
+		if($int==23)
+			echo "Twenty Four";
+
+		if($int==24)
+			echo "Twenty Five";
+
+		if($int==25)
+			echo "Twenty Six";
+
+		if($int==26)
+			echo "Twenty Seven";
+
+		if($int==27)
+			echo "Twenty Eight";
+
+		if($int==28)
+			echo "Twenty Nine";
+
+		if($int==29)
+			echo "Thirty";
+			
+		if($int==30)
+			echo "Thirty One";
+		
+		
+	}
+	
+		
+
+
+?>

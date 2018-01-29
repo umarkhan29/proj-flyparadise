@@ -1,6 +1,7 @@
 <?php
 	include_once('home/catalog/connect.khan');
 	include_once('home/catalog/session.khan');
+	include_once('home/components/int2txt.fly');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -302,7 +303,7 @@
                     <div class="inc">
                         <h5><?php echo $itinerarytitle[$i]; ?></h5>
 						
-                        <span class="day--today">Day <?php echo "One";?></span>
+                        <span class="day--today">Day <?php int2txt($i);?></span>
 						
 						<?php 
 							$tags=explode(',',$itinerarytags[$i]);
@@ -356,33 +357,10 @@
             </div>
         </div>
     </div>
-	
-	  <footer>
-        <div class="footer--primary max-width">
-            <ul>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">What makes Us</a></li>
-                <li><a href="#">Blogs</a></li>
-                <li><a href="#">Careers</a></li>
-                <li><a href="#">Terms &amp; Conditions</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-            </ul>
-        </div>
 
-        <div class="footer--secondary">
-            <div class="max-width">
-                <div class="connect">
-                    <a class="social" href="#"><img src="./assets/icons/social/facebook.svg" alt="Facebook"></a>
-                    <a class="social" href="#"><img src="./assets/icons/social/insta.svg" alt="Instagram"></a>
-                    <a class="social" href="#"><img src="./assets/icons/social/twitter.svg" alt="twitter"></a>
-                    <a class="social" href="#"><img src="./assets/icons/social/in.svg" alt="linkedIn"></a>
-                </div>
-            </div>
-        </div>
-        <div class="copyright">
-            &copy; 2010 - 2018 Fly Paradise Travels
-        </div>
-    </footer>
+<?php
+	require_once('home/common/footer.fly');
+?>
 	
 	 <!-- PopUp wrapper -->
         <div class="pop-up remove">

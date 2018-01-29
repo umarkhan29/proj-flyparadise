@@ -231,32 +231,9 @@
             </div>
         </div>
     </div>
-    <footer>
-        <div class="footer--primary max-width">
-            <ul>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">What makes Us</a></li>
-                <li><a href="#">Blogs</a></li>
-                <li><a href="#">Careers</a></li>
-                <li><a href="#">Terms &amp; Conditions</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-            </ul>
-        </div>
-
-        <div class="footer--secondary">
-            <div class="max-width">
-                <div class="connect">
-                    <a class="social" href="#"><img src="./assets/icons/social/facebook.svg" alt="Facebook"></a>
-                    <a class="social" href="#"><img src="./assets/icons/social/insta.svg" alt="Instagram"></a>
-                    <a class="social" href="#"><img src="./assets/icons/social/twitter.svg" alt="twitter"></a>
-                    <a class="social" href="#"><img src="./assets/icons/social/in.svg" alt="linkedIn"></a>
-                </div>
-            </div>
-        </div>
-        <div class="copyright">
-            &copy; 2010 - 2018 Fly Paradise Travels
-        </div>
-    </footer>
+<?php
+	require_once('home/common/footer.fly');
+?>
 </body>
 
 </html>

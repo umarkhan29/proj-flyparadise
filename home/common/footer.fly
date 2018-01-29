@@ -1,0 +1,36 @@
+    <footer>
+        <div class="secondary--footer">
+            <div class="sec-ftr">
+                <span>We promise to stay best in class</span>
+            <div class="footer-phone">
+                <span class="tel">1800 1000 123</span>
+                <span class="tagl">24/7 Dedicated Support</span>
+            </div>
+            <div class="quote">Book a destination</div>
+            </div>
+        </div>
+            <div class="footer--primary max-width">
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">What makes Us</a></li>
+                    <li><a href="#">Blogs</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Terms &amp; Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer--secondary">
+                <div class="max-width">
+                    <div class="connect">
+                        <a class="social" href="#"><img src="./assets/icons/social/facebook.svg" alt="Facebook"></a>
+                        <a class="social" href="#"><img src="./assets/icons/social/insta.svg" alt="Instagram"></a>
+                        <a class="social" href="#"><img src="./assets/icons/social/twitter.svg" alt="twitter"></a>
+                        <a class="social" href="#"><img src="./assets/icons/social/in.svg" alt="linkedIn"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2010 - 2018 Fly Paradise Travels
+            </div>
+        </footer>
