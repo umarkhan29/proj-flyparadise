@@ -1503,19 +1503,19 @@ header.alternate li {
   list-style-type: none;
   padding: 0;
   overflow: hidden;
+  font-weight: 600;
 }
-/* line 307, ../sass/components/_header.scss */
+/* line 308, ../sass/components/_header.scss */
 .mobile--head nav[role="navigation"] li,
 .mobile--head #nav li {
   height: 30px;
   width: 0;
   margin: 30px 0;
-  background-color: #dfdfdf;
-  -webkit-transition: all 0.4s ease-in;
-  -moz-transition: all 0.4s ease-in;
-  -khtml-transition: all 0.4s ease-in;
-  -o-transition: all 0.4s ease-in;
-  transition: all 0.4s ease-in;
+  -webkit-transition: all 0.3s ease-in;
+  -moz-transition: all 0.3s ease-in;
+  -khtml-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
 }
 /* line 313, ../sass/components/_header.scss */
 .mobile--head nav[role="navigation"] li + li,
@@ -1544,9 +1544,15 @@ header.alternate li {
 .mobile--head #nav li {
   width: 200px;
   margin-left: 0;
+  margin-bottom: 0;
+  background: none;
+  margin-top: 15px;
+  text-transform: uppercase;
+  border-bottom: 1px solid #eaeaea;
+  font-weight: 600;
 }
 
-/* line 336, ../sass/components/_header.scss */
+/* line 342, ../sass/components/_header.scss */
 #main {
   background-color: #ffffff;
   position: relative;
@@ -1560,7 +1566,7 @@ header.alternate li {
   -o-transition: all 0.4s ease-in;
   transition: all 0.4s ease-in;
 }
-/* line 344, ../sass/components/_header.scss */
+/* line 350, ../sass/components/_header.scss */
 *[class^='menu--toggled'] #main {
   cursor: pointer;
   user-select: none;
@@ -1574,7 +1580,7 @@ header.alternate li {
   -o-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 349, ../sass/components/_header.scss */
+/* line 355, ../sass/components/_header.scss */
 .menu--toggled-scale #main {
   -webkit-transform: scale(0.9);
   -moz-transform: scale(0.9);
@@ -1589,7 +1595,7 @@ header.alternate li {
   margin-left: 260px;
   overflow: hidden;
 }
-/* line 358, ../sass/components/_header.scss */
+/* line 364, ../sass/components/_header.scss */
 .menu--toggled-slide #main {
   margin-left: 320px;
   -webkit-opacity: 0.4;
@@ -1598,7 +1604,7 @@ header.alternate li {
   -o-opacity: 0.4;
   opacity: 0.4;
 }
-/* line 362, ../sass/components/_header.scss */
+/* line 368, ../sass/components/_header.scss */
 .menu--toggled-hide #main {
   -webkit-opacity: 0;
   -moz-opacity: 0;
