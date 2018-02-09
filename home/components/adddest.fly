@@ -3,6 +3,7 @@
 	 // var_dump($_REQUEST);
 	  if(isset($_POST['btn'])){
 		  $destination=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['destination']))));
+		  $alias=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['alias']))));
 		  $description=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['description']))));
 		  $heading=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['heading2']))));
 		  $description2=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['description2']))));
@@ -50,7 +51,7 @@
 			  }
 		  
 			//generating query
-		  $query="INSERT INTO `destinations` (`destination`, `desc`, `heading2`, `desc2`, `img1`,`links`,`worthwatching`,`getaways`,`path2`,`history`,`culture`,`food`) VALUES ( '$destination', '$description', '$heading', '$description2',  '$path', '$links','$worthwatchings','$getaways','$path2','$history','$culture','$food');";
+		  $query="INSERT INTO `destinations` (`destination`, `desc`, `heading2`, `desc2`, `img1`,`links`,`worthwatching`,`getaways`,`path2`,`history`,`culture`,`food`,`alias`) VALUES ( '$destination', '$description', '$heading', '$description2',  '$path', '$links','$worthwatchings','$getaways','$path2','$history','$culture','$food','$alias');";
 							
 		if(mysqli_query($dbconn,$query)){ 
 			

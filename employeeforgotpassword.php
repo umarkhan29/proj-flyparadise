@@ -1,10 +1,8 @@
-<?php
-	ob_start();
-	require_once('config.khan');
-	session_start();
-	include_once('home/catalog/connect.khan');
-	?>
-	
+ <?php
+require_once('home/catalog/connect.khan');
+require_once('home/catalog/session.khan');
+
+?>
 	
 	<?php
 	$admin="1";
@@ -24,7 +22,6 @@
 				}									
 		}
 ?>
-	
 	
 <div>
 
@@ -88,3 +85,4 @@ Enter your registered email to restore your password.<br>
 	}
 ?>
 
+<?php require_once('home/common/footer.fly'); ?>

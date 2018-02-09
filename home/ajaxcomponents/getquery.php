@@ -8,7 +8,8 @@
 		var phone=document.getElementById('phone').value;
 		var email=document.getElementById('email').value;
 		var date=document.getElementById('datepicker').value;
-		var nights=document.getElementById('counter-no').value;
+		
+		var nights=document.getElementsByName('noofnights')[0].value;
 		
 		var category;
 		var i;
@@ -18,7 +19,7 @@
 				break;
 			}
 		}
-	
+		
 		
 		
 		

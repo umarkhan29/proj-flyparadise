@@ -1,0 +1,19 @@
+ <header class="alternate">
+        <div class="main--header">
+            <div class="menu--heading">
+                <h1 class="logo left">fly paradise</h1>
+                <img class="fp--logo" src="./assets/heros/logo.png" alt="Fly Paradise logo">
+                <div class="main-menu right">
+                    <li><a href="single--package.php?id=41">Packages</a></li>
+                    <li><a href="destinations">Destinations</a></li>
+                    <li><a href="blog">Blog</a></li>
+                    <li><a href="about">About</a></li>
+                    <li class="quote">FREE QUOTE</li>
+					<li ><a href="get-in">Login</a></li>
+                </div>
+            </div>
+        </div>
+	
+		
+			
+    </header>

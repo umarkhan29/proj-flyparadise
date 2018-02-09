@@ -61,21 +61,21 @@
                 <input id="datepicker" placeholder="Preferred date of travel" type="date" /></li>
             <li class="day--counter no-of-day">
                 <span class="hsidebar">Duration (in nights)</span>
-                <input id="counter-no" type="number" min="1" max="30" value="1" />
+                <input name="noofnights" id="counter-no" type="number" min="1" max="30" value="1" />
             </li>
     
             </form>
         </ul>
         <ul class="hotel radio no-border">
             <li>
-                <input type="radio" id="f-option" name="selector">
+                <input type="radio" id="f-option" name="selector" value="Honeymoon">
                 <label for="f-option">Honeymoon</label>
     
                 <div class="check"></div>
             </li>
     
             <li>
-                <input type="radio" id="s-option" name="selector">
+                <input type="radio" id="s-option" name="selector" value="Solo">
                 <label for="s-option">Solo</label>
     
                 <div class="check">
@@ -84,7 +84,7 @@
             </li>
     
             <li>
-                <input type="radio" id="t-option" name="selector">
+                <input type="radio" id="t-option" name="selector" value="Family">
                 <label for="t-option">Family</label>
     
                 <div class="check">
@@ -92,7 +92,7 @@
                 </div>
             </li>
             <li>
-                <input type="radio" id="w-option" name="selector">
+                <input type="radio" id="w-option" name="selector" value="Weekend">
                 <label for="w-option">Weekend</label>
     
                 <div class="check">
@@ -100,7 +100,7 @@
                 </div>
             </li>
             <li>
-                <input type="radio" id="x-option" name="selector">
+                <input type="radio" id="x-option" name="selector" value="Friends">
                 <label for="x-option">Friends</label>
     
                 <div class="check">

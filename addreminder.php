@@ -1,8 +1,10 @@
  <?php
- include_once("config.khan");
- include_once(CATALOG.SESSION);
- 
- ?>
+require_once('home/catalog/connect.khan');
+require_once('home/catalog/session.khan');
+require_once('home/common/employeeheader.fly');//adding employee header 
+require_once('home/components/employeeauthorize.fly');
+
+?>
 		  
 		  <!-- Validation here  --> 
 		      <label > <?php 
@@ -81,3 +83,4 @@
 				}
 	?>
 
+<?php require_once('home/common/footer.fly'); ?>

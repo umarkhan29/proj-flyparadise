@@ -7,7 +7,6 @@ include_once('home/catalog/connect.khan');
 
 $products=mysqli_query($dbconn,$query) or die(mysqli_error($dbconn));
 $count=0;
-$results="";
 if($products){
 		
 		while($row = mysqli_fetch_assoc($products)){
@@ -29,11 +28,10 @@ if($products){
 for($i=0; $i<$count; $i++){			
 	
 	$time_pre = strtotime($results[$i]['TIME']);//converting to unix time stamp
-	$time_pre-=12660; // removing time zone conflict
+	$time_pre-=16200; // removing time zone conflict //19720 for producttion
 	$time_post = strtotime(date("Y-m-d H:i:s"));
 
-	
-	echo $exec_time = $time_post - $time_pre."<br>"; //for testing purposes
+	$exec_time = $time_post - $time_pre; //for testing purposes
 
 
 ?>
@@ -54,7 +52,7 @@ function startTime<?php echo $i; ?>() {
 	audio.play();
 
 	//displaying reminder content
-	document.getElementById('notification').innerHTML = "<?php echo $results[$i]['NOTES']; ?>"; //$results[$i]['NOTES'] has notes for each reminder
+	document.getElementById('notification').innerHTML = "<?php echo "Reminder : ".$results[$i]['NOTES']; ?>"; //$results[$i]['NOTES'] has notes for each reminder
 	//alert("yes");
 	exit;
 		
@@ -73,13 +71,13 @@ function checkTime() {
 </script>
 <?php } ?>
 
+<div id="notification" style="padding:10px; margin:auto; color:red;">
+		 
+</div>
 
-<html>
-<body onload="<?php for($i=0; $i<$count; $i++){ echo "startTime".$i."();"; } //check if employee is logedin : in case of same header everywhere for security reasons?>">
-<div> </div>
-	<div id="notification" >
 
-	</div>
+<script>
+	<?php for($i=0; $i<$count; $i++){ echo "startTime".$i."();"; } //check if employee is logedin : in case of same header everywhere for security reasons?>
+</script>
+
 	
-</body>
-</html>

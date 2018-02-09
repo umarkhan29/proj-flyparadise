@@ -19,6 +19,7 @@
 							'EMAIL' 		=> 	$row['email'],
 							'IMG' 			=> 	$row['img'],
 							'ROLE' 			=> 	$row['role'],
+							'PASSWORD' 		=> 	$row['passcode']
 							
 						);
 						 $count=$count+1;
@@ -27,13 +28,13 @@
 				
 			if(mysqli_num_rows($users)==1){
 				$_SESSION['Loggedin_User']="yes";
-				$_SESSION['Loggedin_User_password']=$user[0][''];
+				$_SESSION['Loggedin_User_password']=$user[0]['PASSWORD'];
 				$_SESSION['current_loggedin_user']= $user[0]['NAME'];;
 				$_SESSION['current_loggedin_user_email']=$user[0]['EMAIL'];
 				$_SESSION['current_loggedin_user_role']=$user[0]['ROLE'];
 				$_SESSION['signvia']="usrpwd";
 				if($_SESSION['current_loggedin_user_role']=='employee' || $_SESSION['current_loggedin_user_role'] == 'admin')
-					header('location:addpackages');
+					header('location:viewenquiries');
 				else
 					header('location:index');
 			}

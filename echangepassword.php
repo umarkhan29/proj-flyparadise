@@ -1,9 +1,10 @@
 <?php
 ob_start();
-require_once('config.khan');
-include_once(CATALOG.SESSION);
-if(!isset($_SESSION['Loggedin_User_password']))  header('location:login');
-include_once('home/catalog/connect.khan');
+
+require_once('home/catalog/connect.khan');
+require_once('home/catalog/session.khan');
+require_once('home/common/employeeheader.fly');//adding employee header 
+require_once('home/components/employeeauthorize.fly');
 	
 ?>
 
@@ -120,7 +121,7 @@ include_once('home/catalog/connect.khan');
 	?>
 
 
-
+<?php require_once('home/common/footer.fly'); ?>
 <?php
 
 ob_end_flush();

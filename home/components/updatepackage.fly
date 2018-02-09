@@ -1,0 +1,216 @@
+<?php
+	
+	$dcount=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['dcount']))));
+	
+	//forming itinerary title
+	$itinerarytitle="";
+	$abc="iterationtitle";
+	for($i=1;$i<=$dcount;$i++){
+		${$abc.$i}=$abc.$i;
+		$a= ${$abc.$i};
+		${$abc.$i}=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST[$a]))));
+		
+		$itinerarytitle.=${$abc.$i}." $$$$ ";
+	}
+	
+	//forming itinerary tags(day plan)
+	$itinerarytags="";
+	$abc="iterationtags";
+	for($i=1;$i<=$dcount;$i++){
+		${$abc.$i}=$abc.$i;
+		$a= ${$abc.$i};
+		${$abc.$i}=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST[$a]))));
+		
+		$itinerarytags.=${$abc.$i}." $$$$ ";
+	}
+	
+	//forming itinerary
+	$itenaries="";
+	$abc="iteration";
+	for($i=1;$i<=$dcount;$i++){
+		${$abc.$i}=$abc.$i;
+		$a= ${$abc.$i};
+		${$abc.$i}=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST[$a]))));
+		
+		$itenaries.=${$abc.$i}." $$$$ ";
+	}
+	
+	
+	//forming inclusions
+	$inclusions="";
+	$abc="iterationinclusion";
+	for($i=1;$i<=$dcount;$i++){
+		${$abc.$i}=$abc.$i;
+		$a= ${$abc.$i};
+		${$abc.$i}=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST[$a]))));
+		
+		$inclusions.=${$abc.$i}." $$$$ ";
+	}
+	
+	
+	//forming exclusions
+	$exclusions="";
+	$abc="iterationexclusion";
+	for($i=1;$i<=$dcount;$i++){
+		${$abc.$i}=$abc.$i;
+		$a= ${$abc.$i};
+		${$abc.$i}=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST[$a]))));
+		
+		$exclusions.=${$abc.$i}." $$$$ ";
+	}
+	
+	
+	//forming getaways
+		$getaways="";
+		$abc="iterationgetaway";
+		for($i=1;$i<=$dcount;$i++){
+			${$abc.$i}=$abc.$i;
+			$a= ${$abc.$i};
+			${$abc.$i}=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST[$a]))));
+			
+			$getaways.=${$abc.$i}." $$$$ ";
+		}
+		
+		
+		//forming worthwatching
+		$worthwatching="";
+		$abc="iterationworthwatching";
+		for($i=1;$i<=$dcount;$i++){
+			${$abc.$i}=$abc.$i;
+			$a= ${$abc.$i};
+			${$abc.$i}=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST[$a]))));
+			
+			$worthwatching.=${$abc.$i}." $$$$ ";
+		}
+		
+		//forming itenary stay
+		$stays="";
+		$abc="iterationstay";
+		for($i=1;$i<=$dcount;$i++){
+			${$abc.$i}=$abc.$i;
+			$a= ${$abc.$i};
+			${$abc.$i}=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST[$a]))));
+			
+			$stays.=${$abc.$i}."$$$$";
+		}
+		//////////////////////////////////////////////////////////////////////
+		//forming itenary from
+		$itineraryfrom="";
+		$abc="iterationfrom";
+		for($i=1;$i<=$dcount;$i++){
+			${$abc.$i}=$abc.$i;
+			$a= ${$abc.$i};
+			${$abc.$i}=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST[$a]))));
+			
+			$itineraryfrom.=${$abc.$i}." $$$$ ";
+		}
+		
+		
+		
+		//forming itenary to
+		$itineraryto="";
+		$abc="iterationto";
+		for($i=1;$i<=$dcount;$i++){
+			${$abc.$i}=$abc.$i;
+			$a= ${$abc.$i};
+			${$abc.$i}=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST[$a]))));
+			
+			$itineraryto.=${$abc.$i}." $$$$ ";
+		}
+		
+		
+		
+		//forming itenary cab price
+		$itinerarycabprice="";
+		$abc="iterationcabprice";
+		for($i=1;$i<=$dcount;$i++){
+			${$abc.$i}=$abc.$i;
+			$a= ${$abc.$i};
+			${$abc.$i}=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST[$a]))));
+			
+			$itinerarycabprice.=${$abc.$i}." $$$$ ";
+		}
+		
+		
+		//day distance
+		$itinerarydistance="";
+		$abc="iterationtdistance";
+		for($i=1;$i<=$dcount;$i++){
+			${$abc.$i}=$abc.$i;
+			$a= ${$abc.$i};
+			${$abc.$i}=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST[$a]))));
+			
+			$itinerarydistance.=${$abc.$i}." $$$$ ";
+		}
+		  
+
+	
+		
+	
+	
+	$token=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['token']))));
+	$title=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['title']))));
+	$destination=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['destination']))));
+	$duration=$dcount." Days ".($dcount-1)." Nights";
+	$category=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['category']))));
+	$hotelstar=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['hotelstar']))));
+	$description=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['description']))));
+	$flights=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['flight']))));
+	$cab=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['cab']))));
+	$meals=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['meals']))));
+	$siteseeing=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['siteseeing']))));
+	$stay=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['stay']))));
+	$addon=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['addon']))));
+	$tags=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['tags']))));
+	$oldpath1=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['oldpath1']))));
+	$oldpath2=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['oldpath2']))));
+	$oldpath3=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['oldpath3']))));
+	
+	
+	
+	if($_FILES['fileupld']['name']==''){
+		$path=$oldpath1;
+	}else{
+		$path="images/packages/".$title.'1'.$destination.$_FILES['fileupld']['name'];
+	}
+	
+	if($_FILES['fileupld2']['name']==''){
+		$path2=$oldpath2;
+	}else{
+		$path2="images/packages/".$title.'2'.$destination.$_FILES['fileupld2']['name'];
+	}
+	
+	if($_FILES['fileupld3']['name']==''){
+		$path3=$oldpath3;
+	}else{
+		$path3="images/packages/".$title.'3'.$destination.$_FILES['fileupld3']['name'];
+	}
+		
+	//Updating in DB
+	 $query="UPDATE `packages` SET `title`='$title',`destination`='$destination',`duration`='$duration',`category`='$category',`hotelstar`='$hotelstar',`description`='$description',`includeflights`='$flights',`localcab`='$cab',`meals`='$meals',`siteseeing`='$siteseeing',`stay`='$stay',`addon`='$addon',`itinerary`='$itenaries',`inclusions`='$inclusions',`exclusions`='$exclusions',`stays`='$stays',`getaways`='$getaways',`worthwatching`='$worthwatching',`itinerarytitle`='$itinerarytitle',`itinerarytags`='$itinerarytags',`tags`='$tags',`distance`='$itinerarydistance',`itineraryfrom`='$itineraryfrom',`itineraryto`='$itineraryto',`itinerarycabprice`='$itinerarycabprice', `path`='$path', `path2`='$path2', `path3`='$path3' WHERE `id` ='$token'";
+							
+		if(mysqli_query($dbconn,$query)){ 
+		
+				if($path != $oldpath1)
+					move_uploaded_file($_FILES['fileupld']['tmp_name'],$path);
+				
+				
+				if($path2 != $oldpath1)
+					move_uploaded_file($_FILES['fileupld2']['tmp_name'],$path2);
+				
+				
+				if($path3 != $oldpath1)
+					move_uploaded_file($_FILES['fileupld3']['tmp_name'],$path3);
+				
+				
+				//resizing images
+				header('location:home/components/packageimgresize.php?action=update&img1='.$path.'&img2='.$path2.'&img3='.$path3);
+				
+		}else{
+			echo "Something went wrong. Contact your administrator";
+			
+		} 
+		
+
+
+?>

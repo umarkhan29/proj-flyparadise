@@ -1,6 +1,7 @@
 <?php
 require_once('home/catalog/connect.khan');
 require_once('home/catalog/session.khan');
+require_once('home/common/employeeheader.fly');//adding employee header 
 require_once('home/components/employeeauthorize.fly');
 include_once('home/ajaxcomponents/packagecustomizationajaxsupport.php');
 
@@ -36,7 +37,7 @@ if(isset($_POST['btn'])){
 		$itinerarytitle.=${$abc.$i}." $$$$ ";
 	}
 	
-	//forming itinerary tags
+	//forming itinerary tags(day plan)
 	$itinerarytags="";
 	$abc="iterationtags";
 	for($i=1;$i<=$dcount;$i++){
@@ -105,6 +106,66 @@ if(isset($_POST['btn'])){
 			
 			$worthwatching.=${$abc.$i}." $$$$ ";
 		}
+		
+		//forming itenary stay
+		$stays="";
+		$abc="iterationstay";
+		for($i=1;$i<=$dcount;$i++){
+			${$abc.$i}=$abc.$i;
+			$a= ${$abc.$i};
+			${$abc.$i}=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST[$a]))));
+			
+			$stays.=${$abc.$i}."$$$$";
+		}
+		//////////////////////////////////////////////////////////////////////
+		//forming itenary from
+		$itineraryfrom="";
+		$abc="iterationfrom";
+		for($i=1;$i<=$dcount;$i++){
+			${$abc.$i}=$abc.$i;
+			$a= ${$abc.$i};
+			${$abc.$i}=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST[$a]))));
+			
+			$itineraryfrom.=${$abc.$i}." $$$$ ";
+		}
+		
+		
+		
+		//forming itenary to
+		$itineraryto="";
+		$abc="iterationto";
+		for($i=1;$i<=$dcount;$i++){
+			${$abc.$i}=$abc.$i;
+			$a= ${$abc.$i};
+			${$abc.$i}=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST[$a]))));
+			
+			$itineraryto.=${$abc.$i}." $$$$ ";
+		}
+		
+		
+		
+		//forming itenary cab price
+		$itinerarycabprice="";
+		$abc="iterationcabprice";
+		for($i=1;$i<=$dcount;$i++){
+			${$abc.$i}=$abc.$i;
+			$a= ${$abc.$i};
+			${$abc.$i}=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST[$a]))));
+			
+			$itinerarycabprice.=${$abc.$i}." $$$$ ";
+		}
+		
+		
+		//day distance
+		$itinerarydistance="";
+		$abc="iterationtdistance";
+		for($i=1;$i<=$dcount;$i++){
+			${$abc.$i}=$abc.$i;
+			$a= ${$abc.$i};
+			${$abc.$i}=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST[$a]))));
+			
+			$itinerarydistance.=${$abc.$i}." $$$$ ";
+		}
 		  
 
 	
@@ -135,7 +196,7 @@ if(isset($_POST['btn'])){
 	
 	
 	//storing in DB
-	 $query="INSERT INTO `packages`( `title`,`destination`,`duration`,`category`, `hotelstar`, `description`, `includeflights`, `price`, `path`, `path2`,`path3`,`localcab`, `meals`,`siteseeing`,`stay`, `addon`, `itinerary`, `inclusions`, `exclusions`,`getaways`,`worthwatching`,`itinerarytitle`,`itinerarytags`,`tags`) VALUES ('$title','$destination','$duration','$category','$hotelstar','$description','$flight','$price','$path','$path2','$path3','$cab','$meals','$siteseeing','$stay','$addon','$itenaries','$inclusions','$exclusions','$getaways','$worthwatching','$itinerarytitle','$itinerarytags','$tags');";
+	 $query="INSERT INTO `packages`( `title`,`destination`,`duration`,`category`, `hotelstar`, `description`, `includeflights`, `price`, `path`, `path2`,`path3`,`localcab`, `meals`,`siteseeing`,`stay`, `addon`, `itinerary`, `inclusions`, `exclusions`,`getaways`,`worthwatching`,`itinerarytitle`,`itinerarytags`,`tags`,`stays`,`distance`,`itineraryfrom`,`itineraryto`,`itinerarycabprice`) VALUES ('$title','$destination','$duration','$category','$hotelstar','$description','$flight','$price','$path','$path2','$path3','$cab','$meals','$siteseeing','$stay','$addon','$itenaries','$inclusions','$exclusions','$getaways','$worthwatching','$itinerarytitle','$itinerarytags','$tags','$stays','$itinerarydistance','$itineraryfrom','$itineraryto','$itinerarycabprice');";
 							
 		if(mysqli_query($dbconn,$query)){ 
 			move_uploaded_file($_FILES['fileupld']['tmp_name'],$path);
@@ -144,7 +205,7 @@ if(isset($_POST['btn'])){
 			
 			//resizing images
 			
-			header('location:home/components/packageimgresize.php?img1='.$path.'&img22='.$path2.'&img3='.$path3);
+			header('location:home/components/packageimgresize.php?img1='.$path.'&img2='.$path2.'&img3='.$path3);
 			
 			
 		}else{
@@ -154,3 +215,5 @@ if(isset($_POST['btn'])){
 		
 }		
 ?>
+
+<?php require_once('home/common/footer.fly'); ?>

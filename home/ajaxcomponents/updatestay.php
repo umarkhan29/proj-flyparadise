@@ -34,10 +34,16 @@
 		
 		//getting travellers
 		var travellers="<?php if(isset($_GET['travellers']))
-				 	echo $travellers=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['travellers']))));
-				 else
-				 	echo $travellers=1;
-				?>";
+								echo $travellers=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['travellers']))));
+							 else
+								echo $travellers=1;
+						?>";
+		//getting itenary stays
+		var stays=[<?php for($z=0;$z<count($stays)-1;$z++) echo "'".$stays[$z]."',"; ?>];
+		
+		
+		//getting cab prices
+		var cabprices='<?php echo $package[0]['ITINERARYCABPRICE']; ?>';
 		
 		
 		//processing filter
@@ -53,7 +59,7 @@
 				document.getElementById(thediv).innerHTML = xmlhttp.responseText;
 			}
 		}
-		xmlhttp.open('GET','home/ajaxcomponents/updatepackageprice.php?month='+month+'&stay='+stay+'&sessid='+pprice+'&loc='+loc+'&travellers='+travellers,true);
+		xmlhttp.open('GET','home/ajaxcomponents/updatepackageprice.php?month='+month+'&stay='+stay+'&loc='+loc+'&travellers='+travellers+'&stays='+stays+'&cabprices='+cabprices,true);
 
 		xmlhttp.send();
 		

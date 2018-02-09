@@ -39,6 +39,29 @@
 			ff="No";
 		}
 		
+		//getting Adventure checkbox
+		var adventure;
+		if(document.getElementsByName('Adventure')[0].checked == true) {
+			 adventure="Yes";
+			
+		}else{
+			adventure="No";
+		}
+		
+		//getting Weekend checkbox
+		var weekend;
+		var isweekendset=document.getElementsByName('Weekend')[0];
+		if(typeof isweekendset != 'undefined'){
+			if(document.getElementsByName('Weekend')[0].checked == true) {
+				 weekend="Yes";
+				
+			}else{
+				weekend="No";
+			}
+		}else{
+			weekend="No";
+		}	
+		
 		
 		//getting package duration
 		var duration=document.getElementById('counter-no').value;
@@ -49,6 +72,8 @@
 		
 		//getting filter price
 		var price=document.getElementById('amount').value;
+		
+		
 		
 		//processing filter
 		if(window.XMLHttpRequest){
@@ -63,7 +88,7 @@
 				document.getElementById(thediv).innerHTML = xmlhttp.responseText;
 			}
 		}
-		xmlhttp.open('GET','home/ajaxcomponents/getpackages.php?stars='+stars+'&destination='+destination+'&honeymoon='+honeymoon+'&solo='+solo+'&ff='+ff+'&duration='+duration+'&price='+price+'&traveller='+traveller,true);
+		xmlhttp.open('GET','home/ajaxcomponents/getpackages.php?stars='+stars+'&destination='+destination+'&honeymoon='+honeymoon+'&solo='+solo+'&ff='+ff+'&adventure='+adventure+'&weekend='+weekend+'&duration='+duration+'&price='+price+'&traveller='+traveller,true);
 
 		xmlhttp.send();
 		

@@ -30,27 +30,13 @@
 </head>
 
 <body>
-    <header class="alternate">
-        <div class="main--header">
-            <div class="menu--heading">
-                <h1 class="logo left">fly paradise</h1>
-                <img class="fp--logo" src="./assets/heros/logo.png" alt="Fly Paradise logo">
-                <div class="main-menu right">
-                    <li><a href="">Packages</a></li>
-                    <li><a href="">Destinations</a></li>
-                    <li><a href="">Honeymoon Packages</a></li>
-                    <li><a href="">Weekend trips</a></li>
-                     <li class="quote">FREE QUOTE</li>
-                </div>
-            </div>
-        </div>
-
-    </header>
+   <?php require_once('home/components/secondaryheader.fly');//adding secondary header ?>
 	
 	
 <?php
 //Fetching single package
  $id=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['id']))));
+ $profitpercent=10;
  $query = "SELECT * FROM `packages` WHERE `id` = '$id';  ";
 			if($result = mysqli_query($dbconn,$query)){
 				$count=0;
@@ -65,10 +51,9 @@
 							'HOTELSTAR' 	=> 	$row['hotelstar'],
 							'DESCRIPTION' 	=> 	$row['description'],
 							'FLIGHTS' 		=> 	$row['includeflights'],
-							'PRICE' 		=> 	$row['price'],
 							'PATH' 			=> 	$row['path'],
-							'PATH2' 			=> 	$row['path2'],
-							'PATH3' 			=> 	$row['path3'],
+							'PATH2' 		=> 	$row['path2'],
+							'PATH3' 		=> 	$row['path3'],
 							'CAB' 			=> 	$row['localcab'],
 							'MEALS' 		=> 	$row['meals'],
 							'SITESEEING' 	=> 	$row['siteseeing'],
@@ -77,10 +62,16 @@
 							'ITINERARY' 	=> 	$row['itinerary'],
 							'INCLUSIONS'	=> 	$row['inclusions'],
 							'EXCLUSIONS' 	=> 	$row['exclusions'],
+							'STAYS'		 	=> 	$row['stays'],
 							'GETAWAYS' 		=> 	$row['getaways'],
 							'WORTHWATCHING' => 	$row['worthwatching'],
 							'ITINERARYTITLE'=>  $row['itinerarytitle'],
 							'ITINERARYTAGS' => 	$row['itinerarytags'],
+							'TAGS' 			=> 	$row['tags'],
+							'ITINERARYDISTANCE' => 	$row['distance'],
+							'ITINERARYFROM' => 	$row['itineraryfrom'],
+							'ITINERARYTO' => 	$row['itineraryto'],
+							'ITINERARYCABPRICE' => 	$row['itinerarycabprice'],
 							
 						);
 						$count=$count+1;
@@ -102,7 +93,8 @@
         <ul class="breadcrumbs">
             <li>Home</li>
             <li>Destinations</li>
-            <li>Kashmir</li>
+            <li><?php echo $package[0]['DESTINATION']; ?></li>
+			 <li><?php echo $package[0]['TITLE']; ?></li>
         </ul>
     </div>
 	
@@ -163,7 +155,7 @@
 							echo '<img src="./assets/icons/transport/view.svg" alt="Stay not included" label="Stay not included" class="package--ex">';
 						
 						
-						//Showing Cab thumbnails
+						//Showing Addon thumbnails
 				   		if($package[0]['ADDON']=='Yes') 
 				   			echo ' <img src="./assets/icons/transport/more.svg" alt="Complimentary from destination" >';
 				   		else
@@ -209,7 +201,21 @@
                         </li>
                     </ul>
 					
+					<?php
+						//Generating Itineraries, Inclusions, Exclusions, worthwatching,Getaways and itinary stay
+						 $itinerarytitle=explode('$$$$',$package[0]['ITINERARYTITLE']);
+						 $itinerarytags=explode('$$$$',$package[0]['ITINERARYTAGS']);
+						 $itinerary=explode('$$$$',$package[0]['ITINERARY']);
+						 $inclusions=explode('$$$$',$package[0]['INCLUSIONS']);
+						 $exclusions=explode('$$$$',$package[0]['EXCLUSIONS']);
+						 $worthwatching=explode('$$$$',$package[0]['WORTHWATCHING']);
+						 $getaways=explode('$$$$',$package[0]['GETAWAYS']);
+						 $stays=explode('$$$$',$package[0]['STAYS']);
+						 $distance=explode('$$$$',$package[0]['ITINERARYDISTANCE']);
 					
+					
+					?>
+		
 					<?php
 					//price updation on basis of hotel selected
 					$date=date("F");
@@ -231,8 +237,8 @@
 					
 					}
 					
-					$date3=$date."-3rooms";
-					$date2=$date."-2rooms";
+					$today3=$date."-3rooms";
+					$today2=$date."-2rooms";
 					
 				if(isset($_GET['travellers']))
 				 	$travellers=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['travellers']))));
@@ -241,31 +247,60 @@
 					
 					
 					require_once('home/components/getroomsforpackage.fly');
+					$flag=0;
+					$hoteltotalprice=0;
+					$meals=0; 
+					for($i=0;$i<count($stays)-1;$i++){
 					
-					
-			  		 $query = "SELECT * FROM `hotels` WHERE `stars` = ".$package[0]['HOTELSTAR']." AND `location` = '".$package[0]['DESTINATION']."' ORDER BY `".$date3."` ASC LIMIT 1";
-					
-					
-					if($result = mysqli_query($dbconn,$query)){
-						$count=0;
-						while($row = mysqli_fetch_assoc($result)){
-							$hotelprice[] = array(
-										
-									'PRICE3'		 	=> 	$row[$date3],
-									'PRICE2'		 	=> 	$row[$date2],
-									
-								);
-								$count=$count+1;
-								
-						}
+						$query = "SELECT * FROM `hotels` WHERE `stars` = ".$package[0]['HOTELSTAR']." AND `location` = '".$package[0]['DESTINATION']."' AND `place` = '".$stays[$i]."' ORDER BY `".$today3."` ASC LIMIT 1";
 						
-					}
-					$hotelprice=($room3*$hotelprice[0]['PRICE3'])+($room2*$hotelprice[0]['PRICE2']);
-					$packageprice=$package[0]['PRICE'];
+						$hotelprice="";
+						if($result = mysqli_query($dbconn,$query)){
+							$count=0;
+							while($row = mysqli_fetch_assoc($result)){
+								$hotelprice[] = array(
+											
+										'PRICE3'		 	=> 	$row[$today3],
+										'PRICE2'		 	=> 	$row[$today2],
+										'MEALS'			 	=> 	$row['meals'],
+										
+									);
+									$count=$count+1;
+									
+							}
+							
+						} 
 					
-					$packageprice=$travellers*$packageprice;
+					if($count==0)
+						$flag=1;
+						
+						if($flag==0){
+							$hoteltotalprice+=($room3*$hotelprice[0]['PRICE3'])+($room2*$hotelprice[0]['PRICE2']);//getting hotel final rates
+							$meals+=$hotelprice[0]['MEALS']*$travellers;
+						}
+					}//end for
 					
-					$price = $packageprice+$hotelprice;	
+					
+					
+					//getting total cab price
+					$cabprice=explode('$$$$',$package[0]['ITINERARYCABPRICE']);
+					$cabtotalprice=0;
+					for($c=0;$c<count($cabprice)-1;$c++)
+						$cabtotalprice=$cabtotalprice+$cabprice[$c];
+					
+					
+					
+					$noofcabs=ceil($travellers/4);
+					$cabtotalprice=$cabtotalprice*$noofcabs;
+					
+					if($flag==0){
+						$price = $hoteltotalprice+$cabtotalprice+$meals;
+						//adding profit
+						$profit=($price*$profitpercent)/100;
+						$price=$price+$profit;
+					}	
+					else
+						$price = "Not Avaliable";
 					
 					
 					?>
@@ -301,18 +336,6 @@
         <div class="with--sidebar itinerary border">
 		
 		
-		<?php
-			//Generating Itineraries, Inclusions, Exclusions, worthwatching,Getaways
-			 $itinerarytitle=explode('$$$$',$package[0]['ITINERARYTITLE']);
-			 $itinerarytags=explode('$$$$',$package[0]['ITINERARYTAGS']);
-			 $itinerary=explode('$$$$',$package[0]['ITINERARY']);
-			 $inclusions=explode('$$$$',$package[0]['INCLUSIONS']);
-			 $exclusions=explode('$$$$',$package[0]['EXCLUSIONS']);
-			 $worthwatching=explode('$$$$',$package[0]['WORTHWATCHING']);
-			 $getaways=explode('$$$$',$package[0]['GETAWAYS']);
-		
-		
-		?>
 		
 		
 		<?php for($i=0;$i<count($itinerary)-1;$i++){ ?>
@@ -335,7 +358,10 @@
 						 ?>
 							
                     </div>
-                </div>
+				
+				<span class="dest-distance tag">Distance: <?php echo $distance[$i]; ?> KM</span>
+                
+				</div>
                 <div class="darkborder inc--per--package bg-blue">
                     <span class="label">Worth Watching:</span><span><?php echo $worthwatching[$i]; ?></span>
                 </div>
