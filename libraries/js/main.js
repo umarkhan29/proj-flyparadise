@@ -14,25 +14,43 @@ $(document).ready(function() {
         autoPlay: false
     });
     $('.owl-carousel').owlCarousel({
-        loop:true,
-        margin:20,
-        nav:true,
-        responsive:{
-            0:{
-                items:1
+        loop: true,
+        margin: 20,
+        nav: true,
+        responsive: {
+            0: {
+                items: 1
             },
-            600:{
-                items:1
+            600: {
+                items: 1
             },
-            1000:{
-                items:4
+            1000: {
+                items: 4
             }
         }
     })
+
+    //SLIDER
+    $(function(e) {
+        $("#slider-range-min").slider({
+            range: "min",
+            value: 0,
+            min: 0,
+            max: 100,
+            slide: function(event, ui) {
+                $("#amount").val("₹" + ui.value + ",000");
+                $(".a, .b, .c, .d").width(ui.value + "%");
+            }
+        });
+        $(".ui-slider-handle");
+        $("#amount").val("₹" + $("#slider-range-min").slider("value") + ",000");
+
+    });
+
     $('.item').click(function() {
         $(this).find('.fav').toggleClass('none');
     });
-      
+
     $('li.quote').click(function() {
         $('.pop-up').toggleClass('remove');
     });
@@ -50,28 +68,6 @@ $(document).ready(function() {
                 $(this).removeClass("has-content");
             }
         })
-    });
-    $(".sign--up").click(function() {
-        $(this).addClass("enabled");
-        $(".sign").removeClass("enabled");
-        $(".sign").addClass("disabled");
-        $(".sign--in").addClass("remove");
-        $(".register").removeClass("remove");
-        $(".register").addClass("show");
-        $(".sign--in").removeClass("show");
-        $(".sign--get").removeClass("remove");
-        $(".register--get").addClass("remove");
-    });
-    $(".sign").click(function() {
-        $(this).addClass("enabled");
-        $(".sign--up").removeClass("enabled");
-        $(".sign--up").addClass("disabled");
-        $(".register").addClass("remove");
-        $(".register").removeClass("show");
-        $(".sign--in").removeClass("remove");
-        $(".sign--in").addClass("show");
-        $(".register--get").removeClass("remove");
-        $(".sign--get").addClass("remove");
     });
     (function($) {
         $.fn.spinner = function() {
@@ -99,27 +95,6 @@ $(document).ready(function() {
     })(jQuery);
 
     $('input[type=number]').spinner();
-});
-$(function() {
-    $("#slider-range-min").slider({
-        range: "min",
-        value: 0,
-        min: 0,
-        max: 100,
-        slide: function(event, ui) {
-            $("#amount").val("₹" + ui.value + ",000");
-            $(".a, .b, .c, .d").width(ui.value + "%");
-        }
-    });
-    $(".ui-slider-handle");
-    $("#amount").val("₹" + $("#slider-range-min").slider("value") + ",000");
-
-});
-$(document).ready(function() {
-    $('.js-example-basic-single').select2();
-});
-$(document).ready(function() {
-    $('.js-example-basic-multiple').select2();
 });
 
 $(document).ready(function() {
@@ -155,4 +130,11 @@ $(document).ready(function() {
         return false;
     });
 
+});
+
+
+$(document).ready(function() {
+    $('.accordion h4').click(function() {
+        $('p').toggleClass('remove');
+    });
 });
