@@ -1,19 +1,36 @@
- <header class="alternate">
+<header class="alternate desktop--only">
         <div class="main--header">
             <div class="menu--heading">
                 <h1 class="logo left">fly paradise</h1>
                 <img class="fp--logo" src="./assets/heros/logo.png" alt="Fly Paradise logo">
                 <div class="main-menu right">
-                    <li><a href="single--package.php?id=41">Packages</a></li>
-                    <li><a href="destinations">Destinations</a></li>
-                    <li><a href="blog">Blog</a></li>
-                    <li><a href="about">About</a></li>
-                    <li class="quote">FREE QUOTE</li>
-					<li ><a href="get-in">Login</a></li>
+                    <li><a href="">Packages</a></li>
+                    <li><a href="">Destinations</a></li>
+                    <li><a href="">Honeymoon Packages</a></li>
+                    <li><a href="">Weekend trips</a></li>
+                    <li class="quote"><a href="">FREE QUOTE</a></li>
                 </div>
             </div>
         </div>
-	
-		
-			
+
     </header>
+    <div id="mobile-menu--wrapper">
+        <div class="mobile--only mobile--head">
+            <header id="header-mobile">
+                <ul id="brg-menu">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+                <div class="brand-logo">
+                    Fly Paradise
+                </div>
+            </header>
+
+            <nav id="nav" role="navigation">
+                <li>Hello</li>
+                <li> hello 1</li>
+                <li> hello 2</li>
+                <li> hello 3</li>
+            </nav>
+        </div>
