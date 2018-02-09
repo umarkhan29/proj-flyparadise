@@ -46,11 +46,7 @@
                             <img src="./assets/icons/social/mail.svg" alt="">
                             <input class="input-field" placeholder="Placeholder text" name="usernametxtbox" required type="email">
                         </div>
-						<?php 
-							
-							
-				
-						 ?>
+						
                         <span class="error">This is not a valid E-mail</span>
                     </li>
                     <li>
