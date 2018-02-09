@@ -4,6 +4,17 @@
 }
 
 .get--in {
+    position: relative;
+    .sign--in {
+        max-width: 380px;
+        padding: 0 1rem;
+        margin: auto;
+        margin-top: 6rem;
+        margin-bottom: 4rem;
+        @media screen and (max-width: 768px) {
+            margin-top: 3rem;
+        }
+    }
     margin: 1rem 0;
     img {
         max-width: 100%;
@@ -42,15 +53,65 @@
             display: none;
         }
     }
-    display: flex;
-    .left,
-    .right {
-        flex: 1;
-        width: 50%;
+    .submit {
+        @extend %btn-blu;
+        width: 100%;
+        text-transform: uppercase;
+    }
+    &:after {
+        content: "";
+        position: absolute;
+        bottom: -15%;
+        left: 35%;
+        right: 50%;
+        width: 30%;
+        height: 1px;
+        background-image: linear-gradient(to right, transparent, #3986b6, transparent);
+    }
+}
+
+.discl {
+    text-align: center;
+    max-width: 380px;
+    margin: auto;
+    font-size: 12px;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+    a {
+        color: $pink;
+    }
+    &.acc {
+        font-size: 14px;
+        font-weight: 600;
+    }
+}
+
+// REGISTER PAGE
+.register {
+    position: relative;
+    .container {
+        max-width: 420px;
+        padding: 0 1rem;
         margin: auto;
+        margin-top: 6rem;
+        margin-bottom: 4rem;
+        @media screen and (max-width: 768px) {
+            margin-top: 3rem;
+        }
     }
     .submit {
         @extend %btn-blu;
-        width: 50%;
+        width: 100%;
+        text-transform: uppercase;
+    }
+    &:after {
+        content: "";
+        position: absolute;
+        bottom: -8%;
+        left: 35%;
+        right: 50%;
+        width: 30%;
+        height: 1px;
+        background-image: linear-gradient(to right, transparent, #3986b6, transparent);
     }
 }

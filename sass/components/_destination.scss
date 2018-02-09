@@ -8,12 +8,15 @@
         }
         span {
             color: $dark-gray !important;
+            font-weight: 600;
+            margin-right: 10px;
         }
         li {
             border: 1px solid $blue;
-            padding: 5px 8px;
-            border-radius: 10px;
+            padding: 3px 5px;
+            border-radius: 5px;
             color: $dark-gray;
+            margin-right: 4px
         }
     }
 }
@@ -47,6 +50,9 @@
 .destination--hero {
     display: flex;
     width: 1280px;
+    @media screen and (max-width: 768px) {
+        display: inherit;
+    }
     margin: auto;
     .left--destination,
     .right--destination {
@@ -66,12 +72,18 @@
         .info {
             padding: 0 2rem;
             margin: 0;
+            @media screen and (max-width: 768px) {
+                padding: 0 1rem;
+            }
         }
         >span,
         >.map {
             vertical-align: middle;
             padding: 0 2rem;
             margin: 0;
+            @media screen and (max-width: 768px) {
+                padding: 0 1rem;
+            }
         }
         >.map img {
             width: auto !important;
@@ -96,11 +108,14 @@
             font-size: 38px;
             margin: 0;
         }
-        > p {
+        >p {
             font-size: 16px;
             width: 50%;
             display: inline-block;
             color: $text-over-bg;
+            @media screen and (max-width: 768px) {
+                width: 100%;
+            }
         }
     }
     .accordion {
@@ -108,6 +123,11 @@
         display: inline-block;
         vertical-align: top;
         margin-left: 0.8rem;
+        @media screen and (max-width: 768px) {
+            width: 100%;
+            margin: 0;
+            margin-top: 1rem;
+        }
         div {
             color: $text-over-bg;
             border: 1px solid $dark-border;
@@ -156,6 +176,7 @@ $clouds: ("https://s.cdpn.io/15514/clouds_2.png" 1000px 80s),
     height: 450px;
     background: $dark-border;
 }
+
 .distance--block {
     position: relative;
     .info--destination {
@@ -173,12 +194,21 @@ $clouds: ("https://s.cdpn.io/15514/clouds_2.png" 1000px 80s),
     }
     .animate img {
         height: 50px;
+        @media screen and (max-width: 768px) {
+            height: 30px;
+        }
     }
     .left {
         margin-left: 12rem;
+        @media screen and (max-width: 768px) {
+            margin-left: 1rem;
+        }
     }
     .right {
         margin-right: 12rem;
+        @media screen and (max-width: 768px) {
+            margin-right: 1rem;
+        }
     }
     .line {
         width: 56%;
@@ -186,6 +216,9 @@ $clouds: ("https://s.cdpn.io/15514/clouds_2.png" 1000px 80s),
         height: 35px;
         border-bottom: 1px dashed $dark-gray;
         vertical-align: -webkit-baseline-middle;
+        @media screen and (max-width: 768px) {
+            height: 16px;
+        }
     }
     .hours {
         display: block;
@@ -234,9 +267,15 @@ $clouds: ("https://s.cdpn.io/15514/clouds_2.png" 1000px 80s),
     }
     .sidebar {
         width: 30%;
+        @media screen and (max-width: 768px) {
+            width: 100%;
+        }
     }
     .main--content {
         width: 64%;
+        @media screen and (max-width: 768px) {
+            width: 100%;
+        }
     }
     .main--content {
         img {
@@ -244,15 +283,29 @@ $clouds: ("https://s.cdpn.io/15514/clouds_2.png" 1000px 80s),
             display: inline-block;
             vertical-align: top;
             margin-right: 16px;
+            @media screen and (max-width: 768px) {
+                width: 100%;
+            }
         }
         .destination--info {
             display: inline-block;
             vertical-align: top;
+            background: none;
             width: 56%;
+            @media screen and (max-width: 768px) {
+                width: 100%;
+            }
             h3 {
                 margin: 0;
                 font-size: 24px;
                 line-height: 1;
+                @media screen and (max-width: 768px) {
+                    font-size: 16px;
+                    width: 77%;
+                    display: inline-block;
+                    vertical-align: top;
+                    margin-top: 10px;
+                }
             }
         }
     }
@@ -275,10 +328,11 @@ $clouds: ("https://s.cdpn.io/15514/clouds_2.png" 1000px 80s),
             height: 30px;
             padding: 0;
             font-size: 14px;
+            font-weight: 600;
             text-transform: uppercase;
             text-align: center;
-            color: $pink;
-            border: 1px $pink solid;
+            color: $dark-gray;
+            border: 1px $dark-gray solid;
             background: none;
             outline: none;
             pointer-events: none;
@@ -301,8 +355,8 @@ $clouds: ("https://s.cdpn.io/15514/clouds_2.png" 1000px 80s),
             text-align: center;
             font-size: 1.2em;
             line-height: 28px;
-            color: $pink;
-            border: 1px $pink solid;
+            color: $dark-gray;
+            border: 1px $dark-gray solid;
             border-right: 0;
             cursor: pointer;
             transition: 0.1s linear;
@@ -313,12 +367,12 @@ $clouds: ("https://s.cdpn.io/15514/clouds_2.png" 1000px 80s),
         }
         span.spinner>.add {
             top: 0;
-            border: 1px $pink solid;
+            border: 1px $dark-gray solid;
             border-left: 0;
         }
         span.spinner>.sub:hover,
         span.spinner>.add:hover {
-            background: $pink;
+            background: $gray;
             color: $white;
         }
         input[type=number]::-webkit-inner-spin-button,
@@ -330,11 +384,22 @@ $clouds: ("https://s.cdpn.io/15514/clouds_2.png" 1000px 80s),
         font-size: 15px;
         color: $blue;
         line-height: 2;
+        @media screen and (max-width: 768px) {
+            width: 21%;
+            display: inline-block;
+            line-height: 1;
+            margin-top: 14px;
+            text-align: right;
+            font-size: 10px;
+        }
     }
     .price {
         font-size: 22px;
         font-weight: 600;
         color: #4caf50;
+        @media screen and (max-width: 768px) {
+            margin-top: 10px;
+        }
     }
 }
 
@@ -342,9 +407,13 @@ $clouds: ("https://s.cdpn.io/15514/clouds_2.png" 1000px 80s),
 .temprature {
     img {
         width: auto !important;
-        height: 35px !important;
+        height: 25px !important;
         margin: 0 8px;
         vertical-align: middle;
+        @media screen and (max-width: 768px) {
+            height: 18px !important;
+            margin: 0 5px;
+        }
     }
 }
 
@@ -432,7 +501,7 @@ button.view--package {
 .rating-form .rating-star {
     display: inline-block;
     position: relative;
-    color: $pink;
+    color: $dark-gray;
     padding-right: 5px;
 }
 
@@ -723,7 +792,7 @@ button.view--package {
 .ui-slider {
     height: 2px;
     border: none;
-    background: $pink;
+    background: $gray;
 }
 
 .ui-slider-range {
@@ -737,7 +806,7 @@ button.view--package {
     margin-left: -10px;
     padding-left: 4px;
     border: none;
-    background: #529e0e;
+    background: $dark-gray;
     border-radius: 50%;
     text-align: center;
     font-size: 1.2rem;
@@ -759,7 +828,7 @@ button.view--package {
 .credits a {
     position: relative;
     display: inline-block;
-    color: #529e0e;
+    color: $dark-gray;
     text-decoration: none;
 }
 
@@ -770,7 +839,7 @@ button.view--package {
     bottom: -1px;
     width: 0%;
     height: 1px;
-    background: #529e0e;
+    background: $dark-gray;
     -webkit-transition: width 0.1s;
     -moz-transition: width 0.1s;
     -o-transition: width 0.1s;

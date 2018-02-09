@@ -120,7 +120,7 @@ input:hover {
     left: 0;
     height: 20px;
     width: 20px;
-    border: 1px solid $pink;
+    border: 1px solid $dark-gray;
     background: $white;
 }
 
@@ -133,7 +133,7 @@ input:hover {
             background: $white;
         }
         &:checked~.control__indicator {
-            background: $pink;
+            background: $dark-gray;
         }
     }
 }
