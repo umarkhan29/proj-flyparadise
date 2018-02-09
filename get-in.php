@@ -23,22 +23,7 @@
 </head>
 
 <body>
-    <header class="alternate">
-        <div class="main--header">
-            <div class="menu--heading">
-                <h1 class="logo left">fly paradise</h1>
-                <img class="fp--logo" src="./assets/heros/logo.png" alt="Fly Paradise logo">
-                <div class="main-menu right">
-                    <li><a href="">Packages</a></li>
-                    <li><a href="">Destinations</a></li>
-                    <li><a href="">Honeymoon Packages</a></li>
-                    <li><a href="">Weekend trips</a></li>
-                    <li class="quote"><a href="">FREE QUOTE</a></li>
-                </div>
-            </div>
-        </div>
-
-    </header>
+   <?php require_once('home/components/secondaryheader.fly');//adding secondary header ?>
     <div class="get--in">
         <div class="left center">
             <img src="./assets/centre-design/gather.png" alt="">
@@ -145,7 +130,11 @@
 <?php
 	require_once('home/common/footer.fly');
 ?>
-
+ <!-- PopUp wrapper -->
+        <div class="pop-up remove">
+            <!-- Calling popup from location partial -->
+            <?php include_once('location.php'); ?>
+       </div>
 </body>
 
 </html>

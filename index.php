@@ -112,7 +112,7 @@
 	
 <?php
 //Fetching popular Packages
- $query = "SELECT * FROM `packaes` order by `id` desc LIMIT 12 ";
+ $query = "SELECT * FROM `packages` WHERE `tags` = 'popular' order by `id` desc LIMIT 4 ";
 			if($result = mysqli_query($dbconn,$query)){
 				$populardest;
 				$count=0;
@@ -120,9 +120,18 @@
 					$populardest[] = array(
 							
 							'ID'			=>	$row['id'],
-							'PATH' 			=> 	$row['imgpath'],
+							'TITLE'			=>	$row['title'],
+							'PATH' 			=> 	$row['path'],
+							'STARS' 		=> 	$row['hotelstar'],
+							'DURATION' 		=> 	$row['duration'],
 							'DESTINATION' 	=> 	$row['destination'],
-							'DESCRIPTION' 	=> 	$row['desc']
+							'DESCRIPTION' 	=> 	$row['description'],
+							'FLIGHTS' 		=> 	$row['includeflights'],
+							'CAB' 			=> 	$row['localcab'],
+							'MEALS' 		=> 	$row['meals'],
+							'SITESEEING' 	=> 	$row['siteseeing'],
+							'STAY' 			=> 	$row['stay'],
+							'ADDON' 		=> 	$row['addon'],
 						);
 						 $count=$count+1;
 						
@@ -138,46 +147,88 @@
 	<h2 class="heading">Most Popular packages</h2>
 
     <div class="owl-carousel owl-theme homepage--packages">
+	<?php for($i=0; $i<count($populardest);$i++){ ?>
         <div class="item">
             <div class="relative">
-                    <img src="./assets/packages/node-queue/placeholder.png" alt="">
+                    <img src="<?php echo $populardest[$i]['PATH']; ?>" alt="">
                     <img class="fav" src="./assets/icons/wishlistE.svg" alt="">
                     <img class="fav none" src="./assets/icons/wishlistF.svg" alt="">
-                    <div class="amount"><span>₹</span>3,000</div>
+					 <div class="amount"><?php echo $populardest[$i]['DESTINATION']; //no price avaliable, displaying destination here ?></div>
+                   
             </div>
             <div class="border">
                 <div class="details">
-                    <h4>Kashmir trip<span>3N / 4D</span> </h4>
-                    <div class="rating"><img src="./assets/icons/star.svg" alt=""><span>3</span></div>
+                    <h4><?php echo $populardest[$i]['TITLE']; ?> </h4>
+                    <div class="rating"><img src="./assets/icons/star.svg" alt=""><span><?php echo $populardest[$i]['STARS']; ?></span></div>
                 </div>
                 <div class="offers">
                     <img src="./assets/icons/info.svg" alt="">
-                    <span>10% off</span>
+                    <span><?php echo $populardest[$i]['DURATION']; ?></span>
                 </div>
                 <div class="inclusions">
                     <label>Package Inclusions</label>
                     <div>
                         <div class="per-inc">
-                            <img src="./assets/icons/transport/air.svg" alt="Air Transfer" label="Air Transfer">
+                           <?php 
+						   //Showing Flight thumbnails
+								if($populardest[$i]['FLIGHTS']=='Yes') 
+									echo '<img src="./assets/icons/transport/air.svg" alt="Air Transfer" label="Air Transfer">';
+								else
+									echo '<img src="./assets/icons/transport/air.svg" alt="Flights not included" label="Flights not included" class="package--ex">';
+							?>
                         
                         </div>
                         <div class="per-inc">
-                            <img src="./assets/icons/transport/meals.svg" alt="Meals">
+                           <?php 
+						   //Showing Meals thumbnails
+								if($populardest[$i]['MEALS']=='Yes') 
+									echo '<img src="./assets/icons/transport/meals.svg" alt="Meals" label="Meals">';
+								else
+									echo '<img src="./assets/icons/transport/meals.svg" alt="Meals not included" label="Meals not included" class="package--ex">';
+							?>
                         </div>
                         <div class="per-inc">
-                            <img src="./assets/icons/transport/transfer.svg" alt="Transfers">
+                            <?php
+								//Showing Cab thumbnails
+								if($populardest[$i]['CAB']=='Yes') 
+									echo '<img src="./assets/icons/transport/transfer.svg" alt="Transfers">';
+								else
+									echo '<img src="./assets/icons/transport/transfer.svg" alt="Cab not included" label="Cab not included" class="package--ex">';
+							
+							?>
             
                         </div>
                         <div class="per-inc">
-                            <img src="./assets/icons/transport/stars.svg" alt="hotel stars">
-
+                           <?php
+						   		//Showing Stay thumbnails
+								if($populardest[$i]['STAY']=='Yes') 
+									echo '<img src="./assets/icons/transport/stars.svg" alt="hotel stars">';
+								else
+									echo '<img src="./assets/icons/transport/stars.svg" alt="Stay not included" label="Stay not included" class="package--ex">';
+						   
+						   ?>
                         </div>
                         <div class="per-inc">
-                            <img src="./assets/icons/transport/view.svg" alt="Site seeing">
+                            <?php
+								//Showing SITESEEING thumbnails
+								if($populardest[$i]['SITESEEING']=='Yes') 
+									echo ' <img src="./assets/icons/transport/view.svg" alt="Site seeing">';
+								else
+									echo '<img src="./assets/icons/transport/view.svg" alt="Stay not included" label="Site seeing not included" class="package--ex">';
+								
+							
+							?>
                     
                         </div>
                         <div class="per-inc">
-                                <img src="./assets/icons/transport/more.svg" alt="Complimentary from destination">
+                                <?php
+									//Showing Addon thumbnails
+									if($populardest[$i]['ADDON']=='Yes') 
+										echo ' <img src="./assets/icons/transport/more.svg" alt="Complimentary from destination" >';
+									else
+										echo '<img src="./assets/icons/transport/more.svg" alt="Complimentary from destination" label="Complimentary from destination" class="package--ex">';
+								
+								?>
                             
                         </div>
                     </div>
@@ -185,6 +236,7 @@
                 <div class="quote">Customise</div>
             </div>
         </div>
+		<?php } ?>
     </div>
 
 

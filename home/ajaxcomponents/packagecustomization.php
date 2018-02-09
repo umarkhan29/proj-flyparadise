@@ -6,14 +6,32 @@ include_once('../catalog/session.khan');
 
 $abc="iteration";
 $dcount=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['duration']))));
-
+echo "<br>";
 ?>
 <form action="addpackages.php" method="POST" enctype="multipart/form-data">
 
 	<input type="text" name="title" placeholder="Title"/><br />
 	<input type="text" name="destination" placeholder="Destination"/><br />
-	<input type="text" name="category" placeholder="Category"/><br />
-	<input type="text" name="hotelstar" placeholder="Hotel Star"/><br />
+	
+	<label>Category</label>
+	<select name="category" />
+		<option value="Friends and Family">Friends and Family</option>
+		<option  value="Solo">Solo</option>	
+		<option  value="Honeymoon">Honeymoon</option>	
+		<option  value="Adventure">Adventure</option>
+		<option  value="Weekend">Weekend</option>				
+		
+	</select> <br />
+	
+	<label>Hotel Stars</label>
+	<select name="hotelstar" />
+		<option value="2">2 Star</option>
+		<option  value="3">3 Star</option>	
+		<option  value="4">4 Star</option>
+		<option  value="5">5 Star</option>				
+		
+	</select> <br />
+	
 	<input type="text" name="description" placeholder="Description"/><br />
 	
 	<label>Meals</label>
@@ -80,6 +98,16 @@ $dcount=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['du
 		echo '<input type="text" name="iterationworthwatching'.$i.'"placeholder="Iteration Worthwatching'.$i.' (Use comma to seperate multiple items)" />';
 		echo "&ensp;";
 		echo '<input type="text" name="iterationgetaway'.$i.'"placeholder="Iteration'.$i.' Getawys(Use comma to seperate multiple items)" />';
+		echo "&ensp;"; //
+		echo '<input type="text" name="iterationfrom'.$i.'"placeholder="Iteration'.$i.' From" />';
+		echo "&ensp;";
+		echo '<input type="text" name="iterationto'.$i.'"placeholder="Iteration'.$i.' To" />';
+		echo "&ensp;";
+		echo '<input type="text" name="iterationcabprice'.$i.'"placeholder="Cab Price for Iteration'.$i.'" />';
+		echo "&ensp;";
+		echo '<input type="text" name="iterationtdistance'.$i.'"placeholder="Iteration'.$i.' Distance" />';
+		echo "&ensp;";
+		
 		echo "<br><br>";
 	}
 	
@@ -88,12 +116,18 @@ $dcount=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['du
 
 	?>
 	
-	<label>Select Image (jpg only)</label>
+	<label>Select Image</label>
 	<input type="file" name="fileupld" /><br />
 	<input type="file" name="fileupld2" /><br />
 	<input type="file" name="fileupld3" /><br />
 	<br />
-	<input type="text" name="tags" placeholder="Tags" /> <br />
+		
+	<select name="tags">
+		<option value="Popular"  >Popular</option>
+		<option value="Hot"  >Hot</option>
+		<option value="Best Selling" >Best Selling</option>
+	</select>
+	<br />
 	<input type="text" name="price" placeholder="Package Price"/><br />
 	<input type="hidden" name="dcount" value="<?php echo $dcount; ?>"/><br />
 	

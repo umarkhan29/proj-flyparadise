@@ -25,22 +25,9 @@
 </head>
 
 <body>
-    <header class="alternate">
-        <div class="main--header">
-            <div class="menu--heading">
-                <h1 class="logo left">fly paradise</h1>
-                <img class="fp--logo" src="./assets/heros/logo.png" alt="Fly Paradise logo">
-                <div class="main-menu right">
-                    <li><a href="">Packages</a></li>
-                    <li><a href="">Destinations</a></li>
-                    <li><a href="">Honeymoon Packages</a></li>
-                    <li><a href="">Weekend trips</a></li>
-                    <li class="quote">FREE QUOTE</li>
-                </div>
-            </div>
-        </div>
-
-    </header>
+   <?php require_once('home/components/secondaryheader.fly');//adding secondary header ?>
+   
+   
     <div class="about--cover">
         <img class="cover" src="./assets/centre-design/about-cover.jpg" alt="">
         <div class="about-text">
@@ -100,42 +87,11 @@
             </div>
         </div>
     </div>
-    <footer>
-        <div class="secondary--footer">
-            <div class="sec-ftr">
-                <span>We promise to stay best in class</span>
-            <div class="footer-phone">
-                <span class="tel">1800 1000 123</span>
-                <span class="tagl">24/7 Dedicated Support</span>
-            </div>
-            <div class="quote">Book a destination</div>
-            </div>
-        </div>
-            <div class="footer--primary max-width">
-                <ul>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">What makes Us</a></li>
-                    <li><a href="#">Blogs</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">Terms &amp; Conditions</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                </ul>
-            </div>
-    
-            <div class="footer--secondary">
-                <div class="max-width">
-                    <div class="connect">
-                        <a class="social" href="#"><img src="./assets/icons/social/facebook.svg" alt="Facebook"></a>
-                        <a class="social" href="#"><img src="./assets/icons/social/insta.svg" alt="Instagram"></a>
-                        <a class="social" href="#"><img src="./assets/icons/social/twitter.svg" alt="twitter"></a>
-                        <a class="social" href="#"><img src="./assets/icons/social/in.svg" alt="linkedIn"></a>
-                    </div>
-                </div>
-            </div>
-            <div class="copyright">
-                &copy; 2010 - 2018 Fly Paradise Travels
-            </div>
-        </footer>
+  
+  
+ <?php
+	require_once('home/common/footer.fly');
+?>
 		
  <!-- PopUp wrapper -->
         <div class="pop-up remove">

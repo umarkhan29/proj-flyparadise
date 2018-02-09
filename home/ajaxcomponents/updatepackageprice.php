@@ -5,11 +5,18 @@
 <?php
 
 	//price updation on basis of hotel selected
+				$profitpercent=10;
 				$today=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['month']))));
 				$stars=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['stay']))));
-				$location=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['loc']))));
+			    $location=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['loc']))));
 				$travellers=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['travellers']))));
-			    $sessid=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['sessid'])))); //sessid is basic package price
+			   
+				$stays=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['stays']))));
+				$stays=explode(',',$stays);
+				
+				$cabprices=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['cabprices']))));
+				$cabprices=explode('$$$$',$cabprices);
+			
 				
 				if($today=="January" || $today=="February" || $today=="March"){
 					$today="jan";
@@ -31,34 +38,67 @@
 				$today3=$today."-3rooms";
 				$today2=$today."-2rooms";
 				
-				 $query = "SELECT * FROM `hotels` WHERE `stars` = ".$stars." AND `location` = '".$location."' ORDER BY `".$today3."` ASC LIMIT 1";
+				require_once('../components/getroomsforpackage.fly');
+				$flag=0;
+				$hoteltotalprice=0;
+				$meals=0; 
+				
+				for($i=0;$i<count($stays);$i++){
 					
-					if($result = mysqli_query($dbconn,$query)){
-						$count=0;
-						while($row = mysqli_fetch_assoc($result)){
-							$pprice[] = array(
+						 $query = "SELECT * FROM `hotels` WHERE `stars` = ".$stars." AND `location` = '".$location."' AND `place` = '".$stays[$i]."' ORDER BY `".$today3."` ASC LIMIT 1";
+						
+						$hotelprice="";
+						if($result = mysqli_query($dbconn,$query)){
+							$count=0;
+							while($row = mysqli_fetch_assoc($result)){
+								$hotelprice[] = array(
+											
+										'PRICE3'		 	=> 	$row[$today3],
+										'PRICE2'		 	=> 	$row[$today2],
+										'MEALS'			 	=> 	$row['meals'],
 										
-									'PRICE2'		 	=> 	$row[$today2],
-									'PRICE3'		 	=> 	$row[$today3],
+									);
+									$count=$count+1;
 									
-								);
-								$count=$count+1;
-								
+							}
+							
+						} 
+					
+					if($count==0)
+						$flag=1;
+						
+						if($flag==0){
+							$hoteltotalprice+=($room3*$hotelprice[0]['PRICE3'])+($room2*$hotelprice[0]['PRICE2']);//getting hotel final rates
+							$meals+=$hotelprice[0]['MEALS']*$travellers;
 						}
 						
-					}
-					
-					require_once('../components/getroomsforpackage.fly');
-					
-					$pprice=($room3*$pprice[0]['PRICE3'])+($room2*$pprice[0]['PRICE2']); //getting hotel final rates
-					
-					$packageprice=$travellers*$sessid; //final package price
-					
-					$fpprice = $pprice+$packageprice;	 //final package price
-					
-					if($count>=1)
-						echo $fpprice;
 						
-				
+						}//end for
+						
+						
+					//cab prices
+					$cabtotalprice=0;
+					for($c=0;$c<count($cabprices)-1;$c++)
+						$cabtotalprice=$cabtotalprice+$cabprices[$c];
+					
+					
+					
+					$noofcabs=ceil($travellers/4);
+				    $cabtotalprice=$cabtotalprice*$noofcabs;
+					
+					if($flag==0){
+						 $price = $hoteltotalprice+$cabtotalprice+$meals;
+						//adding profit
+						$profit=($price*$profitpercent)/100;
+						$price=$price+$profit;
+						
+					}	
+					else
+						$price = "Not Avaliable";
+					
+					
+					//displaying final price
+					
+					echo $price;
 
 ?>

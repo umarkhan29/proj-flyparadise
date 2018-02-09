@@ -29,22 +29,7 @@
 </head>
 
 <body class="destination">
-    <header class="alternate">
-        <div class="main--header">
-            <div class="menu--heading">
-                <h1 class="logo left">fly paradise</h1>
-                <img class="fp--logo" src="./assets/heros/logo.png" alt="Fly Paradise logo">
-                <div class="main-menu right">
-                    <li><a href="">Packages</a></li>
-                    <li><a href="">Destinations</a></li>
-                    <li><a href="">Honeymoon Packages</a></li>
-                    <li><a href="">Weekend trips</a></li>
-                    <li class="quote">FREE QUOTE</li>
-                </div>
-            </div>
-        </div>
-
-    </header>
+    <?php require_once('home/components/secondaryheader.fly');//adding secondary header ?>
 	
 	
 <?php
@@ -54,7 +39,9 @@ if(isset($_GET['destination']))
 else 
 	$dest="Kashmir";
 		
-	
+$profitpercent=10;
+
+
 $query = "SELECT * FROM `destinations` WHERE `destination` like '%".$dest."%' ";
 
 $destination=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['states']))));
@@ -78,6 +65,7 @@ $destination=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_PO
 							'HISTORY' 		=> 	$row['history'],
 							'CULTURE' 		=> 	$row['culture'],
 							'FOOD' 			=> 	$row['food'],
+							'ALIAS' 		=> 	$row['alias'],
 							
 						);
 						 $count=$count+1;
@@ -148,7 +136,7 @@ $destination=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_PO
 			 <div class="temprature">
 			 <?php
 			 //fetching temprature
-			 	$des="srinagar";
+			 	$des=$destinations[0]['DESTINATION'];
 				$jsonurl = "http://api.openweathermap.org/data/2.5/weather?q=".$des."&appid=536a874ed7c30387414c700ed1990ce5";
 				$json = file_get_contents($jsonurl);
 				$celcius="";
@@ -159,7 +147,7 @@ $destination=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_PO
 				
 			 ?>
                 <img src="./assets/icons/transport/temperature.svg" alt="">
-                <span><?php echo $celcius;  ?>  &deg;</span>
+                <span><?php  echo substr($celcius, 0, 4);  ?>  &deg;</span>
 				
 			<?php } //ending if-temprature ?>
             </div>
@@ -195,28 +183,9 @@ $destination=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_PO
             </div>
         </div>
     </div>
-    <div class="distance--block">
-        <div class='clouds'>
-            <div class='clouds-1'></div>
-            <div class='clouds-2'></div>
-            <div class='clouds-3'></div>
-        </div>
-        <div class="info--destination">
-            <p class=""><span><?php echo $destinations[0]['DESTINATION']; ?></span> is <span>1,200</span> kilometres away</p>
-            <div class="title--info">
-                Fly out to <span><?php echo $destinations[0]['DESTINATION']; ?></span>, It's closer than you think!
-            </div>
-			
-            <div class="animate">
-                <img class="left" src="./assets/icons/house.svg" alt="">
-                <span class="line"></span>
-                <img class="right" src="./assets/icons/hotel.svg" alt="">
-            </div>
-			
-            <span class="hours">Be there in just 1 hour</span>
-            <button>share with friends</button>
-        </div>
-    </div>
+	
+	
+   <?php require_once('map/map.php'); //cloud block ?>
 	
 	
 	
@@ -248,6 +217,17 @@ $destination=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_PO
                         <input type="checkbox" name="Family and Friends" value="Family and Friends"/>
                         <div class="control__indicator"></div>
                     </label>
+					<label class="control control--checkbox" onClick="showpackages('cpackages');">Adventure
+                        <input type="checkbox" name="Adventure" value="Adventure"/>
+                        <div class="control__indicator"></div>
+                    </label>
+					
+					<?php if($destinations[0]['DESTINATION'] != 'Ladakh'){ //disabling for ladakh ?>
+					<label class="control control--checkbox" onClick="showpackages('cpackages');">Weekend
+                        <input id="Weekend" type="checkbox" name="Weekend" value="Weekend"/>
+                        <div class="control__indicator"></div>
+                    </label>
+					<?php } //ending if ?>
                 </div>
                 <!-- RATING - Form -->
                 <form class="rating-form" action="#" method="post" name="rating-movie">
@@ -357,7 +337,7 @@ $destination=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_PO
 					 
 	//fetching initial packages (on page load)
 	 $destination= $destinations[0]['DESTINATION'];
-	 $query = "SELECT * FROM `packages` WHERE `destination` like '%".$destination."%' ";
+	 $query = "SELECT * FROM `packages` WHERE `destination` like '%".$destination."%'  ORDER BY `id` DESC ";
 			if($result = mysqli_query($dbconn,$query)){
 				$packages;
 				$count=0;
@@ -372,7 +352,8 @@ $destination=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_PO
 							'DURATION' 		=> 	$row['duration'],
 							'HOTELSTAR' 	=> 	$row['hotelstar'],
 							'FLIGHTS' 		=> 	$row['includeflights'],
-							'PRICE' 		=> 	$row['price'],
+							'STAYS' 		=> 	$row['stays'],
+							'ITINERARYCABPRICE' => 	$row['itinerarycabprice'],
 							
 						);
 						 $count=$count+1;
@@ -384,34 +365,74 @@ $destination=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_PO
 				echo mysqli_error($dbconn);
 			}
 
-			
-					
+			$totalpackages=$count;
 	?>
 		
 		
             <div class="main--content">
 				<div id="cpackages">
-					<?php for($i=0;$i<6;$i++) {  //Loading Packages 
-						//formulating query for getting seperate hotelprice on basis of number of travellers
-			  		 $query = "SELECT * FROM `hotels` WHERE `stars` = ".$packages[$i]['HOTELSTAR']." AND `location` = '".$packages[$i]['DESTINATION']."' ORDER BY `".$date3."` ASC LIMIT 1";
-					$hotelresult="";
-					$hotelprice="";
-					if($hotelresult = mysqli_query($dbconn,$query)){
+					<?php for($i=0;$i<$totalpackages;$i++) {  //Loading Packages 
+						$price=0;  //resetting variables for next iteration
+						$cabtotalprice=0;
+						$noofcabs=0;
+						$profit=0;
 						
-						while($row = mysqli_fetch_assoc($hotelresult)){
-							$hotelprice[] = array(
+						
+					$stays=explode('$$$$',$packages[$i]['STAYS']);
+					
+					$flag=0;
+			  		$hoteltotalprice=0;
+					$meals=0; 
+					for($z=0;$z<count($stays)-1;$z++){
+					//formulating query for getting seperate hotelprice on basis of number of travellers and itenariy stay
+					 $query = "SELECT * FROM `hotels` WHERE `stars` = ".$packages[$i]['HOTELSTAR']." AND `location` = '".$packages[$i]['DESTINATION']."' AND `place` = '".$stays[$z]."' ORDER BY `".$date3."` ASC LIMIT 1";
+						
+						$hotelprice="";
+						if($result = mysqli_query($dbconn,$query)){
+							$count=0;
+							while($row = mysqli_fetch_assoc($result)){
+								$hotelprice[] = array(
+											
+										'PRICE3'		 	=> 	$row[$date3],
+										'PRICE2'		 	=> 	$row[$date2],
+										'MEALS'			 	=> 	$row['meals'],
 										
-									'PRICE3'		 	=> 	$row[$date3],
-									'PRICE2'		 	=> 	$row[$date2],
+									);
+									$count=$count+1;
 									
-								);
-								
-						}
+							}
+							
+						} 
+					
+					if($count==0)
+						$flag=1;
 						
-					}
-						 
-					 $hotelprice=($room3*$hotelprice[0]['PRICE3'])+($room2*$hotelprice[0]['PRICE2']);
-					 
+						if($flag==0){
+							$hoteltotalprice+=($room3*$hotelprice[0]['PRICE3'])+($room2*$hotelprice[0]['PRICE2']);//getting hotel final rates
+							$meals+=$hotelprice[0]['MEALS']*$travellers;
+						}
+					}//end internal for
+					
+					//getting total cab price
+					$cabprice=explode('$$$$',$packages[$i]['ITINERARYCABPRICE']);
+					
+					
+					for($c=0;$c<count($cabprice)-1;$c++)
+						$cabtotalprice=$cabtotalprice+$cabprice[$c];
+					
+					
+					
+					$noofcabs=ceil($travellers/4);
+					$cabtotalprice=$cabtotalprice*$noofcabs;
+					
+					if($flag==0){
+						$price = $hoteltotalprice+$cabtotalprice+$meals;
+						//adding profit
+						$profit=($price*$profitpercent)/100;
+						$price=$price+$profit;
+					}	
+					else
+						$price = "Not Avaliable";
 					
 					
 					?>
@@ -421,7 +442,7 @@ $destination=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_PO
 								<h3><?php echo $packages[$i]['TITLE']; ?></h3>
 								<span class="duration"><?php echo $packages[$i]['DURATION'] ?></span><br />
 								<span><?php echo $travellers; ?> persons</span>
-								<div class="price"><?php  echo ($packages[$i]['PRICE']*$travellers)+$hotelprice; ?>/-</div>
+								<div class="price"><?php  echo $price; ?>/-</div>
 								<div class="inclusions">
 									<img src="./assets/icons/transport/meals.svg" alt="Meals">
 									<img src="./assets/icons/transport/stars.svg" alt="hotel stars">
@@ -431,7 +452,7 @@ $destination=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_PO
 								<a href="single--package.php?id=<?php echo $packages[$i]['ID']; ?>&travellers=<?php echo $travellers; ?>"><button class="view--package">View this Package</button></a>
 							</div>
 						</div>
-					<?php } ?>  
+					<?php } //end outer for ?>  
 				</div>
             </div>
         </div>
@@ -440,9 +461,6 @@ $destination=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_PO
 	require_once('home/common/footer.fly');
 ?>
 <div>
-	<?php
-		//include_once('map/fpmap.php');
-	?>
 </div>
 
  <!-- PopUp wrapper -->

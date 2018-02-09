@@ -1,6 +1,8 @@
 <?php
 include_once('home/catalog/connect.khan');
 include_once('home/catalog/session.khan');
+require_once('home/common/employeeheader.fly');//adding employee header 
+require_once('home/components/employeeauthorize.fly');
 include_once('home/ajaxcomponents/packagecustomizationajaxsupport.php');
 
 ?>
@@ -99,3 +101,4 @@ if(isset($_POST['btn'])){
 		
 }		
 ?>
+<?php require_once('home/common/footer.fly'); ?>

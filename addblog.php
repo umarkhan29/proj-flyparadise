@@ -1,10 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-	<script src="ckeditor/ckeditor.js"></script>
-</head>
+<?php
+ 	require_once('home/catalog/connect.khan');
+	require_once('home/catalog/session.khan');
+	require_once('home/components/employeeauthorize.fly');
+ 	require_once('home/common/employeeheader.fly');//adding employee header 
+?>
+
 <body>
+<script src="ckeditor/ckeditor.js"></script>
 <?php
 	include_once('home/catalog/connect.khan');
 	include_once('home/catalog/session.khan');
@@ -18,8 +20,7 @@
 	  }
 ?>
 
-
-
+ 
 
 
 
@@ -85,6 +86,8 @@
 	}
 
 ?>
+
+<?php require_once('home/common/footer.fly');//adding employee header ?>
 
 
 </body>

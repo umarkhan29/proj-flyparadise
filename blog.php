@@ -28,22 +28,7 @@
 </head>
 
 <body>
-    <header class="alternate">
-        <div class="main--header">
-            <div class="menu--heading">
-                <h1 class="logo left">fly paradise</h1>
-                <img class="fp--logo" src="./assets/heros/logo.png" alt="Fly Paradise logo">
-                <div class="main-menu right">
-                    <li><a href="">Packages</a></li>
-                    <li><a href="">Destinations</a></li>
-                    <li><a href="">Honeymoon Packages</a></li>
-                    <li><a href="">Weekend trips</a></li>
-                    <li class="quote"><a href="">FREE QUOTE</a></li>
-                </div>
-            </div>
-        </div>
-
-    </header>
+   <?php require_once('home/components/secondaryheader.fly');//adding secondary header ?>
     <div class="blog--landing">
         <div class="hero--blog">
 		
@@ -166,21 +151,21 @@
                 <div class="teaser-article border">
                     <img src="<?php echo $blogs[$i]['THUMB']; ?>" alt="">
                     <div class="teaser--div">
-                        <h3><?php echo $blogs[$i]['ABOUT']; ?></h3>
+                       <a href="blog_landing?bid=<?php echo $blogs[$i]['ID']; ?>" > <h3><?php echo $blogs[$i]['ABOUT']; ?></h3></a>
                         <p class="teaser"><?php echo $trimtext=substr($blogs[$i]['CONTENT'],3,150); ?></p>
                         <div class="comments">
                             <img src="./assets/icons/social/comment.svg" alt="">
                             <span>22 Comments</span>
                         </div>
                         <div class="author">
-                            <img src="./assets/blogs/author/junaid.jpeg" alt="">
+                            <img src="./images/default/default.png" alt="">
                             <div class="credts">
                                 <span class="name"><?php echo $blogs[$i]['AUTHOR']; ?></span>
                                 <span class="date">
 								<?php 
 									$dt = new DateTime($blog[0]['DATE']);
 									echo $date = $dt->format('jS F Y');
-									$i=$i+1;
+									$i=$i+1; //for 2nd element of li (row)
 								?>	
 								</span>
                             </div>
@@ -193,14 +178,14 @@
                 <div class="teaser-article border">
                     <img src="<?php echo $blogs[$i]['THUMB']; ?>" alt="">
                     <div class="teaser--div">
-                        <h3><?php echo $blogs[$i]['ABOUT']; ?></h3>
+                         <a href="blog_landing?bid=<?php echo $blogs[$i]['ID']; ?>" > <h3><?php echo $blogs[$i]['ABOUT']; ?></h3></a>
                         <p class="teaser"><?php echo $trimtext=substr($blogs[$i]['CONTENT'],3,150); ?></p>
                         <div class="comments">
                             <img src="./assets/icons/social/comment.svg" alt="">
                             <span>22 Comments</span>
                         </div>
                         <div class="author">
-                            <img src="./assets/blogs/author/junaid.jpeg" alt="">
+                            <img src="./images/default/default.png" alt="">
                             <div class="credts">
                                 <span class="name"><?php echo $blogs[$i]['AUTHOR']; ?></span>
                                 <span class="date">
@@ -234,6 +219,11 @@
 <?php
 	require_once('home/common/footer.fly');
 ?>
+ <!-- PopUp wrapper -->
+        <div class="pop-up remove">
+            <!-- Calling popup from location partial -->
+            <?php include_once('location.php'); ?>
+       </div>
 </body>
 
 </html>
