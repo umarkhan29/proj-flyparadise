@@ -3,7 +3,6 @@
 	include_once('home/catalog/session.khan');
 	
 	if(isset($_POST['btn'])){
-		val_email($_POST['usernametxtbox']);
 		
 		if($GLOBALS['__ValFlag']==1){ 
 			$user__name=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['usernametxtbox']))));

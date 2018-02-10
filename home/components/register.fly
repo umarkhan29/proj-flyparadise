@@ -1,19 +1,12 @@
 <?php
 	
 	if(isset($_POST['Username'])){
-	
-	val_name($_POST['Username']);
-	val_email($_POST['Email']);
-	
-	if($_POST['Password'] != $_POST['CPassword']){
-		echo "Password do not match";
-		$GLOBALS['__ValFlag']="0";
-	}
+
 		if($GLOBALS['__ValFlag']==1){
 			$_SESSION['$user_name']=mysql_real_escape_string(trim(strip_tags(stripslashes($_POST['Username']))));
 			$_SESSION['$pass']=mysql_real_escape_string(trim(strip_tags(stripslashes($_POST['Password']))));
 			$_SESSION['$email']=mysql_real_escape_string(trim(strip_tags(stripslashes($_POST['Email']))));
-			//$_SESSION['$phone']=mysql_real_escape_string(trim(strip_tags(stripslashes($_POST['Phone_Number']))));
+			$_SESSION['$phone']=mysql_real_escape_string(trim(strip_tags(stripslashes($_POST['phone']))));
 			$_SESSION['$pass']=md5(md5(hash('sha512',md5(base64_encode(hash('sha1',$_SESSION['$pass']))))));
 			$_SESSION['$auth']=rand(0000,999999);
 		$message="Your OTP for registration process is ".$_SESSION['$auth']."\n \n \n \n"."Disclaimer:

@@ -242,67 +242,7 @@
 
 
 
-<?php
-//Fetching popular destinations
- $query = "SELECT * FROM `populardesthp` order by `id` desc LIMIT 3 ";
-			if($result = mysqli_query($dbconn,$query)){
-				$populardest;
-				$count=0;
-				while($row = mysqli_fetch_assoc($result)){
-					$populardest[] = array(
-							
-							'ID'			=>	$row['id'],
-							'PATH' 			=> 	$row['imgpath'],
-							'DESTINATION' 	=> 	$row['destination'],
-							'DESCRIPTION' 	=> 	$row['desc']
-						);
-						 $count=$count+1;
-						
-				}
-				
-			}
-			else{
-				echo mysqli_error($dbconn);
-			}
 
-?>
-    <div class="packages">
-        <h2 class="heading">Popular Destinations</h2>
-        <span class="span--heading">Are you looking for the inspiration?</span>
-        <ul class="top--packages">
-            <li>
-                <img src="<?php echo $populardest[0]['PATH']; ?>" alt="#">
-                <div class="hover--div"></div>
-                <div class="top--text">
-                    <p><?php echo $populardest[0]['DESTINATION']; ?></p>
-                    <h4><?php echo $populardest[0]['DESCRIPTION']; ?></h4>
-                    <a href="#">Book Now</a>
-                </div>
-            </li>
-            <li class="top">
-                <img src="<?php echo $populardest[1]['PATH']; ?>" alt="#">
-                <div class="hover--div"></div>
-                <div class="top--text">
-                    <p><?php echo $populardest[1]['DESTINATION']; ?></p>
-                    <h4><?php echo $populardest[1]['DESCRIPTION']; ?></h4>
-                    <a href="#">Book Now</a>
-                </div>
-            </li>
-            <li>
-               <img src="<?php echo $populardest[2]['PATH']; ?>" alt="#">
-                <div class="hover--div"></div>
-                <div class="top--text">
-                    <p><?php echo $populardest[2]['DESTINATION']; ?></p>
-                    <h4><?php echo $populardest[2]['DESCRIPTION']; ?></h4>
-                    <a href="#">Book Now</a>
-                </div>
-            </li>
-        </ul>
-        <div class="explore--more">
-            <a href="#">explore more popular destinations</a>
-        </div>
-    </div>
-	
 <?php
 //Fetching homepage  destinations (9)
  $query = "SELECT * FROM `homepagedestinations` order by `id` desc limit 8  ";
