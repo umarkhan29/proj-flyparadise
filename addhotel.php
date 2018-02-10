@@ -5,7 +5,7 @@
  	require_once('home/common/employeeheader.fly');//adding employee header 
 ?>
 <body>
-
+<?php require_once('home/components/addhotel.fly');//adding hotel add module?>
 <p>
 		<form action="" method="POST">
 			<input type="text" name="name" placeholder="Name"/><br />

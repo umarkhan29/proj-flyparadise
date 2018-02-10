@@ -1,5 +1,3 @@
-
-
 <div class="pop-up-form">
 	 <p class="remove-popup">X</p>
 	 

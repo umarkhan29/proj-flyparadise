@@ -1,0 +1,34 @@
+<?php
+	
+	$token=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['token']))));
+	$name=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['name']))));
+	$location=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['location']))));	
+	$place=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['place']))));	
+	$stars=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['stars']))));	
+	$desc=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['desc']))));
+	$jan3=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['jan3']))));	
+	$april3=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['april3']))));	
+	$july3=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['july3']))));
+	$oct3=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['oct3']))));	
+
+	$jan2=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['jan2']))));	
+	$april2=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['april2']))));	
+	$july2=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['july2']))));
+	$oct2=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['oct2']))));
+	
+	$meals=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['meals']))));		
+
+		
+	//Updating in DB
+	 $query="UPDATE `hotels` SET `name`='$name',`location`='$location',`place`='$place',`stars`='$stars',`desc`='$desc',`jan-2rooms`='$jan2',`april-2rooms`='$april2',`july-2rooms`='$july2',`oct-2rooms`='$oct2',`jan-3rooms`='$jan3',`april-3rooms`='$april3',`july-3rooms`='$july3',`oct-3rooms`='$oct3',`meals`='$meals' WHERE `id` ='$token'";
+							
+		if(mysqli_query($dbconn,$query)){ 
+				echo "Hotel Updated !";
+		}else{
+			echo "Something went wrong. Contact your administrator";
+			
+		} 
+		
+
+
+?>

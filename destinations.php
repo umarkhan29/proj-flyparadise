@@ -20,10 +20,10 @@
     <script src="https://use.fontawesome.com/441c105168.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="libraries/owl.carousel.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
     <script src="libraries/js/main.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCotB6BSKESLUC2dNLnAT76EporwJBXMN4&v=3.exp&libraries=places"></script>
-	 <script src="libraries/js/select2dec.js"></script>
+	<script src="libraries/js/select2dec.js"></script>
 	
     <!--[if IE]>
             <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
@@ -172,23 +172,26 @@ $destination=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_PO
                 <div class="accordion">
                     <div class="border">
                         <h4>History of <span><?php echo $destinations[0]['DESTINATION']; ?></span> </h4>
-                            <p class="remove">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque dolorum cupiditate placeat, commodi consequuntur quas sequi dolores aliquid! Eligendi autem officiis quod nam ipsam. Corrupti eius vero facere esse dolor!</p>
+                            <p class="remove"><?php echo $destinations[0]['HISTORY']; ?></p>
                     </div>
                     <div class="border">
                         <h4>Culture in <span><?php echo $destinations[0]['DESTINATION']; ?></span> </h4>
-                        <p class="remove">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque dolorum cupiditate placeat, commodi consequuntur quas sequi dolores aliquid! Eligendi autem officiis quod nam ipsam. Corrupti eius vero facere esse dolor!</p>
+                        <p class="remove"><?php echo $destinations[0]['CULTURE']; ?></p>
                     </div>
                     <div class="border">
                         <h4>Food in <span><?php echo $destinations[0]['DESTINATION']; ?></span> </h4>
-                        <p class="remove">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque dolorum cupiditate placeat, commodi consequuntur quas sequi dolores aliquid! Eligendi autem officiis quod nam ipsam. Corrupti eius vero facere esse dolor!</p>
+                        <p class="remove"><?php echo $destinations[0]['FOOD']; ?></p>
+                    </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 	
-	
-   <?php require_once('map/map.php'); //cloud block ?>
+	<div class="distance--block" id="distancetimeblock">
+		 <?php require_once('map/map.php'); //for distance time cloud block ?>
+		 <!--Loading Distance time block -->	
+	</div>
+ 
 	
 	
 	
@@ -460,11 +463,10 @@ $destination=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_PO
             </div>
         </div>
     </div>
+	
 <?php
 	require_once('home/common/footer.fly');
 ?>
-<div>
-</div>
 
  <!-- PopUp wrapper -->
         <div class="pop-up remove">

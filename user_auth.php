@@ -3,7 +3,7 @@ ob_start();
 	require_once('config.khan');
 	include_once('home/catalog/connect.khan');
 	include_once('home/catalog/session.khan');
-	//echo $_SESSION['$auth'];
+	echo $_SESSION['$auth'];
 	if(!isset($_SESSION['$auth'])){
 		header('location:get-in.php');
 	}
@@ -59,10 +59,12 @@ A verification code has been send to <span style="color:#602D8D;"><a href=""><?p
 		$user_name=$_SESSION['$user_name'];
 		$pass=$_SESSION['$pass'];
 		$email=$_SESSION['$email'];
-		//$phone=$_SESSION['$phone'];
-		if(mysqli_query($dbconn,"INSERT INTO `users` (`name`,`passcode`,`email`)  VALUES ('$user_name','$pass','$email')")){
-						echo '<div style="font-family:Arial,Helvetica,sans-serif;width:22%;height:100px;margin-left:25%;font-size:22px; color:green;">New User Created!</div>';
+	    $phone=$_SESSION['$phone'];
+		$img='assets\users\default.png';
+		if(mysqli_query($dbconn,"INSERT INTO `users` (`name`,`passcode`,`email`,`phone`,`img`)  VALUES ('$user_name','$pass','$email','$phone','$img')")){
+						echo "<script type='text/javascript'> alert('Account Created'); </script>";
 						session_destroy();
+						//header('location:get-in.php');
 			}
 			else{
 				

@@ -22,7 +22,7 @@ function val_email($email){
 	}
 	elseif(!preg_match("%^[a-z A-Z 0-9 */()><.,!@&#$]{2,100}[@]{1,1}[a-zA-Z]{3,16}[.]{1,1}[a-z]{2,16}[.]{0,1}[a-z]{0,16}$%",$email)){
 		$GLOBALS['__ValFlag']=0;
-		echo "Invalid Email".'</br>';
+		echo "This is not a valid E-mail".'</br>';
 	}
 }
 
