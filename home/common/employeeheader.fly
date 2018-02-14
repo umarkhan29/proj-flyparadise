@@ -33,12 +33,13 @@
                     <li><a href="addpackages"> Add Packages</a></li>
                     <li><a href="addhotel">Add Hotels</a></li>
                     <li><a href="addblog">Add Blog</a></li>
-					 <li><a href="adddestinations">Add Destination</a></li>
+					<li><a href="adddestinations">Add Destination</a></li>
 					<li><a href="addreminder">Add Reminders</a></li>
 					<li><a href="todaysreminders">Todays Reminders</a></li>
 					<li><a href="updatepackages">Update Packages</a></li>
 					<li><a href="updatehotels">Update Hotels</a></li>
                     <li><a href="updateblogs">Update Blog</a></li>
+					<li><a href="updatedestinations">Update Destinations</a></li>
                     <li><a href="echangepassword">Change Password</a></li>
 					<li ><a href="logout">Logout</a></li>
                 </div>

@@ -16,8 +16,8 @@
 			
 			$new_image=imagecreatetruecolor($new_width,$new_height);
 			$old_image=imagecreatefromjpeg($image);					
-			imagecopyresized($new_image,$old_image,0,0,0,0,$new_width,$new_height,$image_width,$image_height);
-			imagejpeg($new_image,$image);									
+			imagecopyresampled($new_image,$old_image,0,0,0,0,$new_width,$new_height,$image_width,$image_height);
+			imagejpeg($new_image,$image,100);								
 			//
 			$_SESSION['resizedone']="success";
 			header('location:../../addpopulardesthp');
@@ -39,9 +39,8 @@
 			
 			$old_image=imagecreatefrompng($image);	
 				
-			imagecopyresized($new_image,$old_image,0,0,0,0,$new_width,$new_height,$image_width,$image_height);
-			
-			imagepng($new_image,$image);
+			imagecopyresampled($new_image,$old_image,0,0,0,0,$new_width,$new_height,$image_width,$image_height);
+			imagejpeg($new_image,$image,100);
 			
 			//setting session foe success message
 			$_SESSION['resizedone']="success";

@@ -159,6 +159,8 @@
 	$cab=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['cab']))));
 	$meals=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['meals']))));
 	$siteseeing=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['siteseeing']))));
+	$camps=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['camps']))));
+	$houseboats=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['houseboats']))));
 	$stay=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['stay']))));
 	$addon=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['addon']))));
 	$tags=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['tags']))));
@@ -187,7 +189,7 @@
 	}
 		
 	//Updating in DB
-	 $query="UPDATE `packages` SET `title`='$title',`destination`='$destination',`duration`='$duration',`category`='$category',`hotelstar`='$hotelstar',`description`='$description',`includeflights`='$flights',`localcab`='$cab',`meals`='$meals',`siteseeing`='$siteseeing',`stay`='$stay',`addon`='$addon',`itinerary`='$itenaries',`inclusions`='$inclusions',`exclusions`='$exclusions',`stays`='$stays',`getaways`='$getaways',`worthwatching`='$worthwatching',`itinerarytitle`='$itinerarytitle',`itinerarytags`='$itinerarytags',`tags`='$tags',`distance`='$itinerarydistance',`itineraryfrom`='$itineraryfrom',`itineraryto`='$itineraryto',`itinerarycabprice`='$itinerarycabprice', `path`='$path', `path2`='$path2', `path3`='$path3' WHERE `id` ='$token'";
+	 $query="UPDATE `packages` SET `title`='$title',`destination`='$destination',`duration`='$duration',`category`='$category',`hotelstar`='$hotelstar',`description`='$description',`includeflights`='$flights',`localcab`='$cab',`meals`='$meals',`siteseeing`='$siteseeing',`stay`='$stay',`camps` ='$camps',`houseboats`='$houseboats',`addon`='$addon',`itinerary`='$itenaries',`inclusions`='$inclusions',`exclusions`='$exclusions',`stays`='$stays',`getaways`='$getaways',`worthwatching`='$worthwatching',`itinerarytitle`='$itinerarytitle',`itinerarytags`='$itinerarytags',`tags`='$tags',`distance`='$itinerarydistance',`itineraryfrom`='$itineraryfrom',`itineraryto`='$itineraryto',`itinerarycabprice`='$itinerarycabprice', `path`='$path', `path2`='$path2', `path3`='$path3' WHERE `id` ='$token'";
 							
 		if(mysqli_query($dbconn,$query)){ 
 		

@@ -1,0 +1,86 @@
+<?php
+	  $token=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['token']))));
+	  $destination=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['destination']))));
+	  $alias=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['alias']))));
+	  $description=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['description']))));
+	  $heading2=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['heading2']))));
+	  $desc2=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['description2']))));
+	  $history=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['history']))));
+	  $culture=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['culture']))));
+	  $food=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['food']))));
+	  $tags=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['tags']))));
+	  $oldpath1=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['oldpath1']))));
+	  $oldpath2=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['oldpath2']))));
+	  
+	  //generating links to destination
+	  $links="";
+	  if(isset($_POST['air-link']))
+		$links=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['air-link']))));
+		
+	  if(isset($_POST['water-link']))
+		 $links.="$$$$".mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['water-link']))));
+	 
+	  if(isset($_POST['road-link']))
+		 $links.="$$$$".mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['road-link']))));
+		 
+	  if(isset($_POST['rail-link']))
+		 $links.="$$$$".mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['rail-link']))));
+	  
+	  //worthwatching
+	  $worthwatching=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['worthwatching']))));
+	  $worthwatching=explode(',',$worthwatching);
+	  $worthwatchings="";
+	  
+		  for($i=0;$i<count($worthwatching); $i++) {
+			if($i==(count($worthwatching)-1))
+				$worthwatchings.=$worthwatching[$i]; 
+			else
+			 $worthwatchings.=$worthwatching[$i]."$$$$"; 
+		  }
+	  
+	  //getaways
+	  $getaway=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['getaways']))));
+	  $getaway=explode(',',$getaway);
+	  $getaways="";
+		for($i=0;$i<count($getaway); $i++) {
+			if($i==(count($getaway)-1))
+				$getaways.=$getaway[$i]; 
+			else
+			 $getaways.=$getaway[$i]."$$$$"; 
+		  }
+		
+		//checking images are changed
+		if($_FILES['fileupld']['name']==''){
+			$path=$oldpath1;
+		}else{
+			$path="images/destinations/".$destination."1".$_FILES['fileupld']['name'];
+		}
+		
+		if($_FILES['fileupld2']['name']==''){
+			$path2=$oldpath2;
+		}else{
+			$path2="images/destinations/".$destination."2".$_FILES['fileupld2']['name'];
+		}
+		
+	
+	//Updating in DB
+	 $query="UPDATE `destinations` SET `destination`='$destination',`alias`='$alias',`desc`='$description',`links`='$links',`worthwatching`='$worthwatchings',`getaways`='$getaways',`heading2`='$heading2',`desc2`='$desc2',`tags`='$tags',`history`='$history',`culture`='$culture',`food`='$food',`img1`='$path', `path2`='$path2'  WHERE `id` ='$token'";
+							
+		if(mysqli_query($dbconn,$query)){ 
+				if($path != $oldpath1)
+					move_uploaded_file($_FILES['fileupld']['tmp_name'],$path);
+				
+				
+				if($path2 != $oldpath1)
+					move_uploaded_file($_FILES['fileupld2']['tmp_name'],$path2);
+					
+					
+					header('location:home/components/resize550-340.php?img='.$path2.'&action=update');
+		}else{
+			echo "Something went wrong. Contact your administrator";
+			
+		} 
+		
+
+
+?>

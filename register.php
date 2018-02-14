@@ -44,7 +44,7 @@
                         <label for="">Enter your Name</label>
                         <div class="inp">
                             <img src="./assets/icons/social/user.svg" alt="">
-                             <input class="input-field" placeholder="User Name" required type="text" name="Username">
+                             <input class="input-field" placeholder="Fill in your Name" required type="text" name="Username">
                         </div>
 						<span class="error"><?php if(isset($_POST['Username'])) val_name($_POST['Username']); ?></span>
                     </li>
@@ -52,7 +52,7 @@
                         <label for="">Enter your Email</label>
                         <div class="inp">
                             <img src="./assets/icons/social/mail.svg" alt="">
-                           <input class="input-field" placeholder="Placeholder text" required type="email" name="Email">
+                           <input class="input-field" placeholder="Fill in your Email" required type="email" name="Email">
                         </div>
 						<span class="error"><?php if(isset($_POST['email'])) val_email($_POST['email']); ?></span>
                     </li>
@@ -97,7 +97,7 @@
 	
 	<?php
 		//Register module
-		 require_once('home/components/register.fly');
+		require_once('home/components/register.fly');
 	?>
     <div class="discl acc">
         Already have an account, <a href="get-in">Sign In</a> here
@@ -110,7 +110,11 @@
 	require_once('home/common/footer.fly');
 	ob_end_flush();
 ?>
-
+ <!-- PopUp wrapper -->
+        <div class="pop-up remove">
+            <!-- Calling popup from location partial -->
+            <?php include_once('location.php'); ?>
+       </div>
 </body>
 
 </html>

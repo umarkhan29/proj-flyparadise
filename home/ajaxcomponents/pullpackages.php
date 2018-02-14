@@ -74,7 +74,6 @@
 		var price=document.getElementById('amount').value;
 		
 		
-		
 		//processing filter
 		if(window.XMLHttpRequest){
 			xmlhttp=new XMLHttpRequest();

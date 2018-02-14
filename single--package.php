@@ -2,6 +2,7 @@
 	include_once('home/catalog/connect.khan');
 	include_once('home/catalog/session.khan');
 	include_once('home/components/int2txt.fly');
+	$baseurl="https://localhost/flyparadise/";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,26 +12,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Fly Paradise</title>
-    <link href="stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
-    <link href="stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
+    <link href="<?php echo $baseurl; ?>stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    <link href="<?php echo $baseurl; ?>stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
     <!--Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=PT+Serif" rel="stylesheet">
     <script src="https://use.fontawesome.com/441c105168.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="libraries/owl.carousel.min.js"></script>
+    <script src="<?php echo $baseurl; ?>libraries/owl.carousel.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
-    <script src="libraries/js/main.js"></script>
+    <script src="<?php echo $baseurl; ?>libraries/js/main.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCotB6BSKESLUC2dNLnAT76EporwJBXMN4&v=3.exp&libraries=places"></script>
+	<script src="<?php echo $baseurl; ?>libraries/js/select2dec.js"></script>
     <!--[if IE]>
             <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
         <![endif]-->
 </head>
 
 <body>
-   <?php require_once('home/components/secondaryheader.fly');//adding secondary header ?>
-	
+  <header class="alternate desktop--only">
+        <div class="main--header">
+            <div class="menu--heading">
+                <h1 class="logo left">fly paradise</h1>
+                <img class="fp--logo" src="<?php echo $baseurl; ?>assets/heros/logo.png" alt="Fly Paradise logo">
+                <div class="main-menu right">
+                    <li><a href="">Packages</a></li>
+                    <li><a href="">Destinations</a></li>
+                    <li><a href="">Honeymoon Packages</a></li>
+                    <li><a href="">Weekend trips</a></li>
+                    <li class="quote"><a href="">FREE QUOTE</a></li>
+                </div>
+            </div>
+        </div>
+
+    </header>
+    <div id="mobile-menu--wrapper">
+        <div class="mobile--only mobile--head">
+            <header id="header-mobile">
+                <ul id="brg-menu">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+                <div class="brand-logo">
+                    Fly Paradise
+                </div>
+            </header>
+
+            <nav id="nav" role="navigation">
+                <li><a href="blog">Blogs</a></li>
+				<li><a href="destinations">Destinations</a></li>
+				<li><a href="">Honeymoon Packages</a></li>
+				<li><a href="">Weekend trips</a></li>
+				<li><a href="get-in">Login</a></li>
+            </nav>
+        </div>
 	
 <?php
 //Fetching single package
@@ -58,6 +96,8 @@
 							'SITESEEING' 	=> 	$row['siteseeing'],
 							'STAY' 			=> 	$row['stay'],
 							'ADDON' 		=> 	$row['addon'],
+							'CAMPS' 		=> 	$row['camps'],
+							'HOUSEBOATS' 	=> 	$row['houseboats'],
 							'ITINERARY' 	=> 	$row['itinerary'],
 							'INCLUSIONS'	=> 	$row['inclusions'],
 							'EXCLUSIONS' 	=> 	$row['exclusions'],
@@ -84,7 +124,7 @@
 			
 			
 			if($count==0)
-				header('location:index');
+				header('location:https://flyparadise.in/');
 
 ?>
 	
@@ -101,15 +141,15 @@
     <div class="single--package">
         <div id="owl" class="owl-carousel single--package">
             <div class="item">
-                 <img src="<?php echo $package[0]['PATH']; ?>" alt="">
+                 <img src="<?php echo $baseurl; ?><?php echo $package[0]['PATH']; ?>" alt="">
             </div>
 
             <div class="item">
-                <img src="<?php echo $package[0]['PATH2']; ?>" alt="">
+                <img src="<?php echo $baseurl; ?><?php echo $package[0]['PATH2']; ?>" alt="">
             </div>
 
             <div class="item">
-                <img src="<?php echo $package[0]['PATH3']; ?>" alt="">
+                <img src="<?php echo $baseurl; ?><?php echo $package[0]['PATH3']; ?>" alt="">
             </div>
         </div>
         <div class="single--packing_desc">
@@ -120,48 +160,65 @@
             <div class="inclusions--package">
                 <div class="inclusions border">
                    <?php 
+                       
 				   //Showing Flight thumbnails
 				   		if($package[0]['FLIGHTS']=='Yes') 
-				   			echo '<img src="./assets/icons/transport/air.svg" alt="Air Transfer" label="Air Transfer">';
+				   			echo '<div> <img src="'.$baseurl.'assets/icons/transport/air.svg" alt="Air Transfer" label="Air Transfer"> <span>Tickets</span></div>';
 				   		else
-							echo '<img src="./assets/icons/transport/air.svg" alt="Flights not included" label="Flights not included" class="package--ex">';
+							echo '<div class="package--ex"><img src="'.$baseurl.'assets/icons/transport/air.svg" alt="Flights not included" label="Flights not included" > <span>Tickets</span></div>';
 							
 						
 						//Showing Meals thumbnails
 				   		if($package[0]['MEALS']=='Yes') 
-				   			echo '<img src="./assets/icons/transport/meals.svg" alt="Meals">';
+				   			
+							echo '<div> <img src="'.$baseurl.'assets/icons/transport/meals.svg" alt="Meals" label="Meals"> <span>Meals</span></div>';
 				   		else
-							echo '<img src="./assets/icons/transport/meals.svg" alt="Meals not included" label="Meals not included" class="package--ex">';
+							echo '<div class="package--ex"><img src="'.$baseurl.'assets/icons/transport/meals.svg" alt="Meals not included" label="Meals not included" ><span>Meals</span></div>';
 						
 						
 						//Showing Cab thumbnails
 				   		if($package[0]['CAB']=='Yes') 
-				   			echo '<img src="./assets/icons/transport/transfer.svg" alt="Transfers">';
+				   			echo '<div><img src="'.$baseurl.'assets/icons/transport/transfer.svg" alt="Cab"><span>Cab</span></div>';
 				   		else
-							echo '<img src="./assets/icons/transport/transfer.svg" alt="Cab not included" label="Cab not included" class="package--ex">';
+							echo '<div class="package--ex"><img src="'.$baseurl.'assets/icons/transport/transfer.svg" alt="Cab not included" label="Cab not included"><span>Cab</span></div>';
 						
 						
 						//Showing Stay thumbnails
 				   		if($package[0]['STAY']=='Yes') 
-				   			echo '<img src="./assets/icons/transport/stars.svg" alt="hotel stars">';
+				   			echo '<div><img src="'.$baseurl.'assets/icons/transport/stars.svg" alt="hotel stars"><span>Stay</span></div>';
 				   		else
-							echo '<img src="./assets/icons/transport/stars.svg" alt="Stay not included" label="Stay not included" class="package--ex">';
+							echo '<div class="package--ex"><img src="'.$baseurl.'assets/icons/transport/stars.svg" alt="Stay not included" label="Stay not included" ><span>Stay</span></div>';
 						
 						//Showing SITESEEING thumbnails
 				   		if($package[0]['SITESEEING']=='Yes') 
-				   			echo ' <img src="./assets/icons/transport/view.svg" alt="Site seeing">';
+				   			echo '<div ><img src="'.$baseurl.'assets/icons/transport/view.svg" alt="Site seeing"><span>Siteseeing</span></div>';
 				   		else
-							echo '<img src="./assets/icons/transport/view.svg" alt="Stay not included" label="Stay not included" class="package--ex">';
+							echo '<div class="package--ex"><img src="'.$baseurl.'assets/icons/transport/view.svg" alt="Stay not included" label="Siteseeing not included" ><span>Siteseeing</span></div>';
+						
+						//Showing Campimg thumbnails
+				   		if($package[0]['CAMPS']=='Yes') 
+				   			echo '<div><img src="'.$baseurl.'assets/icons/transport/tent.svg" alt="Camping" ><span>Camping</span></div>';
+				   		else
+							echo '<div class="package--ex"><img src="'.$baseurl.'assets/icons/transport/tent.svg" alt="Camping" label="Campingn" ><span>Camping</span></div>';
+							
+					
+					//Showing houseboat thumbnails
+				   		if($package[0]['HOUSEBOATS']=='Yes') 
+				   			echo '<div><img src="'.$baseurl.'assets/icons/transport/tent.svg" alt="Houseboat" ><span>Houseboat</span></div>';
+				   		else
+							echo '<div class="package--ex"><img src="'.$baseurl.'assets/icons/transport/tent.svg" alt="Houseboat" label="Houseboat" ><span>Houseboat</span></div>';
+						
 						
 						
 						//Showing Addon thumbnails
 				   		if($package[0]['ADDON']=='Yes') 
-				   			echo ' <img src="./assets/icons/transport/more.svg" alt="Complimentary from destination" >';
+				   			echo '<div><img src="'.$baseurl.'assets/icons/transport/more.svg" alt="Complimentary from destination" ><span>Compliment</span></div>';
 				   		else
-							echo '<img src="./assets/icons/transport/more.svg" alt="Complimentary from destination" label="Complimentary from destination" class="package--ex">';
+							echo '<div class="package--ex"><img src="'.$baseurl.'assets/icons/transport/more.svg" alt="Complimentary from destination" label="Compliment" ><span>Compliment</span></div>';
 						
 				 
 				    ?>
+					 
                     
                 </div>
                 <div class="stars border">
@@ -201,6 +258,7 @@
                     </ul>
 					
 					<?php
+
 						//Generating Itineraries, Inclusions, Exclusions, worthwatching,Getaways and itinary stay
 						 $itinerarytitle=explode('$$$$',$package[0]['ITINERARYTITLE']);
 						 $itinerarytags=explode('$$$$',$package[0]['ITINERARYTAGS']);
@@ -249,11 +307,19 @@
 					$flag=0;
 					$hoteltotalprice=0;
 					$meals=0; 
-					for($i=0;$i<count($stays)-1;$i++){
+					for($i=0;$i<count($stays)-2;$i++){
+					//getting destination list (incase of multiple destinations of a package "seperated bty ,")
+					$locationlists=$package[0]['DESTINATION'];
+					$locationlist=explode(',',$locationlists);
+					$hlocations="( `location` like '%".trim($locationlist[0])."%'";
+					for($l=1;$l<count($locationlist);$l++){
+						$hlocations.=" OR `location` like '%";
+						$hlocations.=trim($locationlist[$l])."%'";
+					}
 					
-						$query = "SELECT * FROM `hotels` WHERE `stars` = ".$package[0]['HOTELSTAR']." AND `location` = '".$package[0]['DESTINATION']."' AND `place` = '".$stays[$i]."' ORDER BY `".$today3."` ASC LIMIT 1";
-						
-						$hotelprice="";
+					//formulating query for getting seperate hotelprice on basis of number of travellers and itenariy stay
+					 $query = "SELECT * FROM `hotels` WHERE `stars` = ".$package[0]['HOTELSTAR']." AND ".$hlocations.") AND `place` = '".$stays[$i]."' ORDER BY `".$today3."` ASC LIMIT 1";
+						if(!empty($hotelprice)) unset($hotelprice);
 						if($result = mysqli_query($dbconn,$query)){
 							$count=0;
 							while($row = mysqli_fetch_assoc($result)){
@@ -280,7 +346,7 @@
 					}//end for
 					
 					
-					
+				
 					//getting total cab price
 					$cabprice=explode('$$$$',$package[0]['ITINERARYCABPRICE']);
 					$cabtotalprice=0;
@@ -290,7 +356,7 @@
 					
 					
 					$noofcabs=ceil($travellers/4);
-					$cabtotalprice=$cabtotalprice*$noofcabs;
+					 $cabtotalprice=$cabtotalprice*$noofcabs;
 					
 					if($flag==0){
 						$price = $hoteltotalprice+$cabtotalprice+$meals;
@@ -340,7 +406,7 @@
 		<?php for($i=0;$i<count($itinerary)-1;$i++){ ?>
             <div class="day">
                 <div class="internal--perday">
-                    <img class="arrival" src="./assets/icons/arrival.svg" alt="arrival">
+                    <img class="arrival" src="<?php echo $baseurl; ?>assets/icons/arrival.svg" alt="arrival">
                     <div class="inc">
                         <h5><?php echo $itinerarytitle[$i]; ?></h5>
 						
@@ -376,7 +442,7 @@
 							
 							for($k=0;$k<count($inclusion);$k++){
 					 ?>
-                       			 <li><img src="./assets/icons/checklist.svg" alt=""><?php echo $inclusion[$k]; ?></li>
+                       			 <li><img src="<?php echo $baseurl; ?>assets/icons/checklist.svg" alt=""><?php echo $inclusion[$k]; ?></li>
 					<?php 
 							} //ending internal loop (comma seperator)
 							
@@ -393,7 +459,7 @@
         </div>
         <div class="sidebar">
             <div class="help--box border">
-                <img src="./assets/icons/call24.svg" alt="call">
+                <img src="<?php echo $baseurl; ?>assets/icons/call24.svg" alt="call">
                 <div>
                     <p>Need help with your trip?</p>
                     <span>Please call <a href="tel:18001232262">1800 123 2262</a></span>
@@ -402,17 +468,228 @@
         </div>
     </div>
 
-<?php
-	require_once('home/common/footer.fly');
-?>
+    <footer>
+        <div class="secondary--footer">
+            <div class="sec-ftr">
+                <span>We promise to stay best in class</span>
+            <div class="footer-phone">
+                <span class="tel">1800 123 2262</span>
+                <span class="tagl">24/7 Dedicated Support</span>
+            </div>
+            <div class="quote">Book a destination</div>
+            </div>
+        </div>
+            <div class="footer--primary max-width">
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">What makes Us</a></li>
+                    <li><a href="#">Blogs</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Terms &amp; Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer--secondary">
+                <div class="max-width">
+                    <div class="connect">
+                        <a class="social" href="#"><img src="<?php echo $baseurl; ?>assets/icons/social/facebook.svg" alt="Facebook"></a>
+                        <a class="social" href="#"><img src="<?php echo $baseurl; ?>assets/icons/social/insta.svg" alt="Instagram"></a>
+                        <a class="social" href="#"><img src="<?php echo $baseurl; ?>assets/icons/social/twitter.svg" alt="twitter"></a>
+                        <a class="social" href="#"><img src="<?php echo $baseurl; ?>assets/icons/social/in.svg" alt="linkedIn"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2010 - 2018 Fly Paradise Travels
+            </div>
+        </footer>
 	
 	 <!-- PopUp wrapper -->
         <div class="pop-up remove">
             <!-- Calling popup from location partial -->
-            <?php include_once('location.php'); ?>
+           <div class="pop-up-form">
+	 <p class="remove-popup">X</p>
+	 
+    <div class="form-image">
+        <img src="<?php echo $baseurl; ?>assets/form/form.png" alt="">
+    </div>
+	
+	<?php include_once('home/ajaxcomponents/getquery.php'); ?>
+	
+    <div class="form-fields">
+        <ul class="form">
+            <li>
+                <script>
+                    function init() {
+                        var input = document.getElementById('locationTextFieldD');
+                        var autocomplete = new google.maps.places.Autocomplete(input);
+                    }
+                    google.maps.event.addDomListener(window, 'load', init);
+                </script>
+                <label for="locationTextField">Departure point</label>
+    
+                <div class="inp">
+                    <img src="<?php echo $baseurl; ?>assets/icons/social/location.svg" alt="">
+                    <input id="locationTextFieldD"  class="input-field" placeholder="Leaving from this place" type="text" size="50">
+                </div>
+            </li>
+            <li>
+                    <script>
+                        function init() {
+                            var input = document.getElementById('locationTextFieldA');
+                            var autocomplete = new google.maps.places.Autocomplete(input);
+                        }
+                        google.maps.event.addDomListener(window, 'load', init);
+                    </script>
+                <label for="locationTextField">Arrival point</label>
+            
+                <div class="inp">
+                    <img src="<?php echo $baseurl; ?>assets/icons/social/location.svg" alt="">
+                    <input id="locationTextFieldA"  class="input-field" placeholder="Want to see" type="text" size="50">
+                </div>
+            </li>
+            <li>
+                <label for="">Enter Phone No.</label>
+                <div class="inp">
+                    <img src="<?php echo $baseurl; ?>assets/icons/social/smartphone.svg" alt="">
+                    <input class="input-field" id="phone" placeholder="Enter Phone" min="9" max="10" required type="tel">
+                </div>
+            </li>
+            <li>
+                <label for="">Enter your Email</label>
+                <div class="inp">
+                    <img src="<?php echo $baseurl; ?>assets/icons/social/mail.svg" alt="">
+                    <input class="input-field" id="email"  placeholder="Your email-ID" required type="email">
+                </div>
+            </li>
+        </ul>
+        <ul class="depart-date">
+            <li><label for="datepicker">Departure date</label>
+                <input id="datepicker" placeholder="Preferred date of travel" type="date" /></li>
+            <li class="day--counter no-of-day">
+                <span class="hsidebar">Duration (in nights)</span>
+                <input name="noofnights" id="counter-no" type="number" min="1" max="30" value="1" />
+            </li>
+    
+            </form>
+        </ul>
+        <ul class="hotel radio no-border">
+            <li>
+                <input type="radio" id="f-option" name="selector" value="Honeymoon">
+                <label for="f-option">Honeymoon</label>
+    
+                <div class="check"></div>
+            </li>
+    
+            <li>
+                <input type="radio" id="s-option" name="selector" value="Solo">
+                <label for="s-option">Solo</label>
+    
+                <div class="check">
+                    <div class="inside"></div>
+                </div>
+            </li>
+    
+            <li>
+                <input type="radio" id="t-option" name="selector" value="Family">
+                <label for="t-option">Family</label>
+    
+                <div class="check">
+                    <div class="inside"></div>
+                </div>
+            </li>
+            <li>
+                <input type="radio" id="w-option" name="selector" value="Weekend">
+                <label for="w-option">Weekend</label>
+    
+                <div class="check">
+                    <div class="inside"></div>
+                </div>
+            </li>
+            <li>
+                <input type="radio" id="x-option" name="selector" value="Friends">
+                <label for="x-option">Friends</label>
+    
+                <div class="check">
+                    <div class="inside"></div>
+                </div>
+            </li>
+        </ul>
+        <button class="cta" type="submit" value="Curate my package" onClick="getquery('queryresponse');">Curate my Package</button>
+    </div>
+</div>
+
+
        </div>
 	   
-	   <?php include_once("home/ajaxcomponents/updatestay.php"); ?>
+	   <script type="text/javascript">	
+	function stay(thediv){
+	
+		//getting stay details
+		var stay;
+		if(document.getElementsByName('selector')[0].checked == true) {
+			 stay=2;
+		}
+		
+		if(document.getElementsByName('selector')[1].checked == true) {
+			 stay=3;
+			
+		}
+		if(document.getElementsByName('selector')[2].checked == true) {
+			  stay=4;
+			
+		}
+		if(document.getElementsByName('selector')[3].checked == true) {
+			  stay=5;
+			
+		}
+		
+		
+		
+		//getting month details
+		
+		var month=document.getElementById('stay').value;
+		
+		//getting basic price
+		var pprice=document.getElementById('sessid').value;
+		
+		//getting location
+		var loc="<?php echo $package[0]['DESTINATION']; ?>";
+		
+		//getting travellers
+		var travellers="<?php if(isset($_GET['travellers']))
+								echo $travellers=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['travellers']))));
+							 else
+								echo $travellers=1;
+						?>";
+		//getting itenary stays
+		var stays=[<?php for($z=0;$z<count($stays)-1;$z++) echo "'".$stays[$z]."',"; ?>];
+		
+		
+		//getting cab prices
+		var cabprices='<?php echo $package[0]['ITINERARYCABPRICE']; ?>';
+		
+		
+		//processing filter
+		if(window.XMLHttpRequest){
+			xmlhttp=new XMLHttpRequest();
+		}
+		else{
+			xmlhttp=new ActiveXObject('Microsoft.XMLHTTP');
+		}
+		
+		xmlhttp.onreadystatechange = function(){
+			if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+				document.getElementById(thediv).innerHTML = xmlhttp.responseText;
+			}
+		}
+		xmlhttp.open('GET','<?php echo $baseurl; ?>home/ajaxcomponents/updatepackageprice.php?month='+month+'&stay='+stay+'&loc='+loc+'&travellers='+travellers+'&stays='+stays+'&cabprices='+cabprices,true);
+
+		xmlhttp.send();
+		
+	}
+</script>
 </body>
 
 </html>

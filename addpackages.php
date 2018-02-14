@@ -188,6 +188,8 @@ if(isset($_POST['btn'])){
 	$meals=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['meals']))));
 	$siteseeing=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['siteseeing']))));
 	$stay=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['stay']))));
+	$camps=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['camps']))));
+	$houseboats=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['houseboats']))));
 	$addon=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['addon']))));
 	$tags=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['tags']))));
 	
@@ -196,7 +198,7 @@ if(isset($_POST['btn'])){
 	
 	
 	//storing in DB
-	 $query="INSERT INTO `packages`( `title`,`destination`,`duration`,`category`, `hotelstar`, `description`, `includeflights`, `price`, `path`, `path2`,`path3`,`localcab`, `meals`,`siteseeing`,`stay`, `addon`, `itinerary`, `inclusions`, `exclusions`,`getaways`,`worthwatching`,`itinerarytitle`,`itinerarytags`,`tags`,`stays`,`distance`,`itineraryfrom`,`itineraryto`,`itinerarycabprice`) VALUES ('$title','$destination','$duration','$category','$hotelstar','$description','$flight','$price','$path','$path2','$path3','$cab','$meals','$siteseeing','$stay','$addon','$itenaries','$inclusions','$exclusions','$getaways','$worthwatching','$itinerarytitle','$itinerarytags','$tags','$stays','$itinerarydistance','$itineraryfrom','$itineraryto','$itinerarycabprice');";
+	 $query="INSERT INTO `packages`( `title`,`destination`,`duration`,`category`, `hotelstar`, `description`, `includeflights`, `price`, `path`, `path2`,`path3`,`localcab`, `meals`,`siteseeing`,`stay`,`camps`,`houseboats`, `addon`, `itinerary`, `inclusions`, `exclusions`,`getaways`,`worthwatching`,`itinerarytitle`,`itinerarytags`,`tags`,`stays`,`distance`,`itineraryfrom`,`itineraryto`,`itinerarycabprice`) VALUES ('$title','$destination','$duration','$category','$hotelstar','$description','$flight','$price','$path','$path2','$path3','$cab','$meals','$siteseeing','$stay','$camps','$houseboats','$addon','$itenaries','$inclusions','$exclusions','$getaways','$worthwatching','$itinerarytitle','$itinerarytags','$tags','$stays','$itinerarydistance','$itineraryfrom','$itineraryto','$itinerarycabprice');";
 							
 		if(mysqli_query($dbconn,$query)){ 
 			move_uploaded_file($_FILES['fileupld']['tmp_name'],$path);

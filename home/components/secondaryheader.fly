@@ -4,11 +4,12 @@
                 <h1 class="logo left">fly paradise</h1>
                 <img class="fp--logo" src="./assets/heros/logo.png" alt="Fly Paradise logo">
                 <div class="main-menu right">
-                    <li><a href="">Packages</a></li>
-                    <li><a href="">Destinations</a></li>
+                    <li><a href="blog">Blogs</a></li>
+                    <li><a href="destinations">Destinations</a></li>
                     <li><a href="">Honeymoon Packages</a></li>
                     <li><a href="">Weekend trips</a></li>
                     <li class="quote"><a href="">FREE QUOTE</a></li>
+					<li><a href="get-in">Login</a></li>
                 </div>
             </div>
         </div>
@@ -28,9 +29,10 @@
             </header>
 
             <nav id="nav" role="navigation">
-                <li>Hello</li>
-                <li> hello 1</li>
-                <li> hello 2</li>
-                <li> hello 3</li>
+                <li><a href="blog">Blogs</a></li>
+				<li><a href="destinations">Destinations</a></li>
+				<li><a href="">Honeymoon Packages</a></li>
+				<li><a href="">Weekend trips</a></li>
+				<li><a href="get-in">Login</a></li>
             </nav>
         </div>
