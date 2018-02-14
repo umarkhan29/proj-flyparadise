@@ -1,21 +1,21 @@
 /*
 Error: Undefined variable: "$text-over-bg".
-        on line 18 of /Users/junaidmasoodi/work/proj-flyparadise/sass/components/single--package.scss
+        on line 29 of /Users/junaidmasoodi/work/proj-flyparadise/sass/components/single--package.scss
 
-13:         display: inline-block;
-14:         vertical-align: top;
-15:         margin-left: 2rem;
-16:         .description {
-17:             font-size: 14px;
-18:             color: $text-over-bg;
-19:         }
-20:         .rating-star {
-21:             color: $text-over-bg;
-22:         }
-23:     }
+24:             margin-left: 0;
+25:             padding: 0.5rem 1rem;
+26:         }
+27:         .description {
+28:             font-size: 14px;
+29:             color: $text-over-bg;
+30:         }
+31:         .rating-star {
+32:             color: $text-over-bg;
+33:         }
+34:     }
 
 Backtrace:
-/Users/junaidmasoodi/work/proj-flyparadise/sass/components/single--package.scss:18
+/Users/junaidmasoodi/work/proj-flyparadise/sass/components/single--package.scss:29
 /Library/Ruby/Gems/2.3.0/gems/sass-3.4.25/lib/sass/script/tree/variable.rb:49:in `_perform'
 /Library/Ruby/Gems/2.3.0/gems/sass-3.4.25/lib/sass/script/tree/node.rb:58:in `perform'
 /Library/Ruby/Gems/2.3.0/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:398:in `visit_prop'
@@ -87,4 +87,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$text-over-bg\".\A         on line 18 of /Users/junaidmasoodi/work/proj-flyparadise/sass/components/single--package.scss\A \A 13:         display: inline-block;\A 14:         vertical-align: top;\A 15:         margin-left: 2rem;\A 16:         .description {\A 17:             font-size: 14px;\A 18:             color: $text-over-bg;\A 19:         }\A 20:         .rating-star {\A 21:             color: $text-over-bg;\A 22:         }\A 23:     }"; }
+  content: "Error: Undefined variable: \"$text-over-bg\".\A         on line 29 of /Users/junaidmasoodi/work/proj-flyparadise/sass/components/single--package.scss\A \A 24:             margin-left: 0;\A 25:             padding: 0.5rem 1rem;\A 26:         }\A 27:         .description {\A 28:             font-size: 14px;\A 29:             color: $text-over-bg;\A 30:         }\A 31:         .rating-star {\A 32:             color: $text-over-bg;\A 33:         }\A 34:     }"; }

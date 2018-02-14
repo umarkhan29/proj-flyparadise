@@ -19,11 +19,32 @@
             margin-right: 4px
         }
     }
+    .latest--articles {
+        max-width: 68.5rem;
+        margin-right: auto;
+        margin-left: auto;
+        display: none;
+        .article-top {
+            width: 100%;
+            border-bottom: 1px solid #d4e6ec;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+    }
+    .blog--listing {
+        display: none;
+        max-width: 68.5rem;
+        margin-right: auto;
+        margin-left: auto;
+    }
 }
 
 .breadcrumb {
     background: $clean;
     margin-bottom: 1rem;
+    @media screen and (max-width: 768px) {
+        display: none;
+    }
     ul {
         @extend %full--width;
         margin-top: 0;
@@ -316,6 +337,9 @@ $clouds: ("https://s.cdpn.io/15514/clouds_2.png" 1000px 80s),
         margin-bottom: 1rem;
         ul.radio {
             border-bottom: 0;
+        }
+        &:last-of-type {
+            border-bottom: none;
         }
     }
     form.day--counter {
