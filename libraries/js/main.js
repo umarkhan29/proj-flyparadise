@@ -98,7 +98,7 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
-    var showChar = 400;
+    var showChar = 300;
     var ellipsestext = "...";
     var moretext = "View Less";
     var lesstext = "View More";
@@ -131,10 +131,10 @@ $(document).ready(function() {
     });
 
 });
-
-
 $(document).ready(function() {
     $('.accordion h4').click(function() {
-        $('p').toggleClass('remove');
+        $('.accordion p').this(function() {
+            $(each).toggleClass('remove');
+        });
     });
 });
