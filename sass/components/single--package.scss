@@ -33,11 +33,6 @@
     .rating-form {
         margin-top: 0;
     }
-    .inclusions {
-        img {
-            margin-right: 1.4rem;
-        }
-    }
     .price--tag {
         display: flex;
     }
@@ -72,6 +67,7 @@
                 background-repeat: no-repeat;
                 left: 18% !important;
                 top: 27% !important;
+                margin-left: -10px !important;
             }
         }
     }

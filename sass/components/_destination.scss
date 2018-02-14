@@ -107,6 +107,7 @@
         h3 {
             font-size: 38px;
             margin: 0;
+            text-transform: capitalize;
         }
         >p {
             font-size: 16px;
@@ -297,7 +298,7 @@ $clouds: ("https://s.cdpn.io/15514/clouds_2.png" 1000px 80s),
             }
             h3 {
                 margin: 0;
-                font-size: 24px;
+                font-size: 20px;
                 line-height: 1;
                 @media screen and (max-width: 768px) {
                     font-size: 16px;
@@ -313,6 +314,9 @@ $clouds: ("https://s.cdpn.io/15514/clouds_2.png" 1000px 80s),
         border-bottom: 1px dotted $gray;
         padding-bottom: 1rem;
         margin-bottom: 1rem;
+        ul.radio {
+            border-bottom: 0;
+        }
     }
     form.day--counter {
         margin: auto;
@@ -381,9 +385,10 @@ $clouds: ("https://s.cdpn.io/15514/clouds_2.png" 1000px 80s),
         }
     }
     .duration {
-        font-size: 15px;
+        font-size: 14px;
         color: $blue;
         line-height: 2;
+        font-weight: 600;
         @media screen and (max-width: 768px) {
             width: 21%;
             display: inline-block;
@@ -395,7 +400,7 @@ $clouds: ("https://s.cdpn.io/15514/clouds_2.png" 1000px 80s),
     }
     .price {
         font-size: 22px;
-        font-weight: 600;
+        font-weight: 700;
         color: #4caf50;
         @media screen and (max-width: 768px) {
             margin-top: 10px;
@@ -433,15 +438,34 @@ $clouds: ("https://s.cdpn.io/15514/clouds_2.png" 1000px 80s),
 }
 
 .inclusions {
+    div {
+        display: inline-block;
+        text-align: center;
+        margin-right: 10px;
+    }
     margin: 1rem 0;
     img {
         vertical-align: bottom !important;
         width: auto !important;
+        margin-right: 0 !important;
+    }
+    span {
+        font-size: 10px;
+        display: block;
+        margin-top: 3px;
     }
 }
 
 button.view--package {
-    @extend %btn-blu;
+    color: $white;
+    background: $pink;
+    border: 1px solid $pink;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    font-size: 14px;
+    color: $white;
+    width: 100%;
+    cursor: pointer;
 }
 
 
@@ -869,4 +893,16 @@ button.view--package {
 
 .package--ex {
     opacity: 0.4
+}
+
+.flex {
+    display: flex;
+    .customise {
+        border: 1px solid #e03b52;
+        color: #e03b52;
+        padding-top: 6px;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        margin-right: 1rem;
+    }
 }
