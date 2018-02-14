@@ -70,7 +70,21 @@ echo "<br>";
 		
 	</select> <br />
 	
+	<label>Camps</label>
+	<select name="camps" />
+		<option  value="No">No</option>
+		<option  value="Yes">Yes</option>				
+		
+	</select> <br />
 	
+	<label>Houseboats</label>
+	<select name="houseboats" />
+		<option  value="No">No</option>
+		<option  value="Yes">Yes</option>				
+		
+	</select> <br />
+			
+			
 	<label>Stay Included</label>
 	<select name="stay" />
 		<option value="No">No</option>

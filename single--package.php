@@ -96,6 +96,8 @@
 							'SITESEEING' 	=> 	$row['siteseeing'],
 							'STAY' 			=> 	$row['stay'],
 							'ADDON' 		=> 	$row['addon'],
+							'CAMPS' 		=> 	$row['camps'],
+							'HOUSEBOATS' 	=> 	$row['houseboats'],
 							'ITINERARY' 	=> 	$row['itinerary'],
 							'INCLUSIONS'	=> 	$row['inclusions'],
 							'EXCLUSIONS' 	=> 	$row['exclusions'],
@@ -158,48 +160,65 @@
             <div class="inclusions--package">
                 <div class="inclusions border">
                    <?php 
+                       
 				   //Showing Flight thumbnails
 				   		if($package[0]['FLIGHTS']=='Yes') 
-				   			echo '<img src="'.$baseurl.'assets/icons/transport/air.svg" alt="Air Transfer" label="Air Transfer">';
+				   			echo '<div> <img src="'.$baseurl.'assets/icons/transport/air.svg" alt="Air Transfer" label="Air Transfer"> <span>Tickets</span></div>';
 				   		else
-							echo '<img src="'.$baseurl.'assets/icons/transport/air.svg" alt="Flights not included" label="Flights not included" class="package--ex">';
+							echo '<div class="package--ex"><img src="'.$baseurl.'assets/icons/transport/air.svg" alt="Flights not included" label="Flights not included" > <span>Tickets</span></div>';
 							
 						
 						//Showing Meals thumbnails
 				   		if($package[0]['MEALS']=='Yes') 
-				   			echo '<img src="'.$baseurl.'assets/icons/transport/meals.svg" alt="Meals">';
+				   			
+							echo '<div> <img src="'.$baseurl.'assets/icons/transport/meals.svg" alt="Meals" label="Meals"> <span>Meals</span></div>';
 				   		else
-							echo '<img src="'.$baseurl.'assets/icons/transport/meals.svg" alt="Meals not included" label="Meals not included" class="package--ex">';
+							echo '<div class="package--ex"><img src="'.$baseurl.'assets/icons/transport/meals.svg" alt="Meals not included" label="Meals not included" ><span>Meals</span></div>';
 						
 						
 						//Showing Cab thumbnails
 				   		if($package[0]['CAB']=='Yes') 
-				   			echo '<img src="'.$baseurl.'assets/icons/transport/transfer.svg" alt="Transfers">';
+				   			echo '<div><img src="'.$baseurl.'assets/icons/transport/transfer.svg" alt="Cab"><span>Cab</span></div>';
 				   		else
-							echo '<img src="'.$baseurl.'assets/icons/transport/transfer.svg" alt="Cab not included" label="Cab not included" class="package--ex">';
+							echo '<div class="package--ex"><img src="'.$baseurl.'assets/icons/transport/transfer.svg" alt="Cab not included" label="Cab not included"><span>Cab</span></div>';
 						
 						
 						//Showing Stay thumbnails
 				   		if($package[0]['STAY']=='Yes') 
-				   			echo '<img src="'.$baseurl.'assets/icons/transport/stars.svg" alt="hotel stars">';
+				   			echo '<div><img src="'.$baseurl.'assets/icons/transport/stars.svg" alt="hotel stars"><span>Stay</span></div>';
 				   		else
-							echo '<img src="'.$baseurl.'assets/icons/transport/stars.svg" alt="Stay not included" label="Stay not included" class="package--ex">';
+							echo '<div class="package--ex"><img src="'.$baseurl.'assets/icons/transport/stars.svg" alt="Stay not included" label="Stay not included" ><span>Stay</span></div>';
 						
 						//Showing SITESEEING thumbnails
 				   		if($package[0]['SITESEEING']=='Yes') 
-				   			echo '<img src="'.$baseurl.'assets/icons/transport/view.svg" alt="Site seeing">';
+				   			echo '<div ><img src="'.$baseurl.'assets/icons/transport/view.svg" alt="Site seeing"><span>Siteseeing</span></div>';
 				   		else
-							echo '<img src="'.$baseurl.'assets/icons/transport/view.svg" alt="Stay not included" label="Stay not included" class="package--ex">';
+							echo '<div class="package--ex"><img src="'.$baseurl.'assets/icons/transport/view.svg" alt="Stay not included" label="Siteseeing not included" ><span>Siteseeing</span></div>';
+						
+						//Showing Campimg thumbnails
+				   		if($package[0]['CAMPS']=='Yes') 
+				   			echo '<div><img src="'.$baseurl.'assets/icons/transport/tent.svg" alt="Camping" ><span>Camping</span></div>';
+				   		else
+							echo '<div class="package--ex"><img src="'.$baseurl.'assets/icons/transport/tent.svg" alt="Camping" label="Campingn" ><span>Camping</span></div>';
+							
+					
+					//Showing houseboat thumbnails
+				   		if($package[0]['HOUSEBOATS']=='Yes') 
+				   			echo '<div><img src="'.$baseurl.'assets/icons/transport/tent.svg" alt="Houseboat" ><span>Houseboat</span></div>';
+				   		else
+							echo '<div class="package--ex"><img src="'.$baseurl.'assets/icons/transport/tent.svg" alt="Houseboat" label="Houseboat" ><span>Houseboat</span></div>';
+						
 						
 						
 						//Showing Addon thumbnails
 				   		if($package[0]['ADDON']=='Yes') 
-				   			echo '<img src="'.$baseurl.'assets/icons/transport/more.svg" alt="Complimentary from destination" >';
+				   			echo '<div><img src="'.$baseurl.'assets/icons/transport/more.svg" alt="Complimentary from destination" ><span>Compliment</span></div>';
 				   		else
-							echo '<img src="'.$baseurl.'assets/icons/transport/more.svg" alt="Complimentary from destination" label="Complimentary from destination" class="package--ex">';
+							echo '<div class="package--ex"><img src="'.$baseurl.'assets/icons/transport/more.svg" alt="Complimentary from destination" label="Compliment" ><span>Compliment</span></div>';
 						
 				 
 				    ?>
+					 
                     
                 </div>
                 <div class="stars border">

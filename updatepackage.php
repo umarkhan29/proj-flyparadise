@@ -42,6 +42,8 @@ require_once('home/components/employeeauthorize.fly');
 							'MEALS' 		=> 	$row['meals'],
 							'SITESEEING' 	=> 	$row['siteseeing'],
 							'STAY' 			=> 	$row['stay'],
+							'CAMPS' 		=> 	$row['camps'],
+							'HOUSEBOATS' 	=> 	$row['houseboats'],
 							'ADDON' 		=> 	$row['addon'],
 							'ITINERARY' 	=> 	$row['itinerary'],
 							'INCLUSIONS'	=> 	$row['inclusions'],
@@ -116,6 +118,20 @@ require_once('home/components/employeeauthorize.fly');
 			<select name="cab" />
 				<option  value="No">No</option>
 				<option  value="Yes" <?php if($packages[0]['CAB']=="Yes") echo "selected";?>>Yes</option>				
+				
+			</select> <br />
+			
+			<label>Camps</label>
+			<select name="camps" />
+				<option  value="No">No</option>
+				<option  value="Yes" <?php if($packages[0]['CAMPS']=="Yes") echo "selected";?>>Yes</option>				
+				
+			</select> <br />
+			
+			<label>Houseboats</label>
+			<select name="houseboats" />
+				<option  value="No">No</option>
+				<option  value="Yes" <?php if($packages[0]['HOUSEBOATS']=="Yes") echo "selected";?>>Yes</option>				
 				
 			</select> <br />
 			
