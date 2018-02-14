@@ -17,13 +17,13 @@
 	 $duration=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['duration']))));
 	 $travellers=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['traveller']))));
 	 
-	 if($_GET['price']>0){
-		 $price=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['price']))));
-		 $price=explode('₹',$price);
-		 $price=$price[1];
-		 $price=explode(',',$price);
-		 $price=$price[0].$price[1];
-	}
+	 //getting price
+	 $setprice=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['price']))));
+	 $setprice=explode('₹',$setprice);
+	 $setprice=$setprice[1];
+	 $setprice=explode(',',$setprice);
+	 $setprice=$setprice[0].$setprice[1];
+
 	 
 	 $query = "SELECT * FROM `packages` WHERE `destination` like '%".$destination."%' ";
 	 
@@ -82,14 +82,6 @@
 	//query formulation for duration
 	$query.=" AND `duration` like  '%$duration nights' ";
 	
-	
-	
-	
-	
-	//query formulation for pricing
-	 if($_GET['price']>0){
-		 $query.= "AND `price` < '$price' ";
-	 }
 	
 	 $query.="ORDER BY `id` DESC";
 	//
@@ -165,11 +157,21 @@
 					$flag=0;
 			  		$hoteltotalprice=0; 
 					$meals=0;
-					for($z=0;$z<count($stays)-1;$z++){
+					for($z=0;$z<count($stays)-2;$z++){
+					//getting destination list (incase of multiple destinations of a package "seperated bty ,")
+					$locationlists=$packages[$i]['DESTINATION'];
+					$locationlist=explode(',',$locationlists);
+					
+					$hlocations="( `location` like '%".$locationlist[0]."%'";
+					for($l=1;$l<count($locationlist);$l++){
+						$hlocations.=" OR `location` like '%";
+						$hlocations.=$locationlist[$l]."%'";
+					}
+					
 					//formulating query for getting seperate hotelprice on basis of number of travellers and itenariy stay
-					 $query = "SELECT * FROM `hotels` WHERE `stars` = ".$packages[$i]['HOTELSTAR']." AND `location` = '".$packages[$i]['DESTINATION']."' AND `place` = '".$stays[$z]."' ORDER BY `".$date3."` ASC LIMIT 1";
+					 $query = "SELECT * FROM `hotels` WHERE `stars` = ".$packages[$i]['HOTELSTAR']." AND ".$hlocations.") AND `place` = '".$stays[$z]."' ORDER BY `".$date3."` ASC LIMIT 1";
 						
-						$hotelprice="";
+						if(!empty($hotelprice)) unset($hotelprice);
 						if($result = mysqli_query($dbconn,$query)){
 							$count=0;
 							while($row = mysqli_fetch_assoc($result)){
@@ -218,6 +220,13 @@
 						$price = "Not Avaliable";
 					
 					?>
+					<?php 
+						//setting max packagesto 7
+						
+						if(($price<=$setprice || $setprice==0 ) AND ($price!="Not Avaliable") AND ($i<7)) { 
+					
+						
+						?>
 						<div class="package--tailored">
 							<img src="<?php echo $packages[$i]['PATH'] ?>" alt="">
 							<div class="destination--info">
@@ -231,9 +240,10 @@
 									<img src="./assets/icons/transport/view.svg" alt="Site seeing">
 									<img src="./assets/icons/transport/more.svg" alt="Complimentary from destination">
 								</div>
-								<a href="single--package.php?id=<?php echo $packages[$i]['ID']; ?>&travellers=<?php echo $travellers; ?>"><button class="view--package">View this Package</button></a>
+								<a href="packages/<?php echo $packages[$i]['ID']; ?>/<?php echo $travellers; ?>" target="_blank"><button class="view--package">View this Package</button></a>
 							</div>
 						</div>
+					<?php } ?>
 	<?php }//end packages (for)
 		} //ending if
 	

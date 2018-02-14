@@ -43,11 +43,21 @@
 				$hoteltotalprice=0;
 				$meals=0; 
 				
-				for($i=0;$i<count($stays);$i++){
+				for($i=0;$i<count($stays)-1;$i++){
+					//getting destination list (incase of multiple destinations of a package "seperated bty ,")
+					$locationlists=$location;
+					$locationlist=explode(',',$locationlists);
 					
-						 $query = "SELECT * FROM `hotels` WHERE `stars` = ".$stars." AND `location` = '".$location."' AND `place` = '".$stays[$i]."' ORDER BY `".$today3."` ASC LIMIT 1";
-						
-						$hotelprice="";
+					$hlocations="( `location` like '%".$locationlist[0]."%'";
+					for($l=1;$l<count($locationlist);$l++){
+						$hlocations.=" OR `location` like '%";
+						$hlocations.=$locationlist[$l]."%'";
+					}
+					
+					//formulating query for getting seperate hotelprice on basis of number of travellers and itenariy stay
+					 $query = "SELECT * FROM `hotels` WHERE `stars` = ".$stars." AND ".$hlocations.") AND `place` = '".$stays[$i]."' ORDER BY `".$today3."` ASC LIMIT 1";
+					 
+						if(!empty($hotelprice)) unset($hotelprice);
 						if($result = mysqli_query($dbconn,$query)){
 							$count=0;
 							while($row = mysqli_fetch_assoc($result)){

@@ -77,7 +77,11 @@
 <?php
 	require_once('home/common/footer.fly');
 ?>
-
+ <!-- PopUp wrapper -->
+        <div class="pop-up remove">
+            <!-- Calling popup from location partial -->
+            <?php include_once('location.php'); ?>
+       </div>
 </body>
 
 </html>

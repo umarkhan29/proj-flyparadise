@@ -12,6 +12,7 @@
 		  $history=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['history']))));
 		  $culture=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['culture']))));
 		  $food=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['food']))));
+		  $tags=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['tags']))));
 		  
 		  //generating links toa destination
 		  $links="";
@@ -51,18 +52,13 @@
 			  }
 		  
 			//generating query
-		  $query="INSERT INTO `destinations` (`destination`, `desc`, `heading2`, `desc2`, `img1`,`links`,`worthwatching`,`getaways`,`path2`,`history`,`culture`,`food`,`alias`) VALUES ( '$destination', '$description', '$heading', '$description2',  '$path', '$links','$worthwatchings','$getaways','$path2','$history','$culture','$food','$alias');";
+		  $query="INSERT INTO `destinations` (`destination`, `desc`, `heading2`, `desc2`, `img1`,`links`,`worthwatching`,`getaways`,`path2`,`history`,`culture`,`food`,`alias`,`tags`) VALUES ( '$destination', '$description', '$heading', '$description2',  '$path', '$links','$worthwatchings','$getaways','$path2','$history','$culture','$food','$alias','$tags');";
 							
 		if(mysqli_query($dbconn,$query)){ 
 			
 			move_uploaded_file($_FILES['fileupld']['tmp_name'],$path);
 			move_uploaded_file($_FILES['fileupld2']['tmp_name'],$path2);
-		
-		?>
-			<div  style='padding:7px; border: 0px solid; height:90px; background:#F90; opacity: 0.5; width:100%; margin:10px; border-radius:5px; color:#ffffff; font-size:18px;'><p>Data stored sucessfully ! </p>
-			 </div>
-			 <?php
-				
+			header('location:home/components/resize550-340.php?img='.$path2);
 			
 		}else{
 			echo mysqli_error($dbconn);

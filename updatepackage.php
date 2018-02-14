@@ -9,9 +9,7 @@ require_once('home/components/employeeauthorize.fly');
 <body>
 
 <?php 
-
-	  
-	  
+  
 	if(isset($_POST['updatepackage']))
 		require_once('home/components/updatepackage.fly'); 
 

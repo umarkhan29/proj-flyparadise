@@ -139,8 +139,7 @@ $destination=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_PO
 			 <div class="temprature">
 			 <?php
 			 //fetching temprature
-			 	$des=$destinations[0]['DESTINATION'];
-				$jsonurl = "http://api.openweathermap.org/data/2.5/weather?q=".$des."&appid=536a874ed7c30387414c700ed1990ce5";
+				$jsonurl = "http://api.openweathermap.org/data/2.5/weather?q=".$destinations[0]['ALIAS']."&appid=536a874ed7c30387414c700ed1990ce5";
 				$json = file_get_contents($jsonurl);
 				$celcius="";
 				if($json!=""){
@@ -150,7 +149,7 @@ $destination=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_PO
 				
 			 ?>
                 <img src="./assets/icons/transport/temperature.svg" alt="">
-                <span><?php  echo substr($celcius, 0, 4);  ?>  &deg;</span>
+                <span><?php  echo substr($celcius, 0, 5);  ?>  &deg;</span>
 				
 			<?php } //ending if-temprature ?>
             </div>
@@ -168,7 +167,7 @@ $destination=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_PO
             <h3><?php echo $destinations[0]['HEADING2']; ?></h3>
             <p><?php echo $destinations[0]['DESC2']; ?></p>
             <div class="destination-information">
-                <img src="./assets/destinations/particular-dest/pic.png<?php //echo $destinations[0]['PATH2']; ?>" alt="">
+                <img src="<?php echo $destinations[0]['PATH2']; ?>" alt="">
                 <div class="accordion">
                     <div class="border">
                         <h4>History of <span><?php echo $destinations[0]['DESTINATION']; ?></span> </h4>
@@ -212,7 +211,7 @@ $destination=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_PO
                 <div >
                     <span class="hsidebar">Categories</span>
                     <label class="control control--checkbox" onClick="showpackages('cpackages');">Honeymoon
-                        <input type="checkbox" checked="checked" name="Honeymoon" value="Honeymoon"/>
+                        <input type="checkbox"  name="Honeymoon" value="Honeymoon"/>
                         <div class="control__indicator"></div>
                     </label>
                     <label class="control control--checkbox" onClick="showpackages('cpackages');">Solo trip
@@ -343,9 +342,9 @@ $destination=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_PO
 					 
 	//fetching initial packages (on page load)
 	 $destination= $destinations[0]['DESTINATION'];
-	 $query = "SELECT * FROM `packages` WHERE `destination` like '%".$destination."%'  ORDER BY `id` DESC ";
+	 $query = "SELECT * FROM `packages` WHERE `destination` like '%".$destination."%'  ORDER BY `id` DESC LIMIT 7";
 			if($result = mysqli_query($dbconn,$query)){
-				$packages;
+				
 				$count=0;
 				while($row = mysqli_fetch_assoc($result)){
 					$packages[] = array(
@@ -389,11 +388,22 @@ $destination=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_PO
 					$flag=0;
 			  		$hoteltotalprice=0;
 					$meals=0; 
-					for($z=0;$z<count($stays)-1;$z++){
+					for($z=0;$z<count($stays)-2;$z++){
+					
+					//getting destination list (incase of multiple destinations of a package "seperated bty ,")
+					$locationlists=$packages[$i]['DESTINATION'];
+					$locationlist=explode(',',$locationlists);
+					
+					$hlocations="( `location` like '%".$locationlist[0]."%'";
+					for($l=1;$l<count($locationlist)+1;$l++){
+						$hlocations.=" OR `location` like '%";
+						$hlocations.=$locationlist[$l]."%'";
+					}
+					
 					//formulating query for getting seperate hotelprice on basis of number of travellers and itenariy stay
-					 $query = "SELECT * FROM `hotels` WHERE `stars` = ".$packages[$i]['HOTELSTAR']." AND `location` = '".$packages[$i]['DESTINATION']."' AND `place` = '".$stays[$z]."' ORDER BY `".$date3."` ASC LIMIT 1";
+					 $query = "SELECT * FROM `hotels` WHERE `stars` = ".$packages[$i]['HOTELSTAR']." AND ".$hlocations.") AND `place` = '".$stays[$z]."' ORDER BY `".$date3."` ASC LIMIT 1";
 						
-						$hotelprice="";
+						if(!empty($hotelprice)) unset($hotelprice);
 						if($result = mysqli_query($dbconn,$query)){
 							$count=0;
 							while($row = mysqli_fetch_assoc($result)){
@@ -455,7 +465,7 @@ $destination=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_PO
 									<img src="./assets/icons/transport/view.svg" alt="Site seeing">
 									<img src="./assets/icons/transport/more.svg" alt="Complimentary from destination">
 								</div>
-								<a href="single--package.php?id=<?php echo $packages[$i]['ID']; ?>&travellers=<?php echo $travellers; ?>"><button class="view--package">View this Package</button></a>
+								<a href="packages/<?php echo $packages[$i]['ID']; ?>/<?php echo $travellers; ?>" target="_blank"><button class="view--package">View this Package</button></a>
 							</div>
 						</div>
 					<?php } //end outer for ?>  

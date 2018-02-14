@@ -13,7 +13,17 @@
 <?php require_once('home/common/employeeheader.fly');//adding employee header  ?>
 <p>
 <?php
-		include_once('home/components/adddest.fly');
+		//throwing success message
+	  if(isset($_SESSION['resizedone'])){
+		  if($_SESSION['resizedone']=="success"){
+		  unset($_SESSION['resizedone']);
+		  echo	"<div  style='padding:7px; border: 0px solid; height:90px; background:#F90; opacity: 0.5; width:100%; margin:10px; border-radius:5px; color:#ffffff; font-size:18px;'><p>Data stored sucessfully ! </p>
+				 </div>";
+		  }
+	  }
+	  
+	//adding add destination module	  
+	include_once('home/components/adddest.fly');
 ?>
 
 <form action="" method="POST"  enctype="multipart/form-data">
@@ -41,6 +51,12 @@
 			<input type="text" name="history" placeholder="History"/><br />
 			<input type="text" name="culture" placeholder="Culture"/><br />
 			<input type="text" name="food" placeholder="Food"/><br />
+			<select name="tags">
+				<option value="Popular">Popular</option>
+				<option value="Hot"  >Hot</option>
+				<option value="Best Selling">Best Selling</option>
+			</select>
+		<br />
 			<input type="submit" name="btn" value="Add Destination"/><br />
 </form>
 
