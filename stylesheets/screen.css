@@ -2855,6 +2855,20 @@ button.hero--submit {
   height: 20px;
 }
 
+/* line 202, ../sass/components/_blog.scss */
+.nf {
+  position: relative;
+}
+/* line 204, ../sass/components/_blog.scss */
+.nf span {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 10%;
+  font-size: 32px;
+  text-transform: lowercase;
+}
+
 /* line 1, ../sass/components/_blog--landing.scss */
 header.blog--landing {
   background: url("../assets/blogs/particular-blog/test.png") no-repeat;

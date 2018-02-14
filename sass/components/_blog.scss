@@ -197,3 +197,16 @@
         height: 20px;
     }
 }
+
+//NOT -- FOUND
+.nf {
+    position: relative;
+    span {
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        top: 10%;
+        font-size: 32px;
+        text-transform: lowercase;
+    }
+}
