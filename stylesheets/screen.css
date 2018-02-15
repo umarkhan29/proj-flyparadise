@@ -1433,16 +1433,16 @@ header.alternate li {
 }
 /* line 239, ../sass/components/_header.scss */
 .mobile--head #header-mobile #brg-menu li:first-child {
-  top: 35%;
+  top: 24%;
 }
 /* line 242, ../sass/components/_header.scss */
 .mobile--head #header-mobile #brg-menu li:nth-child(2) {
-  top: 50%;
+  top: 40%;
   width: 80%;
 }
 /* line 246, ../sass/components/_header.scss */
 .mobile--head #header-mobile #brg-menu li:nth-child(3) {
-  top: 65%;
+  top: 57%;
   width: 60%;
 }
 /* line 251, ../sass/components/_header.scss */
@@ -1484,11 +1484,16 @@ header.alternate li {
   transform: rotate(-45deg);
 }
 /* line 277, ../sass/components/_header.scss */
-.mobile--head #header-mobile .brand-logo {
+.mobile--head #header-mobile .login_m {
+  left: 93% !important;
+}
+/* line 280, ../sass/components/_header.scss */
+.mobile--head #header-mobile .brand-logo,
+.mobile--head #header-mobile .login_m {
   display: inline-block;
   position: absolute;
   left: 50%;
-  top: 0;
+  top: 10px;
   text-transform: uppercase;
   letter-spacing: 2px;
   font-weight: 600;
@@ -1498,17 +1503,17 @@ header.alternate li {
   -o-transform: translateX(-50%);
   transform: translateX(-50%);
 }
-/* line 286, ../sass/components/_header.scss */
-.mobile--head #header-mobile .brand-logo svg {
-  height: 21.48px;
-  width: auto;
-  vertical-align: middle;
+/* line 290, ../sass/components/_header.scss */
+.mobile--head #header-mobile .brand-logo img,
+.mobile--head #header-mobile .login_m img {
+  width: 45px;
+  height: auto;
 }
-/* line 293, ../sass/components/_header.scss */
+/* line 296, ../sass/components/_header.scss */
 *[class^='menu--toggled'] .mobile--head #header-mobile {
   background-color: transparent;
 }
-/* line 297, ../sass/components/_header.scss */
+/* line 300, ../sass/components/_header.scss */
 .mobile--head nav[role="navigation"],
 .mobile--head #nav {
   position: absolute;
@@ -1525,7 +1530,7 @@ header.alternate li {
   overflow: hidden;
   font-weight: 600;
 }
-/* line 308, ../sass/components/_header.scss */
+/* line 311, ../sass/components/_header.scss */
 .mobile--head nav[role="navigation"] li,
 .mobile--head #nav li {
   height: 30px;
@@ -1537,29 +1542,29 @@ header.alternate li {
   -o-transition: all 0.3s ease-in;
   transition: all 0.3s ease-in;
 }
-/* line 313, ../sass/components/_header.scss */
+/* line 316, ../sass/components/_header.scss */
 .mobile--head nav[role="navigation"] li + li,
 .mobile--head #nav li + li {
   margin-left: -40px;
   width: 90%;
 }
-/* line 316, ../sass/components/_header.scss */
+/* line 319, ../sass/components/_header.scss */
 .mobile--head nav[role="navigation"] li + li + li,
 .mobile--head #nav li + li + li {
   margin-left: -80px;
 }
-/* line 318, ../sass/components/_header.scss */
+/* line 321, ../sass/components/_header.scss */
 .mobile--head nav[role="navigation"] li + li + li + li,
 .mobile--head #nav li + li + li + li {
   margin-left: -120px;
 }
-/* line 323, ../sass/components/_header.scss */
+/* line 326, ../sass/components/_header.scss */
 .mobile--head nav[role="navigation"] li:hover, .mobile--head nav[role="navigation"] li:focus,
 .mobile--head #nav li:hover,
 .mobile--head #nav li:focus {
   background-color: #d2d2d2;
 }
-/* line 329, ../sass/components/_header.scss */
+/* line 332, ../sass/components/_header.scss */
 *[class^='menu--toggled'] .mobile--head nav[role="navigation"] li, *[class^='menu--toggled']
 .mobile--head #nav li {
   width: 200px;
@@ -1572,7 +1577,7 @@ header.alternate li {
   font-weight: 600;
 }
 
-/* line 342, ../sass/components/_header.scss */
+/* line 345, ../sass/components/_header.scss */
 #main {
   background-color: #ffffff;
   position: relative;
@@ -1580,13 +1585,14 @@ header.alternate li {
   width: 100%;
   height: 100%;
   visibility: visible;
+  margin-top: 3px;
   -webkit-transition: all 0.4s ease-in;
   -moz-transition: all 0.4s ease-in;
   -khtml-transition: all 0.4s ease-in;
   -o-transition: all 0.4s ease-in;
   transition: all 0.4s ease-in;
 }
-/* line 350, ../sass/components/_header.scss */
+/* line 354, ../sass/components/_header.scss */
 *[class^='menu--toggled'] #main {
   cursor: pointer;
   user-select: none;
@@ -1600,7 +1606,7 @@ header.alternate li {
   -o-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 355, ../sass/components/_header.scss */
+/* line 359, ../sass/components/_header.scss */
 .menu--toggled-scale #main {
   -webkit-transform: scale(0.9);
   -moz-transform: scale(0.9);
@@ -1615,7 +1621,7 @@ header.alternate li {
   margin-left: 260px;
   overflow: hidden;
 }
-/* line 364, ../sass/components/_header.scss */
+/* line 368, ../sass/components/_header.scss */
 .menu--toggled-slide #main {
   margin-left: 320px;
   -webkit-opacity: 0.4;
@@ -1624,7 +1630,7 @@ header.alternate li {
   -o-opacity: 0.4;
   opacity: 0.4;
 }
-/* line 368, ../sass/components/_header.scss */
+/* line 372, ../sass/components/_header.scss */
 .menu--toggled-hide #main {
   -webkit-opacity: 0;
   -moz-opacity: 0;

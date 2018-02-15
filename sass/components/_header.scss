@@ -237,14 +237,14 @@ $to) {
                 @include transition(all .3s ease-in);
                 @include border-radius(10px);
                 &:first-child {
-                    top: 35%;
+                    top: 24%;
                 }
                 &:nth-child(2) {
-                    top: 50%;
+                    top: 40%;
                     width: 80%;
                 }
                 &:nth-child(3) {
-                    top: 65%;
+                    top: 57%;
                     width: 60%;
                 }
             }
@@ -274,19 +274,22 @@ $to) {
                 }
             }
         }
-        .brand-logo {
+        .login_m {
+            left: 93% !important;
+        }
+        .brand-logo,
+        .login_m {
             display: inline-block;
             position: absolute;
             left: 50%;
-            top: 0;
+            top: 10px;
             text-transform: uppercase;
             letter-spacing: 2px;
             font-weight: 600;
             @include transform(translateX(-50%));
-            svg {
-                height: 21.48px;
-                width: auto;
-                vertical-align: middle;
+            img {
+                width: 45px;
+                height: auto;
             }
         }
         // Active State
@@ -346,6 +349,7 @@ $to) {
     width: 100%;
     height: 100%;
     visibility: visible;
+    margin-top: 3px;
     @include transition(all 0.4s ease-in);
     *[class^='menu--toggled'] & {
         cursor: pointer;
