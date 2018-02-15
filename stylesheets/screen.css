@@ -1433,16 +1433,16 @@ header.alternate li {
 }
 /* line 239, ../sass/components/_header.scss */
 .mobile--head #header-mobile #brg-menu li:first-child {
-  top: 35%;
+  top: 24%;
 }
 /* line 242, ../sass/components/_header.scss */
 .mobile--head #header-mobile #brg-menu li:nth-child(2) {
-  top: 50%;
+  top: 40%;
   width: 80%;
 }
 /* line 246, ../sass/components/_header.scss */
 .mobile--head #header-mobile #brg-menu li:nth-child(3) {
-  top: 65%;
+  top: 57%;
   width: 60%;
 }
 /* line 251, ../sass/components/_header.scss */
@@ -1484,11 +1484,16 @@ header.alternate li {
   transform: rotate(-45deg);
 }
 /* line 277, ../sass/components/_header.scss */
-.mobile--head #header-mobile .brand-logo {
+.mobile--head #header-mobile .login_m {
+  left: 93% !important;
+}
+/* line 280, ../sass/components/_header.scss */
+.mobile--head #header-mobile .brand-logo,
+.mobile--head #header-mobile .login_m {
   display: inline-block;
   position: absolute;
   left: 50%;
-  top: 0;
+  top: 10px;
   text-transform: uppercase;
   letter-spacing: 2px;
   font-weight: 600;
@@ -1498,17 +1503,17 @@ header.alternate li {
   -o-transform: translateX(-50%);
   transform: translateX(-50%);
 }
-/* line 286, ../sass/components/_header.scss */
-.mobile--head #header-mobile .brand-logo svg {
-  height: 21.48px;
-  width: auto;
-  vertical-align: middle;
+/* line 290, ../sass/components/_header.scss */
+.mobile--head #header-mobile .brand-logo img,
+.mobile--head #header-mobile .login_m img {
+  width: 45px;
+  height: auto;
 }
-/* line 293, ../sass/components/_header.scss */
+/* line 296, ../sass/components/_header.scss */
 *[class^='menu--toggled'] .mobile--head #header-mobile {
   background-color: transparent;
 }
-/* line 297, ../sass/components/_header.scss */
+/* line 300, ../sass/components/_header.scss */
 .mobile--head nav[role="navigation"],
 .mobile--head #nav {
   position: absolute;
@@ -1525,7 +1530,7 @@ header.alternate li {
   overflow: hidden;
   font-weight: 600;
 }
-/* line 308, ../sass/components/_header.scss */
+/* line 311, ../sass/components/_header.scss */
 .mobile--head nav[role="navigation"] li,
 .mobile--head #nav li {
   height: 30px;
@@ -1537,29 +1542,29 @@ header.alternate li {
   -o-transition: all 0.3s ease-in;
   transition: all 0.3s ease-in;
 }
-/* line 313, ../sass/components/_header.scss */
+/* line 316, ../sass/components/_header.scss */
 .mobile--head nav[role="navigation"] li + li,
 .mobile--head #nav li + li {
   margin-left: -40px;
   width: 90%;
 }
-/* line 316, ../sass/components/_header.scss */
+/* line 319, ../sass/components/_header.scss */
 .mobile--head nav[role="navigation"] li + li + li,
 .mobile--head #nav li + li + li {
   margin-left: -80px;
 }
-/* line 318, ../sass/components/_header.scss */
+/* line 321, ../sass/components/_header.scss */
 .mobile--head nav[role="navigation"] li + li + li + li,
 .mobile--head #nav li + li + li + li {
   margin-left: -120px;
 }
-/* line 323, ../sass/components/_header.scss */
+/* line 326, ../sass/components/_header.scss */
 .mobile--head nav[role="navigation"] li:hover, .mobile--head nav[role="navigation"] li:focus,
 .mobile--head #nav li:hover,
 .mobile--head #nav li:focus {
   background-color: #d2d2d2;
 }
-/* line 329, ../sass/components/_header.scss */
+/* line 332, ../sass/components/_header.scss */
 *[class^='menu--toggled'] .mobile--head nav[role="navigation"] li, *[class^='menu--toggled']
 .mobile--head #nav li {
   width: 200px;
@@ -1572,7 +1577,7 @@ header.alternate li {
   font-weight: 600;
 }
 
-/* line 342, ../sass/components/_header.scss */
+/* line 345, ../sass/components/_header.scss */
 #main {
   background-color: #ffffff;
   position: relative;
@@ -1580,13 +1585,14 @@ header.alternate li {
   width: 100%;
   height: 100%;
   visibility: visible;
+  margin-top: 3px;
   -webkit-transition: all 0.4s ease-in;
   -moz-transition: all 0.4s ease-in;
   -khtml-transition: all 0.4s ease-in;
   -o-transition: all 0.4s ease-in;
   transition: all 0.4s ease-in;
 }
-/* line 350, ../sass/components/_header.scss */
+/* line 354, ../sass/components/_header.scss */
 *[class^='menu--toggled'] #main {
   cursor: pointer;
   user-select: none;
@@ -1600,7 +1606,7 @@ header.alternate li {
   -o-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 355, ../sass/components/_header.scss */
+/* line 359, ../sass/components/_header.scss */
 .menu--toggled-scale #main {
   -webkit-transform: scale(0.9);
   -moz-transform: scale(0.9);
@@ -1615,7 +1621,7 @@ header.alternate li {
   margin-left: 260px;
   overflow: hidden;
 }
-/* line 364, ../sass/components/_header.scss */
+/* line 368, ../sass/components/_header.scss */
 .menu--toggled-slide #main {
   margin-left: 320px;
   -webkit-opacity: 0.4;
@@ -1624,7 +1630,7 @@ header.alternate li {
   -o-opacity: 0.4;
   opacity: 0.4;
 }
-/* line 368, ../sass/components/_header.scss */
+/* line 372, ../sass/components/_header.scss */
 .menu--toggled-hide #main {
   -webkit-opacity: 0;
   -moz-opacity: 0;
@@ -2855,6 +2861,20 @@ button.hero--submit {
   height: 20px;
 }
 
+/* line 202, ../sass/components/_blog.scss */
+.nf {
+  position: relative;
+}
+/* line 204, ../sass/components/_blog.scss */
+.nf span {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 10%;
+  font-size: 32px;
+  text-transform: lowercase;
+}
+
 /* line 1, ../sass/components/_blog--landing.scss */
 header.blog--landing {
   background: url("../assets/blogs/particular-blog/test.png") no-repeat;
@@ -3061,40 +3081,76 @@ input.input {
   width: 40%;
   max-width: 100%;
 }
-/* line 16, ../sass/components/_about.scss */
+@media screen and (max-width: 768px) {
+  /* line 12, ../sass/components/_about.scss */
+  .about--cover img.cover {
+    width: 100%;
+  }
+}
+/* line 19, ../sass/components/_about.scss */
 .about--cover .about-text {
   position: absolute;
   right: 5em;
   top: 20%;
   width: 30%;
 }
-/* line 21, ../sass/components/_about.scss */
+@media screen and (max-width: 768px) {
+  /* line 19, ../sass/components/_about.scss */
+  .about--cover .about-text {
+    width: 100%;
+    padding: 1rem;
+    position: relative;
+    right: 0;
+    padding-top: 0;
+  }
+}
+/* line 31, ../sass/components/_about.scss */
 .about--cover .about-text h2 {
   font-size: 40px;
   color: #ffffff;
   margin: 0;
 }
-/* line 26, ../sass/components/_about.scss */
+/* line 36, ../sass/components/_about.scss */
 .about--cover .about-text span {
   font-size: 14px;
   color: #545454;
 }
 
-/* line 33, ../sass/components/_about.scss */
+/* line 43, ../sass/components/_about.scss */
 .how-we-work {
   margin-top: 2.5rem;
 }
-/* line 36, ../sass/components/_about.scss */
+@media screen and (max-width: 768px) {
+  /* line 43, ../sass/components/_about.scss */
+  .how-we-work {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+/* line 50, ../sass/components/_about.scss */
 .how-we-work h3 {
   text-align: center;
   font-size: 34px;
   margin-bottom: 1rem;
 }
-/* line 41, ../sass/components/_about.scss */
+@media screen and (max-width: 768px) {
+  /* line 50, ../sass/components/_about.scss */
+  .how-we-work h3 {
+    text-align: left;
+    font-size: 24px;
+  }
+}
+/* line 59, ../sass/components/_about.scss */
 .how-we-work > p {
   text-align: center;
 }
-/* line 44, ../sass/components/_about.scss */
+@media screen and (max-width: 768px) {
+  /* line 59, ../sass/components/_about.scss */
+  .how-we-work > p {
+    text-align: left;
+  }
+}
+/* line 65, ../sass/components/_about.scss */
 .how-we-work .working {
   margin-bottom: 1rem;
   margin-top: 2rem;
@@ -3103,34 +3159,40 @@ input.input {
   text-align: center;
   vertical-align: top;
 }
-/* line 51, ../sass/components/_about.scss */
+@media screen and (max-width: 768px) {
+  /* line 65, ../sass/components/_about.scss */
+  .how-we-work .working {
+    width: 100%;
+  }
+}
+/* line 75, ../sass/components/_about.scss */
 .how-we-work .working h2 {
   margin: 0;
   margin-bottom: 1rem;
   margin-top: 0.5rem;
 }
-/* line 56, ../sass/components/_about.scss */
+/* line 80, ../sass/components/_about.scss */
 .how-we-work .working div {
   width: 80%;
   margin: auto;
 }
-/* line 59, ../sass/components/_about.scss */
+/* line 83, ../sass/components/_about.scss */
 .how-we-work .working div p,
 .how-we-work .working div h2 {
   color: #545454;
 }
 
-/* line 67, ../sass/components/_about.scss */
+/* line 91, ../sass/components/_about.scss */
 .full--width-max {
   background: #e65679;
 }
-/* line 69, ../sass/components/_about.scss */
+/* line 93, ../sass/components/_about.scss */
 .full--width-max div {
   max-width: 980px;
   margin: auto;
   padding: 2rem 0;
 }
-/* line 73, ../sass/components/_about.scss */
+/* line 97, ../sass/components/_about.scss */
 .full--width-max div p {
   width: 75%;
   display: inline-block;
@@ -3138,7 +3200,7 @@ input.input {
   font-size: 22px;
   font-weight: 100;
 }
-/* line 80, ../sass/components/_about.scss */
+/* line 104, ../sass/components/_about.scss */
 .full--width-max div a {
   display: inline-block;
   background: #3986b6;
@@ -3147,7 +3209,7 @@ input.input {
   text-transform: uppercase;
   font-weight: 300;
 }
-/* line 87, ../sass/components/_about.scss */
+/* line 111, ../sass/components/_about.scss */
 .full--width-max div a:after {
   background: url("../assets/icons/send.svg");
   display: inline-block;
