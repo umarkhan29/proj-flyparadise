@@ -54,6 +54,9 @@ $(document).ready(function() {
     $('li.quote').click(function() {
         $('.pop-up').toggleClass('remove');
     });
+    $('.customise').click(function() {
+        $('.pop-up').toggleClass('remove');
+    });
     $('.remove-popup').click(function() {
         $('.pop-up').toggleClass('remove');
     });
@@ -133,8 +136,8 @@ $(document).ready(function() {
 });
 $(document).ready(function() {
     $('.accordion h4').click(function() {
-        $('.accordion p').this(function() {
-            $(each).toggleClass('remove');
-        });
+        $(this).parent().toggleClass("icon");
+        $(this).next().toggleClass("remove");
+        return false;
     });
 });

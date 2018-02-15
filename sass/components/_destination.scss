@@ -62,7 +62,7 @@
             display: inline-block;
             padding-left: 10px;
         }
-        &::last {
+        &:last-of-type {
             display: none;
         }
     }
@@ -154,11 +154,31 @@
             color: $text-over-bg;
             border: 1px solid $dark-border;
             padding: 14px;
+            background: $blue-back;
             h4 {
                 margin: 0;
                 font-size: 13px;
                 color: $background-blue;
+                position: relative;
                 cursor: pointer;
+                &:after {
+                    background: url("../assets/icons/plus.svg");
+                    content: '';
+                    width: 13px;
+                    height: 13px;
+                    right: 0;
+                    position: absolute;
+                    top: 0;
+                    background-repeat: no-repeat;
+                    margin-top: 2px;
+                }
+            }
+        }
+        .icon {
+            h4:after {
+                background: url("../assets/icons/minus.svg");
+                background-repeat: no-repeat;
+                margin-top: 8px;
             }
         }
     }
@@ -425,10 +445,17 @@ $clouds: ("https://s.cdpn.io/15514/clouds_2.png" 1000px 80s),
     .price {
         font-size: 22px;
         font-weight: 700;
+        display: inline-block;
         color: #4caf50;
         @media screen and (max-width: 768px) {
             margin-top: 10px;
         }
+    }
+    .perse {
+        display: inline-block;
+        font-size: 13px;
+        font-weight: 700;
+        color: $text-over-bg;
     }
 }
 
@@ -916,7 +943,8 @@ button.view--package {
 }
 
 .package--ex {
-    opacity: 0.4
+    display: none !important;
+    opacity: 0.4;
 }
 
 .flex {
