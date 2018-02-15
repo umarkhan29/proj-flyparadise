@@ -4,7 +4,7 @@
 ?>
 
 <?php
-
+	$maxpackages=0;
 	$profitpercent=10;
 	//fetching filtered packages
 	 $destination=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['destination']))));
@@ -129,6 +129,13 @@
 					'PRICE' 		=> 	$row['price'],
 					'STAYS' 		=> 	$row['stays'],
 					'ITINERARYCABPRICE' => 	$row['itinerarycabprice'],
+					'CAB' 			=> 	$row['localcab'],
+					'MEALS' 		=> 	$row['meals'],
+					'SITESEEING' 	=> 	$row['siteseeing'],
+					'STAY' 			=> 	$row['stay'],
+					'ADDON' 		=> 	$row['addon'],
+					'CAMPS' 		=> 	$row['camps'],
+					'HOUSEBOATS' 	=> 	$row['houseboats'],
 					
 				);
 				 $count=$count+1;
@@ -219,30 +226,122 @@
 					else
 						$price = "Not Avaliable";
 					
-					?>
+					?> 
 					<?php 
-						//setting max packagesto 7
 						
-						if(($price<=$setprice || $setprice==0 ) AND ($price!="Not Avaliable") AND ($i<7)) { 
-					
+						if(($price<=$setprice || $setprice==0 ) AND ($price!="Not Avaliable") AND ($maxpackages<7)) { 
+							$maxpackages=$maxpackages+1;
 						
 						?>
-						<div class="package--tailored">
-							<img src="<?php echo $packages[$i]['PATH'] ?>" alt="">
-							<div class="destination--info">
-								<h3><?php echo $packages[$i]['TITLE']; ?></h3>
-								<span class="duration"><?php echo $packages[$i]['DURATION'] ?></span><br />
-								<span><?php echo $travellers; ?> persons</span>
-								<div class="price"><?php  echo $price; ?>/-</div>
-								<div class="inclusions">
-									<img src="./assets/icons/transport/meals.svg" alt="Meals">
-									<img src="./assets/icons/transport/stars.svg" alt="hotel stars">
-									<img src="./assets/icons/transport/view.svg" alt="Site seeing">
-									<img src="./assets/icons/transport/more.svg" alt="Complimentary from destination">
-								</div>
-								<a href="packages/<?php echo $packages[$i]['ID']; ?>/<?php echo $travellers; ?>" target="_blank"><button class="view--package">View this Package</button></a>
-							</div>
-						</div>
+					<div class="package--tailored">
+                    <img src="<?php echo $packages[$i]['PATH']; ?>" alt="">
+                    <div class="destination--info">
+                        <div>
+                            <h3><?php echo $packages[$i]['TITLE']; ?></h3>
+                            <span class="duration"><?php echo $packages[$i]['DURATION']; ?></span>
+                            <div class="price"><?php echo $price; ?>/-</div>
+                        </div>
+                        <div class="inclusions border">
+                   <?php 
+                       
+				   //Showing Flight thumbnails
+				   		if($packages[$i]['FLIGHTS']=='Yes') 
+				   			echo '<div> <img src="assets/icons/transport/air.svg" alt="Air Transfer" label="Air Transfer"> <span>Tickets</span></div>';
+				   		else
+							echo '<div class="package--ex"><img src="assets/icons/transport/air.svg" alt="Flights not included" label="Flights not included" > <span>Tickets</span></div>';
+							
+						
+						//Showing Meals thumbnails
+				   		if($packages[$i]['MEALS']=='Yes') 
+				   			
+							echo '<div> <img src="assets/icons/transport/meals.svg" alt="Meals" label="Meals"> <span>Meals</span></div>';
+				   		else
+							echo '<div class="package--ex"><img src="assets/icons/transport/meals.svg" alt="Meals not included" label="Meals not included" ><span>Meals</span></div>';
+						
+						
+						//Showing Cab thumbnails
+				   		if($packages[$i]['CAB']=='Yes') 
+				   			echo '<div><img src="assets/icons/transport/transfer.svg" alt="Cab"><span>Cab</span></div>';
+				   		else
+							echo '<div class="package--ex"><img src="assets/icons/transport/transfer.svg" alt="Cab not included" label="Cab not included"><span>Cab</span></div>';
+						
+						
+						//Showing Stay thumbnails
+				   		if($packages[$i]['STAY']=='Yes') 
+				   			echo '<div><img src="assets/icons/transport/stars.svg" alt="hotel stars"><span>Stay</span></div>';
+				   		else
+							echo '<div class="package--ex"><img src="assets/icons/transport/stars.svg" alt="Stay not included" label="Stay not included" ><span>Stay</span></div>';
+						
+						//Showing SITESEEING thumbnails
+				   		if($packages[$i]['SITESEEING']=='Yes') 
+				   			echo '<div ><img src="assets/icons/transport/view.svg" alt="Site seeing"><span>Siteseeing</span></div>';
+				   		else
+							echo '<div class="package--ex"><img src="assets/icons/transport/view.svg" alt="Stay not included" label="Siteseeing not included" ><span>Siteseeing</span></div>';
+						
+						//Showing Campimg thumbnails
+				   		if($packages[$i]['CAMPS']=='Yes') 
+				   			echo '<div><img src="assets/icons/transport/tent.svg" alt="Camping" ><span>Camping</span></div>';
+				   		else
+							echo '<div class="package--ex"><img src="assets/icons/transport/tent.svg" alt="Camping" label="Campingn" ><span>Camping</span></div>';
+							
+					
+					//Showing houseboat thumbnails
+				   		if($packages[$i]['HOUSEBOATS']=='Yes') 
+				   			echo '<div><img src="assets/icons/transport/tent.svg" alt="Houseboat" ><span>Houseboat</span></div>';
+				   		else
+							echo '<div class="package--ex"><img src="assets/icons/transport/tent.svg" alt="Houseboat" label="Houseboat" ><span>Houseboat</span></div>';
+						
+						
+						
+						//Showing Addon thumbnails
+				   		if($packages[$i]['ADDON']=='Yes') 
+				   			echo '<div><img src="assets/icons/transport/more.svg" alt="Complimentary from destination" ><span>Compliment</span></div>';
+				   		else
+							echo '<div class="package--ex"><img src="assets/icons/transport/more.svg" alt="Complimentary from destination" label="Compliment" ><span>Compliment</span></div>';
+						
+				 
+				    ?>
+                        </div>
+                        <ul class="hotel radio">
+                            <li>
+                                <input type="radio" id="f-option" name="selector" <?php if($packages[0]['HOTELSTAR']==2) echo "checked"; ?>>
+                                <label for="f-option">Budget stay</label>
+
+                                <div class="check"></div>
+                            </li>
+
+                            <li>
+                                <input type="radio" id="s-option" name="selector" <?php if($packages[0]['HOTELSTAR']==3) echo "checked"; ?>>
+                                <label for="s-option">3 Star</label>
+
+                                <div class="check">
+                                    <div class="inside"></div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <input type="radio" id="t-option" name="selector" <?php if($packages[0]['HOTELSTAR']==4) echo "checked"; ?>>
+                                <label for="t-option">4 star</label>
+
+                                <div class="check">
+                                    <div class="inside"></div>
+                                </div>
+                            </li>
+                            <li>
+                                <input type="radio" id="w-option" name="selector" <?php if($packages[0]['HOTELSTAR']==5) echo "checked"; ?>>
+                                <label for="w-option">5 star</label>
+
+                                <div class="check">
+                                    <div class="inside"></div>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="flex">
+                            <a class="customise" href="#">Customise</a>
+                            <a href="packages/<?php echo $packages[$i]['TITLE']; ?>/<?php echo $travellers; ?>" target="_blank"><button class="view--package">View this Package</button></a>
+                        </div>
+                    </div>
+				</div>
 					<?php } ?>
 	<?php }//end packages (for)
 		} //ending if
