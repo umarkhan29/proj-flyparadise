@@ -63,7 +63,9 @@
             padding-left: 10px;
         }
         &:last-of-type {
-            display: none;
+            &::after {
+                display: none;
+            }
         }
     }
 }
