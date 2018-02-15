@@ -2,7 +2,7 @@
 	include_once('home/catalog/connect.khan');
 	include_once('home/catalog/session.khan');
 	include_once('home/components/int2txt.fly');
-	$baseurl="https://localhost/flyparadise/";
+	$baseurl="../../";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -72,9 +72,9 @@
 	
 <?php
 //Fetching single package
- $id=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['id']))));
+ $title=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['id']))));
  $profitpercent=10;
- $query = "SELECT * FROM `packages` WHERE `id` = '$id';  ";
+ $query = "SELECT * FROM `packages` WHERE `title` = '$title';  ";
 			if($result = mysqli_query($dbconn,$query)){
 				$count=0;
 				while($row = mysqli_fetch_assoc($result)){
@@ -124,7 +124,8 @@
 			
 			
 			if($count==0)
-				header('location:https://flyparadise.in/');
+				header('location:https://flyparadise.in/404');
+				
 
 ?>
 	
@@ -138,7 +139,7 @@
     </div>
 	
 	
-    <div class="single--package">
+    <div id="main" class="single--package">
         <div id="owl" class="owl-carousel single--package">
             <div class="item">
                  <img src="<?php echo $baseurl; ?><?php echo $package[0]['PATH']; ?>" alt="">
