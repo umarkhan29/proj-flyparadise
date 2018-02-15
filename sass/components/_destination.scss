@@ -319,6 +319,7 @@ $clouds: ("https://s.cdpn.io/15514/clouds_2.png" 1000px 80s),
         width: 64%;
         @media screen and (max-width: 768px) {
             width: 100%;
+            margin-top: 5rem;
         }
     }
     .main--content {
@@ -364,7 +365,8 @@ $clouds: ("https://s.cdpn.io/15514/clouds_2.png" 1000px 80s),
             border-bottom: none;
         }
     }
-    form.day--counter {
+    form.day--counter,
+    form.person--counter {
         margin: auto;
         top: 0;
         left: 0;
@@ -372,6 +374,11 @@ $clouds: ("https://s.cdpn.io/15514/clouds_2.png" 1000px 80s),
         right: 0;
         height: 50px;
         margin-bottom: 3rem;
+        @media screen and (max-width: 768px) {
+            width: 49%;
+            display: inline-block;
+            vertical-align: top;
+        }
         input[type=number] {
             float: left;
             width: 70px;
@@ -527,6 +534,9 @@ button.view--package {
 .rating-form {
     margin-top: 40px;
     position: relative;
+    @media screen and (max-width: 768px) {
+        margin-top: 1rem;
+    }
 }
 
 
@@ -958,5 +968,36 @@ button.view--package {
         padding-left: 2rem;
         padding-right: 2rem;
         margin-right: 1rem;
+    }
+}
+
+//RECIEVED
+.recieved {
+    max-width: 500px;
+    margin: auto;
+    margin-bottom: 2rem;
+    .border {
+        position: relative;
+        background: $blue-back;
+        margin: 3.5rem 1rem 3rem 1rem;
+        img {
+            width: 40px;
+            position: absolute;
+            right: 15px;
+            top: -22px;
+        }
+    }
+    .th {
+        margin: 1rem;
+        color: $text-over-bg;
+        font-size: 14px;
+        a {
+            width: 49%;
+            font-weight: 700;
+            display: inline-block;
+            text-align: center;
+            background: $cta;
+            border: none;
+        }
     }
 }
