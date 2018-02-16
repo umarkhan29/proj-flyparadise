@@ -23,6 +23,7 @@
 				
 			//imagecopyresized($new_image,$old_image,0,0,0,0,$new_width,$new_height,$image_width,$image_height);
 			imagecopyresampled($new_image,$old_image,0,0,0,0,$new_width,$new_height,$image_width,$image_height);
+			
 			imagejpeg($new_image,$image,100);
 			
 			//setting session for success message

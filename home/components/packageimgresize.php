@@ -60,7 +60,8 @@
 		}
 		
 		//Third Image
-		
+		$image="../../";
+		$image.=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['img3']))));
 		if(exif_imagetype($image)==IMAGETYPE_JPEG){
 			$image_size=getimagesize($image);
 			$image_width=$image_size[0];

@@ -1,3 +1,4 @@
 <?php
+	session_name('Fly_Paradise');
 	session_start();
 ?>

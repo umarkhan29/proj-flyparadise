@@ -239,7 +239,10 @@
                         <div>
                             <h3><?php echo $packages[$i]['TITLE']; ?></h3>
                             <span class="duration"><?php echo $packages[$i]['DURATION']; ?></span>
-                            <div class="price"><?php echo $price; ?>/-</div>
+							<div>
+								<div class="price"><?php echo $price; ?>/-</div>
+								<div class="perse">(Per <span><?php  if($travellers!=1) echo $travellers; ?></span> person<?php if($travellers!=1) echo "s"; ?>)</div>
+							</div>
                         </div>
                         <div class="inclusions border">
                    <?php 

@@ -407,7 +407,7 @@
 		<?php for($i=0;$i<count($itinerary)-1;$i++){ ?>
             <div class="day">
                 <div class="internal--perday">
-                    <img class="arrival" src="<?php echo $baseurl; ?>assets/icons/arrival.svg" alt="arrival">
+   <img class="arrival" src="<?php if($i==0) { echo $baseurl;  ?>assets/icons/arrival.svg <?php } elseif($i==count($itinerary)-2){ echo $baseurl; ?>/assets/icons/depart.svg <?php } else{ echo $baseurl;  ?>/assets/icons/it-trans.svg<?php } ?>" alt="arrival">
                     <div class="inc">
                         <h5><?php echo $itinerarytitle[$i]; ?></h5>
 						
