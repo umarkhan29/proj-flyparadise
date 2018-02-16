@@ -24,7 +24,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCotB6BSKESLUC2dNLnAT76EporwJBXMN4&v=3.exp&libraries=places"></script>
 	<script src="libraries/js/select2dec.js"></script>
-	
+	<script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/0a36a9eded6bcb08c52ae527b/d0a0689c99e0088008a7127df.js");</script>
     <!--[if IE]>
             <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
         <![endif]-->
@@ -467,7 +467,10 @@ $destination=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_PO
                         <div>
                             <h3><?php echo $packages[$i]['TITLE']; ?></h3>
                             <span class="duration"><?php echo $packages[$i]['DURATION']; ?></span>
-                            <div class="price"><?php echo $price; ?>/-</div>
+							<div>
+								<div class="price"><?php echo $price; ?>/-</div>
+								<div class="perse">(Per <span></span> person)</div>
+							</div>
                         </div>
                         <div class="inclusions border">
                    <?php 
