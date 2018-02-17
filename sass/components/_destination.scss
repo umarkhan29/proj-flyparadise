@@ -429,7 +429,7 @@ $clouds: ("https://s.cdpn.io/15514/clouds_2.png" 1000px 80s),
         }
         span.spinner>.sub:hover,
         span.spinner>.add:hover {
-            background: $gray;
+            background: $brand;
             color: $white;
         }
         input[type=number]::-webkit-inner-spin-button,
@@ -611,6 +611,7 @@ button.view--package {
     left: 0;
     top: 0;
     opacity: 0;
+    color: $brand;
 }
 
 .rating-form label:hover .fa-star,
@@ -622,7 +623,7 @@ button.view--package {
 }
 
 .rating-form input[type='radio']:checked~label .fa-star {
-    color: $pink;
+    color: $brand;
 }
 
 .rating-form .ir {
@@ -705,7 +706,7 @@ button.view--package {
     font-size: .7em;
     display: block;
     border: 0;
-    border: 1px solid #529e0e;
+    border: 1px solid $brand;
     background-position: 0 0;
 }
 
@@ -893,7 +894,7 @@ button.view--package {
     margin-left: -10px;
     padding-left: 4px;
     border: none;
-    background: $dark-gray;
+    background: $brand;
     border-radius: 50%;
     text-align: center;
     font-size: 1.2rem;
