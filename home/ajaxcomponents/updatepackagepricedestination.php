@@ -5,15 +5,17 @@
 ?>
 <?php
 
+
 	//price updation on basis of hotel selected
-				$profitpercent=PROFIT;
-				$today=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['month']))));
+				 $profitpercent=PROFIT;
+				//$today=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['month']))));
+				$today=date("F");
 				$stars=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['stay']))));
 			    $location=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['loc']))));
 				$travellers=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['travellers']))));
 			   
 				$stays=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['stays']))));
-				$stays=explode(',',$stays);
+				$stays=explode('$$$$',$stays);
 				
 				$cabprices=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['cabprices']))));
 				$cabprices=explode('$$$$',$cabprices);
@@ -44,7 +46,7 @@
 				$hoteltotalprice=0;
 				$meals=0; 
 				
-				for($i=0;$i<count($stays)-1;$i++){
+				for($i=0;$i<count($stays)-2;$i++){
 					//getting destination list (incase of multiple destinations of a package "seperated bty ,")
 					$locationlists=$location;
 					$locationlist=explode(',',$locationlists);

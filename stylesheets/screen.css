@@ -2882,6 +2882,15 @@ button.hero--submit {
   font-size: 32px;
   text-transform: lowercase;
 }
+@media screen and (max-width: 768px) {
+  .nf span {
+    position: relative;
+    text-align: center;
+    display: block;
+    font-size: 22px;
+    padding-top: 1rem;
+  }
+}
 
 /* line 1, ../sass/components/_blog--landing.scss */
 header.blog--landing {
@@ -3624,6 +3633,7 @@ input.input {
 /* line 312, ../sass/components/_destination.scss */
 .destination--packages .sidebar {
   width: 30%;
+  margin-bottom: 3rem;
 }
 @media screen and (max-width: 768px) {
   /* line 312, ../sass/components/_destination.scss */
@@ -4474,6 +4484,7 @@ button.view--package {
 /* line 47, ../sass/components/single--package.scss */
 .single--package .price--tag {
   display: flex;
+  margin-bottom: 1rem;
 }
 /* line 50, ../sass/components/single--package.scss */
 .single--package .price--starting,
@@ -4724,7 +4735,7 @@ ul.form {
 /* line 7, ../sass/components/_form.scss */
 ul.form label {
   font-weight: 600;
-  font-size: 14px;
+  font-size: 13px;
   margin-bottom: 5px;
   display: block;
 }
@@ -4743,7 +4754,7 @@ ul.form .input-field {
   width: 100%;
   border: 1px solid #c7c7c7;
   padding: 10px;
-  font-size: 16px;
+  font-size: 14px;
   padding-left: 3rem;
   color: #15386e;
 }
@@ -4770,7 +4781,7 @@ ul.form .select-2--wrapper span.label {
 
 /* line 49, ../sass/components/_form.scss */
 form.hotel {
-  margin: .5rem .5rem 2rem 0rem;
+  margin: .5rem .5rem 1.5rem 0rem;
 }
 /* line 51, ../sass/components/_form.scss */
 form.hotel .list__item {
@@ -4846,14 +4857,12 @@ form.hotel li {
   display: flex;
 }
 /* line 112, ../sass/components/_form.scss */
-.no-border.radio li {
-  flex: 1;
-}
 
 /* line 118, ../sass/components/_form.scss */
 #datepicker {
   width: 100%;
   padding: 10px;
+  font-size: 14px;
   color: #666467;
   text-transform: uppercase;
   border: 1px solid #c7c7c7;
@@ -4867,7 +4876,7 @@ li.day--counter {
   bottom: 0;
   right: 0;
   height: 50px;
-  margin-bottom: 3rem;
+  margin-bottom: 1.5rem;
   list-style: none;
 }
 /* line 135, ../sass/components/_form.scss */
@@ -4945,7 +4954,7 @@ li.day--counter input[type=number]::-webkit-outer-spin-button {
   width: 100% !important;
   font-weight: 600;
   margin-bottom: 5px;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 /* line 207, ../sass/components/_form.scss */
@@ -4980,14 +4989,14 @@ li.day--counter input[type=number]::-webkit-outer-spin-button {
 .pop-up-form .no-of-day.day--counter span.spinner > .sub, .pop-up-form .no-of-day.day--counter span.spinner > .add,
 .pop-up-form .no-of-people.day--counter span.spinner > .sub,
 .pop-up-form .no-of-people.day--counter span.spinner > .add {
-  height: 46px;
-  line-height: 46px;
-  width: 46px;
+  height: 43px;
+  line-height: 43px;
+  width: 43px;
 }
 /* line 234, ../sass/components/_form.scss */
 .pop-up-form .no-of-day.day--counter input[type=number],
 .pop-up-form .no-of-people.day--counter input[type=number] {
-  height: 46px;
+  height: 43px;
   width: 100px;
 }
 
@@ -5035,7 +5044,7 @@ body {
 .pop-up .pop-up-form {
   position: absolute;
   width: 900px;
-  top: 5%;
+  top: 3%;
   left: 15%;
 }
 @media screen and (max-width: 768px) {
@@ -5075,4 +5084,14 @@ body {
 /* line 304, ../sass/components/_form.scss */
 .relative {
   position: relative;
+}
+
+.inclusions.border {
+  display: flex;
+}
+.inclusions.border div {
+  flex: 1;
+}
+.single--packing_desc form.hotel .list__item {
+  flex: 1;
 }

@@ -1,9 +1,4 @@
-<?php
-	include_once('home/catalog/connect.khan');
-	include_once('home/catalog/session.khan');
-	include_once('home/components/int2txt.fly');
-	$baseurl="https://localhost/flyparadise/";
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,37 +7,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Fly Paradise</title>
-    <link href="<?php echo $baseurl; ?>stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
-    <link href="<?php echo $baseurl; ?>stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=PT+Serif" rel="stylesheet">
     <script src="https://use.fontawesome.com/441c105168.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="<?php echo $baseurl; ?>libraries/owl.carousel.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
-    <script src="<?php echo $baseurl; ?>libraries/js/main.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+    <script src="libraries/owl.carousel.min.js"></script>
+    <script src="libraries/js/main.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCotB6BSKESLUC2dNLnAT76EporwJBXMN4&v=3.exp&libraries=places"></script>
-	<script src="<?php echo $baseurl; ?>libraries/js/select2dec.js"></script>
+	<script src="libraries/js/select2dec.js"></script>
+	<script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/0a36a9eded6bcb08c52ae527b/d0a0689c99e0088008a7127df.js");</script>
     <!--[if IE]>
             <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
         <![endif]-->
+	
 </head>
 
-<body>
-  <header class="alternate desktop--only">
+<body class="destination">
+    <header class="alternate desktop--only">
         <div class="main--header">
             <div class="menu--heading">
                 <h1 class="logo left">fly paradise</h1>
-                <img class="fp--logo" src="<?php echo $baseurl; ?>assets/heros/logo.png" alt="Fly Paradise logo">
+                <img class="fp--logo" src="./assets/heros/logo.svg" alt="Fly Paradise logo">
                 <div class="main-menu right">
-                    <li><a href="">Packages</a></li>
-                    <li><a href="">Destinations</a></li>
-                    <li><a href="">Honeymoon Packages</a></li>
-                    <li><a href="">Weekend trips</a></li>
-                    <li class="quote"><a href="">FREE QUOTE</a></li>
+					
+                    <li><a href="blog">Blog</a></li>
+                    <li><a href="about">About Us</a></li>
+					 <li><a href="get-in">Login</a></li>
+                    <li class="quote">FREE QUOTE</li>
+					
                 </div>
             </div>
         </div>
@@ -55,390 +52,615 @@
                     <li></li>
                     <li></li>
                     <li></li>
+					 
                 </ul>
                 <div class="brand-logo">
-                    Fly Paradise
+                    <img class="fp--logo" src="./assets/heros/logo_m.svg" alt="Fly Paradise logo" class="quote">
+                </div>
+                <div class="login_m">
+                    <img src="./assets/icons/log-in.svg" alt="" class="customise">
                 </div>
             </header>
 
             <nav id="nav" role="navigation">
-                <li>Hello</li>
-                <li> hello 1</li>
-                <li> hello 2</li>
-                <li> hello 3</li>
-            </nav>
-        </div>
-	
-<?php
-//Fetching single package
- $id=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['id']))));
- $profitpercent=10;
- $query = "SELECT * FROM `packages` WHERE `id` = '$id';  ";
-			if($result = mysqli_query($dbconn,$query)){
-				$count=0;
-				while($row = mysqli_fetch_assoc($result)){
-					$package[] = array(
-							
-							'ID'			=>	$row['id'],
-							'TITLE' 		=> 	$row['title'],
-							'DESTINATION' 	=> 	$row['destination'],
-							'DURATION' 		=> 	$row['duration'],
-							'CATEGORY' 		=> 	$row['category'],
-							'HOTELSTAR' 	=> 	$row['hotelstar'],
-							'DESCRIPTION' 	=> 	$row['description'],
-							'FLIGHTS' 		=> 	$row['includeflights'],
-							'PATH' 			=> 	$row['path'],
-							'PATH2' 		=> 	$row['path2'],
-							'PATH3' 		=> 	$row['path3'],
-							'CAB' 			=> 	$row['localcab'],
-							'MEALS' 		=> 	$row['meals'],
-							'SITESEEING' 	=> 	$row['siteseeing'],
-							'STAY' 			=> 	$row['stay'],
-							'ADDON' 		=> 	$row['addon'],
-							'ITINERARY' 	=> 	$row['itinerary'],
-							'INCLUSIONS'	=> 	$row['inclusions'],
-							'EXCLUSIONS' 	=> 	$row['exclusions'],
-							'STAYS'		 	=> 	$row['stays'],
-							'GETAWAYS' 		=> 	$row['getaways'],
-							'WORTHWATCHING' => 	$row['worthwatching'],
-							'ITINERARYTITLE'=>  $row['itinerarytitle'],
-							'ITINERARYTAGS' => 	$row['itinerarytags'],
-							'TAGS' 			=> 	$row['tags'],
-							'ITINERARYDISTANCE' => 	$row['distance'],
-							'ITINERARYFROM' => 	$row['itineraryfrom'],
-							'ITINERARYTO' => 	$row['itineraryto'],
-							'ITINERARYCABPRICE' => 	$row['itinerarycabprice'],
-							
-						);
-						$count=$count+1;
-						
-				}
-				
-			}
-			else{
-				echo mysqli_error($dbconn);
-			}
-			
-			
-			if($count==0)
-				header('location:index');
-
-?>
-	
-	<div class="breadcrumb">
-        <ul class="breadcrumbs">
-            <li>Home</li>
-            <li>Destinations</li>
-            <li><?php echo $package[0]['DESTINATION']; ?></li>
-			 <li><?php echo $package[0]['TITLE']; ?></li>
-        </ul>
-    </div>
-	
-	
-    <div class="single--package">
-        <div id="owl" class="owl-carousel single--package">
-            <div class="item">
-                 <img src="<?php echo $baseurl; ?><?php echo $package[0]['PATH']; ?>" alt="">
-            </div>
-
-            <div class="item">
-                <img src="<?php echo $baseurl; ?><?php echo $package[0]['PATH2']; ?>" alt="">
-            </div>
-
-            <div class="item">
-                <img src="<?php echo $baseurl; ?><?php echo $package[0]['PATH3']; ?>" alt="">
-            </div>
-        </div>
-        <div class="single--packing_desc">
-            <div class="border">
-                <h2 class="pack-heading"><?php echo $package[0]['TITLE']; ?> <span><?php echo $package[0]['DURATION']; ?></span></h2>
-                <p class="description"><?php echo $package[0]['DESCRIPTION']; ?></p>
-            </div>
-            <div class="inclusions--package">
-                <div class="inclusions border">
-                   <?php 
-				   //Showing Flight thumbnails
-				   		if($package[0]['FLIGHTS']=='Yes') 
-				   			echo '<img src="'.$baseurl.'assets/icons/transport/air.svg" alt="Air Transfer" label="Air Transfer">';
-				   		else
-							echo '<img src="'.$baseurl.'assets/icons/transport/air.svg" alt="Flights not included" label="Flights not included" class="package--ex">';
-							
-						
-						//Showing Meals thumbnails
-				   		if($package[0]['MEALS']=='Yes') 
-				   			echo '<img src="'.$baseurl.'assets/icons/transport/meals.svg" alt="Meals">';
-				   		else
-							echo '<img src="'.$baseurl.'assets/icons/transport/meals.svg" alt="Meals not included" label="Meals not included" class="package--ex">';
-						
-						
-						//Showing Cab thumbnails
-				   		if($package[0]['CAB']=='Yes') 
-				   			echo '<img src="'.$baseurl.'assets/icons/transport/transfer.svg" alt="Transfers">';
-				   		else
-							echo '<img src="'.$baseurl.'assets/icons/transport/transfer.svg" alt="Cab not included" label="Cab not included" class="package--ex">';
-						
-						
-						//Showing Stay thumbnails
-				   		if($package[0]['STAY']=='Yes') 
-				   			'<img src="'.$baseurl.'assets/icons/transport/stars.svg" alt="hotel stars">';
-				   		else
-							'<img src="'.$baseurl.'assets/icons/transport/stars.svg" alt="Stay not included" label="Stay not included" class="package--ex">';
-						
-						//Showing SITESEEING thumbnails
-				   		if($package[0]['SITESEEING']=='Yes') 
-				   			'<img src="'.$baseurl.'assets/icons/transport/view.svg" alt="Site seeing">';
-				   		else
-							'<img src="'.$baseurl.'assets/icons/transport/view.svg" alt="Stay not included" label="Stay not included" class="package--ex">';
-						
-						
-						//Showing Addon thumbnails
-				   		if($package[0]['ADDON']=='Yes') 
-				   			'<img src="'.$baseurl.'assets/icons/transport/more.svg" alt="Complimentary from destination" >';
-				   		else
-							'<img src="'.$baseurl.'assets/icons/transport/more.svg" alt="Complimentary from destination" label="Complimentary from destination" class="package--ex">';
-						
-				 
-				    ?>
+               <li><a href="blog">Blog</a></li>
+				<li><a href="about">About Us</a></li>
+				<li><a href="get-in">Login</a></li>
                     
-                </div>
-                <div class="stars border">
-                    <ul class="hotel radio">
-                        <li>
-                            <input type="radio" onChange="stay('pprice');" id="f-option" name="selector" <?php if($package[0]['HOTELSTAR']==2) echo "checked"; ?> >
-                            <label for="f-option">Budget stay</label>
-
-                            <div class="check"></div>
-                        </li>
-
-                        <li>
-                            <input type="radio" onChange="stay('pprice');" id="s-option" name="selector" <?php if($package[0]['HOTELSTAR']==3) echo "checked"; ?> >
-                            <label for="s-option">3 Star</label>
-
-                            <div class="check">
-                                <div class="inside"></div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <input type="radio" onChange="stay('pprice');" id="t-option" name="selector" <?php if($package[0]['HOTELSTAR']==4) echo "checked"; ?>>
-                            <label for="t-option">4 star</label>
-
-                            <div class="check">
-                                <div class="inside"></div>
-                            </div>
-                        </li>
-                        <li>
-                            <input type="radio" onChange="stay('pprice');" id="w-option" name="selector" <?php if($package[0]['HOTELSTAR']==5) echo "checked"; ?> >
-                            <label for="w-option">5 star</label>
-
-                            <div class="check">
-                                <div class="inside"></div>
-                            </div>
-                        </li>
-                    </ul>
-					
-					<?php
-						//Generating Itineraries, Inclusions, Exclusions, worthwatching,Getaways and itinary stay
-						 $itinerarytitle=explode('$$$$',$package[0]['ITINERARYTITLE']);
-						 $itinerarytags=explode('$$$$',$package[0]['ITINERARYTAGS']);
-						 $itinerary=explode('$$$$',$package[0]['ITINERARY']);
-						 $inclusions=explode('$$$$',$package[0]['INCLUSIONS']);
-						 $exclusions=explode('$$$$',$package[0]['EXCLUSIONS']);
-						 $worthwatching=explode('$$$$',$package[0]['WORTHWATCHING']);
-						 $getaways=explode('$$$$',$package[0]['GETAWAYS']);
-						 $stays=explode('$$$$',$package[0]['STAYS']);
-						 $distance=explode('$$$$',$package[0]['ITINERARYDISTANCE']);
-					
-					
-					?>
-		
-					<?php
-					//price updation on basis of hotel selected
-					$date=date("F");
-					if($date=="January" || $date=="February" || $date=="March"){
-						$date="jan";
-					
-					}
-					if($date=="April" || $date=="May" || $date=="June"){
-						$date="april";
-					
-					}
-					if($date=="July" || $date=="August" || $date=="September"){
-						$date="july";
-					
-					}
-					
-					if($date=="October" || $date=="November" || $date=="December"){
-						$date="oct";
-					
-					}
-					
-					$today3=$date."-3rooms";
-					$today2=$date."-2rooms";
-					
-				if(isset($_GET['travellers']))
-				 	$travellers=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['travellers']))));
-				 else
-				 	$travellers=1;
-					
-					
-					require_once('home/components/getroomsforpackage.fly');
-					$flag=0;
-					$hoteltotalprice=0;
-					$meals=0; 
-					for($i=0;$i<count($stays)-1;$i++){
-					
-						$query = "SELECT * FROM `hotels` WHERE `stars` = ".$package[0]['HOTELSTAR']." AND `location` = '".$package[0]['DESTINATION']."' AND `place` = '".$stays[$i]."' ORDER BY `".$today3."` ASC LIMIT 1";
-						
-						$hotelprice="";
-						if($result = mysqli_query($dbconn,$query)){
-							$count=0;
-							while($row = mysqli_fetch_assoc($result)){
-								$hotelprice[] = array(
-											
-										'PRICE3'		 	=> 	$row[$today3],
-										'PRICE2'		 	=> 	$row[$today2],
-										'MEALS'			 	=> 	$row['meals'],
-										
-									);
-									$count=$count+1;
-									
-							}
-							
-						} 
-					
-					if($count==0)
-						$flag=1;
-						
-						if($flag==0){
-							$hoteltotalprice+=($room3*$hotelprice[0]['PRICE3'])+($room2*$hotelprice[0]['PRICE2']);//getting hotel final rates
-							$meals+=$hotelprice[0]['MEALS']*$travellers;
-						}
-					}//end for
-					
-					
-					
-					//getting total cab price
-					$cabprice=explode('$$$$',$package[0]['ITINERARYCABPRICE']);
-					$cabtotalprice=0;
-					for($c=0;$c<count($cabprice)-1;$c++)
-						$cabtotalprice=$cabtotalprice+$cabprice[$c];
-					
-					
-					
-					$noofcabs=ceil($travellers/4);
-					$cabtotalprice=$cabtotalprice*$noofcabs;
-					
-					if($flag==0){
-						$price = $hoteltotalprice+$cabtotalprice+$meals;
-						//adding profit
-						$profit=($price*$profitpercent)/100;
-						$price=$price+$profit;
-					}	
-					else
-						$price = "Not Avaliable";
-					
-					
-					?>
-                    <div class="price--tag">
-                        <div class="price--starting">
-                            <span>starting from (<?php echo $travellers; ?> person)</span>
-							<input type="hidden" id="sessid" value="<?php echo $package[0]['PRICE']; ?>" />
-                            <div class="amount"><span>₹</span><span id="pprice"><?php echo $price; ?></span></div>
-                        </div>
-                        <div class="select-2--wrapper">
-						
-						
-                            <span>For the Month of</span>
-                            <select class="js-example-basic-single" name="listing" onChange="stay('pprice');" id="stay">
-                                <option value="<?php echo $date=date("F"); ?>"><?php echo $date=date("F Y"); ?> </option>
-                                <option value="<?php echo $date=date("F", strtotime("+1 month")); ?>"><?php echo $date=date("F Y", strtotime("+1 month")); ?></option>
-                                <option value="<?php echo $date=date("F", strtotime("+2 month")); ?>"><?php echo $date=date("F Y", strtotime("+2 month")); ?></option>
-                                <option value="<?php echo $date=date("F", strtotime("+3 month")); ?>"><?php echo $date=date("F Y", strtotime("+3 month")); ?></option>
-                                <option value="<?php echo $date=date("F", strtotime("+4 month")); ?>"><?php echo $date=date("F Y", strtotime("+4 month")); ?></option>
-								<option value="<?php echo $date=date("F", strtotime("+5 month")); ?>"><?php echo $date=date("F Y", strtotime("+5 month")); ?></option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <button class="cta">Submit</button>
+            </nav>
+        </div>	
+	
+    <div id="main" class="destination--hero">
+        <div class="left--destination">
+            <span class="location"></span>
+            <h2>Kashmir</h2>
+            <span>Best package , testing here</span>
+            <div class="map">
+               <a href="#distancetimeblock"> <img class="map" src="./assets/icons/transport/placeholder.svg" alt="" ></a>
             </div>
-        </div>
-	</div>
-    <!-- Iternary timeline -->
-	
-	
-    <div class="main-content">
-        <div class="with--sidebar itinerary border">
-		
-		
-		
-		
-		<?php for($i=0;$i<count($itinerary)-1;$i++){ ?>
-            <div class="day">
-                <div class="internal--perday">
-                    <img class="arrival" src="<?php echo $baseurl; ?>assets/icons/arrival.svg" alt="arrival">
-                    <div class="inc">
-                        <h5><?php echo $itinerarytitle[$i]; ?></h5>
+            <div class="info">
+              <ul class="transportation">
+			  	                    <span>Links to destination:</span>
+											<img class="air" src="./assets/icons/transport/airplane.svg" alt="Air Transport">																		 
 						
-                        <span class="day--today">Day <?php int2txt($i);?></span>
+																							 <img class="road" src="./assets/icons/transport/bus.svg" alt="Bus Transport">						 
 						
-						<?php 
-							$tags=explode(',',$itinerarytags[$i]);
-							for($j=0;$j<count($tags);$j++){ 
-								if($j!=count($tags)-1)
-									echo '<span>'.$tags[$j].'</span>';
-								else
-									echo '<span class="last">'.$tags[$j].'</span>'; 
-							}
-						 ?>
-							
-                    </div>
+																													<img class="rail" src="./assets/icons/transport/train.svg" alt="Train Transport"> 
+						
+					                  
+                </ul>
+                <ul>
+				                    <span>Worth Watching:</span>
+											<li>Forests</li> 
+						
+											<li> islanda</li> 
+						
+											<li> Hills</li> 
+						
+											<li> Beauty Scenes</li> 
+						
+					 
+			    </ul>
 				
-				<span class="dest-distance tag">Distance: <?php echo $distance[$i]; ?> KM</span>
-                
-				</div>
-                <div class="darkborder inc--per--package bg-blue">
-                    <span class="label">Worth Watching:</span><span><?php echo $worthwatching[$i]; ?></span>
-                </div>
-                <div class="darkborder inc--per--package bg-blue">
-                    <span class="label">Getaways:</span><span><?php echo $getaways[$i]; ?></span>
-                </div>
-                <div class="darkborder margin-top bg-blue">
-                    <ul class="checklist">
-					<?php 
-					
+                <ul>
+				                    <span>Getaways:</span>
+                    						<li>Tea</li> 
 						
-							$inclusion=explode(',',$inclusions[$i]);
-							
-							for($k=0;$k<count($inclusion);$k++){
-					 ?>
-                       			 <li><img src="<?php echo $baseurl; ?>assets/icons/checklist.svg" alt=""><?php echo $inclusion[$k]; ?></li>
-					<?php 
-							} //ending internal loop (comma seperator)
-							
-					?>
-                    </ul>
-                    <p class="more--details"><?php echo $itinerary[$i]; ?>
-					
-                    </p>
+											<li> Coffee</li> 
+						
+											<li> salt</li> 
+						
+					 
+                </ul>
+            </div>
+        </div>
+        <div class="right--destination">
+            <img src="images/destinations/Kashmir101-book-talk-outdoors-nature-neuroscience.jpg" alt="">
+			 <div class="temprature">
+			             </div>
+            <div class="overlay">
+                <span class="weather">
+
+                </span>
+
+            </div>
+        </div>
+    </div>
+   
+   <div class="destination--info">
+        <div class="dest">
+            <h3></h3>
+            <p></p>
+            <div class="destination-information">
+                <img src="images/destinations/Kashmir26905_Ladakh-Pangong-Lake-1024x618.jpg" alt="">
+                <div class="accordion">
+                    <div class="border">
+                        <h4>History of <span>Kashmir</span> </h4>
+                            <p class="remove"></p>
+                    </div>
+                    <div class="border">
+                        <h4>Culture in <span>Kashmir</span> </h4>
+                        <p class="remove"></p>
+                    </div>
+                    <div class="border">
+                        <h4>Food in <span>Kashmir</span> </h4>
+                        <p class="remove"></p>
+                    </div>
+                    </div>
                 </div>
             </div>
-   
-   		<?php } ?>
-   
         </div>
-        <div class="sidebar">
-            <div class="help--box border">
-                <img src="<?php echo $baseurl; ?>assets/icons/call24.svg" alt="call">
-                <div>
-                    <p>Need help with your trip?</p>
-                    <span>Please call <a href="tel:18001232262">1800 123 2262</a></span>
-                </div>
+	
+	<div class="distance--block" id="distancetimeblock">
+		 
+<script>
+$(document).ready(function(){
+    if(navigator.geolocation){
+        navigator.geolocation.getCurrentPosition(showLocation);
+    }else{ 
+        $('#location').html('Geolocation is not supported by this browser.');
+    }
+});
+
+
+function showLocation(position){
+    var latitude = position.coords.latitude;
+    var longitude = position.coords.longitude;
+   
+   //ajax request to fetch distance and time
+
+	var dest="Srinagar";
+	var destination="Kashmir";
+	
+	if(window.XMLHttpRequest){
+		xmlhttp=new XMLHttpRequest();
+	}
+	else{
+		xmlhttp=new ActiveXObject('Microsoft.XMLHTTP');
+	}
+	
+	xmlhttp.onreadystatechange = function(){
+		if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+			document.getElementById('distancetimeblock').innerHTML = xmlhttp.responseText;
+		}
+	}
+	xmlhttp.open('GET','map/getLocation.php?latitude='+latitude+'&longitude='+longitude+'&dest='+dest+'&destination='+destination,true);
+	
+	xmlhttp.send();
+}
+</script>
+
+		 <!--Loading Distance time block -->	
+	</div>
+ 
+	
+	
+	
+	
+          <div class="destination--packages">
+            <div class="sidebar">
+                <form class="day--counter" onClick="showpackages('cpackages');" >
+                    <span class="hsidebar">Duration (in nights)</span>
+                    <input id="counter-no" type="number" min="1" max="30" value="3" />
+                </form>
+				
+				<form class="day--counter" onClick="showpackages('cpackages');" >
+                    <span class="hsidebar">No of travellers</span>
+                    <input id="traveller-no" type="number" min="1" max="30" value="1" />
+                </form>
+				
+				
+                <div >
+                    <span class="hsidebar">Categories</span>
+                    <label class="control control--checkbox" onClick="showpackages('cpackages');">Honeymoon
+                        <input type="checkbox"  name="Honeymoon" checked value="Honeymoon"/>
+                        <div class="control__indicator"></div>
+                    </label>
+                    <label class="control control--checkbox" onClick="showpackages('cpackages');">Solo trip
+                        <input type="checkbox" name="Solo" value="Solo"/>
+                        <div class="control__indicator"></div>
+                    </label>
+                    <label class="control control--checkbox" onClick="showpackages('cpackages');">Family and Friends
+                        <input type="checkbox" name="Family and Friends" checked value="Family and Friends"/>
+                        <div class="control__indicator"></div>
+                    </label>
+					<label class="control control--checkbox" onClick="showpackages('cpackages');">Adventure
+                        <input type="checkbox" name="Adventure" value="Adventure"/>
+                        <div class="control__indicator"></div>
+                    </label>
+					
+										<label class="control control--checkbox" onClick="showpackages('cpackages');">Weekend
+                        <input id="Weekend" type="checkbox" name="Weekend" value="Weekend"/>
+                        <div class="control__indicator"></div>
+                    </label>
+					                </div>
+                <!-- RATING - Form -->
+                <form class="rating-form" action="#" method="post" name="rating-movie">
+                    <span class="hsidebar">Stay star rating</span>
+                    <fieldset class="form-group">
+                        <legend class="form-legend">Rating:</legend>
+                        <div class="form-item" onClick="showpackages('cpackages');">
+                            <input id="rating-5" name="rating" type="radio" value="5" />
+                            <label for="rating-5" data-value="5">
+                                <span class="rating-star">
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star"></i>
+                                </span>
+                                <span class="ir">5</span>
+                            </label>
+                            <input id="rating-4" name="rating" type="radio" value="4" />
+                            <label for="rating-4" data-value="4">
+                                <span class="rating-star">
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star"></i>
+                                </span>
+                                <span class="ir">4</span>
+                            </label>
+                            <input id="rating-3" name="rating" type="radio" value="3" />
+                            <label for="rating-3" data-value="3">
+                                <span class="rating-star">
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star"></i>
+                                </span>
+                                <span class="ir">3</span>
+                            </label>
+                            <input id="rating-2" name="rating" type="radio" value="2" />
+                            <label for="rating-2" data-value="2">
+                                <span class="rating-star">
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star"></i>
+                                </span>
+                                <span class="ir">2</span>
+                            </label>
+                            <input id="rating-1" name="rating" type="radio" value="1" />
+                            <label for="rating-1" data-value="1">
+                                <span class="rating-star">
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star"></i>
+                                </span>
+                                <span class="ir">1</span>
+                            </label>
+                            <div class="form-action">
+                                <input class="btn-reset" type="reset" value="Reset" onClick="showpackages('cpackages');"/>
+                            </div>
+                            <div class="form-output">
+                                ? / 5
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+				<section id="content" class="price--slider">
+                    <span class="hsidebar">What is your budget?</span>
+                    <div class="cube">
+
+                        <div id="slider-range-min" onClick="showpackages('cpackages');"></div>
+                    </div>
+                    <input type="text" id="amount" readonly="" onClick="showpackages('cpackages');"/>
+                </section>
+            </div>
+	
+	
+			
+		
+            <div class="main--content">
+				<div id="cpackages">
+					Hotel: 0    Meals: 0   CAB :58500					
+						
+				<div class="package--tailored">
+                    <img src="images/packages/Wanderlust Ladakh1Manali, Ladakh, Kashmir" alt="">
+                    <div class="destination--info">
+                        <div>
+                            <h3>Wanderlust Manali, Ladakh, Kashmir</h3>
+                            <span class="duration">10 Days 9 Nights</span>
+							<div>
+								<div class="price" id="pprice0">Not Avaliable/-</div>
+								<div class="perse">(Per <span></span> person)</div>
+							</div>
+                        </div>
+                        <div class="inclusions border">
+                   <div class="package--ex"><img src="assets/icons/transport/air.svg" alt="Flights not included" label="Flights not included" > <span>Tickets</span></div><div> <img src="assets/icons/transport/meals.svg" alt="Meals" label="Meals"> <span>Meals</span></div><div><img src="assets/icons/transport/transfer.svg" alt="Cab"><span>Cab</span></div><div><img src="assets/icons/transport/stars.svg" alt="hotel stars"><span>Stay</span></div><div ><img src="assets/icons/transport/view.svg" alt="Site seeing"><span>Siteseeing</span></div><div class="package--ex"><img src="assets/icons/transport/tent.svg" alt="Camping" label="Campingn" ><span>Camping</span></div><div class="package--ex"><img src="assets/icons/transport/tent.svg" alt="Houseboat" label="Houseboat" ><span>Houseboat</span></div><div class="package--ex"><img src="assets/icons/transport/more.svg" alt="Complimentary from destination" label="Compliment" ><span>Compliment</span></div>                        </div>
+                       <form class="list hotel radio no-border">
+                            <li class="list__item">
+                                <label class="label--radio">
+                                                  <input type="radio" onChange="stay('pprice0',0);" class="radio"  name="foo0" >
+                                                  Budget Stay
+                                              </label>
+                            </li>
+                            <li class="list__item">
+                                <label class="label--radio">
+                                                  <input type="radio" onChange="stay('pprice0',0);" class="radio" name="foo0" checked>
+                                                  3 star
+                                              </label>
+                            </li>
+                            <li class="list__item">
+                                <label class="label--radio">
+                                                  <input type="radio" onChange="stay('pprice0',0);" class="radio" name="foo0" >
+                                                  4 star
+                                              </label>
+                            </li>
+                            <li class="list__item">
+                                <label class="label--radio">
+                                                  <input type="radio"  onChange="stay('pprice0',0);"  class="radio" name="foo0" >
+                                                  5 star
+                                              </label>
+                            </li>
+                        </form>
+						<input type="hidden" id="destinations0" value="Manali, Ladakh, Kashmir" />
+						<input type="hidden" id="stays0" value="Sarchu$$$$Leh$$$$Nubra$$$$Leh$$$$Leh$$$$Tso moriri$$$$Leh$$$$Kargil$$$$Srinagar$$$$$$$$" />
+						<input type="hidden" id="cp0" value="10000 $$$$ 10000 $$$$ 3850 $$$$ 3850 $$$$ 7800 $$$$ 5500 $$$$ 5500 $$$$ 4000 $$$$ 4000 $$$$ 4000 $$$$ " />
+                        <div class="flex">
+                            <a class="customise" href="#">Customise</a>
+                            <a href="packages/Wanderlust Manali, Ladakh, Kashmir/1" target="_blank"><button class="view--package">View this Package</button></a>
+                        </div>
+                    </div>
+				</div>
+					Hotel: 1233    Meals: 250   CAB :200					
+						
+				<div class="package--tailored">
+                    <img src="images/packages/Visit to Kashmir1Kashmir01-book-talk-outdoors-nature-neuroscience.jpg" alt="">
+                    <div class="destination--info">
+                        <div>
+                            <h3>Visit to Kashmir</h3>
+                            <span class="duration">2 Days 1 Nights</span>
+							<div>
+								<div class="price" id="pprice1">2019.6/-</div>
+								<div class="perse">(Per <span></span> person)</div>
+							</div>
+                        </div>
+                        <div class="inclusions border">
+                   <div class="package--ex"><img src="assets/icons/transport/air.svg" alt="Flights not included" label="Flights not included" > <span>Tickets</span></div><div> <img src="assets/icons/transport/meals.svg" alt="Meals" label="Meals"> <span>Meals</span></div><div><img src="assets/icons/transport/transfer.svg" alt="Cab"><span>Cab</span></div><div><img src="assets/icons/transport/stars.svg" alt="hotel stars"><span>Stay</span></div><div class="package--ex"><img src="assets/icons/transport/view.svg" alt="Stay not included" label="Siteseeing not included" ><span>Siteseeing</span></div><div class="package--ex"><img src="assets/icons/transport/tent.svg" alt="Camping" label="Campingn" ><span>Camping</span></div><div class="package--ex"><img src="assets/icons/transport/tent.svg" alt="Houseboat" label="Houseboat" ><span>Houseboat</span></div><div><img src="assets/icons/transport/more.svg" alt="Complimentary from destination" ><span>Compliment</span></div>                        </div>
+                       <form class="list hotel radio no-border">
+                            <li class="list__item">
+                                <label class="label--radio">
+                                                  <input type="radio" onChange="stay('pprice1',1);" class="radio"  name="foo1" >
+                                                  Budget Stay
+                                              </label>
+                            </li>
+                            <li class="list__item">
+                                <label class="label--radio">
+                                                  <input type="radio" onChange="stay('pprice1',1);" class="radio" name="foo1" checked>
+                                                  3 star
+                                              </label>
+                            </li>
+                            <li class="list__item">
+                                <label class="label--radio">
+                                                  <input type="radio" onChange="stay('pprice1',1);" class="radio" name="foo1" >
+                                                  4 star
+                                              </label>
+                            </li>
+                            <li class="list__item">
+                                <label class="label--radio">
+                                                  <input type="radio"  onChange="stay('pprice1',1);"  class="radio" name="foo1" >
+                                                  5 star
+                                              </label>
+                            </li>
+                        </form>
+						<input type="hidden" id="destinations1" value="Kashmir" />
+						<input type="hidden" id="stays1" value="Srinagar$$$$Gulmarg$$$$" />
+						<input type="hidden" id="cp1" value="100 $$$$ 100 $$$$ " />
+                        <div class="flex">
+                            <a class="customise" href="#">Customise</a>
+                            <a href="packages/Visit to Kashmir/1" target="_blank"><button class="view--package">View this Package</button></a>
+                        </div>
+                    </div>
+				</div>
+					Hotel: 0    Meals: 0   CAB :32300					
+						
+				<div class="package--tailored">
+                    <img src="images/packages/Discover Ladakh1Srinagar, Ladakh" alt="">
+                    <div class="destination--info">
+                        <div>
+                            <h3>Discover Kashmir, Ladakh</h3>
+                            <span class="duration">7 Days 6 Nights</span>
+							<div>
+								<div class="price" id="pprice2">Not Avaliable/-</div>
+								<div class="perse">(Per <span></span> person)</div>
+							</div>
+                        </div>
+                        <div class="inclusions border">
+                   <div class="package--ex"><img src="assets/icons/transport/air.svg" alt="Flights not included" label="Flights not included" > <span>Tickets</span></div><div> <img src="assets/icons/transport/meals.svg" alt="Meals" label="Meals"> <span>Meals</span></div><div><img src="assets/icons/transport/transfer.svg" alt="Cab"><span>Cab</span></div><div><img src="assets/icons/transport/stars.svg" alt="hotel stars"><span>Stay</span></div><div ><img src="assets/icons/transport/view.svg" alt="Site seeing"><span>Siteseeing</span></div><div class="package--ex"><img src="assets/icons/transport/tent.svg" alt="Camping" label="Campingn" ><span>Camping</span></div><div class="package--ex"><img src="assets/icons/transport/tent.svg" alt="Houseboat" label="Houseboat" ><span>Houseboat</span></div><div class="package--ex"><img src="assets/icons/transport/more.svg" alt="Complimentary from destination" label="Compliment" ><span>Compliment</span></div>                        </div>
+                       <form class="list hotel radio no-border">
+                            <li class="list__item">
+                                <label class="label--radio">
+                                                  <input type="radio" onChange="stay('pprice2',2);" class="radio"  name="foo2" >
+                                                  Budget Stay
+                                              </label>
+                            </li>
+                            <li class="list__item">
+                                <label class="label--radio">
+                                                  <input type="radio" onChange="stay('pprice2',2);" class="radio" name="foo2" checked>
+                                                  3 star
+                                              </label>
+                            </li>
+                            <li class="list__item">
+                                <label class="label--radio">
+                                                  <input type="radio" onChange="stay('pprice2',2);" class="radio" name="foo2" >
+                                                  4 star
+                                              </label>
+                            </li>
+                            <li class="list__item">
+                                <label class="label--radio">
+                                                  <input type="radio"  onChange="stay('pprice2',2);"  class="radio" name="foo2" >
+                                                  5 star
+                                              </label>
+                            </li>
+                        </form>
+						<input type="hidden" id="destinations2" value="Kashmir, Ladakh" />
+						<input type="hidden" id="stays2" value="Kargil$$$$Leh$$$$Leh$$$$Nubra$$$$Pangong$$$$Leh$$$$$$$$" />
+						<input type="hidden" id="cp2" value="6500 $$$$ 6500 $$$$ 2200 $$$$ 5500 $$$$ 5500 $$$$ 5500 $$$$ 600 $$$$ " />
+                        <div class="flex">
+                            <a class="customise" href="#">Customise</a>
+                            <a href="packages/Discover Kashmir, Ladakh/1" target="_blank"><button class="view--package">View this Package</button></a>
+                        </div>
+                    </div>
+				</div>
+					Hotel: 0    Meals: 0   CAB :30300					
+						
+				<div class="package--tailored">
+                    <img src="images/packages/Heaven to Paradise1Ladakh, Kashmir635982646968672800-1766933105_fresh_nature-1280x72" alt="">
+                    <div class="destination--info">
+                        <div>
+                            <h3>Heaven to Paradise</h3>
+                            <span class="duration">8 Days 7 Nights</span>
+							<div>
+								<div class="price" id="pprice3">Not Avaliable/-</div>
+								<div class="perse">(Per <span></span> person)</div>
+							</div>
+                        </div>
+                        <div class="inclusions border">
+                   <div class="package--ex"><img src="assets/icons/transport/air.svg" alt="Flights not included" label="Flights not included" > <span>Tickets</span></div><div> <img src="assets/icons/transport/meals.svg" alt="Meals" label="Meals"> <span>Meals</span></div><div><img src="assets/icons/transport/transfer.svg" alt="Cab"><span>Cab</span></div><div><img src="assets/icons/transport/stars.svg" alt="hotel stars"><span>Stay</span></div><div ><img src="assets/icons/transport/view.svg" alt="Site seeing"><span>Siteseeing</span></div><div class="package--ex"><img src="assets/icons/transport/tent.svg" alt="Camping" label="Campingn" ><span>Camping</span></div><div class="package--ex"><img src="assets/icons/transport/tent.svg" alt="Houseboat" label="Houseboat" ><span>Houseboat</span></div><div class="package--ex"><img src="assets/icons/transport/more.svg" alt="Complimentary from destination" label="Compliment" ><span>Compliment</span></div>                        </div>
+                       <form class="list hotel radio no-border">
+                            <li class="list__item">
+                                <label class="label--radio">
+                                                  <input type="radio" onChange="stay('pprice3',3);" class="radio"  name="foo3" >
+                                                  Budget Stay
+                                              </label>
+                            </li>
+                            <li class="list__item">
+                                <label class="label--radio">
+                                                  <input type="radio" onChange="stay('pprice3',3);" class="radio" name="foo3" checked>
+                                                  3 star
+                                              </label>
+                            </li>
+                            <li class="list__item">
+                                <label class="label--radio">
+                                                  <input type="radio" onChange="stay('pprice3',3);" class="radio" name="foo3" >
+                                                  4 star
+                                              </label>
+                            </li>
+                            <li class="list__item">
+                                <label class="label--radio">
+                                                  <input type="radio"  onChange="stay('pprice3',3);"  class="radio" name="foo3" >
+                                                  5 star
+                                              </label>
+                            </li>
+                        </form>
+						<input type="hidden" id="destinations3" value="Ladakh, Kashmir" />
+						<input type="hidden" id="stays3" value="Leh$$$$Leh$$$$Hunder$$$$Leh$$$$Leh$$$$Kargil$$$$Srinagar$$$$$$$$" />
+						<input type="hidden" id="cp3" value="600 $$$$ 2200 $$$$ 3850 $$$$ 3850 $$$$ 7800 $$$$ 4000 $$$$ 4000 $$$$ 4000 $$$$ " />
+                        <div class="flex">
+                            <a class="customise" href="#">Customise</a>
+                            <a href="packages/Heaven to Paradise/1" target="_blank"><button class="view--package">View this Package</button></a>
+                        </div>
+                    </div>
+				</div>
+					Hotel: 0    Meals: 0   CAB :50200					
+						
+				<div class="package--tailored">
+                    <img src="images/packages/Formidable Ladakh1Kashmir, Ladakh, Manali" alt="">
+                    <div class="destination--info">
+                        <div>
+                            <h3>Formidable Kashmir, Ladakh, Manali</h3>
+                            <span class="duration">8 Days 7 Nights</span>
+							<div>
+								<div class="price" id="pprice4">Not Avaliable/-</div>
+								<div class="perse">(Per <span></span> person)</div>
+							</div>
+                        </div>
+                        <div class="inclusions border">
+                   <div class="package--ex"><img src="assets/icons/transport/air.svg" alt="Flights not included" label="Flights not included" > <span>Tickets</span></div><div> <img src="assets/icons/transport/meals.svg" alt="Meals" label="Meals"> <span>Meals</span></div><div><img src="assets/icons/transport/transfer.svg" alt="Cab"><span>Cab</span></div><div><img src="assets/icons/transport/stars.svg" alt="hotel stars"><span>Stay</span></div><div ><img src="assets/icons/transport/view.svg" alt="Site seeing"><span>Siteseeing</span></div><div class="package--ex"><img src="assets/icons/transport/tent.svg" alt="Camping" label="Campingn" ><span>Camping</span></div><div class="package--ex"><img src="assets/icons/transport/tent.svg" alt="Houseboat" label="Houseboat" ><span>Houseboat</span></div><div class="package--ex"><img src="assets/icons/transport/more.svg" alt="Complimentary from destination" label="Compliment" ><span>Compliment</span></div>                        </div>
+                       <form class="list hotel radio no-border">
+                            <li class="list__item">
+                                <label class="label--radio">
+                                                  <input type="radio" onChange="stay('pprice4',4);" class="radio"  name="foo4" >
+                                                  Budget Stay
+                                              </label>
+                            </li>
+                            <li class="list__item">
+                                <label class="label--radio">
+                                                  <input type="radio" onChange="stay('pprice4',4);" class="radio" name="foo4" checked>
+                                                  3 star
+                                              </label>
+                            </li>
+                            <li class="list__item">
+                                <label class="label--radio">
+                                                  <input type="radio" onChange="stay('pprice4',4);" class="radio" name="foo4" >
+                                                  4 star
+                                              </label>
+                            </li>
+                            <li class="list__item">
+                                <label class="label--radio">
+                                                  <input type="radio"  onChange="stay('pprice4',4);"  class="radio" name="foo4" >
+                                                  5 star
+                                              </label>
+                            </li>
+                        </form>
+						<input type="hidden" id="destinations4" value="Kashmir, Ladakh, Manali" />
+						<input type="hidden" id="stays4" value="Kargil$$$$Leh$$$$Leh$$$$Nubra$$$$Pangong$$$$Leh$$$$Sarchu$$$$$$$$" />
+						<input type="hidden" id="cp4" value="6500 $$$$ 6500 $$$$ 2200 $$$$ 5500 $$$$ 5500 $$$$ 5500 $$$$ 9250 $$$$ 9250 $$$$ " />
+                        <div class="flex">
+                            <a class="customise" href="#">Customise</a>
+                            <a href="packages/Formidable Kashmir, Ladakh, Manali/1" target="_blank"><button class="view--package">View this Package</button></a>
+                        </div>
+                    </div>
+				</div>
+					Hotel: 0    Meals: 0   CAB :48500					
+						
+				<div class="package--tailored">
+                    <img src="images/packages/Stupendous Ladakh1Manali, Ladakh, Kashmir" alt="">
+                    <div class="destination--info">
+                        <div>
+                            <h3>Stupendous Manali, Ladakh, Kashmir</h3>
+                            <span class="duration">8 Days 7 Nights</span>
+							<div>
+								<div class="price" id="pprice5">Not Avaliable/-</div>
+								<div class="perse">(Per <span></span> person)</div>
+							</div>
+                        </div>
+                        <div class="inclusions border">
+                   <div class="package--ex"><img src="assets/icons/transport/air.svg" alt="Flights not included" label="Flights not included" > <span>Tickets</span></div><div> <img src="assets/icons/transport/meals.svg" alt="Meals" label="Meals"> <span>Meals</span></div><div><img src="assets/icons/transport/transfer.svg" alt="Cab"><span>Cab</span></div><div><img src="assets/icons/transport/stars.svg" alt="hotel stars"><span>Stay</span></div><div ><img src="assets/icons/transport/view.svg" alt="Site seeing"><span>Siteseeing</span></div><div class="package--ex"><img src="assets/icons/transport/tent.svg" alt="Camping" label="Campingn" ><span>Camping</span></div><div class="package--ex"><img src="assets/icons/transport/tent.svg" alt="Houseboat" label="Houseboat" ><span>Houseboat</span></div><div class="package--ex"><img src="assets/icons/transport/more.svg" alt="Complimentary from destination" label="Compliment" ><span>Compliment</span></div>                        </div>
+                       <form class="list hotel radio no-border">
+                            <li class="list__item">
+                                <label class="label--radio">
+                                                  <input type="radio" onChange="stay('pprice5',5);" class="radio"  name="foo5" >
+                                                  Budget Stay
+                                              </label>
+                            </li>
+                            <li class="list__item">
+                                <label class="label--radio">
+                                                  <input type="radio" onChange="stay('pprice5',5);" class="radio" name="foo5" checked>
+                                                  3 star
+                                              </label>
+                            </li>
+                            <li class="list__item">
+                                <label class="label--radio">
+                                                  <input type="radio" onChange="stay('pprice5',5);" class="radio" name="foo5" >
+                                                  4 star
+                                              </label>
+                            </li>
+                            <li class="list__item">
+                                <label class="label--radio">
+                                                  <input type="radio"  onChange="stay('pprice5',5);"  class="radio" name="foo5" >
+                                                  5 star
+                                              </label>
+                            </li>
+                        </form>
+						<input type="hidden" id="destinations5" value="Manali, Ladakh, Kashmir" />
+						<input type="hidden" id="stays5" value="Sarchu$$$$Leh$$$$Nubra$$$$Pangong$$$$Leh$$$$Kargil$$$$Srinagar$$$$$$$$" />
+						<input type="hidden" id="cp5" value="10000 $$$$ 10000 $$$$ 5500 $$$$ 5500 $$$$ 5500 $$$$ 4000 $$$$ 4000 $$$$ 4000 $$$$ " />
+                        <div class="flex">
+                            <a class="customise" href="#">Customise</a>
+                            <a href="packages/Stupendous Manali, Ladakh, Kashmir/1" target="_blank"><button class="view--package">View this Package</button></a>
+                        </div>
+                    </div>
+				</div>
+					Hotel: 0    Meals: 0   CAB :50700					
+						
+				<div class="package--tailored">
+                    <img src="images/packages/Tremendous Ladakh1Srinagar, Ladakh, Manali" alt="">
+                    <div class="destination--info">
+                        <div>
+                            <h3>Tremendous Kashmir, Ladakh, Manali</h3>
+                            <span class="duration">9 Days 8 Nights</span>
+							<div>
+								<div class="price" id="pprice6">Not Avaliable/-</div>
+								<div class="perse">(Per <span></span> person)</div>
+							</div>
+                        </div>
+                        <div class="inclusions border">
+                   <div class="package--ex"><img src="assets/icons/transport/air.svg" alt="Flights not included" label="Flights not included" > <span>Tickets</span></div><div> <img src="assets/icons/transport/meals.svg" alt="Meals" label="Meals"> <span>Meals</span></div><div><img src="assets/icons/transport/transfer.svg" alt="Cab"><span>Cab</span></div><div><img src="assets/icons/transport/stars.svg" alt="hotel stars"><span>Stay</span></div><div ><img src="assets/icons/transport/view.svg" alt="Site seeing"><span>Siteseeing</span></div><div class="package--ex"><img src="assets/icons/transport/tent.svg" alt="Camping" label="Campingn" ><span>Camping</span></div><div class="package--ex"><img src="assets/icons/transport/tent.svg" alt="Houseboat" label="Houseboat" ><span>Houseboat</span></div><div class="package--ex"><img src="assets/icons/transport/more.svg" alt="Complimentary from destination" label="Compliment" ><span>Compliment</span></div>                        </div>
+                       <form class="list hotel radio no-border">
+                            <li class="list__item">
+                                <label class="label--radio">
+                                                  <input type="radio" onChange="stay('pprice6',6);" class="radio"  name="foo6" >
+                                                  Budget Stay
+                                              </label>
+                            </li>
+                            <li class="list__item">
+                                <label class="label--radio">
+                                                  <input type="radio" onChange="stay('pprice6',6);" class="radio" name="foo6" checked>
+                                                  3 star
+                                              </label>
+                            </li>
+                            <li class="list__item">
+                                <label class="label--radio">
+                                                  <input type="radio" onChange="stay('pprice6',6);" class="radio" name="foo6" >
+                                                  4 star
+                                              </label>
+                            </li>
+                            <li class="list__item">
+                                <label class="label--radio">
+                                                  <input type="radio"  onChange="stay('pprice6',6);"  class="radio" name="foo6" >
+                                                  5 star
+                                              </label>
+                            </li>
+                        </form>
+						<input type="hidden" id="destinations6" value="Kashmir, Ladakh, Manali" />
+						<input type="hidden" id="stays6" value="Kargil$$$$Leh$$$$Leh$$$$Nubra$$$$Pangong$$$$Leh$$$$Sarchu$$$$Manali$$$$$$$$" />
+						<input type="hidden" id="cp6" value="6500 $$$$ 6500 $$$$ 2200 $$$$ 5500 $$$$ 5500 $$$$ 5500 $$$$ 9250 $$$$ 9250 $$$$ 500 $$$$ " />
+                        <div class="flex">
+                            <a class="customise" href="#">Customise</a>
+                            <a href="packages/Tremendous Kashmir, Ladakh, Manali/1" target="_blank"><button class="view--package">View this Package</button></a>
+                        </div>
+                    </div>
+				</div>
+					  
+				</div>
             </div>
         </div>
     </div>
 
+	</div>
     <footer>
         <div class="secondary--footer">
             <div class="sec-ftr">
@@ -447,14 +669,14 @@
                 <span class="tel">1800 123 2262</span>
                 <span class="tagl">24/7 Dedicated Support</span>
             </div>
-            <div class="quote">Book a destination</div>
+            <li class="quote">Book a destination</li>
             </div>
         </div>
             <div class="footer--primary max-width">
                 <ul>
-                    <li><a href="#">About Us</a></li>
+                    <li><a href="about">About Us</a></li>
                     <li><a href="#">What makes Us</a></li>
-                    <li><a href="#">Blogs</a></li>
+                    <li><a href="blog">Blogs</a></li>
                     <li><a href="#">Careers</a></li>
                     <li><a href="#">Terms &amp; Conditions</a></li>
                     <li><a href="#">Privacy Policy</a></li>
@@ -464,10 +686,10 @@
             <div class="footer--secondary">
                 <div class="max-width">
                     <div class="connect">
-                        <a class="social" href="#"><img src="<?php echo $baseurl; ?>assets/icons/social/facebook.svg" alt="Facebook"></a>
-                        <a class="social" href="#"><img src="<?php echo $baseurl; ?>assets/icons/social/insta.svg" alt="Instagram"></a>
-                        <a class="social" href="#"><img src="<?php echo $baseurl; ?>assets/icons/social/twitter.svg" alt="twitter"></a>
-                        <a class="social" href="#"><img src="<?php echo $baseurl; ?>assets/icons/social/in.svg" alt="linkedIn"></a>
+                        <a class="social" href="https://www.facebook.com/flyparadisetravels" target="_blank"><img src="./assets/icons/social/facebook.svg" alt="Facebook"></a>
+                        <a class="social" href="https://www.instagram.com/flyparadisetravels/" target="_blank"><img src="./assets/icons/social/insta.svg" alt="Instagram"></a>
+                        <a class="social" href="https://twitter.com/flyparadise_" target="_blank"><img src="./assets/icons/social/twitter.svg" alt="twitter"></a>
+                        <a class="social" href="https://www.linkedin.com/company/fly-paradise/" target="_blank"><img src="./assets/icons/social/in.svg" alt="linkedIn"></a>
                     </div>
                 </div>
             </div>
@@ -475,19 +697,28 @@
                 &copy; 2010 - 2018 Fly Paradise Travels
             </div>
         </footer>
-	
-	 <!-- PopUp wrapper -->
-        <div class="pop-up remove">
-            <!-- Calling popup from location partial -->
-           <div class="pop-up-form">
-	 <p class="remove-popup">X</p>
-	 
+		
+		<!-- Hotjar Tracking Code for http://junaidmasoodi.com -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:699414,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+
+
+ <div class="pop-up remove">
+ <form action="thanks" method="post">
+	<div class="pop-up-form">
+	<p class="remove-popup">X</p>
     <div class="form-image">
-        <img src="<?php echo $baseurl; ?>assets/form/form.png" alt="">
+        <img src="./assets/form/form.png" alt="">
     </div>
-	
-	<?php include_once('home/ajaxcomponents/getquery.php'); ?>
-	
     <div class="form-fields">
         <ul class="form">
             <li>
@@ -499,102 +730,254 @@
                     google.maps.event.addDomListener(window, 'load', init);
                 </script>
                 <label for="locationTextField">Departure point</label>
-    
+
                 <div class="inp">
-                    <img src="<?php echo $baseurl; ?>assets/icons/social/location.svg" alt="">
-                    <input id="locationTextFieldD"  class="input-field" placeholder="Leaving from this place" type="text" size="50">
+                    <img src="./assets/icons/social/location.svg" alt="">
+                    <input id="locationTextFieldD" class="input-field" placeholder="Leaving from this place" type="text" size="50" name="from_place">
                 </div>
             </li>
             <li>
-                    <script>
-                        function init() {
-                            var input = document.getElementById('locationTextFieldA');
-                            var autocomplete = new google.maps.places.Autocomplete(input);
-                        }
-                        google.maps.event.addDomListener(window, 'load', init);
-                    </script>
+                <script>
+                    function init() {
+                        var input = document.getElementById('locationTextFieldA');
+                        var autocomplete = new google.maps.places.Autocomplete(input);
+                    }
+                    google.maps.event.addDomListener(window, 'load', init);
+                </script>
                 <label for="locationTextField">Arrival point</label>
-            
+
                 <div class="inp">
-                    <img src="<?php echo $baseurl; ?>assets/icons/social/location.svg" alt="">
-                    <input id="locationTextFieldA"  class="input-field" placeholder="Want to see" type="text" size="50">
+                    <img src="./assets/icons/social/location.svg" alt="">
+                    <input id="locationTextFieldA" class="input-field" placeholder="Want to see" type="text" size="50" name="to_loc" value="Kashmir">
                 </div>
             </li>
             <li>
                 <label for="">Enter Phone No.</label>
                 <div class="inp">
-                    <img src="<?php echo $baseurl; ?>assets/icons/social/smartphone.svg" alt="">
-                    <input class="input-field" id="phone" placeholder="Enter Phone" min="9" max="10" required type="tel">
+                    <img src="./assets/icons/social/smartphone.svg" alt="">
+                    <input class="input-field" placeholder="Enter Phone" min="9" max="10" required type="tel" name="phone">
                 </div>
             </li>
             <li>
                 <label for="">Enter your Email</label>
                 <div class="inp">
-                    <img src="<?php echo $baseurl; ?>assets/icons/social/mail.svg" alt="">
-                    <input class="input-field" id="email"  placeholder="Your email-ID" required type="email">
+                    <img src="./assets/icons/social/mail.svg" alt="">
+                    <input class="input-field" placeholder="Your email-ID" required type="email" name="email">
                 </div>
             </li>
         </ul>
         <ul class="depart-date">
             <li><label for="datepicker">Departure date</label>
-                <input id="datepicker" placeholder="Preferred date of travel" type="date" /></li>
-            <li class="day--counter no-of-day">
-                <span class="hsidebar">Duration (in nights)</span>
-                <input name="noofnights" id="counter-no" type="number" min="1" max="30" value="1" />
-            </li>
-    
+                <input id="datepicker" placeholder="Preferred date of travel" type="date" name="date"/></li>
+            <ul class="number-counter--popup">
+                <li class="day--counter no-of-day">
+                    <span class="hsidebar">Duration (in nights)</span>
+                    <input id="counter-no" type="number" min="1" max="30" value="1"  name="nights"/>
+                </li>
+                <li class="day--counter no-of-people">
+                    <span class="hsidebar">Number of Travellers</span>
+                    <input id="counter-no" type="number" min="1" max="30" value="1" name="travellers" />
+                </li>
+            </ul>
+
             </form>
         </ul>
-        <ul class="hotel radio no-border">
-            <li>
-                <input type="radio" id="f-option" name="selector" value="Honeymoon">
-                <label for="f-option">Honeymoon</label>
-    
-                <div class="check"></div>
+        <form class="list hotel radio no-border">
+            <li class="list__item">
+                <label class="label--radio">
+                              <input type="radio" class="radio" checked value="Honeymoon"  name="foo">
+                             Honeymoon
+                          </label>
             </li>
-    
-            <li>
-                <input type="radio" id="s-option" name="selector" value="Solo">
-                <label for="s-option">Solo</label>
-    
-                <div class="check">
-                    <div class="inside"></div>
-                </div>
+            <li class="list__item">
+                <label class="label--radio">
+                              <input type="radio" class="radio" value="Friends and Family" name="foo">
+                             Friends & Family
+                          </label>
             </li>
-    
-            <li>
-                <input type="radio" id="t-option" name="selector" value="Family">
-                <label for="t-option">Family</label>
-    
-                <div class="check">
-                    <div class="inside"></div>
-                </div>
+            <li class="list__item">
+                <label class="label--radio">
+                              <input type="radio" class="radio" value="Adventure" name="foo">
+                              Adventure
+                          </label>
             </li>
-            <li>
-                <input type="radio" id="w-option" name="selector" value="Weekend">
-                <label for="w-option">Weekend</label>
-    
-                <div class="check">
-                    <div class="inside"></div>
-                </div>
+            <li class="list__item">
+                <label class="label--radio">
+                              <input type="radio" class="radio" value="Solo" name="foo">
+                             Solo
+                          </label>
             </li>
-            <li>
-                <input type="radio" id="x-option" name="selector" value="Friends">
-                <label for="x-option">Friends</label>
-    
-                <div class="check">
-                    <div class="inside"></div>
-                </div>
+			<li class="list__item">
+                <label class="label--radio">
+                              <input type="radio" class="radio" value="Weekend" name="foo">
+                             Weekend
+                          </label>
             </li>
-        </ul>
-        <button class="cta" type="submit" value="Curate my package" onClick="getquery('queryresponse');">Curate my Package</button>
+        </form>
+        <button class="cta" type="submit" value="Curate my package">Curate my Package</button>
     </div>
 </div>
+<!--End of form -->
+</form>
 
+</div>
 
-       </div>
-	   
-	   <?php include_once("home/ajaxcomponents/updatestay.php"); ?>
 </body>
+<script type="text/javascript">	
+	function showpackages(thediv){
+	
+		//Getting destination
+		var destination="Kashmir";
+		
+		//Getting star filter
+		var stars;
+		for (i = 0; i < document.getElementsByName('rating').length; i++) {
+					if(document.getElementsByName('rating')[i].checked == true) {
+						var stars = document.getElementsByName('rating')[i].value;
+						break;
+					}
+		 }
+		 
+		//Getting category
+		//getting Honeymoon checkbox
+		var honeymoon;
+		if(document.getElementsByName('Honeymoon')[0].checked == true) {
+			 honeymoon="Yes";
+			
+		}else{
+			honeymoon="No";
+		}
+		//getting Solo checkbox
+		var solo;
+		if(document.getElementsByName('Solo')[0].checked == true) {
+			 solo="Yes";
+			
+		}else{
+			solo="No";
+		}
+		//getting Family and Friends checkbox
+		var ff;
+		if(document.getElementsByName('Family and Friends')[0].checked == true) {
+			 ff="Yes";
+			
+		}else{
+			ff="No";
+		}
+		
+		//getting Adventure checkbox
+		var adventure;
+		if(document.getElementsByName('Adventure')[0].checked == true) {
+			 adventure="Yes";
+			
+		}else{
+			adventure="No";
+		}
+		
+		//getting Weekend checkbox
+		var weekend;
+		var isweekendset=document.getElementsByName('Weekend')[0];
+		if(typeof isweekendset != 'undefined'){
+			if(document.getElementsByName('Weekend')[0].checked == true) {
+				 weekend="Yes";
+				
+			}else{
+				weekend="No";
+			}
+		}else{
+			weekend="No";
+		}	
+		
+		
+		//getting package duration
+		var duration=document.getElementById('counter-no').value;
+		
+		
+		//getting noof travellers
+		var traveller=document.getElementById('traveller-no').value;
+		
+		//getting filter price
+		var price=document.getElementById('amount').value;
+		
+		
+		//processing filter
+		if(window.XMLHttpRequest){
+			xmlhttp=new XMLHttpRequest();
+		}
+		else{
+			xmlhttp=new ActiveXObject('Microsoft.XMLHTTP');
+		}
+		
+		xmlhttp.onreadystatechange = function(){
+			if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+				document.getElementById(thediv).innerHTML = xmlhttp.responseText;
+			}
+		}
+		xmlhttp.open('GET','home/ajaxcomponents/getpackages.php?stars='+stars+'&destination='+destination+'&honeymoon='+honeymoon+'&solo='+solo+'&ff='+ff+'&adventure='+adventure+'&weekend='+weekend+'&duration='+duration+'&price='+price+'&traveller='+traveller,true);
 
+		xmlhttp.send();
+		
+	}
+</script><script type="text/javascript">	
+	function stay(thediv,id){
+	
+		//getting stay details
+		var foo="foo";
+		foo+=id;
+		var stay;
+		if(document.getElementsByName(foo)[0].checked == true) {
+			 stay=2;
+		}
+		
+		if(document.getElementsByName(foo)[1].checked == true) {
+			 stay=3;
+			
+		}
+		if(document.getElementsByName(foo)[2].checked == true) {
+			  stay=4;
+			
+		}
+		if(document.getElementsByName(foo)[3].checked == true) {
+			  stay=5;
+			
+		}
+		
+		
+		//getting month details
+		
+		//var month=document.getElementById('stay').value;
+		
+		
+		//getting location
+		
+		var loc=document.getElementById("destinations"+id).value;
+		
+		//getting travellers
+		var travellers="1";
+		//getting itenary stays
+		var stays=document.getElementById("stays"+id).value;
+		
+		
+		//getting cab prices
+		var cabprices=document.getElementById("cp"+id).value;
+		
+		
+		//processing filter
+		if(window.XMLHttpRequest){
+			xmlhttp=new XMLHttpRequest();
+		}
+		else{
+			xmlhttp=new ActiveXObject('Microsoft.XMLHTTP');
+		}
+		
+		xmlhttp.onreadystatechange = function(){
+			if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+				document.getElementById(thediv).innerHTML = xmlhttp.responseText;
+			}
+		}
+		xmlhttp.open('GET','home/ajaxcomponents/updatepackagepricedestination.php?stay='+stay+'&loc='+loc+'&travellers='+travellers+'&stays='+stays+'&cabprices='+cabprices,true);
+
+		xmlhttp.send();
+		
+	}
+</script>
 </html>

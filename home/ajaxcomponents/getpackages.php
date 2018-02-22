@@ -1,11 +1,12 @@
 <?php
+	require_once('../../config.khan');
 	require_once('../catalog/connect.khan');
 	require_once('../catalog/session.khan');
 ?>
 
 <?php
 	$maxpackages=0;
-	$profitpercent=10;
+	$profitpercent=PROFIT;
 	//fetching filtered packages
 	 $destination=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['destination']))));
 	 $stars=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['stars']))));
@@ -83,7 +84,7 @@
 	$query.=" AND `duration` like  '%$duration nights' ";
 	
 	
-	 $query.="ORDER BY `id` DESC";
+	 $query.="ORDER BY `id` ASC";
 	//
 	require_once('../components/getroomsforpackage.fly');
 					
@@ -113,7 +114,7 @@
 	
 	 //fetching filtered results
 	if($result = mysqli_query($dbconn,$query)){
-		$packages;
+		if(!empty($packages)) $packages="";
 		$count=0;
 		while($row = mysqli_fetch_assoc($result)){
 			$packages[] = array(
@@ -172,7 +173,7 @@
 					$hlocations="( `location` like '%".$locationlist[0]."%'";
 					for($l=1;$l<count($locationlist);$l++){
 						$hlocations.=" OR `location` like '%";
-						$hlocations.=$locationlist[$l]."%'";
+						$hlocations.=trim($locationlist[$l])."%'";
 					}
 					
 					//formulating query for getting seperate hotelprice on basis of number of travellers and itenariy stay
@@ -216,7 +217,7 @@
 					
 					$noofcabs=ceil($travellers/4);
 					$cabtotalprice=$cabtotalprice*$noofcabs;
-					
+					//echo "Hotel: ".$hoteltotalprice."    Meals: ".$meals."   CAB :".$cabtotalprice;
 					if($flag==0){
 						$price = $hoteltotalprice+$cabtotalprice+$meals;
 						//adding profit
@@ -229,19 +230,19 @@
 					?> 
 					<?php 
 						
-						if(($price<=$setprice || $setprice==0 ) AND ($price!="Not Avaliable") AND ($maxpackages<7)) { 
+						if(($price<=$setprice || $setprice==0 ) AND  ($maxpackages<7)) { 
 							$maxpackages=$maxpackages+1;
 						
 						?>
-					<div class="package--tailored">
+				<div class="package--tailored">
                     <img src="<?php echo $packages[$i]['PATH']; ?>" alt="">
                     <div class="destination--info">
                         <div>
                             <h3><?php echo $packages[$i]['TITLE']; ?></h3>
                             <span class="duration"><?php echo $packages[$i]['DURATION']; ?></span>
 							<div>
-								<div class="price"><?php echo $price; ?>/-</div>
-								<div class="perse">(Per <span><?php  if($travellers!=1) echo $travellers; ?></span> person<?php if($travellers!=1) echo "s"; ?>)</div>
+								<div class="price" id="pprice<?php echo $i; ?>"><?php echo $price; ?>/-</div>
+								<div class="perse">(Per <span><?php if($travellers>1)echo $travellers; ?></span> person<?php if($travellers>1) echo "s"; ?>)</div>
 							</div>
                         </div>
                         <div class="inclusions border">
@@ -305,48 +306,44 @@
 				 
 				    ?>
                         </div>
-                        <ul class="hotel radio">
-                            <li>
-                                <input type="radio" id="f-option" name="selector" <?php if($packages[0]['HOTELSTAR']==2) echo "checked"; ?>>
-                                <label for="f-option">Budget stay</label>
-
-                                <div class="check"></div>
+                       <form class="list hotel radio no-border">
+                            <li class="list__item">
+                                <label class="label--radio">
+                                                  <input type="radio" onChange="stay('pprice<?php echo $i; ?>',<?php echo $i; ?>);" class="radio"  name="foo<?php echo $i; ?>" <?php if($packages[$i]['HOTELSTAR']==2) echo "checked"; ?>>
+                                                  Budget Stay
+                                              </label>
                             </li>
-
-                            <li>
-                                <input type="radio" id="s-option" name="selector" <?php if($packages[0]['HOTELSTAR']==3) echo "checked"; ?>>
-                                <label for="s-option">3 Star</label>
-
-                                <div class="check">
-                                    <div class="inside"></div>
-                                </div>
+                            <li class="list__item">
+                                <label class="label--radio">
+                                                  <input type="radio" onChange="stay('pprice<?php echo $i; ?>',<?php echo $i; ?>);" class="radio" name="foo<?php echo $i; ?>" <?php if($packages[$i]['HOTELSTAR']==3) echo "checked"; ?>>
+                                                  3 star
+                                              </label>
                             </li>
-
-                            <li>
-                                <input type="radio" id="t-option" name="selector" <?php if($packages[0]['HOTELSTAR']==4) echo "checked"; ?>>
-                                <label for="t-option">4 star</label>
-
-                                <div class="check">
-                                    <div class="inside"></div>
-                                </div>
+                            <li class="list__item">
+                                <label class="label--radio">
+                                                  <input type="radio" onChange="stay('pprice<?php echo $i; ?>',<?php echo $i; ?>);" class="radio" name="foo<?php echo $i; ?>" <?php if($packages[$i]['HOTELSTAR']==4) echo "checked"; ?>>
+                                                  4 star
+                                              </label>
                             </li>
-                            <li>
-                                <input type="radio" id="w-option" name="selector" <?php if($packages[0]['HOTELSTAR']==5) echo "checked"; ?>>
-                                <label for="w-option">5 star</label>
-
-                                <div class="check">
-                                    <div class="inside"></div>
-                                </div>
+                            <li class="list__item">
+                                <label class="label--radio">
+                                                  <input type="radio"  onChange="stay('pprice<?php echo $i; ?>',<?php echo $i; ?>);"  class="radio" name="foo<?php echo $i; ?>" <?php if($packages[$i]['HOTELSTAR']==5) echo "checked"; ?>>
+                                                  5 star
+                                              </label>
                             </li>
-                        </ul>
+                        </form>
+						<input type="hidden" id="destinations<?php echo $i; ?>" value="<?php echo $packages[$i]['DESTINATION']; ?>" />
+						<input type="hidden" id="stays<?php echo $i; ?>" value="<?php echo $packages[$i]['STAYS']; ?>" />
+						<input type="hidden" id="cp<?php echo $i; ?>" value="<?php echo $packages[$i]['ITINERARYCABPRICE']; ?>" />
                         <div class="flex">
-                            <a class="customise" href="#">Customise</a>
+                          <a class="customise" href="#" onclick="formopen();">Customise</a>
                             <a href="packages/<?php echo $packages[$i]['TITLE']; ?>/<?php echo $travellers; ?>" target="_blank"><button class="view--package">View this Package</button></a>
                         </div>
                     </div>
 				</div>
 					<?php } ?>
 	<?php }//end packages (for)
+	
 		} //ending if
 	
 	else{
@@ -354,3 +351,4 @@
 	}
 	
 	 ?>  
+	 

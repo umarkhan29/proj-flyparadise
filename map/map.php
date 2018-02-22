@@ -8,6 +8,7 @@ $(document).ready(function(){
     }
 });
 
+
 function showLocation(position){
     var latitude = position.coords.latitude;
     var longitude = position.coords.longitude;

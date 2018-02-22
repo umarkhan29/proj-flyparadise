@@ -22,6 +22,9 @@
 	$time=$time/60; // to minutes
 	$time=$time/60; // to hours
 	
+	//calculating to approz air time
+	$time=$time/17;
+	
 	$distance=$distance/1000; //to KMs
 	
 	//displaying distance time block

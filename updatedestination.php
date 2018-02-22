@@ -19,7 +19,7 @@ require_once('home/components/employeeauthorize.fly');
 		$token=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['token']))));
 		$query = "SELECT * FROM `destinations` WHERE `id` = '$token' LIMIT 1 ";
 			if($result = mysqli_query($dbconn,$query)){
-				$destination="";
+				
 				$count=0;
 				while($row = mysqli_fetch_assoc($result)){
 					$destination[] = array(

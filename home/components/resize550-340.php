@@ -24,7 +24,7 @@
 			//imagecopyresized($new_image,$old_image,0,0,0,0,$new_width,$new_height,$image_width,$image_height);
 			imagecopyresampled($new_image,$old_image,0,0,0,0,$new_width,$new_height,$image_width,$image_height);
 			
-			imagejpeg($new_image,$image,100);
+			imagejpeg($new_image,$image,75);
 			
 			//setting session for success message
 			$_SESSION['resizedone']="success";
@@ -52,7 +52,7 @@
 				
 			//imagecopyresized($new_image,$old_image,0,0,0,0,$new_width,$new_height,$image_width,$image_height);
 			imagecopyresampled($new_image,$old_image,0,0,0,0,$new_width,$new_height,$image_width,$image_height);
-			imagepng($new_image,$image,100);
+			imagepng($new_image,$image,75);
 			
 			//setting session for success message
 			$_SESSION['resizedone']="success";
