@@ -1,8 +1,12 @@
 <?php
+	require_once('config.khan');
 	include_once('home/catalog/connect.khan');
 	include_once('home/catalog/session.khan');
 	include_once('home/components/int2txt.fly');
-	$baseurl="../../";
+	if(isset($_GET['travellers']))
+		$baseurl="../../";
+	else
+		$baseurl="../";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,6 +26,7 @@
     <script src="<?php echo $baseurl; ?>libraries/owl.carousel.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
     <script src="<?php echo $baseurl; ?>libraries/js/main.js"></script>
+    <script src="<?php echo $baseurl; ?>libraries/js/selec.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCotB6BSKESLUC2dNLnAT76EporwJBXMN4&v=3.exp&libraries=places"></script>
@@ -32,17 +37,17 @@
 </head>
 
 <body>
-  <header class="alternate desktop--only">
+ 
+<header class="alternate desktop--only">
         <div class="main--header">
             <div class="menu--heading">
                 <h1 class="logo left">fly paradise</h1>
-                <img class="fp--logo" src="<?php echo $baseurl; ?>assets/heros/logo.png" alt="Fly Paradise logo">
+                <img class="fp--logo" src="<?php echo $baseurl; ?>assets/heros/logo.svg" alt="Fly Paradise logo">
                 <div class="main-menu right">
-                    <li><a href="">Packages</a></li>
-                    <li><a href="">Destinations</a></li>
-                    <li><a href="">Honeymoon Packages</a></li>
-                    <li><a href="">Weekend trips</a></li>
-                    <li class="quote"><a href="">FREE QUOTE</a></li>
+                   <li><a href="<?php echo $baseurl; ?>blog">Blog</a></li>
+                    <li><a href="<?php echo $baseurl; ?>about">About Us</a></li>
+					 <li><a href="<?php echo $baseurl; ?>get-in">Login</a></li>
+                    <li class="quote">FREE QUOTE</li>
                 </div>
             </div>
         </div>
@@ -57,23 +62,23 @@
                     <li></li>
                 </ul>
                 <div class="brand-logo">
-                    Fly Paradise
+                    <img class="fp--logo" src="<?php echo $baseurl; ?>assets/heros/logo_m.svg" alt="Fly Paradise logo" class="quote">
+                </div>
+                <div class="login_m">
+                    <img src="<?php echo $baseurl; ?>assets/icons/log-in.svg" alt="" class="customise">
                 </div>
             </header>
 
             <nav id="nav" role="navigation">
-                <li><a href="blog">Blogs</a></li>
-				<li><a href="destinations">Destinations</a></li>
-				<li><a href="">Honeymoon Packages</a></li>
-				<li><a href="">Weekend trips</a></li>
-				<li><a href="get-in">Login</a></li>
+                <li><a href="<?php echo $baseurl; ?>blog">Blog</a></li>
+				<li><a href="<?php echo $baseurl; ?>about">About Us</a></li>
+				<li><a href="<?php echo $baseurl; ?>get-in">Login</a></li>
             </nav>
-        </div>
-	
+        </div>	
 <?php
 //Fetching single package
  $title=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['id']))));
- $profitpercent=10;
+ $profitpercent=PROFIT;
  $query = "SELECT * FROM `packages` WHERE `title` = '$title';  ";
 			if($result = mysqli_query($dbconn,$query)){
 				$count=0;
@@ -222,41 +227,42 @@
 					 
                     
                 </div>
-                <div class="stars border">
-                    <ul class="hotel radio">
-                        <li>
-                            <input type="radio" onChange="stay('pprice');" id="f-option" name="selector" <?php if($package[0]['HOTELSTAR']==2) echo "checked"; ?> >
-                            <label for="f-option">Budget stay</label>
-
-                            <div class="check"></div>
-                        </li>
-
-                        <li>
-                            <input type="radio" onChange="stay('pprice');" id="s-option" name="selector" <?php if($package[0]['HOTELSTAR']==3) echo "checked"; ?> >
-                            <label for="s-option">3 Star</label>
-
-                            <div class="check">
-                                <div class="inside"></div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <input type="radio" onChange="stay('pprice');" id="t-option" name="selector" <?php if($package[0]['HOTELSTAR']==4) echo "checked"; ?>>
-                            <label for="t-option">4 star</label>
-
-                            <div class="check">
-                                <div class="inside"></div>
-                            </div>
-                        </li>
-                        <li>
-                            <input type="radio" onChange="stay('pprice');" id="w-option" name="selector" <?php if($package[0]['HOTELSTAR']==5) echo "checked"; ?> >
-                            <label for="w-option">5 star</label>
-
-                            <div class="check">
-                                <div class="inside"></div>
-                            </div>
-                        </li>
-                    </ul>
+				
+				
+				
+				
+				<form class="list hotel radio no-border">
+                            <li class="list__item">
+                                <label class="label--radio">
+                                                  <input type="radio" onChange="stay('pprice');"  class="radio"  name="foo" <?php if($package[0]['HOTELSTAR']==2) echo "checked"; ?>>
+                                                  Budget Stay
+                                              </label>
+                            </li>
+                            <li class="list__item">
+                                <label class="label--radio">
+                                                  <input type="radio" onChange="stay('pprice');"  class="radio" name="foo" <?php if($package[0]['HOTELSTAR']==3) echo "checked"; ?>>
+                                                  3 star
+                                              </label>
+                            </li>
+                            <li class="list__item">
+                                <label class="label--radio">
+                                                  <input type="radio" onChange="stay('pprice');"  class="radio" name="foo" <?php if($package[0]['HOTELSTAR']==4) echo "checked"; ?>>
+                                                  4 star
+                                              </label>
+                            </li>
+                            <li class="list__item">
+                                <label class="label--radio">
+                                                  <input type="radio" onChange="stay('pprice');"  class="radio" name="foo" <?php if($package[0]['HOTELSTAR']==5) echo "checked"; ?>>
+                                                  5 star
+                                              </label>
+                            </li>
+                        </form>
+						
+						
+						
+						
+						
+                
 					
 					<?php
 
@@ -391,7 +397,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="cta">Submit</button>
+                <button class="cta"><div class="customise">Submit</div></button>
             </div>
         </div>
 	</div>
@@ -477,27 +483,27 @@
                 <span class="tel">1800 123 2262</span>
                 <span class="tagl">24/7 Dedicated Support</span>
             </div>
-            <div class="quote">Book a destination</div>
+            <li class="quote">Book a destination</li>
             </div>
         </div>
             <div class="footer--primary max-width">
                 <ul>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">What makes Us</a></li>
-                    <li><a href="#">Blogs</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">Terms &amp; Conditions</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="<?php echo $baseurl; ?>about">About Us</a></li>
+                    <li><a href="<?php echo $baseurl; ?>whatmakesus">What makes Us</a></li>
+                    <li><a href="<?php echo $baseurl; ?>blog">Blogs</a></li>
+                    <li><a href="<?php echo $baseurl; ?>careers">Careers</a></li>
+                    <li><a href="<?php echo $baseurl; ?>terms">Terms &amp; Conditions</a></li>
+                    <li><a href="<?php echo $baseurl; ?>privacypolicy">Privacy Policy</a></li>
                 </ul>
             </div>
     
             <div class="footer--secondary">
                 <div class="max-width">
                     <div class="connect">
-                        <a class="social" href="#"><img src="<?php echo $baseurl; ?>assets/icons/social/facebook.svg" alt="Facebook"></a>
-                        <a class="social" href="#"><img src="<?php echo $baseurl; ?>assets/icons/social/insta.svg" alt="Instagram"></a>
-                        <a class="social" href="#"><img src="<?php echo $baseurl; ?>assets/icons/social/twitter.svg" alt="twitter"></a>
-                        <a class="social" href="#"><img src="<?php echo $baseurl; ?>assets/icons/social/in.svg" alt="linkedIn"></a>
+                        <a class="social" href="https://www.facebook.com/flyparadisetravels" target="_blank"><img src="<?php echo $baseurl; ?>assets/icons/social/facebook.svg" alt="Facebook"></a>
+                        <a class="social" href="https://www.instagram.com/flyparadisetravels/" target="_blank"><img src="<?php echo $baseurl; ?>assets/icons/social/insta.svg" alt="Instagram"></a>
+                        <a class="social" href="https://twitter.com/flyparadise_" target="_blank"><img src="<?php echo $baseurl; ?>assets/icons/social/twitter.svg" alt="twitter"></a>
+                        <a class="social" href="https://www.linkedin.com/company/fly-paradise/" target="_blank"><img src="<?php echo $baseurl; ?>assets/icons/social/in.svg" alt="linkedIn"></a>
                     </div>
                 </div>
             </div>
@@ -506,18 +512,14 @@
             </div>
         </footer>
 	
-	 <!-- PopUp wrapper -->
-        <div class="pop-up remove">
-            <!-- Calling popup from location partial -->
-           <div class="pop-up-form">
-	 <p class="remove-popup">X</p>
-	 
+
+ <div class="pop-up remove">
+ <form action="<?php echo $baseurl; ?>thanks" method="post">
+	<div class="pop-up-form">
+	<p class="remove-popup">X</p>
     <div class="form-image">
         <img src="<?php echo $baseurl; ?>assets/form/form.png" alt="">
     </div>
-	
-	<?php include_once('home/ajaxcomponents/getquery.php'); ?>
-	
     <div class="form-fields">
         <ul class="form">
             <li>
@@ -529,97 +531,98 @@
                     google.maps.event.addDomListener(window, 'load', init);
                 </script>
                 <label for="locationTextField">Departure point</label>
-    
+
                 <div class="inp">
                     <img src="<?php echo $baseurl; ?>assets/icons/social/location.svg" alt="">
-                    <input id="locationTextFieldD"  class="input-field" placeholder="Leaving from this place" type="text" size="50">
+                    <input id="locationTextFieldD" class="input-field" placeholder="Leaving from this place" type="text" size="50" name="from_place">
                 </div>
             </li>
             <li>
-                    <script>
-                        function init() {
-                            var input = document.getElementById('locationTextFieldA');
-                            var autocomplete = new google.maps.places.Autocomplete(input);
-                        }
-                        google.maps.event.addDomListener(window, 'load', init);
-                    </script>
+                <script>
+                    function init() {
+                        var input = document.getElementById('locationTextFieldA');
+                        var autocomplete = new google.maps.places.Autocomplete(input);
+                    }
+                    google.maps.event.addDomListener(window, 'load', init);
+                </script>
                 <label for="locationTextField">Arrival point</label>
-            
+
                 <div class="inp">
                     <img src="<?php echo $baseurl; ?>assets/icons/social/location.svg" alt="">
-                    <input id="locationTextFieldA"  class="input-field" placeholder="Want to see" type="text" size="50">
+                    <input id="locationTextFieldA" class="input-field" placeholder="Want to see" type="text" size="50" name="to_loc" value="<?php if(!empty($_SESSION['formdest'])) echo $_SESSION['formdest']; ?>">
                 </div>
             </li>
             <li>
                 <label for="">Enter Phone No.</label>
                 <div class="inp">
                     <img src="<?php echo $baseurl; ?>assets/icons/social/smartphone.svg" alt="">
-                    <input class="input-field" id="phone" placeholder="Enter Phone" min="9" max="10" required type="tel">
+                    <input class="input-field" placeholder="Enter Phone" min="9" max="10" required type="tel" name="phone">
                 </div>
             </li>
             <li>
                 <label for="">Enter your Email</label>
                 <div class="inp">
                     <img src="<?php echo $baseurl; ?>assets/icons/social/mail.svg" alt="">
-                    <input class="input-field" id="email"  placeholder="Your email-ID" required type="email">
+                    <input class="input-field" placeholder="Your email-ID" required type="email" name="email">
                 </div>
             </li>
         </ul>
         <ul class="depart-date">
             <li><label for="datepicker">Departure date</label>
-                <input id="datepicker" placeholder="Preferred date of travel" type="date" /></li>
-            <li class="day--counter no-of-day">
-                <span class="hsidebar">Duration (in nights)</span>
-                <input name="noofnights" id="counter-no" type="number" min="1" max="30" value="1" />
-            </li>
-    
+                <input id="datepicker" placeholder="Preferred date of travel" type="date" name="date"/></li>
+            <ul class="number-counter--popup">
+                <li class="day--counter no-of-day">
+                    <span class="hsidebar">Duration (in nights)</span>
+                    <input id="counter-no" type="number" min="1" max="30" value="1"  name="nights"/>
+                </li>
+                <li class="day--counter no-of-people">
+                    <span class="hsidebar">Number of Travellers</span>
+                    <input id="counter-no" type="number" min="1" max="30" value="1" name="travellers" />
+                </li>
+            </ul>
+
             </form>
         </ul>
-        <ul class="hotel radio no-border">
-            <li>
-                <input type="radio" id="f-option" name="selector" value="Honeymoon">
-                <label for="f-option">Honeymoon</label>
-    
-                <div class="check"></div>
+        <form class="list hotel radio no-border">
+            <li class="list__item">
+                <label class="label--radio">
+                              <input type="radio" class="radio" checked value="Honeymoon"  name="foo">
+                             Honeymoon
+                          </label>
             </li>
-    
-            <li>
-                <input type="radio" id="s-option" name="selector" value="Solo">
-                <label for="s-option">Solo</label>
-    
-                <div class="check">
-                    <div class="inside"></div>
-                </div>
+            <li class="list__item">
+                <label class="label--radio">
+                              <input type="radio" class="radio" value="Friends and Family" name="foo">
+                             Friends & Family
+                          </label>
             </li>
-    
-            <li>
-                <input type="radio" id="t-option" name="selector" value="Family">
-                <label for="t-option">Family</label>
-    
-                <div class="check">
-                    <div class="inside"></div>
-                </div>
+            <li class="list__item">
+                <label class="label--radio">
+                              <input type="radio" class="radio" value="Adventure" name="foo">
+                              Adventure
+                          </label>
             </li>
-            <li>
-                <input type="radio" id="w-option" name="selector" value="Weekend">
-                <label for="w-option">Weekend</label>
-    
-                <div class="check">
-                    <div class="inside"></div>
-                </div>
+            <li class="list__item">
+                <label class="label--radio">
+                              <input type="radio" class="radio" value="Solo" name="foo">
+                             Solo
+                          </label>
             </li>
-            <li>
-                <input type="radio" id="x-option" name="selector" value="Friends">
-                <label for="x-option">Friends</label>
-    
-                <div class="check">
-                    <div class="inside"></div>
-                </div>
+			<li class="list__item">
+                <label class="label--radio">
+                              <input type="radio" class="radio" value="Weekend" name="foo">
+                             Weekend
+                          </label>
             </li>
-        </ul>
-        <button class="cta" type="submit" value="Curate my package" onClick="getquery('queryresponse');">Curate my Package</button>
+        </form>
+        <button class="cta" type="submit" value="Curate my package">Curate my Package</button>
     </div>
 </div>
+<!--End of form -->
+</form>
+
+</div>
+
 
 
        </div>
@@ -629,19 +632,19 @@
 	
 		//getting stay details
 		var stay;
-		if(document.getElementsByName('selector')[0].checked == true) {
+		if(document.getElementsByName('foo')[0].checked == true) {
 			 stay=2;
 		}
 		
-		if(document.getElementsByName('selector')[1].checked == true) {
+		if(document.getElementsByName('foo')[1].checked == true) {
 			 stay=3;
 			
 		}
-		if(document.getElementsByName('selector')[2].checked == true) {
+		if(document.getElementsByName('foo')[2].checked == true) {
 			  stay=4;
 			
 		}
-		if(document.getElementsByName('selector')[3].checked == true) {
+		if(document.getElementsByName('foo')[3].checked == true) {
 			  stay=5;
 			
 		}

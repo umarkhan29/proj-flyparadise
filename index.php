@@ -28,6 +28,8 @@
     <!--[if IE]>
         <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
     <![endif]-->
+	<meta name="google-site-verification" content="yjWHFX4E0QE7_TZI5u4TcRkq6o23one9y38lUwfeI0I" />
+    <meta name="msvalidate.01" content="DFA0A3DF182E3C98147D4668C1BD06C1" />
 </head>
 
 <body>
@@ -549,21 +551,6 @@
 	require_once('home/common/footer.fly');
 ?>
 	
-	 <!-- PopUp wrapper -->
-        <div class="pop-up remove">
-            <!-- Calling popup from location partial -->
-            <?php include_once('location.php'); ?>
-       </div>
-		
 </body>
-<!--Analytics Code-->
-<!--  <script>
-    !function(g,s,q,r,d){r=g[r]=g[r]||function(){(r.q=r.q||[]).push(
-    arguments)};d=s.createElement(q);q=s.getElementsByTagName(q)[0];
-    d.src='//d1l6p2sc9645hc.cloudfront.net/tracker.js';q.parentNode.
-    insertBefore(d,q)}(window,document,'script','_gs');
-
-    _gs('GSN-243866-Q');
-    </script> -->
 
 </html>

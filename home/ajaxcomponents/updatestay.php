@@ -1,49 +1,46 @@
 <script type="text/javascript">	
-	function stay(thediv){
+	function stay(thediv,id){
 	
 		//getting stay details
+		var foo="foo";
+		foo+=id;
 		var stay;
-		if(document.getElementsByName('selector')[0].checked == true) {
+		if(document.getElementsByName(foo)[0].checked == true) {
 			 stay=2;
 		}
 		
-		if(document.getElementsByName('selector')[1].checked == true) {
+		if(document.getElementsByName(foo)[1].checked == true) {
 			 stay=3;
 			
 		}
-		if(document.getElementsByName('selector')[2].checked == true) {
+		if(document.getElementsByName(foo)[2].checked == true) {
 			  stay=4;
 			
 		}
-		if(document.getElementsByName('selector')[3].checked == true) {
+		if(document.getElementsByName(foo)[3].checked == true) {
 			  stay=5;
 			
 		}
 		
 		
-		
 		//getting month details
 		
-		var month=document.getElementById('stay').value;
+		//var month=document.getElementById('stay').value;
 		
-		//getting basic price
-		var pprice=document.getElementById('sessid').value;
 		
 		//getting location
-		var loc="<?php echo $package[0]['DESTINATION']; ?>";
+		
+		var loc=document.getElementById("destinations"+id).value;
 		
 		//getting travellers
-		var travellers="<?php if(isset($_GET['travellers']))
-								echo $travellers=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['travellers']))));
-							 else
-								echo $travellers=1;
-						?>";
+		var travellers=document.getElementById("traveller-no").value;
+		
 		//getting itenary stays
-		var stays=[<?php for($z=0;$z<count($stays)-1;$z++) echo "'".$stays[$z]."',"; ?>];
+		var stays=document.getElementById("stays"+id).value;
 		
 		
 		//getting cab prices
-		var cabprices='<?php echo $package[0]['ITINERARYCABPRICE']; ?>';
+		var cabprices=document.getElementById("cp"+id).value;
 		
 		
 		//processing filter
@@ -59,7 +56,7 @@
 				document.getElementById(thediv).innerHTML = xmlhttp.responseText;
 			}
 		}
-		xmlhttp.open('GET','home/ajaxcomponents/updatepackageprice.php?month='+month+'&stay='+stay+'&loc='+loc+'&travellers='+travellers+'&stays='+stays+'&cabprices='+cabprices,true);
+		xmlhttp.open('GET','home/ajaxcomponents/updatepackagepricedestination.php?stay='+stay+'&loc='+loc+'&travellers='+travellers+'&stays='+stays+'&cabprices='+cabprices,true);
 
 		xmlhttp.send();
 		

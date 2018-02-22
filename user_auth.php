@@ -3,7 +3,7 @@ ob_start();
 	require_once('config.khan');
 	include_once('home/catalog/connect.khan');
 	include_once('home/catalog/session.khan');
-	echo $_SESSION['$auth'];
+	//echo $_SESSION['$auth'];
 	if(!isset($_SESSION['$auth'])){
 		header('location:get-in.php');
 	}
@@ -63,6 +63,8 @@ A verification code has been send to <span style="color:#602D8D;"><a href=""><?p
 		$img='assets\users\default.png';
 		if(mysqli_query($dbconn,"INSERT INTO `users` (`name`,`passcode`,`email`,`phone`,`img`)  VALUES ('$user_name','$pass','$email','$phone','$img')")){
 						echo "<script type='text/javascript'> alert('Account Created'); </script>";
+						echo "<script type='text/javascript'> window.location = 'get-in' </script>";
+						
 						session_destroy();
 						//header('location:get-in.php');
 			}

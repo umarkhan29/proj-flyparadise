@@ -38,10 +38,8 @@
 	
 <?php
 //Fetching destination
-if(isset($_GET['destination']))
-	$dest=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['destination']))));
-else 
-	$dest="Kashmir";
+ 
+$dest="Kashmir";
 		
 $profitpercent=PROFIT;
 

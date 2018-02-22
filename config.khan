@@ -9,5 +9,6 @@ define('DEVELOPMENT_MODE','E_ALL');
 define('CONNECT','connect.khan');
 define('MY_DB','flyparadise');
 define('SESSION','session.khan');
+define('PROFIT',20);
 
 ?>

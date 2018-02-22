@@ -17,7 +17,7 @@
 			$old_image=imagecreatefromjpeg($image);		
 			imagecopyresampled($new_image,$old_image,0,0,0,0,$new_width,$new_height,$image_width,$image_height);
 			
-			imagejpeg($new_image,$image,100);
+			imagejpeg($new_image,$image,75);
 		}
 		if(exif_imagetype($image)==IMAGETYPE_PNG){
 			$image_size=getimagesize($image);
@@ -28,7 +28,7 @@
 			$new_image=imagecreatetruecolor($new_width,$new_height);
 			$old_image=imagecreatefrompng($image);		
 			imagecopyresampled($new_image,$old_image,0,0,0,0,$new_width,$new_height,$image_width,$image_height);
-			imagepng($new_image,$image,100);
+			imagepng($new_image,$image,75);
 		}
 		
 		//Second Image
@@ -45,7 +45,7 @@
 			$new_image=imagecreatetruecolor($new_width,$new_height);
 			$old_image=imagecreatefromjpeg($image);		
 			imagecopyresampled($new_image,$old_image,0,0,0,0,$new_width,$new_height,$image_width,$image_height);
-			imagejpeg($new_image,$image,100);
+			imagejpeg($new_image,$image,75);
 		}
 		if(exif_imagetype($image)==IMAGETYPE_PNG){
 			$image_size=getimagesize($image);
@@ -56,7 +56,7 @@
 			$new_image=imagecreatetruecolor($new_width,$new_height);
 			$old_image=imagecreatefrompng($image);		
 			imagecopyresampled($new_image,$old_image,0,0,0,0,$new_width,$new_height,$image_width,$image_height);
-			imagepng($new_image,$image,100);
+			imagepng($new_image,$image,75);
 		}
 		
 		//Third Image
@@ -71,7 +71,7 @@
 			$new_image=imagecreatetruecolor($new_width,$new_height);
 			$old_image=imagecreatefromjpeg($image);		
 			imagecopyresampled($new_image,$old_image,0,0,0,0,$new_width,$new_height,$image_width,$image_height);
-			imagejpeg($new_image,$image,100);
+			imagejpeg($new_image,$image,75);
 		}
 		if(exif_imagetype($image)==IMAGETYPE_PNG){
 			$image_size=getimagesize($image);
@@ -82,7 +82,7 @@
 			$new_image=imagecreatetruecolor($new_width,$new_height);
 			$old_image=imagecreatefrompng($image);		
 			imagecopyresampled($new_image,$old_image,0,0,0,0,$new_width,$new_height,$image_width,$image_height);
-			imagepng($new_image,$image,100);
+			imagepng($new_image,$image,75);
 		}
 		
 		//setting session foe success message
