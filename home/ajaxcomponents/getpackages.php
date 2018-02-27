@@ -227,6 +227,10 @@
 					else
 						$price = "Not Avaliable";
 					
+					
+					//converting spaces to hyphen for url
+					$packagetitle=$packages[$i]['TITLE'];
+					$packagetitle=preg_replace("(\s)", "-", $packagetitle);
 					?> 
 					<?php 
 						
@@ -242,7 +246,7 @@
                             <span class="duration"><?php echo $packages[$i]['DURATION']; ?></span>
 							<div>
 								<div class="price" id="pprice<?php echo $i; ?>"><?php echo $price; ?>/-</div>
-								<div class="perse">(Per <span><?php if($travellers>1)echo $travellers; ?></span> person<?php if($travellers>1) echo "s"; ?>)</div>
+								<div class="perse">(<?php if($travellers==1)echo "Per"; ?> <span><?php if($travellers>1)echo $travellers; ?></span> person<?php if($travellers>1) echo "s"; ?>)</div>
 							</div>
                         </div>
                         <div class="inclusions border">
@@ -291,9 +295,9 @@
 					
 					//Showing houseboat thumbnails
 				   		if($packages[$i]['HOUSEBOATS']=='Yes') 
-				   			echo '<div><img src="assets/icons/transport/tent.svg" alt="Houseboat" ><span>Houseboat</span></div>';
+				   			echo '<div><img src="assets/icons/transport/hb.svg" alt="Houseboat" ><span>Houseboat</span></div>';
 				   		else
-							echo '<div class="package--ex"><img src="assets/icons/transport/tent.svg" alt="Houseboat" label="Houseboat" ><span>Houseboat</span></div>';
+							echo '<div class="package--ex"><img src="assets/icons/transport/hb.svg" alt="Houseboat" label="Houseboat" ><span>Houseboat</span></div>';
 						
 						
 						
@@ -337,7 +341,7 @@
 						<input type="hidden" id="cp<?php echo $i; ?>" value="<?php echo $packages[$i]['ITINERARYCABPRICE']; ?>" />
                         <div class="flex">
                           <a class="customise" href="#" onclick="formopen();">Customise</a>
-                            <a href="packages/<?php echo $packages[$i]['TITLE']; ?>/<?php echo $travellers; ?>" target="_blank"><button class="view--package">View this Package</button></a>
+                            <a href="packages/<?php echo $packagetitle; ?>/<?php echo $travellers; ?>" target="_blank"><button class="view--package">View this Package</button></a>
                         </div>
                     </div>
 				</div>

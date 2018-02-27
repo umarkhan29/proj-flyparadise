@@ -8,6 +8,67 @@
 	else
 		$baseurl="../";
 ?>
+<?php
+//Fetching single package
+ $title=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['id']))));
+ $title=preg_replace("(-)", " ", $title);//replacing - with space
+ $profitpercent=PROFIT;
+ $query = "SELECT * FROM `packages` WHERE `title` = '$title';  ";
+			if($result = mysqli_query($dbconn,$query)){
+				$count=0;
+				while($row = mysqli_fetch_assoc($result)){
+					$package[] = array(
+							
+							'ID'			=>	$row['id'],
+							'TITLE' 		=> 	$row['title'],
+							'DESTINATION' 	=> 	$row['destination'],
+							'DURATION' 		=> 	$row['duration'],
+							'CATEGORY' 		=> 	$row['category'],
+							'HOTELSTAR' 	=> 	$row['hotelstar'],
+							'DESCRIPTION' 	=> 	$row['description'],
+							'FLIGHTS' 		=> 	$row['includeflights'],
+							'PATH' 			=> 	$row['path'],
+							'PATH2' 		=> 	$row['path2'],
+							'PATH3' 		=> 	$row['path3'],
+							'CAB' 			=> 	$row['localcab'],
+							'MEALS' 		=> 	$row['meals'],
+							'SITESEEING' 	=> 	$row['siteseeing'],
+							'STAY' 			=> 	$row['stay'],
+							'ADDON' 		=> 	$row['addon'],
+							'CAMPS' 		=> 	$row['camps'],
+							'HOUSEBOATS' 	=> 	$row['houseboats'],
+							'ITINERARY' 	=> 	$row['itinerary'],
+							'INCLUSIONS'	=> 	$row['inclusions'],
+							'EXCLUSIONS' 	=> 	$row['exclusions'],
+							'STAYS'		 	=> 	$row['stays'],
+							'GETAWAYS' 		=> 	$row['getaways'],
+							'WORTHWATCHING' => 	$row['worthwatching'],
+							'ITINERARYTITLE'=>  $row['itinerarytitle'],
+							'ITINERARYTAGS' => 	$row['itinerarytags'],
+							'TAGS' 			=> 	$row['tags'],
+							'ITINERARYDISTANCE' => 	$row['distance'],
+							'ITINERARYFROM' => 	$row['itineraryfrom'],
+							'ITINERARYTO' => 	$row['itineraryto'],
+							'ITINERARYCABPRICE' => 	$row['itinerarycabprice'],
+							
+						);
+						$count=$count+1;
+						
+				}
+				
+			}
+			else{
+				echo mysqli_error($dbconn);
+			}
+			
+			
+			if($count==0)
+				header('location:https://flyparadise.in/404');
+				
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +76,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Fly Paradise</title>
+    <title><?php echo $package[0]['TITLE']; ?></title>
+	<meta name="description" content="<?php echo $package[0]['DESCRIPTION']; ?>">
+    <meta name="keywords" content="<?php echo $package[0]['DESTINATION']; ?>">
     <link href="<?php echo $baseurl; ?>stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
     <link href="<?php echo $baseurl; ?>stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
     <!--Fonts -->
@@ -75,64 +138,7 @@
 				<li><a href="<?php echo $baseurl; ?>get-in">Login</a></li>
             </nav>
         </div>	
-<?php
-//Fetching single package
- $title=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['id']))));
- $profitpercent=PROFIT;
- $query = "SELECT * FROM `packages` WHERE `title` = '$title';  ";
-			if($result = mysqli_query($dbconn,$query)){
-				$count=0;
-				while($row = mysqli_fetch_assoc($result)){
-					$package[] = array(
-							
-							'ID'			=>	$row['id'],
-							'TITLE' 		=> 	$row['title'],
-							'DESTINATION' 	=> 	$row['destination'],
-							'DURATION' 		=> 	$row['duration'],
-							'CATEGORY' 		=> 	$row['category'],
-							'HOTELSTAR' 	=> 	$row['hotelstar'],
-							'DESCRIPTION' 	=> 	$row['description'],
-							'FLIGHTS' 		=> 	$row['includeflights'],
-							'PATH' 			=> 	$row['path'],
-							'PATH2' 		=> 	$row['path2'],
-							'PATH3' 		=> 	$row['path3'],
-							'CAB' 			=> 	$row['localcab'],
-							'MEALS' 		=> 	$row['meals'],
-							'SITESEEING' 	=> 	$row['siteseeing'],
-							'STAY' 			=> 	$row['stay'],
-							'ADDON' 		=> 	$row['addon'],
-							'CAMPS' 		=> 	$row['camps'],
-							'HOUSEBOATS' 	=> 	$row['houseboats'],
-							'ITINERARY' 	=> 	$row['itinerary'],
-							'INCLUSIONS'	=> 	$row['inclusions'],
-							'EXCLUSIONS' 	=> 	$row['exclusions'],
-							'STAYS'		 	=> 	$row['stays'],
-							'GETAWAYS' 		=> 	$row['getaways'],
-							'WORTHWATCHING' => 	$row['worthwatching'],
-							'ITINERARYTITLE'=>  $row['itinerarytitle'],
-							'ITINERARYTAGS' => 	$row['itinerarytags'],
-							'TAGS' 			=> 	$row['tags'],
-							'ITINERARYDISTANCE' => 	$row['distance'],
-							'ITINERARYFROM' => 	$row['itineraryfrom'],
-							'ITINERARYTO' => 	$row['itineraryto'],
-							'ITINERARYCABPRICE' => 	$row['itinerarycabprice'],
-							
-						);
-						$count=$count+1;
-						
-				}
-				
-			}
-			else{
-				echo mysqli_error($dbconn);
-			}
-			
-			
-			if($count==0)
-				header('location:https://flyparadise.in/404');
-				
 
-?>
 	
 	<div class="breadcrumb">
         <ul class="breadcrumbs">
@@ -210,9 +216,9 @@
 					
 					//Showing houseboat thumbnails
 				   		if($package[0]['HOUSEBOATS']=='Yes') 
-				   			echo '<div><img src="'.$baseurl.'assets/icons/transport/tent.svg" alt="Houseboat" ><span>Houseboat</span></div>';
+				   			echo '<div><img src="'.$baseurl.'assets/icons/transport/hb.svg" alt="Houseboat" ><span>Houseboat</span></div>';
 				   		else
-							echo '<div class="package--ex"><img src="'.$baseurl.'assets/icons/transport/tent.svg" alt="Houseboat" label="Houseboat" ><span>Houseboat</span></div>';
+							echo '<div class="package--ex"><img src="'.$baseurl.'assets/icons/transport/hb.svg" alt="Houseboat" label="Houseboat" ><span>Houseboat</span></div>';
 						
 						
 						
@@ -693,6 +699,15 @@
 		xmlhttp.send();
 		
 	}
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-93046908-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-93046908-1');
 </script>
 </body>
 
