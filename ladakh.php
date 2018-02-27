@@ -4,42 +4,10 @@
 	require_once('home/catalog/session.khan');
 	error_reporting(0);
 ?>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Fly Paradise</title>
-    <link href="stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
-    <link href="stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=PT+Serif" rel="stylesheet">
-    <script src="https://use.fontawesome.com/441c105168.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="libraries/owl.carousel.min.js"></script>
-    <script src="libraries/js/main.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCotB6BSKESLUC2dNLnAT76EporwJBXMN4&v=3.exp&libraries=places"></script>
-	<script src="libraries/js/select2dec.js"></script>
-	<script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/0a36a9eded6bcb08c52ae527b/d0a0689c99e0088008a7127df.js");</script>
-    <!--[if IE]>
-            <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
-        <![endif]-->
-	
-</head>
-
-<body class="destination">
-    <?php require_once('home/components/secondaryheader.fly');//adding secondary header ?>
-	
-	
 <?php
 //Fetching destination
-
-	$dest="ladakh";
+ 
+	$dest="Ladakh";
 		
 $profitpercent=PROFIT;
 
@@ -83,6 +51,42 @@ $destination=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_PO
 			if(!$count>0)
 				header('location:index');
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Fly Paradise > <?php echo $destinations[0]['DESTINATION']; ?></title>
+	<meta name="description" content="<?php echo $destinations[0]['DESC']; ?>">
+    <meta name="keywords" content="<?php echo $destinations[0]['DESTINATION']; ?>">
+    <link href="stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=PT+Serif" rel="stylesheet">
+    <script async src="https://use.fontawesome.com/441c105168.js"></script>
+    <script  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script  src="libraries/owl.carousel.min.js"></script>
+    <script  src="libraries/js/main.js"></script>
+	<script  src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+	<script  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCotB6BSKESLUC2dNLnAT76EporwJBXMN4&v=3.exp&libraries=places"></script>
+	<script  src="libraries/js/select2dec.js"></script>
+	<script async id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/0a36a9eded6bcb08c52ae527b/d0a0689c99e0088008a7127df.js");</script>
+    <!--[if IE]>
+            <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+        <![endif]-->
+	
+</head>
+
+<body class="destination">
+    <?php require_once('home/components/secondaryheader.fly');//adding secondary header ?>
+	
+	
+
     <div id="main" class="destination--hero">
         <div class="left--destination">
             <span class="location"></span>
@@ -188,7 +192,7 @@ $destination=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_PO
         </div>
 	
 	<div class="distance--block" id="distancetimeblock">
-		 <?php require_once('map/map.php'); //for distance time cloud block ?>
+		 <?php //require_once('map/map.php'); //for distance time cloud block ?>
 		 <!--Loading Distance time block -->	
 	</div>
  
@@ -205,7 +209,7 @@ $destination=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_PO
 				
 				<form class="day--counter" onClick="showpackages('cpackages');" >
                     <span class="hsidebar">No of travellers</span>
-                    <input id="traveller-no" type="number" min="1" max="30" value="1" />
+                    <input id="traveller-no" type="number" min="1" max="30" value="3" />
                 </form>
 				
 				
@@ -236,7 +240,7 @@ $destination=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_PO
 					<?php } //ending if ?>
                 </div>
                 <!-- RATING - Form -->
-                <form class="rating-form" action="#" method="post" name="rating-movie">
+                <form class="remove rating-form" action="#" method="post" name="rating-movie">
                     <span class="hsidebar">Stay star rating</span>
                     <fieldset class="form-group">
                         <legend class="form-legend">Rating:</legend>
@@ -306,7 +310,7 @@ $destination=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_PO
 				if(isset($_GET['noofpeople']))
 				 	$travellers=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['noofpeople']))));
 				 else
-				 	$travellers=1;
+				 	$travellers=3;
 					
 					
 					require_once('home/components/getroomsforpackage.fly');
@@ -456,7 +460,9 @@ $destination=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_PO
 					else
 						$price = "Not Avaliable";
 					
-					
+					//converting spaces to hyphen for url
+					$packagetitle=$packages[$i]['TITLE'];
+					$packagetitle=preg_replace("(\s)", "-", $packagetitle);
 					?>
 					
 						
@@ -517,9 +523,9 @@ $destination=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_PO
 					
 					//Showing houseboat thumbnails
 				   		if($packages[$i]['HOUSEBOATS']=='Yes') 
-				   			echo '<div><img src="assets/icons/transport/tent.svg" alt="Houseboat" ><span>Houseboat</span></div>';
+				   			echo '<div><img src="assets/icons/transport/hb.svg" alt="Houseboat" ><span>Houseboat</span></div>';
 				   		else
-							echo '<div class="package--ex"><img src="assets/icons/transport/tent.svg" alt="Houseboat" label="Houseboat" ><span>Houseboat</span></div>';
+							echo '<div class="package--ex"><img src="assets/icons/transport/hb.svg" alt="Houseboat" label="Houseboat" ><span>Houseboat</span></div>';
 						
 						
 						
@@ -563,7 +569,7 @@ $destination=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_PO
 						<input type="hidden" id="cp<?php echo $i; ?>" value="<?php echo $packages[$i]['ITINERARYCABPRICE']; ?>" />
                         <div class="flex">
                             <a class="customise" href="#">Customise</a>
-                            <a href="packages/<?php echo $packages[$i]['TITLE']; ?>/<?php echo $travellers; ?>" target="_blank"><button class="view--package">View this Package</button></a>
+                            <a href="packages/<?php echo $packagetitle; ?>/<?php echo $travellers; ?>" target="_blank"><button class="view--package">View this Package</button></a>
                         </div>
                     </div>
 				</div>
