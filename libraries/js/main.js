@@ -101,7 +101,7 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
-    var showChar = 300;
+    var showChar = 200;
     var ellipsestext = "...";
     var moretext = "View Less";
     var lesstext = "View More";
@@ -136,6 +136,14 @@ $(document).ready(function() {
 });
 $(document).ready(function() {
     $('.accordion h4').click(function() {
+        $(this).parent().toggleClass("icon");
+        $(this).next().toggleClass("remove");
+        return false;
+    });
+});
+
+$(document).ready(function() {
+    $('.accordion strong').click(function() {
         $(this).parent().toggleClass("icon");
         $(this).next().toggleClass("remove");
         return false;
