@@ -61,9 +61,9 @@ $destination=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_PO
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   <title><?php echo $destinations[0]['DESTINATION']; ?></title>
+   <title><?php echo $destinations[0]['DESTINATION']; ?> | Fly Paradise</title>
 	<meta name="description" content="<?php echo $destinations[0]['DESC']; ?>">
-    <meta name="keywords" content="<?php echo $destinations[0]['DESTINATION']; ?>">
+    <meta name="keywords" content="<?php echo $destinations[0]['DESTINATION']; ?>,trips, tours, holidays, holiday packages, cheap packages, budget packages, tour packages, customize, customise, travel, wunderlust, solo, holidays, vacation, best travel site, best tour operator, trekking, trek">
     <link href="stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
     <link href="stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
