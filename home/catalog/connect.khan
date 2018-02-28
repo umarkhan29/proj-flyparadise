@@ -1,4 +1,4 @@
 <?php
-    $dbconn=mysqli_connect('localhost','root','') or die('could not connect');
-	mysqli_select_db($dbconn,'flyparadise') or die('database error');
+    $dbconn=mysqli_connect('localhost:8000','root','') or die('could not connect');
+	mysqli_select_db($dbconn,'root') or die('database error');
 ?>
