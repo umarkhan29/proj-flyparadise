@@ -104,40 +104,32 @@
                     </div>
                 </div>
                 <div class="stars border">
-                    <ul class="hotel radio">
-                        <li>
-                            <input type="radio" id="f-option" name="selector">
-                            <label for="f-option">Budget stay</label>
-
-                            <div class="check"></div>
+                    <form class="list hotel radio no-border">
+                        <li class="list__item">
+                            <label class="label--radio">
+                                              <input type="radio" onchange="stay('pprice');" class="radio" name="foo" checked="">
+                                              Budget Stay
+                                          </label>
                         </li>
-
-                        <li>
-                            <input type="radio" id="s-option" name="selector">
-                            <label for="s-option">3 Star</label>
-
-                            <div class="check">
-                                <div class="inside"></div>
-                            </div>
+                        <li class="list__item">
+                            <label class="label--radio">
+                                              <input type="radio" onchange="stay('pprice');" class="radio" name="foo">
+                                              3 star
+                                          </label>
                         </li>
-
-                        <li>
-                            <input type="radio" id="t-option" name="selector">
-                            <label for="t-option">4 star</label>
-
-                            <div class="check">
-                                <div class="inside"></div>
-                            </div>
+                        <li class="list__item">
+                            <label class="label--radio">
+                                              <input type="radio" onchange="stay('pprice');" class="radio" name="foo">
+                                              4 star
+                                          </label>
                         </li>
-                        <li>
-                            <input type="radio" id="w-option" name="selector">
-                            <label for="w-option">5 star</label>
-
-                            <div class="check">
-                                <div class="inside"></div>
-                            </div>
+                        <li class="list__item">
+                            <label class="label--radio">
+                                              <input type="radio" onchange="stay('pprice');" class="radio" name="foo">
+                                              5 star
+                                          </label>
                         </li>
-                    </ul>
+                    </form>
                     <div class="price--tag">
                         <div class="price--starting">
                             <span>starting from (per person)</span>
