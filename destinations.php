@@ -61,7 +61,7 @@ $destination=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_PO
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   <title>Fly Paradise > <?php echo $destinations[0]['DESTINATION']; ?></title>
+   <title><?php echo $destinations[0]['DESTINATION']; ?></title>
 	<meta name="description" content="<?php echo $destinations[0]['DESC']; ?>">
     <meta name="keywords" content="<?php echo $destinations[0]['DESTINATION']; ?>">
     <link href="stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />

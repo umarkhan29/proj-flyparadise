@@ -76,7 +76,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title><?php echo $package[0]['TITLE']; ?></title>
+    <title><?php echo $package[0]['TITLE']; ?> | </title>
 	<meta name="description" content="<?php echo $package[0]['DESCRIPTION']; ?>">
     <meta name="keywords" content="<?php echo $package[0]['DESTINATION']; ?>">
     <link href="<?php echo $baseurl; ?>stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
@@ -235,7 +235,7 @@
                 </div>
 				
 				
-				
+				<div class="stars border">
 				
 				<form class="list hotel radio no-border">
                             <li class="list__item">
@@ -404,6 +404,7 @@
                     </div>
                 </div>
                 <button class="cta"><div class="customise">Submit</div></button>
+				</div>
             </div>
         </div>
 	</div>
@@ -699,6 +700,17 @@
 		xmlhttp.send();
 		
 	}
+</script>
+<!-- Hotjar Tracking Code for flyparadise.in -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:699414,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
 </script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-93046908-1"></script>
