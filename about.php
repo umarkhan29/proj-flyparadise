@@ -70,7 +70,7 @@
             <img src="./assets/icons/three.png" alt="">
             <div>
                 <h2>Change bookings anytime</h2>
-                <p>You can maek changes, send a request or cancel in just a few clicks without any extra cost!</p>
+                <p>You can make changes, send a request or cancel in just a few clicks without any extra cost!</p>
             </div>
         </div>
         <div class="working">

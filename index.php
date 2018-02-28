@@ -10,10 +10,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Fly Paradise</title>
+    <title> <title>Fly Paradise | We are travel doctors helping you to create unforgettable moments.</title></title>
     <link href="stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
     <link href="stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
     <meta name="viewport" content="width=device-width">
+	<meta name="description" content="Cheapest Holidays for you and your family, Weather you are solo or having a travel buddy. We have best deals for you. We are a five star rated travel company.">
+    <meta name="keywords" content="trips, tours, holidays, holiday packages, cheap packages, budget packages, tour packages, customize, customise, travel, wunderlust, solo, holidays, vacation, best travel site, best tour operator, trekking, trek">
     <!--Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=PT+Serif" rel="stylesheet">
