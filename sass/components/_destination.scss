@@ -576,10 +576,13 @@ $clouds: "https://s.cdpn.io/15514/clouds_2.png" 1000px 80s, "https://s.cdpn.io/1
 }
 
 .inclusions {
+    display: flex;
+    align-items: baseline;
     div {
         display: inline-block;
         text-align: center;
         margin-right: 10px;
+        flex: 1;
     }
 
     margin: 1rem 0;
@@ -1081,3 +1084,8 @@ button.view--package {
         }
     }
 }
+
+// #the-sticky-div.sticky {
+//     position: fixed;
+//     top: 0;
+//  }
