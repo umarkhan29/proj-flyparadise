@@ -592,59 +592,50 @@
                     </li>
                 </ul>
                 <ul class="depart-date">
-                    <li>
-                        <label for="datepicker">Departure date</label>
-                        <input id="datepicker" placeholder="Preferred date of travel" type="date" />
-                    </li>
-                    <li class="day--counter no-of-day">
-                        <span class="hsidebar">Duration (in nights)</span>
-                        <input id="counter-no" type="number" min="1" max="30" value="1" />
-                    </li>
-
+                    <li><label for="datepicker">Departure date</label>
+                        <input id="datepicker" placeholder="Preferred date of travel" type="date" name="date"/></li>
+                    <ul class="number-counter--popup">
+                        <li class="day--counter no-of-day">
+                            <span class="hsidebar">Duration (in nights)</span>
+                            <input id="counter-no" type="number" min="1" max="30" value="1"  name="nights"/>
+                        </li>
+                        <li class="day--counter no-of-people">
+                            <span class="hsidebar">Number of Travellers</span>
+                            <input id="counter-no" type="number" min="1" max="30" value="1" name="travellers" />
+                        </li>
+                    </ul>
+                    <form class="list hotel radio no-border">
+                        <li class="list__item">
+                            <label class="label--radio">
+                                          <input type="radio" class="radio" checked="" value="Honeymoon" name="foo">
+                                         Honeymoon
+                                      </label>
+                        </li>
+                        <li class="list__item">
+                            <label class="label--radio">
+                                          <input type="radio" class="radio" value="Friends and Family" name="foo">
+                                         Friends &amp; Family
+                                      </label>
+                        </li>
+                        <li class="list__item">
+                            <label class="label--radio">
+                                          <input type="radio" class="radio" value="Adventure" name="foo">
+                                          Adventure
+                                      </label>
+                        </li>
+                        <li class="list__item">
+                            <label class="label--radio">
+                                          <input type="radio" class="radio" value="Solo" name="foo">
+                                         Solo
+                                      </label>
+                        </li>
+                        <li class="list__item">
+                            <label class="label--radio">
+                                          <input type="radio" class="radio" value="Weekend" name="foo">
+                                         Weekend
+                                      </label>
+                        </li>
                     </form>
-                </ul>
-                <ul class="hotel radio no-border">
-                    <li>
-                        <input type="radio" id="f-option" name="selector">
-                        <label for="f-option">Honeymoon</label>
-
-                        <div class="check"></div>
-                    </li>
-
-                    <li>
-                        <input type="radio" id="s-option" name="selector">
-                        <label for="s-option">Solo</label>
-
-                        <div class="check">
-                            <div class="inside"></div>
-                        </div>
-                    </li>
-
-                    <li>
-                        <input type="radio" id="t-option" name="selector">
-                        <label for="t-option">Family</label>
-
-                        <div class="check">
-                            <div class="inside"></div>
-                        </div>
-                    </li>
-                    <li>
-                        <input type="radio" id="w-option" name="selector">
-                        <label for="w-option">Weekend</label>
-
-                        <div class="check">
-                            <div class="inside"></div>
-                        </div>
-                    </li>
-                    <li>
-                        <input type="radio" id="x-option" name="selector">
-                        <label for="x-option">Friends</label>
-
-                        <div class="check">
-                            <div class="inside"></div>
-                        </div>
-                    </li>
-                </ul>
                 <button class="cta" type="submit" value="Curate my package">Curate my Package</button>
             </div>
         </div>
