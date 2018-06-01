@@ -27,21 +27,25 @@
         <div class="main--header">
             <div class="menu--heading">
                 <h1 class="logo left">fly paradise</h1>
-                <img class="fp--logo" src="./assets/heros/logo.png" alt="Fly Paradise logo">
+                <img class="fp--logo" src="./assets/heros/logo.svg" alt="Fly Paradise logo">
                 <div class="main-menu right">
 					<li><a href="viewenquiries">View Queries</a></li>
                     <li><a href="addpackages"> Add Packages</a></li>
                     <li><a href="addhotel">Add Hotels</a></li>
                     <li><a href="addblog">Add Blog</a></li>
 					<li><a href="adddestinations">Add Destination</a></li>
-					<li><a href="addreminder">Add Reminders</a></li>
 					<li><a href="todaysreminders">Todays Reminders</a></li>
+					<li><a href="myreminders">My Reminders</a></li>
+					<?php if($_SESSION['current_loggedin_user_role'] == 'admin') echo '<li><a href="allreminders">All Reminders</a></li>'; ?>
+					<?php if($_SESSION['current_loggedin_user_role'] == 'admin') echo '<li><a href="followups">Follow Ups</a></li>'; ?>
+					<li><a href="confirmedenquiries">Confirmed Enquiries</a>
+					<li><a href="hiddenenquiries">Hidden Enquiries</a></li>
 					<li><a href="updatepackages">Update Packages</a></li>
 					<li><a href="updatehotels">Update Hotels</a></li>
                     <li><a href="updateblogs">Update Blog</a></li>
 					<li><a href="updatedestinations">Update Destinations</a></li>
-                    <li><a href="echangepassword">Change Password</a></li>
-					<li ><a href="logout">Logout</a></li>
+                    <li><a href="changepassword">Change Password</a></li>
+					<li ><a href="logout">Logout</a>(<?php echo $_SESSION['current_loggedin_user']; ?>)</li>
                 </div>
             </div>
         </div>

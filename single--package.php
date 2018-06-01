@@ -9,6 +9,7 @@
 		$baseurl="../";
 ?>
 <?php
+
 //Fetching single package
  $title=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['id']))));
  $title=preg_replace("(-)", " ", $title);//replacing - with space
@@ -77,6 +78,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?php echo $package[0]['TITLE']; ?> | Fly Paradise</title>
+	<link rel="shortcut icon" type="image/png" sizes="32x32" href="<?php echo $baseurl; ?>assets/heros/favicon-flyparadise.png" />
 	<meta name="description" content="<?php echo $package[0]['DESCRIPTION']; ?>">
     <meta name="keywords" content="<?php echo $package[0]['DESTINATION']; ?>,trips, tours, holidays, holiday packages, cheap packages, budget packages, tour packages, customize, customise, travel, wunderlust, solo, holidays, vacation, best travel site, best tour operator, trekking, trek">
     <link href="<?php echo $baseurl; ?>stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
@@ -420,7 +422,7 @@
 		<?php for($i=0;$i<count($itinerary)-1;$i++){ ?>
             <div class="day">
                 <div class="internal--perday">
-   <img class="arrival" src="<?php if($i==0) { echo $baseurl;  ?>assets/icons/arrival.svg <?php } elseif($i==count($itinerary)-2){ echo $baseurl; ?>/assets/icons/depart.svg <?php } else{ echo $baseurl;  ?>/assets/icons/it-trans.svg<?php } ?>" alt="arrival">
+   <img class="arrival" src="<?php if($i==0) { echo $baseurl;  ?>assets/icons/arrival.svg <?php } elseif($i==count($itinerary)-2){ echo $baseurl; ?>/assets/icons/depart.svg <?php } else{ echo $baseurl;  ?>assets/icons/it-trans.svg<?php } ?>" alt="arrival">
                     <div class="inc">
                         <h5><?php echo $itinerarytitle[$i]; ?></h5>
 						
@@ -482,153 +484,9 @@
         </div>
     </div>
 
-    <footer>
-        <div class="secondary--footer">
-            <div class="sec-ftr">
-                <span>We promise to stay best in class</span>
-            <div class="footer-phone">
-                <span class="tel">1800 123 2262</span>
-                <span class="tagl">24/7 Dedicated Support</span>
-            </div>
-            <li class="quote">Book a destination</li>
-            </div>
-        </div>
-            <div class="footer--primary max-width">
-                <ul>
-                    <li><a href="<?php echo $baseurl; ?>about">About Us</a></li>
-                    <li><a href="<?php echo $baseurl; ?>whatmakesus">What makes Us</a></li>
-                    <li><a href="<?php echo $baseurl; ?>blog">Blogs</a></li>
-                    <li><a href="<?php echo $baseurl; ?>careers">Careers</a></li>
-                    <li><a href="<?php echo $baseurl; ?>terms">Terms &amp; Conditions</a></li>
-                    <li><a href="<?php echo $baseurl; ?>privacypolicy">Privacy Policy</a></li>
-                </ul>
-            </div>
-    
-            <div class="footer--secondary">
-                <div class="max-width">
-                    <div class="connect">
-                        <a class="social" href="https://www.facebook.com/flyparadisetravels" target="_blank"><img src="<?php echo $baseurl; ?>assets/icons/social/facebook.svg" alt="Facebook"></a>
-                        <a class="social" href="https://www.instagram.com/flyparadisetravels/" target="_blank"><img src="<?php echo $baseurl; ?>assets/icons/social/insta.svg" alt="Instagram"></a>
-                        <a class="social" href="https://twitter.com/flyparadise_" target="_blank"><img src="<?php echo $baseurl; ?>assets/icons/social/twitter.svg" alt="twitter"></a>
-                        <a class="social" href="https://www.linkedin.com/company/fly-paradise/" target="_blank"><img src="<?php echo $baseurl; ?>assets/icons/social/in.svg" alt="linkedIn"></a>
-                    </div>
-                </div>
-            </div>
-            <div class="copyright">
-                &copy; 2010 - 2018 Fly Paradise Travels
-            </div>
-        </footer>
-	
+<?php include_once('home/common/footer.fly'); ?>
 
- <div class="pop-up remove">
- <form action="<?php echo $baseurl; ?>thanks" method="post">
-	<div class="pop-up-form">
-	<p class="remove-popup">X</p>
-    <div class="form-image">
-        <img src="<?php echo $baseurl; ?>assets/form/form.png" alt="">
-    </div>
-    <div class="form-fields">
-        <ul class="form">
-            <li>
-                <script>
-                    function init() {
-                        var input = document.getElementById('locationTextFieldD');
-                        var autocomplete = new google.maps.places.Autocomplete(input);
-                    }
-                    google.maps.event.addDomListener(window, 'load', init);
-                </script>
-                <label for="locationTextField">Departure point</label>
-
-                <div class="inp">
-                    <img src="<?php echo $baseurl; ?>assets/icons/social/location.svg" alt="">
-                    <input id="locationTextFieldD" class="input-field" placeholder="Leaving from this place" type="text" size="50" name="from_place">
-                </div>
-            </li>
-            <li>
-                <script>
-                    function init() {
-                        var input = document.getElementById('locationTextFieldA');
-                        var autocomplete = new google.maps.places.Autocomplete(input);
-                    }
-                    google.maps.event.addDomListener(window, 'load', init);
-                </script>
-                <label for="locationTextField">Arrival point</label>
-
-                <div class="inp">
-                    <img src="<?php echo $baseurl; ?>assets/icons/social/location.svg" alt="">
-                    <input id="locationTextFieldA" class="input-field" placeholder="Want to see" type="text" size="50" name="to_loc" value="<?php if(!empty($_SESSION['formdest'])) echo $_SESSION['formdest']; ?>">
-                </div>
-            </li>
-            <li>
-                <label for="">Enter Phone No.</label>
-                <div class="inp">
-                    <img src="<?php echo $baseurl; ?>assets/icons/social/smartphone.svg" alt="">
-                    <input class="input-field" placeholder="Enter Phone" min="9" max="10" required type="tel" name="phone">
-                </div>
-            </li>
-            <li>
-                <label for="">Enter your Email</label>
-                <div class="inp">
-                    <img src="<?php echo $baseurl; ?>assets/icons/social/mail.svg" alt="">
-                    <input class="input-field" placeholder="Your email-ID" required type="email" name="email">
-                </div>
-            </li>
-        </ul>
-        <ul class="depart-date">
-            <li><label for="datepicker">Departure date</label>
-                <input id="datepicker" placeholder="Preferred date of travel" type="date" name="date"/></li>
-            <ul class="number-counter--popup">
-                <li class="day--counter no-of-day">
-                    <span class="hsidebar">Duration (in nights)</span>
-                    <input id="counter-no" type="number" min="1" max="30" value="1"  name="nights"/>
-                </li>
-                <li class="day--counter no-of-people">
-                    <span class="hsidebar">Number of Travellers</span>
-                    <input id="counter-no" type="number" min="1" max="30" value="1" name="travellers" />
-                </li>
-            </ul>
-
-            </form>
-        </ul>
-        <form class="list hotel radio no-border">
-            <li class="list__item">
-                <label class="label--radio">
-                              <input type="radio" class="radio" checked value="Honeymoon"  name="foo">
-                             Honeymoon
-                          </label>
-            </li>
-            <li class="list__item">
-                <label class="label--radio">
-                              <input type="radio" class="radio" value="Friends and Family" name="foo">
-                             Friends & Family
-                          </label>
-            </li>
-            <li class="list__item">
-                <label class="label--radio">
-                              <input type="radio" class="radio" value="Adventure" name="foo">
-                              Adventure
-                          </label>
-            </li>
-            <li class="list__item">
-                <label class="label--radio">
-                              <input type="radio" class="radio" value="Solo" name="foo">
-                             Solo
-                          </label>
-            </li>
-			<li class="list__item">
-                <label class="label--radio">
-                              <input type="radio" class="radio" value="Weekend" name="foo">
-                             Weekend
-                          </label>
-            </li>
-        </form>
-        <button class="cta" type="submit" value="Curate my package">Curate my Package</button>
-    </div>
-</div>
-<!--End of form -->
-</form>
-
-</div>
+<?php include_once('location.php'); ?>
 
 
 
@@ -701,25 +559,17 @@
 		
 	}
 </script>
-<!-- Hotjar Tracking Code for flyparadise.in -->
-<script>
-    (function(h,o,t,j,a,r){
-        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-        h._hjSettings={hjid:699414,hjsv:6};
-        a=o.getElementsByTagName('head')[0];
-        r=o.createElement('script');r.async=1;
-        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-        a.appendChild(r);
-    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-</script>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-93046908-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'UA-93046908-1');
+<script>
+	//form popup after 9 sec
+	$(document).ready(function() {
+	  setTimeout(function() {
+		
+		$('.pop-up').toggleClass('remove');
+	
+	  }, 9000);
+	});
+
 </script>
 </body>
 

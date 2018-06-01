@@ -45,12 +45,27 @@
 			<?php } ?>
             <div class="th">
                 <p><?php if(!empty($_POST['phone'])) echo "Meanwhile, "?> You can look for best offers for following destinations in this peak season</p>
-                <a class="quote" href="https://flyparadise.in/ladakh">Ladakh</a>
-                <a class="quote" href="https://flyparadise.in/kashmir">Kashmir</a>
+                <a class="quote" href="https://flyparadise.in/leh-ladakh-tour-packages">Ladakh</a>
+                <a class="quote" href="https://flyparadise.in/kashmir-tour-packages">Kashmir</a>
             </div>
         </div>
     </div>
-  
+  <!-- Google Code for campaing conversions Conversion Page -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 1025376958;
+var google_conversion_label = "L1YTCMnvhX8QvoX46AM";
+var google_remarketing_only = false;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/1025376958/?label=L1YTCMnvhX8QvoX46AM&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+
 <?php
 	
 	require_once('home/common/footer.fly');

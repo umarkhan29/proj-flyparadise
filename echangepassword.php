@@ -99,7 +99,7 @@ require_once('home/components/employeeauthorize.fly');
 	if(isset($_POST['loginbtn'])){
 		if($admin=="1"){
 			
-			$user_pass=mysql_real_escape_string(trim(strip_tags(stripslashes($_POST['confirmpasswrdtxtbox']))));
+			$user_pass=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['confirmpasswrdtxtbox']))));
 			$user_pass=md5(md5(hash('sha512',md5(base64_encode(hash('sha1',$user_pass))))));
 			$email=$_SESSION['current_loggedin_user_email'];
 			$query="UPDATE `employees` SET `passcode` = '$user_pass' WHERE `email` = '$email';";

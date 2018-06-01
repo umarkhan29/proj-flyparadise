@@ -1,4 +1,8 @@
 <?php
-	session_name('Fly_Paradise');
+	$sessiontime=86400;
+	session_name('FlyParadise');
+	ini_set('session.cookie_secure',1);
+	ini_set('session.cookie_httponly', 1 );
+	session_set_cookie_params($sessiontime);
 	session_start();
 ?>

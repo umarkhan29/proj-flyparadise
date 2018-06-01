@@ -1,4 +1,8 @@
 <?php
+	
+	
+	function sendsms($phone,$message){
+		// Authorisation details.
 		$username = "umee909@gmail.com";
 		$hash = "8e5e426a6eef0b5dd891ce08344ed1ca543b93bbd54a5b80b1db7e965714d97e";
 	
@@ -7,9 +11,8 @@
 	
 		// Data for text message. This is the text message data.
 		$sender = "FLYTRV"; // This is who the message appears to be from.
-		$numbers = 9906444456; // A single number or a comma-seperated list of numbers
-		$message = "Notification Reminder";
-		$message .= "%nTesting";
+		$numbers = $phone; // A single number or a comma-seperated list of numbers
+		$message = $message;
 		// 612 chars or less
 		// A single number or a comma-seperated list of numbers
 		$message = urlencode($message);
@@ -18,8 +21,8 @@
 		curl_setopt($ch, CURLOPT_POST, true);
 		curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-		echo $result = curl_exec($ch); // This is the result from the API
+		$result = curl_exec($ch); // This is the result from the API
 		curl_close($ch);
 	
+	}
 ?>
-

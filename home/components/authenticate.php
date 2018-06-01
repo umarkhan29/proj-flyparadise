@@ -1,6 +1,8 @@
 <?php
+	ob_start();
 	include_once('home/catalog/connect.khan');
 	include_once('home/catalog/session.khan');
+	
 	
 	if(isset($_POST['btn'])){
 		
@@ -32,6 +34,7 @@
 				$_SESSION['current_loggedin_user_email']=$user[0]['EMAIL'];
 				$_SESSION['current_loggedin_user_role']=$user[0]['ROLE'];
 				$_SESSION['signvia']="usrpwd";
+				
 				if($_SESSION['current_loggedin_user_role']=='employee' || $_SESSION['current_loggedin_user_role'] == 'admin')
 					header('location:viewenquiries');
 				else
@@ -48,4 +51,5 @@
 	}
 		
 	} 
+	ob_end_flush();
 	?>

@@ -1,9 +1,9 @@
 <?php
 ob_start();
-session_start();
-if(!isset($_SESSION['Loggedin_User_password']))  header('location:login');
-require_once('config.khan');
-include_once('home/catalog/connect.khan');
+require_once('home/catalog/connect.khan');
+require_once('home/catalog/session.khan');
+require_once('home/common/employeeheader.fly');//adding employee header 
+require_once('home/components/employeeauthorize.fly');
 	
 ?>
 
@@ -98,7 +98,7 @@ include_once('home/catalog/connect.khan');
 	if(isset($_POST['loginbtn'])){
 		if($admin=="1"){
 			
-			$user_pass=mysql_real_escape_string(trim(strip_tags(stripslashes($_POST['confirmpasswrdtxtbox']))));
+			$user_pass=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['confirmpasswrdtxtbox']))));
 			$user_pass=md5(md5(hash('sha512',md5(base64_encode(hash('sha1',$user_pass))))));
 			$email=$_SESSION['current_loggedin_user_email'];
 			$query="UPDATE `users` SET `passcode` = '$user_pass' WHERE `email` = '$email';";
@@ -122,6 +122,6 @@ include_once('home/catalog/connect.khan');
 
 
 <?php
-
+require_once('home/common/footer.fly');
 ob_end_flush();
 ?>

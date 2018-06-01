@@ -6,9 +6,7 @@
 ?>
 <?php
 //Fetching destination
-if(isset($_GET['destination']))
-	$dest=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['destination']))));
-else 
+
 	$dest="Kashmir";
 		
 $profitpercent=PROFIT;
@@ -64,7 +62,7 @@ $destination=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_PO
    <title><?php echo $destinations[0]['DESTINATION']; ?> | Fly Paradise</title>
    <link rel="shortcut icon" type="image/png" sizes="32x32" href="assets/heros/favicon-flyparadise.png" />
 	<meta name="description" content="<?php echo $destinations[0]['DESC']; ?>">
-    <meta name="keywords" content="<?php echo $destinations[0]['DESTINATION']; ?>,trips, tours, holidays, holiday packages, cheap packages, budget packages, tour packages, customize, customise, travel, wunderlust, solo, holidays, vacation, best travel site, best tour operator, trekking, trek">
+    <meta name="keywords" content="<?php echo $destinations[0]['DESTINATION']; ?>,kashmir houseboat, sightseeing of kashmir, kashmir tour travels, sight seeing of kashmir, places to visit in srinagar kashmir, best travel packages for kashmir, tourist spots in srinagar kashmir, kashmir sightseeing tours, places to visit in kashmir and srinagar, kashmir heaven on earth, jammu and kashmir travel and tourism, 4 days 3 nights trip, places to visit in srinagar jammu and kashmir, dal lake kashmir, Fly Paradisetrips, tours, holidays, holiday packages, cheap packages, budget packages, tour packages, customize, customise, travel, wunderlust, solo, holidays, vacation, best travel site, best tour operator, trekking, trek, kashmir tour, kashmir tours, kashmir travel, kashmir travels, kashmir trip, kashmir trips, kashmir  trip packages, Leh packages, kashmir Holiday, kashmir holidays, kashmir holiday  packages, kashmir  group tours, kashmir  group tours packages, kashmir  tour plan, kashmir packages, kashmir tour  packages, Best kashmir tour pacakages, Best kashmir  travel packages, kashmir honeymoon  packages, Cheapest kashmir package, Cheapest kashmir tour package, kashmir package cost, Cheapest kashmir package, Cheapest tour package cost for kashmir, kashmir budget tour package, kashmir travel agents, Local travel agent in kashmir, How to book kashmir tour package, Kashmir kashmir package, Cheapest Kashmir kashmir package, kashmir trekking package, kashmir adventure package, kashmir tracking, kashmir tour package, kashmir travel package, kashmir tour package price, trips, tours, holidays, holiday packages, cheap packages, budget packages, tour packages, customize, customise, travel, wunderlust, solo, holidays, vacation, best travel site, best tour operator, trekking, trek">
     <link href="stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
     <link href="stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -113,7 +111,7 @@ $destination=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_PO
 						
 					<?php } ?>
                   
-                </ul>
+              </ul>
                 <ul>
 				<?php
 				//getting seperate worthwatching
@@ -189,10 +187,10 @@ $destination=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_PO
                         <h4>Food in <span><?php echo $destinations[0]['DESTINATION']; ?></span> </h4>
                         <p class="remove"><?php echo $destinations[0]['FOOD']; ?></p>
                     </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+              </div>
+          </div>
+     </div>
+</div>
 	
 	<div class="distance--block" id="distancetimeblock">
 		 <?php //require_once('map/map.php'); //for distance time cloud block ?>
@@ -546,27 +544,27 @@ $destination=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_PO
                                 <label class="label--radio">
                                                   <input type="radio" onChange="stay('pprice<?php echo $i; ?>',<?php echo $i; ?>);" class="radio"  name="foo<?php echo $i; ?>" <?php if($packages[$i]['HOTELSTAR']==2) echo "checked"; ?>>
                                                   Budget Stay
-                                              </label>
+                              </label>
                             </li>
                             <li class="list__item">
                                 <label class="label--radio">
                                                   <input type="radio" onChange="stay('pprice<?php echo $i; ?>',<?php echo $i; ?>);" class="radio" name="foo<?php echo $i; ?>" <?php if($packages[$i]['HOTELSTAR']==3) echo "checked"; ?>>
                                                   3 star
-                                              </label>
+                              </label>
                             </li>
                             <li class="list__item">
                                 <label class="label--radio">
                                                   <input type="radio" onChange="stay('pprice<?php echo $i; ?>',<?php echo $i; ?>);" class="radio" name="foo<?php echo $i; ?>" <?php if($packages[$i]['HOTELSTAR']==4) echo "checked"; ?>>
                                                   4 star
-                                              </label>
+                              </label>
                             </li>
                             <li class="list__item">
                                 <label class="label--radio">
                                                   <input type="radio"  onChange="stay('pprice<?php echo $i; ?>',<?php echo $i; ?>);"  class="radio" name="foo<?php echo $i; ?>" <?php if($packages[$i]['HOTELSTAR']==5) echo "checked"; ?>>
                                                   5 star
-                                              </label>
+                              </label>
                             </li>
-                        </form>
+                      </form>
 						<input type="hidden" id="destinations<?php echo $i; ?>" value="<?php echo $packages[$i]['DESTINATION']; ?>" />
 						<input type="hidden" id="stays<?php echo $i; ?>" value="<?php echo $packages[$i]['STAYS']; ?>" />
 						<input type="hidden" id="cp<?php echo $i; ?>" value="<?php echo $packages[$i]['ITINERARYCABPRICE']; ?>" />

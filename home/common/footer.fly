@@ -1,4 +1,4 @@
-    <footer>
+      <footer>
         <div class="secondary--footer">
             <div class="sec-ftr">
                 <span>We promise to stay best in class</span>
@@ -11,23 +11,23 @@
         </div>
             <div class="footer--primary max-width">
                 <ul>
-                    <li><a href="about">About Us</a></li>
-                    <li><a href="whatmakesus">What makes Us</a></li>
-                    <li><a href="blog">Blogs</a></li>
-                    <li><a href="careers">Careers</a></li>
-                    <li><a href="terms">Terms &amp; Conditions</a></li>
-                    <li><a href="privacy-policy">Privacy Policy</a></li>
-                    <li><a href="refund-policy">Refund Policy</a></li>
+                    <li><a href="<?php echo $baseurl; ?>about">About Us</a></li>
+                    <li><a href="<?php echo $baseurl; ?>whatmakesus">What makes Us</a></li>
+                    <li><a href="<?php echo $baseurl; ?>blog">Blogs</a></li>
+                    <li><a href="<?php echo $baseurl; ?>careers">Careers</a></li>
+                    <li><a href="<?php echo $baseurl; ?>terms">Terms &amp; Conditions</a></li>
+                    <li><a href="<?php echo $baseurl; ?>privacy-policy">Privacy Policy</a></li>
+					<li><a href="<?php echo $baseurl; ?>refund-policy">Refund Policy</a></li>
                 </ul>
             </div>
     
             <div class="footer--secondary">
                 <div class="max-width">
                     <div class="connect">
-                        <a class="social" href="https://www.facebook.com/flyparadisetravels" target="_blank"><img src="./assets/icons/social/facebook.svg" alt="Facebook"></a>
-                        <a class="social" href="https://www.instagram.com/flyparadisetravels/" target="_blank"><img src="./assets/icons/social/insta.svg" alt="Instagram"></a>
-                        <a class="social" href="https://twitter.com/flyparadise_" target="_blank"><img src="./assets/icons/social/twitter.svg" alt="twitter"></a>
-                        <a class="social" href="https://www.linkedin.com/company/fly-paradise/" target="_blank"><img src="./assets/icons/social/in.svg" alt="linkedIn"></a>
+                        <a class="social" href="https://www.facebook.com/flyparadisetravels" target="_blank"><img src="<?php echo $baseurl; ?>assets/icons/social/facebook.svg" alt="Facebook"></a>
+                        <a class="social" href="https://www.instagram.com/flyparadisetravels/" target="_blank"><img src="<?php echo $baseurl; ?>assets/icons/social/insta.svg" alt="Instagram"></a>
+                        <a class="social" href="https://twitter.com/flyparadise_" target="_blank"><img src="<?php echo $baseurl; ?>assets/icons/social/twitter.svg" alt="twitter"></a>
+                        <a class="social" href="https://www.linkedin.com/company/fly-paradise/" target="_blank"><img src="<?php echo $baseurl; ?>assets/icons/social/in.svg" alt="linkedIn"></a>
                     </div>
                 </div>
             </div>
@@ -35,7 +35,17 @@
                 &copy; 2010 - 2018 Fly Paradise Travels
             </div>
         </footer>
+<script>
+	//form popup after 5 sec
+	/* $(document).ready(function() {
+	  setTimeout(function() {
 		
+		$('.pop-up').toggleClass('remove');
+	
+	  }, 5000);
+	});
+	*/
+</script>
 		<!-- Hotjar Tracking Code for flyparadise.in -->
 <script>
     (function(h,o,t,j,a,r){
@@ -48,14 +58,19 @@
     })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
 </script>
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-93046908-1"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics  -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-79521653-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'UA-93046908-1');
+  gtag('config', 'UA-79521653-1');
 </script>
+
+
+
+
 
 <?php include_once('location.php'); //form ?>

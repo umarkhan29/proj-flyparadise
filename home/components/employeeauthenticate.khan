@@ -16,7 +16,10 @@
 						$_SESSION['Loggedin_User_password']=$user__pass;
 						$_SESSION['current_loggedin_user']= $user__name;
 						$_SESSION['current_loggedin_user_email']=$row['email'];
-						$_SESSION['employee']="yes";
+						
+						if($row['role']=='employee')
+							$_SESSION['employee']="yes";
+							
 						header('location:employeedashboard');
 					}
 					else{

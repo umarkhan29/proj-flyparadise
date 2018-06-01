@@ -1,11 +1,9 @@
-
-
  <div class="pop-up remove">
- <form action="thanks" method="post">
+ <form action="<?php echo $baseurl; ?>thanks" method="post">
 	<div class="pop-up-form">
 	<p class="remove-popup">X</p>
     <div class="form-image">
-        <img src="./assets/form/form.png" alt="">
+        <img src="<?php echo $baseurl; ?>assets/form/form.png" alt="">
     </div>
     <div class="form-fields">
         <ul class="form">
@@ -20,7 +18,7 @@
                 <label for="locationTextField">Departure point</label>
 
                 <div class="inp">
-                    <img src="./assets/icons/social/location.svg" alt="">
+                    <img src="<?php echo $baseurl; ?>assets/icons/social/location.svg" alt="">
                     <input id="locationTextFieldD" class="input-field" placeholder="Leaving from this place" type="text" size="50" name="from_place">
                 </div>
             </li>
@@ -35,21 +33,21 @@
                 <label for="locationTextField">Arrival point</label>
 
                 <div class="inp">
-                    <img src="./assets/icons/social/location.svg" alt="">
+                    <img src="<?php echo $baseurl; ?>assets/icons/social/location.svg" alt="">
                     <input id="locationTextFieldA" class="input-field" placeholder="Want to see" type="text" size="50" name="to_loc" value="<?php if(!empty($_SESSION['formdest'])) echo $_SESSION['formdest']; ?>">
                 </div>
             </li>
             <li>
                 <label for="">Enter Phone No.</label>
                 <div class="inp">
-                    <img src="./assets/icons/social/smartphone.svg" alt="">
+                    <img src="<?php echo $baseurl; ?>assets/icons/social/smartphone.svg" alt="">
                     <input class="input-field" placeholder="Enter Phone" min="9" max="10" required type="tel" name="phone">
                 </div>
             </li>
             <li>
                 <label for="">Enter your Email</label>
                 <div class="inp">
-                    <img src="./assets/icons/social/mail.svg" alt="">
+                    <img src="<?php echo $baseurl; ?>assets/icons/social/mail.svg" alt="">
                     <input class="input-field" placeholder="Your email-ID" required type="email" name="email">
                 </div>
             </li>

@@ -6,10 +6,8 @@
 ?>
 <?php
 //Fetching destination
-if(isset($_GET['destination']))
-	$dest=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_GET['destination']))));
-else 
-	$dest="Kashmir";
+
+	$dest="Ladakh";
 		
 $profitpercent=PROFIT;
 
@@ -64,7 +62,7 @@ $destination=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_PO
    <title><?php echo $destinations[0]['DESTINATION']; ?> | Fly Paradise</title>
    <link rel="shortcut icon" type="image/png" sizes="32x32" href="assets/heros/favicon-flyparadise.png" />
 	<meta name="description" content="<?php echo $destinations[0]['DESC']; ?>">
-    <meta name="keywords" content="<?php echo $destinations[0]['DESTINATION']; ?>,trips, tours, holidays, holiday packages, cheap packages, budget packages, tour packages, customize, customise, travel, wunderlust, solo, holidays, vacation, best travel site, best tour operator, trekking, trek">
+    <meta name="keywords" content="<?php echo $destinations[0]['DESTINATION']; ?>,sightseeing of ladakh, ladakh tour travels, sight seeing of ladakh, places to visit in srinagar ladakh, best travel packages for ladakh, tourist spots in srinagar ladakh, ladakh sightseeing tours, places to visit in ladakh and srinagar, ladakh heaven on earth, jammu and ladakh travel and tourism, 4 days 3 nights trip, places to visit in srinagar jammu and ladakh, dal lake ladakh, Fly Paradisetrips, Ladakh tour, Ladakh tours, Ladakh travel, Ladakh travels, Ladakh trip, Ladakh trips, Ladakh  trip packages, Leh packages, Ladakh Holiday, Ladakh holidays, Ladakh holiday  packages, Ladakh  group tours, Ladakh  group tours packages, Ladakh  tour plan, Ladakh packages, Ladakh tour  packages, Best ladakh tour pacakages, Best ladakh  travel packages, Ladakh honeymoon  packages, Cheapest Ladakh package, Cheapest Ladakh tour package, Ladakh package cost, Cheapest Ladakh package, Cheapest tour package cost for Ladakh, Ladakh budget tour package, ladakh travel agents, Local travel agent in Ladakh, How to book Ladakh tour package, Kashmir Ladakh package, Cheapest Kashmir Ladakh package, Ladakh trekking package, Ladakh adventure package, Ladakh tracking, Ladakh tour package, Ladakh travel package, Ladakh tour package price, trips, tours, holidays, holiday packages, cheap packages, budget packages, tour packages, customize, customise, travel, wunderlust, solo, holidays, vacation, best travel site, best tour operator, trekking, trek">
     <link href="stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
     <link href="stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">

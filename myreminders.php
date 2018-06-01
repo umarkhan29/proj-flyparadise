@@ -8,11 +8,7 @@ require_once('home/components/employeeauthorize.fly');
 <?php
   $employee=$_SESSION['current_loggedin_user'];
   $today=date("Y-m-d");
-  
-  if($_SESSION['current_loggedin_user_role'] == 'admin')
-		$query="SELECT * FROM `reminder` WHERE `time` like '".$today."%' ORDER BY `id` DESC";
-  else
-		$query="SELECT * FROM `reminder` WHERE (`reminderby`='".$employee."' OR `bookingassignedto` = '".$employee."') and `time` like '".$today."%' ORDER BY `id` DESC";
+  $query="SELECT * FROM `reminder` WHERE `reminderby`='".$employee."' ORDER BY `id` DESC;";
 
 
 $reminders=mysqli_query($dbconn,$query) or die(mysqli_error($dbconn));
@@ -41,6 +37,8 @@ if($reminders){
 <br />
 	<div>
 		<table border="2">
+			
+			<th>Reminder Id</th>
 			<th>Booking Id</th>
 			<th>Reminder By</th>
 			<th>Reminder Time</th>
@@ -48,7 +46,8 @@ if($reminders){
 			
 			<?php for($i=0; $i<$count; $i++){ ?>
 				<tr>
-					<td> <a href='viewenquiry.php?token=<?php echo $reminder[$i]['BOOKINGID'];?>'><?php echo $reminder[$i]['BOOKINGID']; ?> </a> </td>
+					<td>  <?php echo $reminder[$i]['ID']; ?> </td>
+					<td>  <?php echo $reminder[$i]['BOOKINGID']; ?> </td>
 					<td>  <?php echo $reminder[$i]['REMINDERBY']; ?> </td>
 					<td>  <?php echo $reminder[$i]['TIME']; ?> </td>
 					<td>  <?php echo $reminder[$i]['NOTES']; ?> </td>

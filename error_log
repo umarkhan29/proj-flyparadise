@@ -1,0 +1,4 @@
+[21-May-2018 07:52:24 UTC] PHP Fatal error:  Uncaught Error: Class 'PHPMailer' not found in /home/flyparadise00/public_html/flyparadise.in/mailer/sendmail.php:15
+Stack trace:
+#0 {main}
+  thrown in /home/flyparadise00/public_html/flyparadise.in/mailer/sendmail.php on line 15

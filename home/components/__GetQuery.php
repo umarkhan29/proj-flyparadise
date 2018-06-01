@@ -10,7 +10,7 @@
 		  $noofnights=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['nights']))));
 		  $travellers=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['travellers']))));
 		  $category=mysqli_real_escape_string($dbconn,trim(strip_tags(stripslashes($_POST['foo']))));
-		  $status="New";
+		  $status="Active";
 		 $tripid="FP-";
 		   $query="INSERT INTO `enquiries`(`from`, `to`, `date`, `phone`, `email`, `noofnights`,`travellers`, `status`, `category`) VALUES ('$from','$to','$date','$phone','$email', '$noofnights','$travellers','$status', '$category');";
 							
