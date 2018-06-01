@@ -152,7 +152,7 @@
                 </div>
             </div>
         </div>
-        <div class="distance--block">
+        <div class="distance--block remove">
             <div class='clouds'>
                 <div class='clouds-1'></div>
                 <div class='clouds-2'></div>
@@ -175,296 +175,298 @@
                 <button>share with friends</button>
             </div>
         </div>
-        <div class="destination--packages">
-            <div id="the-sticky-div" class="sidebar sticky">
-                <form class="day--counter">
-                    <span class="hsidebar">Duration (in nights)</span>
-                    <input id="counter-no" type="number" min="1" max="30" value="1" />
-                </form>
-                <form class="person--counter">
-                    <span class="hsidebar">Number of persons</span>
-                    <input id="counter-no" type="number" min="1" max="30" value="1" />
-                </form>
-                <div>
-                    <span class="hsidebar">Categories</span>
-                    <label class="control control--checkbox">Honeymoon
-                        <input type="checkbox" checked="checked" />
-                        <div class="control__indicator"></div>
-                    </label>
-                    <label class="control control--checkbox">Solo trip
-                        <input type="checkbox" />
-                        <div class="control__indicator"></div>
-                    </label>
-                    <label class="control control--checkbox">Family and Friends
-                        <input type="checkbox" />
-                        <div class="control__indicator"></div>
-                    </label>
-                </div>
-                <!-- RATING - Form -->
-                <form class="rating-form" action="#" method="post" name="rating-movie">
-                    <span class="hsidebar">Stay star rating</span>
-                    <fieldset class="form-group">
-                        <legend class="form-legend">Rating:</legend>
-                        <div class="form-item">
-                            <input id="rating-5" name="rating" type="radio" value="5" />
-                            <label for="rating-5" data-value="5">
-                                <span class="rating-star">
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star"></i>
-                                </span>
-                                <span class="ir">5</span>
-                            </label>
-                            <input id="rating-4" name="rating" type="radio" value="4" />
-                            <label for="rating-4" data-value="4">
-                                <span class="rating-star">
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star"></i>
-                                </span>
-                                <span class="ir">4</span>
-                            </label>
-                            <input id="rating-3" name="rating" type="radio" value="3" />
-                            <label for="rating-3" data-value="3">
-                                <span class="rating-star">
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star"></i>
-                                </span>
-                                <span class="ir">3</span>
-                            </label>
-                            <input id="rating-2" name="rating" type="radio" value="2" />
-                            <label for="rating-2" data-value="2">
-                                <span class="rating-star">
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star"></i>
-                                </span>
-                                <span class="ir">2</span>
-                            </label>
-                            <input id="rating-1" name="rating" type="radio" value="1" />
-                            <label for="rating-1" data-value="1">
-                                <span class="rating-star">
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star"></i>
-                                </span>
-                                <span class="ir">1</span>
-                            </label>
-                            <div class="form-action">
-                                <input class="btn-reset" type="reset" value="Reset" />
-                            </div>
-                            <div class="form-output">
-                                ? / 5
-                            </div>
-                        </div>
-                    </fieldset>
-                </form>
-                <section id="content" class="price--slider">
-                    <span class="hsidebar">What is your budget?</span>
-                    <div class="cube">
-
-                        <div id="slider-range-min"></div>
+        <div class="destination--info">
+            <div class="destination--packages">
+                <div id="the-sticky-div" class="sidebar sticky">
+                    <form class="day--counter">
+                        <span class="hsidebar">Duration (in nights)</span>
+                        <input id="counter-no" type="number" min="1" max="30" value="1" />
+                    </form>
+                    <form class="person--counter">
+                        <span class="hsidebar">Number of persons</span>
+                        <input id="counter-no" type="number" min="1" max="30" value="1" />
+                    </form>
+                    <div>
+                        <span class="hsidebar">Categories</span>
+                        <label class="control control--checkbox">Honeymoon
+                            <input type="checkbox" checked="checked" />
+                            <div class="control__indicator"></div>
+                        </label>
+                        <label class="control control--checkbox">Solo trip
+                            <input type="checkbox" />
+                            <div class="control__indicator"></div>
+                        </label>
+                        <label class="control control--checkbox">Family and Friends
+                            <input type="checkbox" />
+                            <div class="control__indicator"></div>
+                        </label>
                     </div>
-                    <input type="text" id="amount" />
-                </section>
-            </div>
-
-            <div class="main--content">
-                <div class="package--tailored">
-                    <img src="./assets/destinations/particular-dest/thumb.png" alt="">
-                    <div class="destination--info">
-                        <div>
-                            <h3>Kashmir enchanting</h3>
-                            <span class="duration">6 days 5 nights</span>
-                            <div class="price">19,000/-</div>
+                    <!-- RATING - Form -->
+                    <form class="rating-form" action="#" method="post" name="rating-movie">
+                        <span class="hsidebar">Stay star rating</span>
+                        <fieldset class="form-group">
+                            <legend class="form-legend">Rating:</legend>
+                            <div class="form-item">
+                                <input id="rating-5" name="rating" type="radio" value="5" />
+                                <label for="rating-5" data-value="5">
+                                    <span class="rating-star">
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star"></i>
+                                    </span>
+                                    <span class="ir">5</span>
+                                </label>
+                                <input id="rating-4" name="rating" type="radio" value="4" />
+                                <label for="rating-4" data-value="4">
+                                    <span class="rating-star">
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star"></i>
+                                    </span>
+                                    <span class="ir">4</span>
+                                </label>
+                                <input id="rating-3" name="rating" type="radio" value="3" />
+                                <label for="rating-3" data-value="3">
+                                    <span class="rating-star">
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star"></i>
+                                    </span>
+                                    <span class="ir">3</span>
+                                </label>
+                                <input id="rating-2" name="rating" type="radio" value="2" />
+                                <label for="rating-2" data-value="2">
+                                    <span class="rating-star">
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star"></i>
+                                    </span>
+                                    <span class="ir">2</span>
+                                </label>
+                                <input id="rating-1" name="rating" type="radio" value="1" />
+                                <label for="rating-1" data-value="1">
+                                    <span class="rating-star">
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star"></i>
+                                    </span>
+                                    <span class="ir">1</span>
+                                </label>
+                                <div class="form-action">
+                                    <input class="btn-reset" type="reset" value="Reset" />
+                                </div>
+                                <div class="form-output">
+                                    ? / 5
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                    <section id="content" class="price--slider">
+                        <span class="hsidebar">What is your budget?</span>
+                        <div class="cube">
+    
+                            <div id="slider-range-min"></div>
                         </div>
-                        <div class="inclusions border">
-                            <div>
-                                <img src="./assets/icons/transport/air.svg" alt="Air Transfer">
-                                <span>Tickets</span>
-                            </div>
-                            <div>
-                                <img src="./assets/icons/transport/meals.svg" alt="Meals">
-                                <span>Meals</span>
-                            </div>
-                            <div>
-                                <img src="./assets/icons/transport/transfer.svg" alt="Transfers">
-                                <span>Transfers</span>
-                            </div>
-                            <div>
-                                <img src="./assets/icons/transport/stars.svg" alt="hotel stars">
-                                <span>2 star</span>
-                            </div>
-                            <div>
-                                <img src="./assets/icons/transport/view.svg" alt="Site seeing">
-                                <span>Site seeing</span>
-                            </div>
-                            <div>
-                                <img src="./assets/icons/transport/tent.svg" alt="Camping">
-                                <span>Camping</span>
-                            </div>
-                            <div>
-                                <img src="./assets/icons/transport/more.svg" alt="Complimentary from destination">
-                                <span>Compliment</span>
-                            </div>
-                        </div>
-                        <form class="list hotel radio no-border">
-                            <li class="list__item">
-                                <label class="label--radio">
-                                    <input type="radio" class="radio" checked name="foo"> Budget Stay
-                                </label>
-                            </li>
-                            <li class="list__item">
-                                <label class="label--radio">
-                                    <input type="radio" class="radio" name="foo"> 3 star
-                                </label>
-                            </li>
-                            <li class="list__item">
-                                <label class="label--radio">
-                                    <input type="radio" class="radio" name="foo"> 4 star
-                                </label>
-                            </li>
-                            <li class="list__item">
-                                <label class="label--radio">
-                                    <input type="radio" class="radio" name="foo"> 5 star
-                                </label>
-                            </li>
-                        </form>
-                        <div class="flex">
-                            <a class="customise" href="#">Customise</a>
-                            <button class="view--package">View this Package</button>
-                        </div>
-                    </div>
+                        <input type="text" id="amount" />
+                    </section>
                 </div>
-                <div class="package--tailored">
-                    <img src="./assets/destinations/particular-dest/thumb.png" alt="">
-                    <div class="destination--info">
-                        <div>
-                            <h3>Kashmir enchanting</h3>
-                            <span class="duration">6 days 5 nights</span>
+    
+                <div class="main--content">
+                    <div class="package--tailored">
+                        <img src="./assets/destinations/particular-dest/thumb.png" alt="">
+                        <div class="destination--info">
                             <div>
+                                <h3>Kashmir enchanting</h3>
+                                <span class="duration">6 days 5 nights</span>
                                 <div class="price">19,000/-</div>
-                                <div class="perse">(Per
-                                    <span>8</span> persons)</div>
                             </div>
-                        </div>
-                        <div class="inclusions border">
-                            <div>
-                                <img src="./assets/icons/transport/air.svg" alt="Air Transfer">
-                                <span>Tickets</span>
+                            <div class="inclusions border">
+                                <div>
+                                    <img src="./assets/icons/transport/air.svg" alt="Air Transfer">
+                                    <span>Tickets</span>
+                                </div>
+                                <div>
+                                    <img src="./assets/icons/transport/meals.svg" alt="Meals">
+                                    <span>Meals</span>
+                                </div>
+                                <div>
+                                    <img src="./assets/icons/transport/transfer.svg" alt="Transfers">
+                                    <span>Transfers</span>
+                                </div>
+                                <div>
+                                    <img src="./assets/icons/transport/stars.svg" alt="hotel stars">
+                                    <span>2 star</span>
+                                </div>
+                                <div>
+                                    <img src="./assets/icons/transport/view.svg" alt="Site seeing">
+                                    <span>Site seeing</span>
+                                </div>
+                                <div>
+                                    <img src="./assets/icons/transport/tent.svg" alt="Camping">
+                                    <span>Camping</span>
+                                </div>
+                                <div>
+                                    <img src="./assets/icons/transport/more.svg" alt="Complimentary from destination">
+                                    <span>Compliment</span>
+                                </div>
                             </div>
-                            <div>
-                                <img src="./assets/icons/transport/meals.svg" alt="Meals">
-                                <span>Meals</span>
+                            <form class="list hotel radio no-border">
+                                <li class="list__item">
+                                    <label class="label--radio">
+                                        <input type="radio" class="radio" checked name="foo"> Budget Stay
+                                    </label>
+                                </li>
+                                <li class="list__item">
+                                    <label class="label--radio">
+                                        <input type="radio" class="radio" name="foo"> 3 star
+                                    </label>
+                                </li>
+                                <li class="list__item">
+                                    <label class="label--radio">
+                                        <input type="radio" class="radio" name="foo"> 4 star
+                                    </label>
+                                </li>
+                                <li class="list__item">
+                                    <label class="label--radio">
+                                        <input type="radio" class="radio" name="foo"> 5 star
+                                    </label>
+                                </li>
+                            </form>
+                            <div class="flex">
+                                <a class="customise" href="#">Customise</a>
+                                <button class="view--package">View this Package</button>
                             </div>
-                            <div>
-                                <img src="./assets/icons/transport/transfer.svg" alt="Transfers">
-                                <span>Transfers</span>
-                            </div>
-                            <div>
-                                <img src="./assets/icons/transport/stars.svg" alt="hotel stars">
-                                <span>2 star</span>
-                            </div>
-                            <div>
-                                <img src="./assets/icons/transport/view.svg" alt="Site seeing">
-                                <span>Site seeing</span>
-                            </div>
-                            <div>
-                                <img src="./assets/icons/transport/tent.svg" alt="Camping">
-                                <span>Camping</span>
-                            </div>
-                            <div>
-                                <img src="./assets/icons/transport/more.svg" alt="Complimentary from destination">
-                                <span>Compliment</span>
-                            </div>
-                        </div>
-                        <form class="list hotel radio no-border">
-                            <li class="list__item">
-                                <label class="label--radio">
-                                    <input type="radio" class="radio" checked name="foo"> Budget Stay
-                                </label>
-                            </li>
-                            <li class="list__item">
-                                <label class="label--radio">
-                                    <input type="radio" class="radio" name="foo"> 3 star
-                                </label>
-                            </li>
-                            <li class="list__item">
-                                <label class="label--radio">
-                                    <input type="radio" class="radio" name="foo"> 4 star
-                                </label>
-                            </li>
-                            <li class="list__item">
-                                <label class="label--radio">
-                                    <input type="radio" class="radio" name="foo"> 5 star
-                                </label>
-                            </li>
-                        </form>
-                        <div class="flex">
-                            <a class="customise" href="#">Customise</a>
-                            <button class="view--package">View this Package</button>
                         </div>
                     </div>
-                </div>
-                <div class="package--tailored">
-                    <img src="./assets/destinations/particular-dest/thumb.png" alt="">
-                    <div class="destination--info">
-                        <div>
-                            <h3>Kashmir enchanting</h3>
-                            <span class="duration">6 days 5 nights</span>
-                            <div class="price">19,000/-</div>
+                    <div class="package--tailored">
+                        <img src="./assets/destinations/particular-dest/thumb.png" alt="">
+                        <div class="destination--info">
+                            <div>
+                                <h3>Kashmir enchanting</h3>
+                                <span class="duration">6 days 5 nights</span>
+                                <div>
+                                    <div class="price">19,000/-</div>
+                                    <div class="perse">(Per
+                                        <span>8</span> persons)</div>
+                                </div>
+                            </div>
+                            <div class="inclusions border">
+                                <div>
+                                    <img src="./assets/icons/transport/air.svg" alt="Air Transfer">
+                                    <span>Tickets</span>
+                                </div>
+                                <div>
+                                    <img src="./assets/icons/transport/meals.svg" alt="Meals">
+                                    <span>Meals</span>
+                                </div>
+                                <div>
+                                    <img src="./assets/icons/transport/transfer.svg" alt="Transfers">
+                                    <span>Transfers</span>
+                                </div>
+                                <div>
+                                    <img src="./assets/icons/transport/stars.svg" alt="hotel stars">
+                                    <span>2 star</span>
+                                </div>
+                                <div>
+                                    <img src="./assets/icons/transport/view.svg" alt="Site seeing">
+                                    <span>Site seeing</span>
+                                </div>
+                                <div>
+                                    <img src="./assets/icons/transport/tent.svg" alt="Camping">
+                                    <span>Camping</span>
+                                </div>
+                                <div>
+                                    <img src="./assets/icons/transport/more.svg" alt="Complimentary from destination">
+                                    <span>Compliment</span>
+                                </div>
+                            </div>
+                            <form class="list hotel radio no-border">
+                                <li class="list__item">
+                                    <label class="label--radio">
+                                        <input type="radio" class="radio" checked name="foo"> Budget Stay
+                                    </label>
+                                </li>
+                                <li class="list__item">
+                                    <label class="label--radio">
+                                        <input type="radio" class="radio" name="foo"> 3 star
+                                    </label>
+                                </li>
+                                <li class="list__item">
+                                    <label class="label--radio">
+                                        <input type="radio" class="radio" name="foo"> 4 star
+                                    </label>
+                                </li>
+                                <li class="list__item">
+                                    <label class="label--radio">
+                                        <input type="radio" class="radio" name="foo"> 5 star
+                                    </label>
+                                </li>
+                            </form>
+                            <div class="flex">
+                                <a class="customise" href="#">Customise</a>
+                                <button class="view--package">View this Package</button>
+                            </div>
                         </div>
-                        <div class="inclusions border">
+                    </div>
+                    <div class="package--tailored">
+                        <img src="./assets/destinations/particular-dest/thumb.png" alt="">
+                        <div class="destination--info">
                             <div>
-                                <img src="./assets/icons/transport/air.svg" alt="Air Transfer">
-                                <span>Tickets</span>
+                                <h3>Kashmir enchanting</h3>
+                                <span class="duration">6 days 5 nights</span>
+                                <div class="price">19,000/-</div>
                             </div>
-                            <div>
-                                <img src="./assets/icons/transport/meals.svg" alt="Meals">
-                                <span>Meals</span>
+                            <div class="inclusions border">
+                                <div>
+                                    <img src="./assets/icons/transport/air.svg" alt="Air Transfer">
+                                    <span>Tickets</span>
+                                </div>
+                                <div>
+                                    <img src="./assets/icons/transport/meals.svg" alt="Meals">
+                                    <span>Meals</span>
+                                </div>
+                                <div>
+                                    <img src="./assets/icons/transport/transfer.svg" alt="Transfers">
+                                    <span>Transfers</span>
+                                </div>
+                                <div>
+                                    <img src="./assets/icons/transport/stars.svg" alt="hotel stars">
+                                    <span>2 star</span>
+                                </div>
+                                <div>
+                                    <img src="./assets/icons/transport/view.svg" alt="Site seeing">
+                                    <span>Site seeing</span>
+                                </div>
+                                <div>
+                                    <img src="./assets/icons/transport/tent.svg" alt="Camping">
+                                    <span>Camping</span>
+                                </div>
+                                <div>
+                                    <img src="./assets/icons/transport/more.svg" alt="Complimentary from destination">
+                                    <span>Compliment</span>
+                                </div>
                             </div>
-                            <div>
-                                <img src="./assets/icons/transport/transfer.svg" alt="Transfers">
-                                <span>Transfers</span>
+                            <form class="list hotel radio no-border">
+                                <li class="list__item">
+                                    <label class="label--radio">
+                                        <input type="radio" class="radio" checked name="foo"> Budget Stay
+                                    </label>
+                                </li>
+                                <li class="list__item">
+                                    <label class="label--radio">
+                                        <input type="radio" class="radio" name="foo"> 3 star
+                                    </label>
+                                </li>
+                                <li class="list__item">
+                                    <label class="label--radio">
+                                        <input type="radio" class="radio" name="foo"> 4 star
+                                    </label>
+                                </li>
+                                <li class="list__item">
+                                    <label class="label--radio">
+                                        <input type="radio" class="radio" name="foo"> 5 star
+                                    </label>
+                                </li>
+                            </form>
+                            <div class="flex">
+                                <a class="customise" href="#">Customise</a>
+                                <button class="view--package">View this Package</button>
                             </div>
-                            <div>
-                                <img src="./assets/icons/transport/stars.svg" alt="hotel stars">
-                                <span>2 star</span>
-                            </div>
-                            <div>
-                                <img src="./assets/icons/transport/view.svg" alt="Site seeing">
-                                <span>Site seeing</span>
-                            </div>
-                            <div>
-                                <img src="./assets/icons/transport/tent.svg" alt="Camping">
-                                <span>Camping</span>
-                            </div>
-                            <div>
-                                <img src="./assets/icons/transport/more.svg" alt="Complimentary from destination">
-                                <span>Compliment</span>
-                            </div>
-                        </div>
-                        <form class="list hotel radio no-border">
-                            <li class="list__item">
-                                <label class="label--radio">
-                                    <input type="radio" class="radio" checked name="foo"> Budget Stay
-                                </label>
-                            </li>
-                            <li class="list__item">
-                                <label class="label--radio">
-                                    <input type="radio" class="radio" name="foo"> 3 star
-                                </label>
-                            </li>
-                            <li class="list__item">
-                                <label class="label--radio">
-                                    <input type="radio" class="radio" name="foo"> 4 star
-                                </label>
-                            </li>
-                            <li class="list__item">
-                                <label class="label--radio">
-                                    <input type="radio" class="radio" name="foo"> 5 star
-                                </label>
-                            </li>
-                        </form>
-                        <div class="flex">
-                            <a class="customise" href="#">Customise</a>
-                            <button class="view--package">View this Package</button>
                         </div>
                     </div>
                 </div>

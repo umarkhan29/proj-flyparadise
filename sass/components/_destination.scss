@@ -360,7 +360,11 @@ $clouds: "https://s.cdpn.io/15514/clouds_2.png" 1000px 80s, "https://s.cdpn.io/1
     }
 
     .sidebar {
-        width: 30%;
+        width: 25%;
+        background: $white;
+        padding: 2rem;
+        margin-right: 2rem;
+        padding-bottom: 4rem;
 
         @media screen and (max-width: 768px) {
             width: 100%;
@@ -368,7 +372,9 @@ $clouds: "https://s.cdpn.io/15514/clouds_2.png" 1000px 80s, "https://s.cdpn.io/1
     }
 
     .main--content {
-        width: 64%;
+        width: 70%;
+        padding: 2rem;
+        background: $white;
 
         @media screen and (max-width: 768px) {
             width: 100%;
@@ -1085,7 +1091,7 @@ button.view--package {
     }
 }
 
-// #the-sticky-div.sticky {
-//     position: fixed;
-//     top: 0;
-//  }
+//  #the-sticky-div.sticky {
+//      position: fixed;
+//      top: 0;
+//   }

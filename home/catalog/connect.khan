@@ -1,5 +1,5 @@
 <?php
-    $dbconn=mysqli_connect('localhost','root','') or die('could not connect');
+  $dbconn=mysqli_connect('localhost','root','') or die('could not connect');
 	mysqli_select_db($dbconn,'flyparadise') or die('database error');
 	$baseurl="";
 ?>

@@ -6,7 +6,7 @@ ul.form {
     list-style: none;
     label {
         font-weight: 600;
-        font-size: 14px;
+        font-size: 13px;
         margin-bottom: 5px;
         display: block;
     }
@@ -22,7 +22,7 @@ ul.form {
         width: 100%;
         border: 1px solid $gray;
         padding: 10px;
-        font-size: 16px;
+        font-size: 14px;
         padding-left: 3rem;
         color: $heading;
         &:focus {
@@ -109,15 +109,12 @@ form.hotel {
     border: none !important;
     &.radio {
         display: flex;
-        li {
-            flex: 1;
-        }
     }
 }
 
 #datepicker {
     width: 100%;
-    padding: 10px;
+    padding: 7px;
     color: $text-over-bg;
     text-transform: uppercase;
     border: 1px solid $gray;
@@ -211,6 +208,10 @@ li.day--counter {
         display: block;
         .hotel.radio {
             display: block;
+            li {
+                display: inline-block;
+                width: 47%;
+            }
         }
     }
     .form-image,
@@ -227,12 +228,12 @@ li.day--counter {
     .no-of-people {
         &.day--counter span.spinner>.sub,
         &.day--counter span.spinner>.add {
-            height: 46px;
-            line-height: 46px;
-            width: 46px;
+            height: 40px;
+            line-height: 40px;
+            width: 40px;
         }
         &.day--counter input[type=number] {
-            height: 46px;
+            height: 40px;
             width: 100px;
         }
     }
@@ -269,8 +270,8 @@ body {
     }
     .pop-up-form {
         position: absolute;
-        width: 900px;
-        top: 5%;
+        width: 65%;
+        top: 3%;
         left: 15%;
         @media screen and (max-width: 768px) {
             width: 84%;
